@@ -1,10 +1,10 @@
-# Building National Repositories at Scale (update April 27, 2026 4:33 PDT)
+# Building National Repositories at Scale (April 27, 2026 4:33 PDT)
 
 ## Meta-Prompting 
 - First submit a prompt to Claude Code with the desired dataset to receive a longer, more detailed, and more effective prompt.
 - Ask Claude to provide the exact code files, directories, and additional files that Claude Code will need to access.
 - Have Claude return the meta prompt template that sets up code/text structure for a second Claude Code processing prompt. 
-- The processing prompt utilizes the same desired dataset, and processes the original meta prompt with file directions.
+- The next processing prompt utilizes the same desired dataset, and processes the original meta prompt with file directions.
 - This method permits Claude to focus on a single large processing task to increase output length and quality.
 
 ## GitHub Repository 
@@ -14,10 +14,10 @@
 
 ## Claude Code Commands
 - "You are responsible for comprehensive understanding and application of all aspects of the current directory”
-- “Place the new release notes in releases.md. Provide an updated changelog”
-- “Provide three ASCII diagrams, each with their own perspective, for each commit" (mermaid alternative)
-- “Update the main Readme diagrams, repository structure, etc.”
-- “Make sure the repository is fully up to date with this work regarding badges, content, and context”
+- “Place the new release notes in releases.md. Provide an updated changelog.”
+- “Provide three ASCII diagrams, each with their own perspective, for each commit", mermaid substitution ok.
+- “Update the main Readme diagrams, repository structure, and other information related to this update.”
+- “Make sure the repository is fully up to date with this work regarding badges, content, and context.”
   
 ## Claude Code Limitations
 - Claude Code should perform the heavy lifting; however workflows that are too complex should be simplified and understood.
