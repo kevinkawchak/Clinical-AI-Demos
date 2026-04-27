@@ -1,6 +1,6 @@
-# Building National Repositories at Scale (April 27, 2026 4:33 PDT)
+# Building National Repositories at Scale (April 27, 2026 4:53 PDT)
 
-## Meta-Prompting 
+## Meta-Prompting - v1.0
 - First submit a prompt to Claude Code with the desired dataset to receive a longer, more detailed, and more effective prompt.
 - Ask Claude to provide the exact code files, directories, and additional files that Claude Code will need to access.
 - Have Claude return the meta prompt template that sets up code/text structure for a second Claude Code processing prompt. 
@@ -15,25 +15,25 @@
 ## Claude Code Commands
 - "You are responsible for comprehensive understanding and application of all aspects of the current directory”
 - “Place the new release notes in releases.md. Provide an updated changelog.”
-- “Provide three ASCII diagrams, each with their own perspective, for each commit", mermaid substitution ok.
+- “Provide three ASCII diagrams, each with their own perspective, for each commit", mermaid substitutions ok.
 - “Update the main Readme diagrams, repository structure, and other information related to this update.”
 - “Make sure the repository is fully up to date with this work regarding badges, content, and context.”
   
 ## Claude Code Limitations
-- Claude Code should perform the heavy lifting; however workflows that are too complex should be simplified and understood.
-- Double check file generation locations, as moving large amounts of files around the repository counts as token usage. 
+- AI should perform the heavy lifting; however workflows that have many tasks should be simplified and processed separately.
+- Double check file generation locations, as moving large amounts of files around the repository count as token usage. 
 - Pre-chunk text/markdown files over 20K tokens. Reduce the size of README files to under 10K tokens to avoid Claude errors.
-- Avoid submitting the same prompt twice to mitigate failed code generations (even if prompts are in two conversations).
+- Also have AI include README files that describe what individual chunked files mean, and how separate files correlate.
+- Avoid duplicate/triplicate prompts to mitigate failed code generations, even if prompts are in two conversations.
 - LLMs reward novel and well defined instruction based on repository text/code over direct requests and internet searches. 
 
 ## Additional Considerations
-- Decrease unnecessary content from being introduced with additional small prompts. 
-- Subsequent prompts must be as detailed as the first prompt to reduce chances of text and code truncation. 
+- First prompts have the largest outputs. Decrease small additional prompts and unnecessary content from being introduced. 
+- Subsequent prompts should be as detailed as the first prompt to reduce chances of text and code truncation. 
 - Research and Deep Research features do not reliably generate code at scale; only use for generating knowledge bases. 
 
 ## Charts and Diagrams
-- Prompt LLM separtely with dataset to receive Python visualization scripts (matplotlib, plotly).
-- Quality screening and re-positioning may be required for some scripts to obtain high quality images. 
-- Charts/diagrams b) Meta prompt LLM with uploaded dataset to obtain visualization instruction prompt. 2nd prompt: Paste instruction prompt with same dataset to obtain ≤10 Python visualization scripts using effective LLMs [7, 8].
+- Prompt LLM separately with dataset to receive Python visualization scripts in matplotlib and plotly.
+- Quality screening and re-positioning may be required for some scripts to obtain better formatted images. 
+- Meta prompting with uploaded dataset first is encouraged to obtain a higher quality visualization instruction prompt.
 - General image generations by Claude Code and Hermes are limited. Use image generation models instead.
-- A
