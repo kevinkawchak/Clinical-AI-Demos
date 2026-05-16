@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: "Clinical-AI-Demos: Humanoid and LLM Demos for Physical AI Oncology Clinical Trials"
+message: "If you use this repository in your research, please cite it using this metadata."
+type: software
+authors:
+  - family-names: Kawchak
+    given-names: Kevin
+    affiliation: ChemicalQDevice
+version: "0.1.0"
+date-released: "2026-05-16"
+url: "https://github.com/kevinkawchak/Clinical-AI-Demos"
+repository-code: "https://github.com/kevinkawchak/Clinical-AI-Demos"
+license: MIT
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.18445179"
+keywords:
+  - humanoid-robotics
+  - large-language-models
+  - oncology
+  - clinical-trials
+  - physical-ai
+  - surgical-robotics
+  - pharmaceutical-sponsor
+  - decentralized-trials
+  - patient-care
+  - prompt-engineering
+abstract: >-
+  Ten standalone prompt briefs for downstream Claude Code Opus 4.7 sessions to
+  author Physical AI oncology clinical trial demonstrations. Each demo focuses
+  on humanoid robotic agents (Atlas, Optimus, Figure, Digit, Apollo, Phoenix,
+  Neo, H2) coordinated by on-premise large language models performing surgical
+  and patient care tasks inside clinical trial sites and for pharmaceutical
+  company sponsors. Companion repository to physical-ai-oncology-trials.

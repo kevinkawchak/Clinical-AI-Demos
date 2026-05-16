@@ -1,0 +1,18 @@
+# Ruff configuration for Clinical-AI-Demos
+# See https://docs.astral.sh/ruff/configuration/
+
+line-length = 120
+target-version = "py310"
+
+[lint]
+select = ["E", "F", "W"]
+# F841: unused variables are common in example/reference code that demonstrates patterns
+# E741: single-letter variables (l, O) appear in physics/math formulas
+# E501: long lines in regulatory strings and descriptions are more readable unsplit
+ignore = ["F841", "E741", "E501"]
+
+[lint.per-file-ignores]
+# Demo project scripts use conditional imports and reference patterns
+"demo-projects/**/*.py" = ["F401", "F402", "F821"]
+# National repository scripts use conditional imports
+"national-repositories/**/*.py" = ["F401", "F402"]
