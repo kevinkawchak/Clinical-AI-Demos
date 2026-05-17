@@ -1,0 +1,76 @@
+# Authoring Instructions for `schemas/llm_decision.schema.json`
+
+## Purpose
+
+Defines the per-tick LLM broadcast decision. One record per tick per site. Each broadcast carries 3 sub-commands (one per camarade).
+
+## Schema
+
+```
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: llm_decision
+title: LLM Broadcast Decision
+type: object
+required:
+  - decision_id
+  - tick
+  - site
+  - decided_at_iso
+  - synergy_score
+  - sub_commands
+  - peer_observability
+  - audit_chain_prev_hash
+properties:
+  decision_id: { type: string, pattern: "^dec-[0-9a-f]{16}$" }
+  tick: { type: integer, minimum: 0 }
+  site: { type: string, enum: [SF-01, SD-01, BO-01, AT-01] }
+  decided_at_iso: { type: string, format: date-time }
+  synergy_score: { type: number, minimum: 0.0, maximum: 1.0 }
+  sub_commands:
+    type: array
+    minItems: 3
+    maxItems: 3
+    items:
+      type: object
+      required: [robot_id, role, target_pose_xyz, target_orientation_rpy, gripper_state]
+      properties:
+        robot_id: { type: string }
+        role: { type: string, enum: [Lead, Assist, Reserve] }
+        target_pose_xyz:
+          type: object
+          required: [x, y, z]
+          properties:
+            x: { type: number }
+            y: { type: number }
+            z: { type: number }
+        target_orientation_rpy:
+          type: object
+          required: [roll, pitch, yaw]
+          properties:
+            roll: { type: number }
+            pitch: { type: number }
+            yaw: { type: number }
+        gripper_state: { type: string }
+  peer_observability:
+    type: object
+    required: [all_3_robots_reporting_state, all_3_robots_within_uwb_range, all_3_robots_within_ir_beacon_line_of_sight]
+    properties:
+      all_3_robots_reporting_state: { type: boolean }
+      all_3_robots_within_uwb_range: { type: boolean }
+      all_3_robots_within_ir_beacon_line_of_sight: { type: boolean }
+  audit_chain_prev_hash: { type: string, pattern: "^[0-9a-f]{64}$" }
+  reasoning_summary: { type: string, maxLength: 1024 }
+additionalProperties: false
+```
+
+## Validation Rules
+
+- `sub_commands` always has exactly 3 entries.
+- Each entry's `role` is unique within the array (1 Lead, 1 Assist, 1 Reserve).
+- `synergy_score` is the LLM's self-estimate of swarm benefit over a single-robot response for this tick.
+- `peer_observability` is the LLM's view of whether the swarm is fully observable; if any flag is false, the LLM falls back to safer commands.
+
+## Notes
+
+- This is the canonical broadcast envelope. The site broadcast bus publishes one record of this schema per tick.
+- The LLM authoring rule: emit exactly 3 sub-commands per tick. Never emit 1 or 2. Always 3.
