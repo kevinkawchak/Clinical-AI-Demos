@@ -1,7 +1,7 @@
 # Clinical-AI-Demos
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v0.1.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
+[![Release](https://img.shields.io/badge/Release-v0.2.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Companion](https://img.shields.io/badge/Companion-physical--ai--oncology--trials-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -12,8 +12,12 @@
 
 This repository delivers self-contained Claude Code task brief prompts that downstream Claude Code Opus 4.7 1M Max sessions execute to author Physical AI oncology clinical trial demonstrations. Every demo centers on humanoid agents performing surgical and patient care tasks inside clinical trial sites and for pharmaceutical company sponsors, coordinated by large language models running on-prem or at the edge.
 
+**5/17: v0.2.0 (100 Image Instructions for the 10 Demo Prompts)** *Ten image instructions per prompt distributed 3 landscape full-page (system architecture, operational timeline Gantt, regulatory compliance heatmap) plus 7 portrait (value proposition canvas, financial waterfall, capability radar, sankey flow, process funnel, strategic quadrant, decision tree); 30 landscape + 70 portrait = 100 total at 300 dpi PNG, matplotlib-only* - 100-instruction set at demo-projects/image-instruct/ [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/image-instruct)
+
 **5/16: v0.1.0 (Humanoid + LLM Oncology Trial Demo Prompts)** *Ten standalone prompts spanning trial site operations, sponsor center, pharmacy compounding, recovery nursing, pathology lab, tele-surgery, AE response, research coordinator, radiation oncology, and decentralized home care* - 10-prompt set at demo-projects/ [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects)
 
+> **v0.2.0** - Second release. 100 image instructions for the 10 prompts (10 per prompt: 3 landscape full-page plus 7 portrait), shared color palette and DejaVu Sans typography, matplotlib-only Python script conventions, single-dashes-only and section-sign § rules, white background facecolor.
+>
 > **v0.1.0** - First release. 10 humanoid + LLM oncology trial demo prompts, complete repository scaffolding (CI workflow for Python 3.10/3.11/3.12, ruff and yamllint configuration, governance files), national-repositories meta-prompting guide carried forward from the initial commit history.
 
 ## Responsible Use
@@ -30,6 +34,9 @@ cd Clinical-AI-Demos
 # Inspect the 10 demo prompts
 ls demo-projects/
 
+# Inspect the 100 image instructions (10 per prompt)
+ls demo-projects/image-instruct/
+
 # Install lint tools to verify CI cleanliness
 pip install ruff yamllint
 ruff check .
@@ -43,38 +50,38 @@ less national-repositories/build-national.md
 git clone https://github.com/kevinkawchak/physical-ai-oncology-trials.git ../physical-ai-oncology-trials
 ```
 
-## Humanoid + LLM Demo Prompts (v0.1.0)
+## Humanoid + LLM Demo Prompts (v0.1.0) plus Image Instructions (v0.2.0)
 
 ```
   Clinical-AI-Demos       Future Claude Code        Output Tree
-  prompt file       --->  Opus 4.7 1M Max     --->  under demo-
-  in demo-projects/       reads inputs from         projects/NN-
-  (this PR)               companion repo            *-output/
+  prompt + image     -->  Opus 4.7 1M Max      -->  under demo-
+  instructions in         reads prompts + image     projects/NN-
+  demo-projects/          instructions from         *-output/
+  and image-instruct/     companion repo            (incl. figures/)
   +-----------------+    +-----------------------+   +----------------+
-  | 01 Site Dir     | -> | Read companion repo   |-> | 7 commits in   |
-  | 02 Sponsor      |    | inputs (sponsor/,     |   | 1 PR with the  |
-  | 03 Pharmacy     |    | new-trial/, patient-  |   | 3-layer chunk  |
-  | 04 Recovery     |    | journey/, etc.)       |   | strategy from  |
-  | 05 Pathology    |    +-----------------------+   | companion repo |
-  | 06 Tele-Surg    |               |                +----------------+
-  | 07 AE Response  |               v                        |
-  | 08 CRC          |    +-----------------------+           |
-  | 09 RadOnc       |    | Apply 3-layer chunk   |           |
-  | 10 Home DCT     |    | strategy + SVG-to-    |           |
-  +-----------------+    | ASCII rule + 7-commit |           |
-        |                | single-PR pattern     |           |
-        v                +-----------------------+           v
+  | 01 Site Dir     | -> | Read prompt + 10      |-> | 7 commits in   |
+  | 02 Sponsor      |    | image instructions    |   | 1 PR with the  |
+  | 03 Pharmacy     |    | for that prompt       |   | 3-layer chunk  |
+  | 04 Recovery     |    | plus companion repo   |   | strategy from  |
+  | 05 Pathology    |    | inputs                |   | companion repo |
+  | 06 Tele-Surg    |    +-----------------------+   +----------------+
+  | 07 AE Response  |               |                        |
+  | 08 CRC          |               v                        |
+  | 09 RadOnc       |    +-----------------------+           |
+  | 10 Home DCT     |    | Author matplotlib     |           |
+  +-----------------+    | scripts per image     |           |
+        |                | instruction; emit 300 |           |
+        v                | dpi white PNG outputs |           v
   +-----------------------------------------------------------------+
-  | v0.1.0 of Clinical-AI-Demos delivers 10 self-contained Claude   |
-  | Code task brief prompts. Each prompt names specific input files |
-  | from kevinkawchak/physical-ai-oncology-trials, includes step-by |
-  | step downstream LLM processing instructions, defines a future   |
-  | output tree of approximately 70 files, and provides a 7-commit  |
-  | single-PR roadmap with CI compliance and comparison framework.  |
+  | v0.2.0 of Clinical-AI-Demos delivers 100 image instructions     |
+  | (10 per prompt). Each instruction is a self-contained spec for  |
+  | one 300 dpi PNG output: chart type, page size, color palette,   |
+  | DejaVu Sans typography, matplotlib recipe, header and footer,   |
+  | and validation checklist. 30 landscape full-page + 70 portrait. |
   +-----------------------------------------------------------------+
 ```
 
-## Humanoid Coverage (v0.1.0)
+## Humanoid Coverage (v0.1.0 + v0.2.0)
 
 ```
   Humanoid Platform               Per-Demo Mapping             LLM Backend
@@ -130,7 +137,7 @@ Clinical-AI-Demos/
 │   │   └── feature_request.md
 │   └── PULL_REQUEST_TEMPLATE.md                 # Safety + CI checklist
 │
-├── demo-projects/                               # ★ v0.1.0 Ten Demo Prompts
+├── demo-projects/                               # ★ v0.1.0 Ten Demo Prompts + v0.2.0 100 Image Instructions
 │   ├── README.md                                # Directory README with coverage matrix
 │   ├── 01-humanoid-site-operations-director.md  # Atlas Electric + Claude Opus 4.7
 │   ├── 02-sponsor-humanoid-operations-center.md # 5x Optimus + Sonnet/Opus failover
@@ -141,7 +148,19 @@ Clinical-AI-Demos/
 │   ├── 07-humanoid-24-7-adverse-event-response.md
 │   ├── 08-humanoid-clinical-research-coordinator.md
 │   ├── 09-humanoid-radiation-oncology-technologist.md
-│   └── 10-humanoid-decentralized-home-care.md   # Figure Field + Claude Haiku 4.5 edge
+│   ├── 10-humanoid-decentralized-home-care.md   # Figure Field + Claude Haiku 4.5 edge
+│   └── image-instruct/                          # ★ v0.2.0 100 image instruction MD files
+│       ├── README.md                            # Image instruction directory README
+│       ├── 01-site-operations-director/         # 10 instructions for prompt 01
+│       ├── 02-sponsor-operations-center/        # 10 instructions for prompt 02
+│       ├── 03-pharmacy-imp-compounding/         # 10 instructions for prompt 03
+│       ├── 04-post-op-recovery-nurse/           # 10 instructions for prompt 04
+│       ├── 05-biospecimen-pathology-lab/        # 10 instructions for prompt 05
+│       ├── 06-tele-surgical-assistant/          # 10 instructions for prompt 06
+│       ├── 07-adverse-event-response/           # 10 instructions for prompt 07
+│       ├── 08-clinical-research-coordinator/    # 10 instructions for prompt 08
+│       ├── 09-radiation-oncology-technologist/  # 10 instructions for prompt 09
+│       └── 10-decentralized-home-care/          # 10 instructions for prompt 10
 │
 └── national-repositories/                       # Meta-prompting guidance (carried forward)
     └── build-national.md                        # Building National Repositories at Scale
@@ -153,6 +172,7 @@ Clinical-AI-Demos/
 flowchart LR
   subgraph CAD[Clinical-AI-Demos]
     DP[demo-projects/]
+    II[demo-projects/image-instruct/]
     NR[national-repositories/]
     GH[.github/]
     CHG[CHANGELOG.md]
@@ -188,18 +208,20 @@ flowchart LR
   DP -->|reads inputs from| AGI
   DP -->|inherits chunking from| COM
   DP -->|reads patterns from| EXM
+  II -->|companion to| DP
 ```
 
-## Mermaid: Demo Prompt Execution Loop
+## Mermaid: Demo Prompt + Image Instruction Execution Loop
 
 ```mermaid
 flowchart TB
   P[Prompt file in demo-projects/] --> CC[Claude Code Opus 4.7 1M Max session]
+  II[10 Image Instructions in demo-projects/image-instruct/NN/] --> CC
   CC --> R1[Commit 1: Project Overview, 7 files]
   R1 --> R2[Commit 2: Schemas + Samples, 8-11 files]
   R2 --> R3[Commit 3: Dispatchers + Planners, 9-12 files]
   R3 --> R4[Commit 4: Runner + Iterations, 10-11 files]
-  R4 --> R5[Commit 5: Comparison + Reports, 12-13 files]
+  R4 --> R5[Commit 5: Comparison + Reports + Figures, 12-13 files]
   R5 --> R6[Commit 6: 7-check error scan]
   R6 --> R7[Commit 7: Parent README + releases.md + CHANGELOG.md]
   R7 --> PR[Single PR with 7 sequential commits]
@@ -278,6 +300,7 @@ Each prompt names specific input files from kevinkawchak/physical-ai-oncology-tr
 | [SECURITY.md](SECURITY.md) | Security policy and humanoid safety considerations |
 | [SUPPORT.md](SUPPORT.md) | Support channels and humanoid vendor links |
 | [demo-projects/README.md](demo-projects/README.md) | Demo prompt directory README with coverage matrices |
+| [demo-projects/image-instruct/README.md](demo-projects/image-instruct/README.md) | Image instruction directory README (v0.2.0 100 instructions, 10 per prompt) |
 | [national-repositories/build-national.md](national-repositories/build-national.md) | Meta-prompting guide for building national repositories |
 
 ## Citation
@@ -288,7 +311,7 @@ If you use this repository in your research, please cite:
 @software{kawchak2026clinicalaidemos,
   author = {Kawchak, Kevin},
   title = {Clinical-AI-Demos: Humanoid and LLM Demos for Physical AI Oncology Clinical Trials},
-  version = {0.1.0},
+  version = {0.2.0},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/kevinkawchak/Clinical-AI-Demos}
