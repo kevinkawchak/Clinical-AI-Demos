@@ -1,0 +1,81 @@
+# Authoring Instructions for `schemas/metrics.schema.json`
+
+The future session writes this JSON Schema during Commit 5 of 7.
+
+## Purpose
+
+Defines the metric record produced per iteration. 26 keys across 7 dimensions.
+
+## Schema
+
+```
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: metrics
+title: Run Metrics
+type: object
+required:
+  - iteration_id
+  - configuration_id
+  - response_time_p50_seconds
+  - response_time_p95_seconds
+  - response_time_fastest_seconds
+  - response_time_slowest_seconds
+  - patient_safety_estop_reliability
+  - patient_safety_force_budget_compliance
+  - patient_safety_no_drop_events
+  - patient_safety_inter_robot_min_distance_met
+  - patient_safety_envelope_violations
+  - fda_rtct_1hr_compliance_rate
+  - fda_rtct_hash_chain_integrity
+  - fda_rtct_signed_submissions
+  - fda_rtct_failed_submissions
+  - peer_handoff_p95_seconds
+  - peer_sensor_share_p95_ms
+  - role_rotation_count
+  - camaraderie_invariants_pass_rate
+  - cost_amortized_per_ae_usd
+  - patient_survey_score
+  - swarm_uptime_percent
+  - fleet_battery_p10_percent
+properties:
+  iteration_id: { type: integer }
+  configuration_id: { type: string }
+  response_time_p50_seconds: { type: number }
+  response_time_p95_seconds: { type: number }
+  response_time_fastest_seconds: { type: number }
+  response_time_slowest_seconds: { type: number }
+  response_time_distribution_skew: { type: number }
+  response_time_per_site_p50_seconds: { type: object }
+  response_time_per_ae_type_p50_seconds: { type: object }
+  response_time_camarade_speedup_vs_single: { type: number }
+  patient_safety_estop_reliability: { type: number }
+  patient_safety_force_budget_compliance: { type: number }
+  patient_safety_no_drop_events: { type: integer }
+  patient_safety_inter_robot_min_distance_met: { type: number }
+  patient_safety_envelope_violations: { type: integer }
+  patient_safety_no_fly_zone_violations: { type: integer }
+  fda_rtct_1hr_compliance_rate: { type: number }
+  fda_rtct_hash_chain_integrity: { type: boolean }
+  fda_rtct_signed_submissions: { type: integer }
+  fda_rtct_failed_submissions: { type: integer }
+  peer_handoff_p95_seconds: { type: number }
+  peer_sensor_share_p95_ms: { type: number }
+  role_rotation_count: { type: integer }
+  camaraderie_invariants_pass_rate: { type: number }
+  cost_amortized_per_ae_usd: { type: number }
+  patient_survey_score: { type: number }
+  swarm_uptime_percent: { type: number }
+  fleet_battery_p10_percent: { type: number }
+additionalProperties: false
+```
+
+## Validation Rules
+
+- All numeric metrics are non-negative.
+- Rates are in [0.0, 1.0].
+- `fda_rtct_hash_chain_integrity` is true if every submission's hash chain validates.
+
+## Notes
+
+- The 4 camaraderie metrics (peer_handoff_p95_seconds, peer_sensor_share_p95_ms, role_rotation_count, camaraderie_invariants_pass_rate) are new in v0.3.0.
+- The `response_time_camarade_speedup_vs_single` metric explicitly measures the swarm benefit over single-robot baseline.
