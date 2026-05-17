@@ -23,6 +23,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 ### Changed
 - README.md - Added the v0.2.0 release block above the v0.1.0 release block at the top of the README. Added the image-instruct directory entry to the repository structure tree. Added an image-instruct row to the documentation files index. Updated the Updated badge to May 2026.
 - demo-projects/README.md - Added an image-instruct directory section that lists the 100 image instructions distributed 10 per prompt across 10 subdirectories. Added a 10-row table indexing each subdirectory by humanoid + LLM stack and chart-type counts (3 landscape + 7 portrait per prompt). Updated the file listing block to include the image-instruct directory.
+- @kevinkawchak fixed README.md file ASCII diagrams in main/ on 2026-17-2026.
 
 ### Removed
 - demo-projects/image-instruct/a.md - Placeholder 2-byte file removed in commit 101 of this PR before the v0.2.0 release.
