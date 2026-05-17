@@ -1,0 +1,96 @@
+% ======================================================================
+% education_learning_sciences_template.sty
+% Professional single-column academic article style for Education and Learning Sciences Perspective.
+% Original reusable template; no line numbers, draft watermarks, or
+% pre-print editing marks.
+% ======================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{education_learning_sciences_template}[2026/05/11 Academic article template]
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}\usepackage[scaled=.94]{helvet}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\definecolor{TemplateAccent}{HTML}{365C7D}
+\definecolor{TemplateSecondary}{HTML}{E8EFF5}
+\definecolor{TemplateBody}{HTML}{000000}
+\definecolor{OrcidGreen}{HTML}{A6CE39}
+
+\hypersetup{colorlinks=true,linkcolor=TemplateAccent,citecolor=TemplateAccent,urlcolor=TemplateAccent,pdfborder={0 0 0}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\headheight}{22pt}
+\renewcommand{\arraystretch}{1.16}
+\setlist{nosep,leftmargin=1.4em}
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+
+\newcommand{\keywordsname}{Keywords}
+\newcommand{\orcidicon}[1]{\href{https://orcid.org/#1}{\textcolor{OrcidGreen}{\scriptsize\sffamily\bfseries iD}}}
+\newcommand{\doiLink}[1]{\href{https://doi.org/#1}{#1}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\footnotesize\textsc{Education and Learning Sciences Template}}
+\rhead{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{TemplateAccent}\leaders\hrule height \headrulewidth\hfill}}
+
+\titleformat{\section}{\Large\bfseries\color{TemplateAccent}}{\thesection}{0.75em}{}[\vspace{-0.2em}{\color{TemplateSecondary}\titlerule[2pt]}]
+\titleformat{\subsection}{\large\bfseries\color{TemplateAccent}}{\thesubsection}{0.6em}{}
+\newenvironment{sectionaccent}{\begingroup\color{TemplateBody}}{\endgroup}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \thispagestyle{empty}
+  \begin{center}\colorbox{TemplateSecondary}{\begin{minipage}{0.96\textwidth}\centering\vspace{0.65em}
+  {\LARGE\bfseries\color{TemplateAccent}\@title\par}
+  \vspace{0.45em}
+  {\large\@author\par}
+  \vspace{0.15em}
+  {\normalsize\@date\par}
+  \vspace{0.65em}\end{minipage}}\end{center}
+  \vspace{0.8em}
+}
+\makeatother
+
+% Three-row table macro using the requested exemplar Table 2 column layout:
+% p{2cm} p{0.9cm} p{0.9cm} p{1.9cm} p{1.9cm} p{1.9cm} p{2cm} p{1.6cm}
+\newcommand{\sectiontable}[2]{%
+\begin{center}
+\captionsetup{type=table}
+\captionof{table}{#1}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{>{\raggedright\arraybackslash}p{2cm}
+                >{\raggedright\arraybackslash}p{0.9cm}
+                >{\raggedright\arraybackslash}p{0.9cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{2cm}
+                >{\raggedright\arraybackslash}p{1.6cm}}
+\toprule
+\textbf{Item} & \textbf{Ref} & \textbf{Step} & \textbf{Input} & \textbf{Action} & \textbf{Output} & \textbf{Check} & \textbf{Status} \\
+\midrule
+#2
+\bottomrule
+\end{tabular}}
+\end{center}}
+
+\renewenvironment{abstract}{\begin{center}\large\bfseries\color{TemplateAccent} Abstract\end{center}\begin{quote}\color{TemplateBody}}{\end{quote}}
+\AtBeginDocument{\color{TemplateBody}}
+\endinput

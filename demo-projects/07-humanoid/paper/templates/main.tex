@@ -1,0 +1,63 @@
+% ======================================================================
+% main.tex -- Education and Learning Sciences Article Template
+% Perspective: Education and Learning Sciences Perspective
+% Single-column academic article template. No line numbers or draft marks.
+% DOI placeholder uses the requested Zenodo-style format.
+% ======================================================================
+\documentclass[11pt]{article}
+\usepackage{education_learning_sciences_template}
+
+\title{Education and Learning Sciences Article Template}
+\author{%
+  First Author\hspace{2pt}\orcidicon{0000-0000-0000-0000}\\
+  Position or Role, Company or Institution Name\\
+  \doiLink{10.5281/zenodo.xxxxxxxx}\\[0.35em]
+  Second Author\hspace{2pt}\orcidicon{0000-0000-0000-0000}\\
+  Department, University or Research Organization
+}
+\date{May 11, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\noindent\textbf{\keywordsname:}\ \rule{0.78\linewidth}{0.4pt}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\label{sec:introduction}
+\input{sections/introduction}
+
+\section{Methods}
+\label{sec:methods}
+\input{sections/methods}
+
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion}
+
+\section{Limitations and Future Work}
+\label{sec:limitations}
+\input{sections/limitations_future}
+
+\section{Conclusions}
+\label{sec:conclusions}
+\input{sections/conclusions}
+
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\input{sections/back_matter}
+\end{document}
