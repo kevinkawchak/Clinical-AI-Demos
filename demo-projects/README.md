@@ -137,9 +137,9 @@ A downstream Claude Code Opus 4.7 1M Max session executes each prompt as follows
   |   Image           |----->|   Code Opus 4.7   |----->|   under demo-     |
   |   Instructions    |      |   1M Max Session  |      |   projects/NN-*-  |
   |   (this dir +     |      +-------------------+      |   output/         |
-  |   image-instruct) |               |                +-------------------+
-  +-------------------+               |                         |
-                                       v                         v
+  |   image-instruct) |               |                 +-------------------+
+  +-------------------+               |                           |
+                                      v                           v
                              +-------------------+      +-------------------+
                              | physical-ai-      |      |   7 Sequential    |
                              | oncology-trials   |      |   Commits in 1 PR |
