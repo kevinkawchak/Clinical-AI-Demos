@@ -10,7 +10,7 @@
 
 **Demonstrations regarding humanoid agents and large language models for Physical AI oncology clinical trials, by Claude Code Opus 4.7, Cowork; with assistance from kevinkawchak/physical-ai-oncology-trials as the upstream companion repository.**
 
-This repository delivers self-contained Claude Code task brief prompts that downstream Claude Code Opus 4.7 1M Max sessions execute to author Physical AI oncology clinical trial demonstrations. Every demo centers on humanoid agents performing surgical and patient care tasks inside clinical trial sites and for pharmaceutical company sponsors, coordinated by large language models running on-prem or at the edge.
+This repository delivers self-contained task brief prompts that downstream Claude Code Opus 4.7 1M Max sessions execute to author Physical AI oncology clinical trial demonstrations. Every demo centers on humanoid agents performing surgical and patient care tasks inside clinical trial sites.
 
 **5/17: v0.2.0 (100 Image Instructions for the 10 Demo Prompts)** *Ten image instructions per prompt distributed 3 landscape full-page (system architecture, operational timeline Gantt, regulatory compliance heatmap) plus 7 portrait (value proposition canvas, financial waterfall, capability radar, sankey flow, process funnel, strategic quadrant, decision tree); 30 landscape + 70 portrait = 100 total at 300 dpi PNG, matplotlib-only* - 100-instruction set at demo-projects/image-instruct/ [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/image-instruct)
 
