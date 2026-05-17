@@ -1,16 +1,17 @@
 # Demo Projects: Humanoid + LLM Oncology Clinical Trial Prompts
 
-[![Release](https://img.shields.io/badge/Release-v0.1.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
+[![Release](https://img.shields.io/badge/Release-v0.2.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Companion](https://img.shields.io/badge/Companion-physical--ai--oncology--trials-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Prompts](https://img.shields.io/badge/Prompts-10-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects)
+[![Image Instructions](https://img.shields.io/badge/Image%20Instructions-100-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/image-instruct)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
 
-Released on 16 May 2026
+Released on 17 May 2026
 CEO Kevin Kawchak, ChemicalQDevice
 
-This directory contains 10 standalone Claude Code task brief prompts for downstream Claude Code Opus 4.7 1M Max sessions to author Physical AI oncology clinical trial demonstrations. Every demo features a distinct humanoid platform, an explicit large language model control loop, and a unique perspective spanning surgical, patient care, sponsor operations, pharmacy, pathology, telesurgery, adverse event, research coordination, radiation oncology, and decentralized home care scenarios.
+This directory contains 10 standalone Claude Code task brief prompts for downstream Claude Code Opus 4.7 1M Max sessions to author Physical AI oncology clinical trial demonstrations. Every demo features a distinct humanoid platform, an explicit large language model control loop, and a unique perspective spanning surgical, patient care, sponsor operations, pharmacy, pathology, telesurgery, adverse event, research coordination, radiation oncology, and decentralized home care scenarios. As of v0.2.0 the directory also contains 100 image instructions at `image-instruct/` (10 per prompt).
 
 ## Why This Directory Exists
 
@@ -34,6 +35,25 @@ A new oncology clinical trial industry is forming around humanoid agents and lar
 | 08 | [Humanoid Clinical Research Coordinator](08-humanoid-clinical-research-coordinator.md) | 1X Neo Beta | Claude + Gemini + GPT ensemble routing | 8 hours | 1 s |
 | 09 | [Humanoid Radiation Oncology Technologist](09-humanoid-radiation-oncology-technologist.md) | Atlas + Optimus pair | NVIDIA GR00T N1.6 + Cosmos Reason 2 + Claude arbiter | 8 hours | 100 ms |
 | 10 | [Humanoid Decentralized Home Care for DCT](10-humanoid-decentralized-home-care.md) | Figure 03 Field Edition | Claude Haiku 4.5 edge on NVIDIA Orin | 24 hours | 1 s active + 10 s ambient |
+
+## Image Instructions (v0.2.0)
+
+100 image instructions are placed at `image-instruct/`, 10 per prompt across 10 subdirectories. Each instruction specifies one publication-ready 300 dpi matplotlib PNG that a future Claude Code Opus 4.7 1M Max session will author under `demo-projects/NN-name-output/figures/NN-NN-short-name.png`. Distribution per prompt: 3 landscape full-page (system architecture, operational timeline Gantt, regulatory compliance heatmap) plus 7 portrait (value proposition canvas, financial waterfall, capability radar, sankey flow, process funnel, strategic quadrant, decision tree).
+
+| # | Image Instructions Subdirectory | Humanoid + LLM Stack | Landscape | Portrait |
+|---|---------------------------------|----------------------|-----------|----------|
+| 01 | [image-instruct/01-site-operations-director/](image-instruct/01-site-operations-director) | Atlas Electric + Claude Opus 4.7 1M on-prem | 3 | 7 |
+| 02 | [image-instruct/02-sponsor-operations-center/](image-instruct/02-sponsor-operations-center) | 5x Tesla Optimus Gen 3 + Sonnet/Opus failover | 3 | 7 |
+| 03 | [image-instruct/03-pharmacy-imp-compounding/](image-instruct/03-pharmacy-imp-compounding) | Figure 03 + GPT-5.5 Thinking on-prem | 3 | 7 |
+| 04 | [image-instruct/04-post-op-recovery-nurse/](image-instruct/04-post-op-recovery-nurse) | Digit V5 + Haiku/Sonnet + Llama 4 70B | 3 | 7 |
+| 05 | [image-instruct/05-biospecimen-pathology-lab/](image-instruct/05-biospecimen-pathology-lab) | Phoenix Gen 8 + Gemini/Qwen via MCP | 3 | 7 |
+| 06 | [image-instruct/06-tele-surgical-assistant/](image-instruct/06-tele-surgical-assistant) | Apollo + Claude Opus 4.7 1M + Operator | 3 | 7 |
+| 07 | [image-instruct/07-adverse-event-response/](image-instruct/07-adverse-event-response) | 3x Unitree H2 + Per-Site Claude Opus | 3 | 7 |
+| 08 | [image-instruct/08-clinical-research-coordinator/](image-instruct/08-clinical-research-coordinator) | Neo Beta + Claude+Gemini+GPT ensemble | 3 | 7 |
+| 09 | [image-instruct/09-radiation-oncology-technologist/](image-instruct/09-radiation-oncology-technologist) | Atlas+Optimus + GR00T+Cosmos+Claude arbiter | 3 | 7 |
+| 10 | [image-instruct/10-decentralized-home-care/](image-instruct/10-decentralized-home-care) | Figure 03 Field + Claude Haiku 4.5 on Orin | 3 | 7 |
+
+30 landscape + 70 portrait = 100 image instructions total.
 
 ## Coverage Matrix
 
@@ -97,13 +117,14 @@ Every prompt in this directory follows the same template:
 A downstream Claude Code Opus 4.7 1M Max session executes each prompt as follows:
 
 1. Read the prompt file in this directory (e.g., `01-humanoid-site-operations-director.md`).
-2. Clone or update `kevinkawchak/physical-ai-oncology-trials` to read the input files listed under "Inputs from physical-ai-oncology-trials".
-3. Pre-chunk any input file over 20K tokens per the chunking strategy in `competitions/instructions/chunking_strategy.md` of the companion repository.
-4. Author the output tree under `demo-projects/<NN-name>-output/` (in Clinical-AI-Demos) following the "Future Output Tree" section.
-5. Apply the SVG-to-ASCII replacement rule from `competitions/instructions/ascii_diagram_guide.md` for any high-frequency time series.
-6. Run the pre-commit checklist: `ruff check .`, `ruff format --check .`, `yamllint -d relaxed .github/`.
-7. Commit seven sequential commits in a single PR on a branch named `claude/demo-NN-name-shortid`.
-8. The seventh commit updates the main README, releases.md, and CHANGELOG.md.
+2. Read the 10 image instruction files in `image-instruct/NN-<short-name>/` for the chart specifications.
+3. Clone or update `kevinkawchak/physical-ai-oncology-trials` to read the input files listed under "Inputs from physical-ai-oncology-trials".
+4. Pre-chunk any input file over 20K tokens per the chunking strategy in `competitions/instructions/chunking_strategy.md` of the companion repository.
+5. Author the output tree under `demo-projects/<NN-name>-output/` (in Clinical-AI-Demos) following the "Future Output Tree" section, including a `figures/` subdirectory populated from the 10 image instructions.
+6. Apply the SVG-to-ASCII replacement rule from `competitions/instructions/ascii_diagram_guide.md` for any high-frequency time series.
+7. Run the pre-commit checklist: `ruff check .`, `ruff format --check .`, `yamllint -d relaxed .github/`.
+8. Commit seven sequential commits in a single PR on a branch named `claude/demo-NN-name-shortid`.
+9. The seventh commit updates the main README, releases.md, and CHANGELOG.md.
 
 ## ASCII Architecture Diagram
 
@@ -112,12 +133,12 @@ A downstream Claude Code Opus 4.7 1M Max session executes each prompt as follows
                    ===============================================
 
   +-------------------+      +-------------------+      +-------------------+
-  |   Prompt File     |      |   Future Claude   |      |   Output Tree     |
-  |   (this dir)      |----->|   Code Opus 4.7   |----->|   under demo-     |
-  |                   |      |   1M Max Session  |      |   projects/NN-*-  |
-  +-------------------+      +-------------------+      |   output/         |
-                                       |                +-------------------+
-                                       |                         |
+  |   Prompt File +   |      |   Future Claude   |      |   Output Tree     |
+  |   Image           |----->|   Code Opus 4.7   |----->|   under demo-     |
+  |   Instructions    |      |   1M Max Session  |      |   projects/NN-*-  |
+  |   (this dir +     |      +-------------------+      |   output/         |
+  |   image-instruct) |               |                +-------------------+
+  +-------------------+               |                         |
                                        v                         v
                              +-------------------+      +-------------------+
                              | physical-ai-      |      |   7 Sequential    |
@@ -142,12 +163,14 @@ A downstream Claude Code Opus 4.7 1M Max session executes each prompt as follows
 sequenceDiagram
     participant U as User / Operator
     participant CD as Clinical-AI-Demos prompt file
+    participant II as Image Instructions (10 per prompt)
     participant CC as Claude Code Opus 4.7 1M Max
     participant PAOT as physical-ai-oncology-trials
     participant OT as Output Tree
 
     U->>CD: Select prompt 01 through 10
     CD->>CC: Provide self-contained task brief
+    II->>CC: Provide 10 image instructions for that prompt
     CC->>PAOT: Read named input files
     PAOT-->>CC: Return verbatim source content
     CC->>CC: Pre-chunk large files (over 20K tokens)
@@ -156,7 +179,7 @@ sequenceDiagram
     CC->>OT: Commit 2 (Schemas + Samples, 8-11 files)
     CC->>OT: Commit 3 (Dispatchers + Planners, 9-12 files)
     CC->>OT: Commit 4 (Runner + Iterations, 10-11 files)
-    CC->>OT: Commit 5 (Comparison + Reports, 12-13 files)
+    CC->>OT: Commit 5 (Comparison + Reports + Figures, 12-13 files)
     CC->>OT: Commit 6 (7-check error scan)
     CC->>OT: Commit 7 (Parent README + releases.md + CHANGELOG.md)
     OT-->>U: Pull request with 7 sequential commits
@@ -219,7 +242,19 @@ demo-projects/
 ├── 07-humanoid-24-7-adverse-event-response.md           # 3x H2 + per-site Claude Opus
 ├── 08-humanoid-clinical-research-coordinator.md         # Neo Beta + Claude/Gemini/GPT ensemble
 ├── 09-humanoid-radiation-oncology-technologist.md       # Atlas+Optimus pair + GR00T/Cosmos/Claude
-└── 10-humanoid-decentralized-home-care.md               # Figure Field + Claude Haiku 4.5 on Orin
+├── 10-humanoid-decentralized-home-care.md               # Figure Field + Claude Haiku 4.5 on Orin
+└── image-instruct/                                      # v0.2.0 100 image instructions
+    ├── README.md
+    ├── 01-site-operations-director/                     # 10 instructions for prompt 01
+    ├── 02-sponsor-operations-center/                    # 10 instructions for prompt 02
+    ├── 03-pharmacy-imp-compounding/                     # 10 instructions for prompt 03
+    ├── 04-post-op-recovery-nurse/                       # 10 instructions for prompt 04
+    ├── 05-biospecimen-pathology-lab/                    # 10 instructions for prompt 05
+    ├── 06-tele-surgical-assistant/                      # 10 instructions for prompt 06
+    ├── 07-adverse-event-response/                       # 10 instructions for prompt 07
+    ├── 08-clinical-research-coordinator/                # 10 instructions for prompt 08
+    ├── 09-radiation-oncology-technologist/              # 10 instructions for prompt 09
+    └── 10-decentralized-home-care/                      # 10 instructions for prompt 10
 ```
 
 ## Output Tree Footprint
@@ -227,9 +262,11 @@ demo-projects/
 Each prompt produces an output tree under `demo-projects/NN-name-output/`. The future sessions are expected to produce, in aggregate:
 
 - 10 distinct output trees with approximately 70 files each (700 files total)
+- 10 figures subdirectories (10 per prompt, 100 PNGs total at 300 dpi)
 - Approximately 80 MB of committed Parquet, CSV, JSONL, and Markdown
+- Approximately 250 MB of committed 300 dpi PNGs across all 100 figures
 - Approximately 12 GB of Zenodo-archived raw telemetry across all 10 demos
-- 10 separate releases (v0.2.0 through v1.1.0) with their own release notes
+- 10 separate releases (v0.3.0 through v1.2.0) with their own release notes
 - 10 separate comparison reports ranking the demo's humanoid + LLM stack against baselines
 
 ## Notes
@@ -239,3 +276,4 @@ Each prompt produces an output tree under `demo-projects/NN-name-output/`. The f
 - All patient identifiers are synthetic. No real PHI is referenced.
 - The seven-commit single-PR pattern is documented in `competitions/instructions/pr_workflow.md` of the companion repository.
 - CI compliance: `ruff check`, `ruff format --check`, `yamllint -d relaxed .github/` must pass on Python 3.10, 3.11, and 3.12 before any prompt's output PR is merged.
+- The 100 image instructions at `image-instruct/` use a shared color palette and DejaVu Sans typography so all 100 future figures read consistently to any viewer. Single dashes only; section sign § for regulatory citations; no em dashes; no emoji; no dark mode; white facecolor for every PNG.
