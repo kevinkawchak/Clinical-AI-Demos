@@ -53,25 +53,25 @@ git clone https://github.com/kevinkawchak/physical-ai-oncology-trials.git ../phy
 ## Humanoid + LLM Demo Prompts (v0.1.0) plus Image Instructions (v0.2.0)
 
 ```
-  Clinical-AI-Demos       Future Claude Code        Output Tree
-  prompt + image     -->  Opus 4.7 1M Max      -->  under demo-
-  instructions in         reads prompts + image     projects/NN-
-  demo-projects/          instructions from         *-output/
-  and image-instruct/     companion repo            (incl. figures/)
-  +-----------------+    +-----------------------+   +----------------+
-  | 01 Site Dir     | -> | Read prompt + 10      |-> | 7 commits in   |
-  | 02 Sponsor      |    | image instructions    |   | 1 PR with the  |
-  | 03 Pharmacy     |    | for that prompt       |   | 3-layer chunk  |
-  | 04 Recovery     |    | plus companion repo   |   | strategy from  |
-  | 05 Pathology    |    | inputs                |   | companion repo |
-  | 06 Tele-Surg    |    +-----------------------+   +----------------+
+  Clinical-AI-Demos       Future Claude Code           Output Tree
+  prompt + image     -->  Opus 4.7 1M Max         -->  under demo-
+  instructions in         reads prompts + image        projects/NN-
+  demo-projects/          instructions from            *-output/
+  and image-instruct/     companion repo              (incl. figures/)
+  +-----------------+    +-----------------------+    +----------------+
+  | 01 Site Dir     |--> | Read prompt + 10      |--> | 7 commits in   |
+  | 02 Sponsor      |    | image instructions    |    | 1 PR with the  |
+  | 03 Pharmacy     |    | for that prompt       |    | 3-layer chunk  |
+  | 04 Recovery     |    | plus companion repo   |    | strategy from  |
+  | 05 Pathology    |    | inputs                |    | companion repo |
+  | 06 Tele-Surg    |    +-----------------------+    +----------------+
   | 07 AE Response  |               |                        |
   | 08 CRC          |               v                        |
   | 09 RadOnc       |    +-----------------------+           |
   | 10 Home DCT     |    | Author matplotlib     |           |
   +-----------------+    | scripts per image     |           |
-        |                | instruction; emit 300 |           |
-        v                | dpi white PNG outputs |           v
+           |             | instruction; emit 300 |           |
+           v             | dpi white PNG outputs |           v
   +-----------------------------------------------------------------+
   | v0.2.0 of Clinical-AI-Demos delivers 100 image instructions     |
   | (10 per prompt). Each instruction is a self-contained spec for  |
@@ -84,33 +84,33 @@ git clone https://github.com/kevinkawchak/physical-ai-oncology-trials.git ../phy
 ## Humanoid Coverage (v0.1.0 + v0.2.0)
 
 ```
-  Humanoid Platform               Per-Demo Mapping             LLM Backend
-  +------------------------+      +-----------------------+    +-----------+
-  | Boston Dynamics        |  ->  | 01 Site Operations    | -> | Claude    |
-  | Atlas Electric         |      | 09 Rad Onc (paired)   |    | Opus 4.7  |
-  | 28 DOF, 1.5 m, 89 kg   |      |                       |    | 1M on-prem|
-  +------------------------+      +-----------------------+    +-----------+
-  | Tesla Optimus Gen 3    |  ->  | 02 Sponsor Center 5x  | -> | Sonnet 4.6|
-  | 43 DOF, 1.73 m, 57 kg  |      | 09 Rad Onc (paired)   |    | + Opus    |
-  +------------------------+      +-----------------------+    +-----------+
-  | Figure 03              |  ->  | 03 Pharmacy CAR-T     | -> | GPT-5.5   |
-  | 32 DOF, 1.68 m, 60 kg  |      | 10 Home DCT (Field)   |    | Haiku 4.5 |
-  +------------------------+      +-----------------------+    +-----------+
-  | Agility Digit V5       |  ->  | 04 Recovery Room PACU | -> | Claude    |
-  | 16 DOF, 1.8 m, 80 kg   |      |                       |    | + Llama 4 |
-  +------------------------+      +-----------------------+    +-----------+
-  | Sanctuary Phoenix Gen 8|  ->  | 05 Pathology Lab CAP  | -> | Gemini 3  |
-  | 24 DOF/hand, 1.7 m     |      |                       |    | + Qwen 3  |
-  +------------------------+      +-----------------------+    +-----------+
-  | Apptronik Apollo       |  ->  | 06 Tele-Surgical      | -> | Claude    |
-  | 40 DOF, 1.73 m, 73 kg  |      | 1,100-mile rural site |    | + Operator|
-  +------------------------+      +-----------------------+    +-----------+
-  | 1X Neo Beta            |  ->  | 08 Clinical Research  | -> | Multi-    |
-  | 28 DOF, 1.65 m, 35 kg  |      | Coordinator, 5 langs  |    | Model     |
-  +------------------------+      +-----------------------+    +-----------+
-  | Unitree H2             |  ->  | 07 4-Site AE Response | -> | Per-site  |
-  | 39 DOF, 1.8 m, 70 kg   |      | 3 units rotating      |    | Claude    |
-  +------------------------+      +-----------------------+    +-----------+
+  Humanoid Platform               Per-Demo Mapping               LLM Backend
+  +------------------------+      +-----------------------+      +------------+
+  | Boston Dynamics        |  ->  | 01 Site Operations    |  ->  | Claude     |
+  | Atlas Electric         |      | 09 Rad Onc (paired)   |      | Opus 4.7   |
+  | 28 DOF, 1.5 m, 89 kg   |      |                       |      | 1M on-prem |
+  +------------------------+      +-----------------------+      +------------+
+  | Tesla Optimus Gen 3    |  ->  | 02 Sponsor Center 5x  |  ->  | Sonnet 4.6 |
+  | 43 DOF, 1.73 m, 57 kg  |      | 09 Rad Onc (paired)   |      | + Opus     |
+  +------------------------+      +-----------------------+      +------------+
+  | Figure 03              |  ->  | 03 Pharmacy CAR-T     |  ->  | GPT-5.5    |
+  | 32 DOF, 1.68 m, 60 kg  |      | 10 Home DCT (Field)   |      | Haiku 4.5  |
+  +------------------------+      +-----------------------+      +------------+
+  | Agility Digit V5       |  ->  | 04 Recovery Room PACU |  ->  | Claude     |
+  | 16 DOF, 1.8 m, 80 kg   |      |                       |      | + Llama 4  |
+  +------------------------+      +-----------------------+      +------------+
+  | Sanctuary Phoenix Gen 8|  ->  | 05 Pathology Lab CAP  |  ->  | Gemini 3   |
+  | 24 DOF/hand, 1.7 m     |      |                       |      |+ Qwen 3    |
+  +------------------------+      +-----------------------+      +------------+
+  | Apptronik Apollo       |  ->  | 06 Tele-Surgical      |  ->  | Claude     |
+  | 40 DOF, 1.73 m, 73 kg  |      | 1,100-mile rural site |      | + Operator |
+  +------------------------+      +-----------------------+      +------------+
+  | 1X Neo Beta            |  ->  | 08 Clinical Research  |  ->  | Multi-     |
+  | 28 DOF, 1.65 m, 35 kg  |      | Coordinator, 5 langs  |      | Model      |
+  +------------------------+      +-----------------------+      +------------+
+  | Unitree H2             |  ->  | 07 4-Site AE Response |  ->  | Per-site   |
+  | 39 DOF, 1.8 m, 70 kg   |      | 3 units rotating      |      | Claude     |
+  +------------------------+      +-----------------------+      +------------+
 ```
 
 ## Repository Structure
