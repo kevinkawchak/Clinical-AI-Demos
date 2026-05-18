@@ -1,6 +1,6 @@
 # Demo Projects: Humanoid + LLM Oncology Clinical Trial Prompts
 
-[![Release](https://img.shields.io/badge/Release-v0.4.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
+[![Release](https://img.shields.io/badge/Release-v0.5.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Companion](https://img.shields.io/badge/Companion-physical--ai--oncology--trials-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Prior DOI](https://img.shields.io/badge/Prior%20DOI-10.5281%2Fzenodo.18029100-blue)](https://doi.org/10.5281/zenodo.18029100)
@@ -8,14 +8,15 @@
 [![Image Instructions](https://img.shields.io/badge/Image%20Instructions-100-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/image-instruct)
 [![Swarm Instructions](https://img.shields.io/badge/Swarm%20Instructions-Demo%2007%20v0.3.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/instructions)
 [![Codegen](https://img.shields.io/badge/Codegen-Demo%2007%20v0.4.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/codegen)
+[![Execution](https://img.shields.io/badge/Execution-Demo%2007%20v0.5.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/execution)
 [![Humanoid](https://img.shields.io/badge/Humanoid-Unitree%20H2%20EDU-orange.svg)](https://www.unitree.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
 
-Released on 17 May 2026
+Released on 18 May 2026
 CEO Kevin Kawchak, ChemicalQDevice
 
-This directory contains 10 standalone Claude Code task brief prompts for downstream Claude Code Opus 4.7 1M Max sessions to author Physical AI oncology clinical trial demonstrations. Every demo features a distinct humanoid platform, an explicit large language model control loop, and a unique perspective spanning surgical, patient care, sponsor operations, pharmacy, pathology, telesurgery, adverse event, research coordination, radiation oncology, and decentralized home care scenarios. As of v0.2.0 the directory also contains 100 image instructions at `image-instruct/` (10 per prompt). As of v0.3.0 the directory also contains the multi-robot synergy code generation instructions for demo prompt 07 at `07-humanoid/paper/instructions/`. As of v0.4.0 the directory also contains the executable codegen for demo prompt 07 at `07-humanoid/paper/codegen/`.
+This directory contains 10 standalone Claude Code task brief prompts for downstream Claude Code Opus 4.7 1M Max sessions to author Physical AI oncology clinical trial demonstrations. Every demo features a distinct humanoid platform, an explicit large language model control loop, and a unique perspective spanning surgical, patient care, sponsor operations, pharmacy, pathology, telesurgery, adverse event, research coordination, radiation oncology, and decentralized home care scenarios. As of v0.2.0 the directory also contains 100 image instructions at `image-instruct/` (10 per prompt). As of v0.3.0 the directory also contains the multi-robot synergy code generation instructions for demo prompt 07 at `07-humanoid/paper/instructions/`. As of v0.4.0 the directory also contains the executable codegen for demo prompt 07 at `07-humanoid/paper/codegen/`. As of v0.5.0 the directory also contains the codegen execution outcomes at `07-humanoid/paper/execution/`.
 
 ## Why This Directory Exists
 
@@ -41,7 +42,7 @@ The v0.4.0 thesis: on-premises repository based LLMs provide commands to humanoi
 | 04 | [Humanoid Post-Operative Recovery Nurse](04-humanoid-post-op-recovery-nurse.md) | Agility Digit V5 | Claude Haiku/Sonnet + Ollama Llama 4 70B | 24 hours | 1 s |
 | 05 | [Humanoid Biospecimen and Pathology Lab Assistant](05-humanoid-biospecimen-pathology-lab.md) | Sanctuary Phoenix Gen 8 | Gemini 3 Pro + Ollama Qwen3 72B via MCP | 12 hours | 100 ms |
 | 06 | [Humanoid Tele-Surgical Assistant](06-humanoid-tele-surgical-assistant.md) | Apptronik Apollo | Claude Opus 4.7 1M + operator-in-the-loop | 90 minutes | 1 ms |
-| 07 | [Humanoid 24/7 Adverse Event Response Team (v0.3.0 instructions and v0.4.0 codegen at 07-humanoid/paper/)](07-humanoid-24-7-adverse-event-response.md) | 3x Unitree H2 EDU per site (12 total) | Per-site Claude Opus 4.7 1M broadcast to 3 robots | 168 hours (1 week) | 1 s |
+| 07 | [Humanoid 24/7 Adverse Event Response Team (v0.3.0 instructions, v0.4.0 codegen, v0.5.0 execution at 07-humanoid/paper/)](07-humanoid-24-7-adverse-event-response.md) | 3x Unitree H2 EDU per site (12 total) | Per-site Claude Opus 4.7 1M broadcast to 3 robots | 168 hours (1 week) | 1 s |
 | 08 | [Humanoid Clinical Research Coordinator](08-humanoid-clinical-research-coordinator.md) | 1X Neo Beta | Claude + Gemini + GPT ensemble routing | 8 hours | 1 s |
 | 09 | [Humanoid Radiation Oncology Technologist](09-humanoid-radiation-oncology-technologist.md) | Atlas + Optimus pair | NVIDIA GR00T N1.6 + Cosmos Reason 2 + Claude arbiter | 8 hours | 100 ms |
 | 10 | [Humanoid Decentralized Home Care for DCT](10-humanoid-decentralized-home-care.md) | Figure 03 Field Edition | Claude Haiku 4.5 edge on NVIDIA Orin | 24 hours | 1 s active + 10 s ambient |
@@ -89,18 +90,54 @@ Runtime support:
 
 The v0.4.0 release cites the author's prior FAERS LLM paper at DOI 10.5281/zenodo.18029100 as the precedent for LLM-driven adverse event work.
 
-| # | Image Instructions Subdirectory | Humanoid + LLM Stack | Landscape | Portrait |
-|---|---------------------------------|----------------------|-----------|----------|
-| 01 | [image-instruct/01-site-operations-director/](image-instruct/01-site-operations-director) | Atlas Electric + Claude Opus 4.7 1M on-prem | 3 | 7 |
-| 02 | [image-instruct/02-sponsor-operations-center/](image-instruct/02-sponsor-operations-center) | 5x Tesla Optimus Gen 3 + Sonnet/Opus failover | 3 | 7 |
-| 03 | [image-instruct/03-pharmacy-imp-compounding/](image-instruct/03-pharmacy-imp-compounding) | Figure 03 + GPT-5.5 Thinking on-prem | 3 | 7 |
-| 04 | [image-instruct/04-post-op-recovery-nurse/](image-instruct/04-post-op-recovery-nurse) | Digit V5 + Haiku/Sonnet + Llama 4 70B | 3 | 7 |
-| 05 | [image-instruct/05-biospecimen-pathology-lab/](image-instruct/05-biospecimen-pathology-lab) | Phoenix Gen 8 + Gemini/Qwen via MCP | 3 | 7 |
-| 06 | [image-instruct/06-tele-surgical-assistant/](image-instruct/06-tele-surgical-assistant) | Apollo + Claude Opus 4.7 1M + Operator | 3 | 7 |
-| 07 | [image-instruct/07-adverse-event-response/](image-instruct/07-adverse-event-response) | 3x Unitree H2 EDU per site + Per-Site Claude Opus (v0.3.0 swarm plus v0.4.0 codegen) | 3 | 7 |
-| 08 | [image-instruct/08-clinical-research-coordinator/](image-instruct/08-clinical-research-coordinator) | Neo Beta + Claude+Gemini+GPT ensemble | 3 | 7 |
-| 09 | [image-instruct/09-radiation-oncology-technologist/](image-instruct/09-radiation-oncology-technologist) | Atlas+Optimus + GR00T+Cosmos+Claude arbiter | 3 | 7 |
-| 10 | [image-instruct/10-decentralized-home-care/](image-instruct/10-decentralized-home-care) | Figure 03 Field + Claude Haiku 4.5 on Orin | 3 | 7 |
+## Execution for Prompt 07 (v0.5.0)
+
+The codegen execution outcomes for demo prompt 07 are at `07-humanoid/paper/execution/`. The execution tree captures the runtime outcomes of every executable element in the v0.4.0 codegen tree on a Linux server with Python 3.10 to 3.12, Rust 1.94, g++ -std=c++20, cmake, and DuckDB. 50 file tree with 23 per-step logs, 4 ASCII diagrams capped at 80 by 60, 6 PNG figures at 300 dpi (regenerated from src/figures_gen.py against the hand-curated iteration index), 4 machine readable output tables, 5 report copies plus the consolidated execution_report_v0_5_0.md, and 8 data artifacts.
+
+Directory tree:
+
+```
+demo-projects/07-humanoid/paper/execution/
+  README.md                        # 12 badges, 7 commit roadmap, ASCII flow
+  logs/                            # 23 per step execution logs
+    01_schema_ingest.log           # 10 passed 0 failed
+    02_check_errors.log            # 0 issues across 7 checks
+    03_pytest.log                  # 36 passed in 0.22 s
+    04_module_imports.log          # 22 of 22
+    05_swarm_coordinator_smoke.log # 7 of 7 invariants pass
+    06_llm_planner_smoke.log       # schema valid llm_decision
+    07_ctcae_grader_smoke.log      # grade 3 anaphylaxis with swarm consensus
+    08_h2_dispatcher_smoke.log     # 3 acks within 50 ms
+    09_site_runtime_4site.log      # 4 sites x 60 ticks
+    10_h2_dispatcher_init.log      # 12 robot roster across 4 sites
+    11_week_runner_fast.log        # 3600 ticks per site
+    12_sensor_xyz_safety_smoke.log # sensor projection plus xyz safety
+    13_comms_peer_smoke.log        # uwb + ir + pubsub + peer state
+    14_fda_phys_xsite_smoke.log    # ed25519 signed plus PHI smuggle reject
+    15_cargo_build.log             # cargo build --release 16 s
+    16_rust_runner.log             # Rust 32 iteration sweep
+    17_cpp_robot_loop.log          # g++ -std=c++20 -O2 robot_loop
+    18_iterate_sweep.log           # 32 iterations
+    19_compute_metrics.log         # weighted score v0_4_0 = 0.953
+    20_compare_agent_narrative.log # natural language report
+    21_figures_generation.log      # 6 PNG at 300 dpi
+    22_validation_pass.log         # JSON YAML ASCII OK
+    23_final_ci_pass.log           # ruff format yamllint pytest all green
+  data/                            # 8 data artifacts
+  diagrams/                        # 4 ASCII execution diagrams
+  figures/                         # 6 PNG figures at 300 dpi
+  reports/                         # 4 codegen report copies plus execution report
+  outputs/                         # comparison plus iteration plus tree plus inventory tables
+```
+
+Recorded limitations:
+- src/week_runner.py worker returns constants
+- src/iterate.py hard codes headline statistics
+- src/llm_planner.py falls back to deterministic stub without on-prem appliance
+- src/robot_loop.cpp does not connect to real Unitree H2 EDU SDK
+- src/runner_main.rs prints hard-coded summaries
+
+These limitations are inherent to a codegen tree designed to be executable on a high-end conventional server without specialized humanoid hardware.
 
 ## Safety Constraints Across the 10 Demos
 
