@@ -1,0 +1,17 @@
+Role assignment from Hungarian bipartite match (SF-01):
+  SF-01-H2-A     -> Lead
+  SF-01-H2-B     -> Assist
+  SF-01-H2-C     -> Reserve
+
+Synergy score : 1.000
+
+7 camaraderie invariants:
+  [PASS] no_envelope_violation
+  [PASS] handoff_within_2s
+  [PASS] peer_sensor_in_model_within_1_tick
+  [PASS] swarm_estop_within_5ms
+  [PASS] self_state_publish_1hz
+  [PASS] defer_to_lead_during_ae
+  [PASS] willing_to_lead
+
+Invariants passing: 7 of 7

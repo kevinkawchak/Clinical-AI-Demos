@@ -1,0 +1,88 @@
+Codegen tree file inventory (76 files, 217.2 KiB)
+========================================================================
+config            8 files     12.0 KiB
+  config/escalation_rules.yaml                                    1.39 KiB
+  config/h2_humanoid.yaml                                         2.47 KiB
+  config/iterations.yaml                                          0.73 KiB
+  config/llm_loop.yaml                                            1.24 KiB
+  config/network.yaml                                             1.74 KiB
+  config/site_coordination.yaml                                   1.06 KiB
+  config/site_frame_bounds.yaml                                   0.94 KiB
+  config/swarm_coordination.yaml                                  2.38 KiB
+data              6 files     31.4 KiB
+  data/ctcae_decision_table.csv                                   1.42 KiB
+  data/human_team_baseline.csv                                    2.45 KiB
+  data/iterations/index.jsonl                                    17.69 KiB
+  data/sample_sensor.csv                                          3.04 KiB
+  data/sample_xyz.csv                                             1.40 KiB
+  data/samples.jsonl                                              5.39 KiB
+diagrams          3 files      4.8 KiB
+  diagrams/ae_response_flow.txt                                   1.35 KiB
+  diagrams/network_layout.txt                                     1.70 KiB
+  diagrams/swarm_dance.txt                                        1.74 KiB
+docker            4 files      0.7 KiB
+  docker/cross-site-bus/Dockerfile                                0.18 KiB
+  docker/ingest/Dockerfile                                        0.16 KiB
+  docker/llm/Dockerfile                                           0.21 KiB
+  docker/simulator/Dockerfile                                     0.15 KiB
+notebooks         1 files      4.0 KiB
+  notebooks/run_log.ipynb                                         3.96 KiB
+reports           4 files     12.6 KiB
+  reports/comparison.json                                         2.27 KiB
+  reports/comparison_methodology.md                               2.81 KiB
+  reports/dashboard.html                                          4.27 KiB
+  reports/report.md                                               3.26 KiB
+root              6 files     30.4 KiB
+  Cargo.toml                                                      0.54 KiB
+  LICENSE.txt                                                     1.04 KiB
+  README.md                                                      19.73 KiB
+  architecture.md                                                 6.55 KiB
+  docker-compose.yml                                              1.62 KiB
+  pyproject.toml                                                  0.95 KiB
+schemas          11 files     19.1 KiB
+  schemas/ae_event.schema.json                                    1.89 KiB
+  schemas/ctcae_grading.schema.json                               1.03 KiB
+  schemas/fda_rtct_submission.schema.json                         1.01 KiB
+  schemas/humanoid_command.schema.json                            2.01 KiB
+  schemas/llm_decision.schema.json                                2.31 KiB
+  schemas/metrics.schema.json                                     2.58 KiB
+  schemas/peer_handoff.schema.json                                1.24 KiB
+  schemas/physician_escalation.schema.json                        1.19 KiB
+  schemas/robot_camarade_state.schema.json                        3.49 KiB
+  schemas/sponsor_acknowledgment.schema.json                      0.97 KiB
+  schemas/swarm_message.schema.json                               1.38 KiB
+src              27 files     90.8 KiB
+  src/broadcaster.py                                              1.45 KiB
+  src/cartesian_planner.py                                        3.33 KiB
+  src/check_errors.py                                             4.03 KiB
+  src/comms_intellectual.py                                       1.87 KiB
+  src/comms_physical.py                                           3.18 KiB
+  src/compare_agent.py                                            5.20 KiB
+  src/compute.py                                                  2.74 KiB
+  src/cross_site_bus.py                                           1.80 KiB
+  src/ctcae_grader.py                                             5.29 KiB
+  src/fda_rtct_submitter.py                                       2.13 KiB
+  src/figures_gen.py                                              6.92 KiB
+  src/h2_dispatcher.py                                            3.98 KiB
+  src/ingest.py                                                   2.41 KiB
+  src/iterate.py                                                  4.73 KiB
+  src/kinematics.yaml                                             4.99 KiB
+  src/llm_planner.py                                              5.09 KiB
+  src/peer_state_tracker.py                                       2.68 KiB
+  src/physician_escalation.py                                     2.02 KiB
+  src/prompt_frozen.md                                            2.38 KiB
+  src/robot_loop.cpp                                              3.52 KiB
+  src/runner.rs                                                   2.21 KiB
+  src/runner_main.rs                                              1.36 KiB
+  src/sensor_to_xyz.py                                            3.31 KiB
+  src/site_runtime.py                                             1.75 KiB
+  src/swarm_coordinator.py                                        7.08 KiB
+  src/week_runner.py                                              2.69 KiB
+  src/xyz_safety.py                                               2.64 KiB
+tests             6 files     11.5 KiB
+  tests/conftest.py                                               0.78 KiB
+  tests/test_ctcae_grader.py                                      1.94 KiB
+  tests/test_kinematics.py                                        1.53 KiB
+  tests/test_schemas.py                                           1.85 KiB
+  tests/test_swarm_invariants.py                                  3.06 KiB
+  tests/test_xyz_safety.py                                        2.29 KiB

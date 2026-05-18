@@ -1,0 +1,11 @@
+{
+  "iteration_id": 0,
+  "ticks_per_site": 3600,
+  "sites": [
+    "SF-01",
+    "SD-01",
+    "BO-01",
+    "AT-01"
+  ],
+  "ae_count_total": 0
+}

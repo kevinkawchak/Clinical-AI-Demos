@@ -1,0 +1,36 @@
+=== JSON Schema validation pass ===
+  OK   schemas/ae_event.schema.json
+  OK   schemas/ctcae_grading.schema.json
+  OK   schemas/fda_rtct_submission.schema.json
+  OK   schemas/humanoid_command.schema.json
+  OK   schemas/llm_decision.schema.json
+  OK   schemas/metrics.schema.json
+  OK   schemas/peer_handoff.schema.json
+  OK   schemas/physician_escalation.schema.json
+  OK   schemas/robot_camarade_state.schema.json
+  OK   schemas/sponsor_acknowledgment.schema.json
+  OK   schemas/swarm_message.schema.json
+  OK   reports/comparison.json
+
+=== YAML configs validation pass ===
+  OK   config/escalation_rules.yaml
+  OK   config/h2_humanoid.yaml
+  OK   config/iterations.yaml
+  OK   config/llm_loop.yaml
+  OK   config/network.yaml
+  OK   config/site_coordination.yaml
+  OK   config/site_frame_bounds.yaml
+  OK   config/swarm_coordination.yaml
+  OK   src/kinematics.yaml
+  OK   docker-compose.yml
+
+=== ASCII diagrams cap check (codegen) ===
+  OK diagrams/ae_response_flow.txt (22 lines, 78 cols)
+  OK diagrams/network_layout.txt (40 lines, 69 cols)
+  OK diagrams/swarm_dance.txt (38 lines, 72 cols)
+
+=== ASCII diagrams cap check (execution) ===
+  OK /home/user/Clinical-AI-Demos/demo-projects/07-humanoid/paper/execution/diagrams/01_module_dependency.txt (57 lines, 63 cols)
+  OK /home/user/Clinical-AI-Demos/demo-projects/07-humanoid/paper/execution/diagrams/02_4site_execution_sequence.txt (52 lines, 77 cols)
+  OK /home/user/Clinical-AI-Demos/demo-projects/07-humanoid/paper/execution/diagrams/03_iteration_sweep_funnel.txt (59 lines, 55 cols)
+  OK /home/user/Clinical-AI-Demos/demo-projects/07-humanoid/paper/execution/diagrams/04_comparison_radar.txt (48 lines, 73 cols)

@@ -1,0 +1,15 @@
+FDA RTCT submitter (1 hour SLA enforced):
+  submission_id    : fda-f07642e1e0544b23
+  signature        : ed25519:0401b55327f2fff5aae9817ccad77b66bf27d1364fd82c...
+  ae_id ref        : ae-test001
+  fda_rtct_endpoint: https://rtct-pilot.fda.gov.simulated/api/v1/submit
+  RTCT 1h SLA      : sla_seconds_elapsed=135.0 sla_met=True
+
+Physician escalation (CTCAE 3+ -> pager + IV block):
+  escalation_id    : esc-85ec81eccc1147d4
+  iv_access_blocked: True
+
+CrossSiteBus (passive observer, no PHI):
+  accept hour 1 summary: ok=True reason=ok
+  reject PHI smuggle  : ok=False reason=phi_egress forbidden: ['patient_id'] present
+  total summaries     : 1 (SF-01: 1)

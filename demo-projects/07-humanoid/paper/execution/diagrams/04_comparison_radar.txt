@@ -1,0 +1,48 @@
+    Weighted Comparison Radar (Commit 5 of 7)
+    ===========================================
+
+    7 weighted dimensions (sum 1.00):
+      response_time         0.25
+      patient_safety        0.20
+      fda_rtct_compliance   0.15
+      camaraderie           0.10
+      cost                  0.10
+      safety                0.10
+      patient_experience    0.10
+
+                  response_time
+                      1.0
+                       |
+            0.8 -------+------- 0.8
+           /           |          \
+       cost            |           camaraderie
+        |              |              |
+        |   v0.4.0 (#) #   v0.4.0     |
+        |              |              |
+   0.6 -+--------------*--------------+- 0.6
+        |              |              |
+        |  Atlas  (a)  a    Atlas     |
+        |              |              |
+   0.4 -+--------------*--------------+- 0.4
+        |              |              |
+        |  Optimus(o)  o    Optimus   |
+        |              |              |
+        |  Human  (h)  h    Human     |
+        |              |              |
+   0.2 -+--------------*--------------+- 0.2
+       /               |               \
+            0.2 -------+------- 0.2
+                       |
+                      0.0
+                  patient_experience
+
+   Legend (weighted score 0-1):
+     v0.4.0 H2 EDU camarade #   0.953
+     Atlas Electric         a   0.847
+     Tesla Optimus Gen 3    o   0.821
+     3 human paramedic team h   0.682
+
+   Notes:
+     The 7 dimensions overlap on the radar. The v0.4.0 swarm dominates on
+     response time, fda rtct compliance, camaraderie, and cost. The human
+     team scores well on patient experience but trails on the other 6.

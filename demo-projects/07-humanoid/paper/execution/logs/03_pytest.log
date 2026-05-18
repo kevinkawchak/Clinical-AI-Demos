@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0
+rootdir: /home/user/Clinical-AI-Demos/demo-projects/07-humanoid/paper/codegen
+configfile: pyproject.toml
+collected 36 items
+
+tests/test_ctcae_grader.py .....                                         [ 13%]
+tests/test_kinematics.py .....                                           [ 27%]
+tests/test_schemas.py ..............                                     [ 66%]
+tests/test_swarm_invariants.py ......                                    [ 83%]
+tests/test_xyz_safety.py ......                                          [100%]
+
+============================== 36 passed in 0.22s ==============================

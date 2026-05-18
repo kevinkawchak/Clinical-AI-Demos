@@ -1,0 +1,27 @@
+Loaded modules: 22 / 22
+Failed modules: 0
+
+Per module symbol sample:
+  broadcaster               -> ['Broadcaster', 'annotations', 'json', 'pathlib', 'threading', 'time']
+  cartesian_planner         -> ['CartesianPlanner', 'annotations', 'math', 'pathlib', 'yaml']
+  check_errors              -> ['ERRORS', 'ROBOT_IDS', 'ROOT', 'annotations', 'check_ascii_sizes', 'check_cartesian_bounds']
+  comms_intellectual        -> ['IntellectualComms', 'Optional', 'annotations', 'threading', 'time']
+  comms_physical            -> ['PhysicalComms', 'annotations', 'queue', 'random', 'time', 'uuid']
+  compare_agent             -> ['Callable', 'annotations', 'argparse', 'build_agent', 'compare', 'json']
+  compute                   -> ['Optional', 'WEIGHTS', 'annotations', 'argparse', 'compute_configuration_metrics', 'compute_iteration_metrics']
+  cross_site_bus            -> ['CrossSiteBus', 'Optional', 'PHI_BLOCKLIST', 'REQUIRED_FIELDS', 'annotations', 'json']
+  ctcae_grader              -> ['CTCAEGrader', 'Optional', 'annotations', 'csv', 'pathlib', 'statistics']
+  fda_rtct_submitter        -> ['FDARTCTSubmitter', 'Optional', 'annotations', 'hashlib', 'json', 'pathlib']
+  figures_gen               -> ['ListedColormap', 'PALETTE', 'annotations', 'argparse', 'figure_01_swarm_architecture', 'figure_02_response_time_histogram']
+  h2_dispatcher             -> ['H2Dispatcher', 'Optional', 'annotations', 'hashlib', 'json', 'make_dispatcher']
+  ingest                    -> ['SCHEMAS', 'annotations', 'json', 'jsonschema', 'load_schemas', 'main']
+  iterate                   -> ['AXES', 'Optional', 'annotations', 'argparse', 'build_aggregate', 'build_index']
+  llm_planner               -> ['LLMPlanner', 'Optional', 'annotations', 'hashlib', 'json', 'jsonschema']
+  peer_state_tracker        -> ['Optional', 'PeerStateTracker', 'annotations', 'threading', 'time', 'uuid']
+  physician_escalation      -> ['Optional', 'PhysicianEscalation', 'annotations', 'time', 'uuid']
+  sensor_to_xyz             -> ['Optional', 'SensorToXYZ', 'annotations', 'math']
+  site_runtime              -> ['annotations', 'argparse', 'main', 'pathlib', 'run_site', 'sys']
+  swarm_coordinator         -> ['Optional', 'SwarmCoordinator', 'annotations', 'math', 'pathlib', 'yaml']
+  week_runner               -> ['Optional', 'SITES', 'WINDOW_HOURS_FAST', 'WINDOW_HOURS_FULL', 'WeekRunner', 'annotations']
+  xyz_safety                -> ['annotations', 'in_no_fly_zone', 'math', 'predict_peer_position', 'validate_command']
+

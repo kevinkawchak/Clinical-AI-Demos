@@ -1,7 +1,7 @@
 # Clinical-AI-Demos
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v0.4.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
+[![Release](https://img.shields.io/badge/Release-v0.5.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Companion](https://img.shields.io/badge/Companion-physical--ai--oncology--trials-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -9,11 +9,13 @@
 [![Humanoid](https://img.shields.io/badge/Humanoid-Unitree%20H2%20EDU-orange.svg)](https://www.unitree.com)
 [![Compute](https://img.shields.io/badge/Compute-Jetson%20AGX%20Thor%202070%20TOPS-blue.svg)](https://www.nvidia.com)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
-[![Contributors](https://img.shields.io/badge/Contributors-2-blue.svg)](releases.md)
+[![Contributors](https://img.shields.io/badge/Contributors-3-blue.svg)](releases.md)
 
 **Demonstrations regarding humanoid agents and large language models for Physical AI oncology clinical trials, by Claude Code Opus 4.7; with assistance from kevinkawchak/physical-ai-oncology-trials.**
 
 This repository delivers self-contained task brief prompts that downstream Claude Code Opus 4.7 1M Max sessions execute to author Physical AI oncology clinical trial demonstrations. Every demo centers on humanoid agents performing surgical and patient care tasks inside clinical trial sites.
+
+**5/18: v0.5.0 (3-Robot Camarade Swarm Codegen Execution Outcomes for Demo Prompt 07)** *Runtime counterpart to the v0.4.0 codegen tree. The execution tree at `demo-projects/07-humanoid/paper/execution/` captures the runtime outcomes of every executable element in the codegen tree (Python, C++, Rust, YAML, JSON, Markdown) on a Linux server with Python 3.10 to 3.12, Rust 1.94, g++ -std=c++20, cmake, and DuckDB. 50 file execution tree with 23 per-step logs, 4 ASCII diagrams capped at 80 by 60, 6 PNG figures at 300 dpi, 4 machine readable output tables, 5 report copies, and 8 data artifacts. Five limitations recorded transparently. Thesis: on-premises repository based LLMs provide commands to humanoid robots based on real-time sensor data and controlled via x, y, z coordinates to administer synergistic treatment to patient adverse events.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/execution)
 
 **5/17: v0.4.0 (3-Robot Unitree H2 EDU Camarade Swarm Codegen for Demo Prompt 07)** *Executable counterpart to the v0.3.0 instructions tree. The codegen at `demo-projects/07-humanoid/paper/codegen/` implements the 168-hour 4-site simulation in Python, C++, and Rust. Robot platform: Unitree H2 EDU with dexterous hand movements (6 fingers, 0.05 N tactile resolution) and compute module upgradeability to Jetson AGX Thor (2070 TOPS) for the on-robot 10 Hz motion loop. Thesis: on-premises repository based LLMs provide commands to humanoid robots based on real-time sensor data and controlled via x, y, z coordinates to administer synergistic treatment to patient adverse events.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/codegen)
 
@@ -23,6 +25,8 @@ This repository delivers self-contained task brief prompts that downstream Claud
 
 **5/16: v0.1.0 (Humanoid + LLM Oncology Trial Demo Prompts)** *Ten standalone prompts spanning trial site operations, sponsor center, pharmacy compounding, recovery nursing, pathology lab, tele-surgery, AE response, research coordinator, radiation oncology, decentralized home care.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects)
 
+> **v0.5.0** - Fifth release. The runtime execution outcomes for the v0.4.0 codegen tree live at `demo-projects/07-humanoid/paper/execution/`. 50 file execution tree with 23 per-step logs (schema ingest, pytest 36 passed, module imports 22 of 22, per source file smoke tests, 4-site site_runtime, week_runner fast mode, h2_dispatcher 12-robot roster, cargo Rust build, g++ -std=c++20 -O2 C++ robot_loop, 32-iteration sweep, compute.py 26 key metrics, compare_agent.py narrative, 6 PNG figures at 300 dpi, JSON/YAML/ASCII validation, final ruff/format/yamllint pass), 4 ASCII diagrams (module dependency, 4-site execution sequence, iteration sweep funnel, comparison radar), 6 PNG figures regenerated from src/figures_gen.py against the hand-curated iteration index, 4 machine readable output tables, 5 report copies plus the consolidated `execution_report_v0_5_0.md`, 8 data artifacts including the 32-row DuckDB aggregate. 7-commit roadmap inspired by the v0.4.0 commit roadmap, with commit 6 reserved for error fixes and commit 7 for repository updates. Five limitations recorded transparently. CI is green on Python 3.10/3.11/3.12.
+>
 > **v0.4.0** - Fourth release. The executable codegen for Demo 07 lives at `demo-projects/07-humanoid/paper/codegen/`. Runs on MacOS, Windows, Linux, or under Claude Code Opus 4.7 1M Max. Robot platform: Unitree H2 EDU with dexterous hands (6 fingers per hand, 12 grasp poses, 0.05 N tactile resolution) and compute slot upgradeable to Jetson AGX Thor (2070 TOPS in 130 W). All 36 pytest tests pass locally. The 7-check error scan returns 0 issues. CI lint, format, and yamllint configured to pass on Python 3.10/3.11/3.12.
 >
 > **v0.3.0** - Third release. Demo 07 (Humanoid 24/7 Adverse Event Response) extended with multi-robot synergy. The new code generation instructions in `demo-projects/07-humanoid/paper/instructions/` define swarm behavior between 3 robots per site, physical communication via 60 GHz UWB and IR beacon, intellectual communication via the on-prem shared Claude Code compute fabric, one broadcast tick sent simultaneously to all 3 robots per site, and a peer-aware adapter that treats other robots as first-class actors. 12 H2 humanoids across the 4 PAT-NET-001 sites (San Francisco, San Diego, Boston, Atlanta), 3 per site. Cites the author's prior FAERS LLM paper at DOI 10.5281/zenodo.18029100 as the precedent for LLM-driven adverse event work.
@@ -54,6 +58,9 @@ ls demo-projects/07-humanoid/paper/instructions/
 # Inspect the v0.4.0 executable codegen for prompt 07
 ls demo-projects/07-humanoid/paper/codegen/
 
+# Inspect the v0.5.0 execution outcomes for prompt 07
+ls demo-projects/07-humanoid/paper/execution/
+
 # Install lint tools to verify CI cleanliness
 pip install ruff yamllint
 ruff check .
@@ -67,7 +74,7 @@ less national-repositories/build-national.md
 git clone https://github.com/kevinkawchak/physical-ai-oncology-trials.git ../physical-ai-oncology-trials
 ```
 
-## Humanoid Coverage (v0.1.0 + v0.2.0 + v0.3.0 + v0.4.0)
+## Humanoid Coverage (v0.1.0 + v0.2.0 + v0.3.0 + v0.4.0 + v0.5.0)
 
 ```
   Humanoid Platform               Per-Demo Mapping               LLM Backend
@@ -126,7 +133,7 @@ Clinical-AI-Demos/
       feature_request.md
     PULL_REQUEST_TEMPLATE.md                   # Safety plus CI checklist
 
-  demo-projects/                               # v0.1.0 Prompts plus v0.2.0 Images plus v0.3.0/v0.4.0 Swarm
+  demo-projects/                               # v0.1.0 Prompts plus v0.2.0 Images plus v0.3.0/v0.4.0/v0.5.0 Swarm
     README.md                                  # Directory README with coverage matrix
     01-humanoid-site-operations-director.md    # Atlas Electric plus Claude Opus 4.7
     02-sponsor-humanoid-operations-center.md
@@ -135,7 +142,7 @@ Clinical-AI-Demos/
     05-humanoid-biospecimen-pathology-lab.md
     06-humanoid-tele-surgical-assistant.md
     07-humanoid-24-7-adverse-event-response.md
-    07-humanoid/                               # v0.3.0 plus v0.4.0 codegen
+    07-humanoid/                               # v0.3.0 + v0.4.0 codegen + v0.5.0 execution
       paper/
         instructions/                          # v0.3.0 code generation instructions
           README.md
@@ -166,6 +173,14 @@ Clinical-AI-Demos/
           figures/                             # 6 PNG figures at 300 dpi
           tests/                               # 6 pytest modules (36 tests)
           docker/                              # 4 Dockerfiles (llm, ingest, simulator, bus)
+        execution/                             # v0.5.0 codegen run outputs
+          README.md                            # 12 badges, 7 commit roadmap, ASCII flow
+          logs/                                # 23 per step execution logs
+          data/                                # iterations index original plus runtime plus runs
+          diagrams/                            # 4 ASCII execution diagrams
+          figures/                             # 6 PNG figures at 300 dpi (regenerated)
+          reports/                             # 4 codegen report copies plus execution report
+          outputs/                             # comparison plus iteration plus tree plus inventory
         templates/                             # Reserved for future template files
     08-humanoid-clinical-research-coordinator.md
     09-humanoid-radiation-oncology-technologist.md
@@ -185,6 +200,7 @@ flowchart LR
     II[demo-projects/image-instruct/]
     SW[demo-projects/07-humanoid/paper/instructions/ v0.3.0]
     CG[demo-projects/07-humanoid/paper/codegen/ v0.4.0]
+    EX[demo-projects/07-humanoid/paper/execution/ v0.5.0]
     NR[national-repositories/]
     GH[.github/]
     CHG[CHANGELOG.md]

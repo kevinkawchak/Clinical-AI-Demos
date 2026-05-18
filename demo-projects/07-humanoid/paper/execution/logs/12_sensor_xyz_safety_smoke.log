@@ -1,0 +1,25 @@
+SensorToXYZ projection of a 3x3 RGB-D depth grid:
+  3x3 depth grid -> 3 world points
+    xyz=(0.000, 0.000, 2.000)
+    xyz=(0.000, 0.000, 2.000)
+    xyz=(0.000, 0.000, 2.100)
+
+SensorToXYZ peer triangulation (IR plus UWB fusion):
+  peer SF-01-H2-B -> xyz=(0.000, 0.000, 0.000)
+
+CartesianPlanner quintic blend with peer envelope check:
+  Quintic trajectory has 21 steps
+  step  0: xyz=(0.000, 0.000, 1.000)
+  step  4: xyz=(0.087, 0.116, 1.029)
+  step  8: xyz=(0.476, 0.635, 1.159)
+  step 12: xyz=(1.024, 1.365, 1.341)
+  step 16: xyz=(1.413, 1.884, 1.471)
+  step 20: xyz=(1.500, 2.000, 1.500)
+
+xyz_safety validate_command results:
+  in-frame  xyz=(1.0,1.0,1.5)         -> (True, 'ok')
+  out-frame xyz=(100,100,10)          -> (False, 'frame_bounds_violation')
+  no-fly    xyz=(-5,0,0.5) oxygen tank-> (False, 'no_fly_zone_intersect')
+
+predict_peer_position 200 ms ahead:
+  predicted xyz=(1.100, 1.000, 1.000)
