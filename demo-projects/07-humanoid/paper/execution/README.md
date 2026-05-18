@@ -84,6 +84,24 @@ This commit captures the deterministic sweep across the 5-axis parameter space a
 - The C++ `robot_loop.cpp` accepts a robot id argument, exits cleanly after 100 ms, and does not connect to a real Unitree H2 EDU SDK. The motion loop runs but does not drive joints.
 - The Rust `runner_main.rs` prints 32 hard-coded iteration summaries; it does not invoke the Python `iterate.py` engine. The Rust runner is intended as an alternative implementation, not a thin wrapper.
 
+## Figures + Reports + Execution Report (Commit 5 of 7)
+
+This commit captures the 6 generated PNG figures at 300 dpi, copies of the codegen comparison artifacts, the consolidated v0.5.0 execution report, and the comparison radar ASCII diagram.
+
+- `figures/01_swarm_architecture.png` (150 KB): 3-robot camarade swarm at SF-01 with H2-A Lead, H2-B Assist, H2-C Reserve, patient bed, and the on-prem Claude Opus 4.7 1M appliance. 11.0 by 8.5 inch landscape at 300 dpi.
+- `figures/02_response_time_histogram.png` (181 KB): histogram of v0.4.0 p50 (32 iterations) versus Atlas (4 reference values) versus 3-human paramedic team (4 reference values) plus a 90 s SLA line. 8.5 by 11.0 inch portrait.
+- `figures/03_camaraderie_heatmap.png` (159 KB): 24 hour by 7 day heatmap of the camaraderie invariants pass rate. 11.0 by 8.5 inch landscape.
+- `figures/04_role_rotation_timeline.png` (132 KB): 3 lane broken bar chart of Lead, Assist, Reserve across a 90 s AE response. 8.5 by 11.0 inch portrait.
+- `figures/05_force_budget_distribution.png` (205 KB): violin plot of cumulative cross-robot force during Lift, Transfer, Stabilize tasks with a 22 N ceiling line. 8.5 by 11.0 inch portrait.
+- `figures/06_4site_comparison.png` (202 KB): 2 by 2 small multiples comparing SF-01, SD-01, BO-01, AT-01 on p50, camaraderie, escalations, battery. 11.0 by 8.5 inch landscape.
+- `reports/report_v0_4_0_copy.md`: copy of the 9-section codegen comparison report.
+- `reports/comparison_v0_4_0_copy.json`: copy of the machine-readable comparison.
+- `reports/dashboard_v0_4_0_copy.html`: copy of the single-page HTML dashboard.
+- `reports/comparison_methodology_v0_4_0_copy.md`: copy of the 3 baseline categories methodology.
+- `reports/execution_report_v0_5_0.md`: new consolidated v0.5.0 execution report with 25-row executable inventory table, headline comparison table, ASCII comparison bar chart, recorded caveats, and thesis recap.
+- `diagrams/04_comparison_radar.txt`: ASCII radar of the 7 weighted dimensions across the 4 configurations. 73 columns by 48 lines.
+- `logs/21_figures_generation.log`: figure generation log.
+
 ## Schema Ingest Result (Commit 1 of 7)
 
 ```

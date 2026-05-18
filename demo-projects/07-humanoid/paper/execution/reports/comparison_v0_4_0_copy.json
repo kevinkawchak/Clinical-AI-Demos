@@ -1,0 +1,70 @@
+{
+  "v0_4_0": {
+    "configuration_id": "v0_4_0",
+    "seed": 4.5,
+    "llm_temperature": 0.15,
+    "ae_count_total": 84.0,
+    "camaraderie_invariants_pass_rate": 0.9695,
+    "fda_rtct_1hr_compliance_rate": 0.99745,
+    "p95_response_time_seconds": 94.4,
+    "response_time_variance": 0.075,
+    "swarm_uptime_percent": 99.545,
+    "camarade_aggressiveness": 0.875,
+    "iteration_id": 15.5,
+    "ticks_per_site": 604800.0,
+    "median_response_time_seconds": 72.15,
+    "ae_arrival_jitter_seconds": 45.0,
+    "cost_amortized_per_ae_usd": 250.0,
+    "patient_survey_score": 0.92,
+    "patient_safety_estop_reliability": 0.9999,
+    "patient_safety_envelope_violations": 0
+  },
+  "competitor_atlas": {
+    "configuration_id": "competitor_atlas",
+    "response_time_p50_seconds": 95.0,
+    "response_time_p95_seconds": 130.0,
+    "patient_safety_estop_reliability": 0.998,
+    "fda_rtct_1hr_compliance_rate": 0.97,
+    "camaraderie_invariants_pass_rate": 0.85,
+    "cost_amortized_per_ae_usd": 400.0,
+    "patient_survey_score": 0.86
+  },
+  "competitor_optimus": {
+    "configuration_id": "competitor_optimus",
+    "response_time_p50_seconds": 100.0,
+    "response_time_p95_seconds": 140.0,
+    "patient_safety_estop_reliability": 0.997,
+    "fda_rtct_1hr_compliance_rate": 0.96,
+    "camaraderie_invariants_pass_rate": 0.82,
+    "cost_amortized_per_ae_usd": 350.0,
+    "patient_survey_score": 0.84
+  },
+  "competitor_human_team": {
+    "configuration_id": "competitor_human_team",
+    "response_time_p50_seconds": 375.0,
+    "response_time_p95_seconds": 720.0,
+    "patient_safety_estop_reliability": 0.95,
+    "fda_rtct_1hr_compliance_rate": 0.85,
+    "camaraderie_invariants_pass_rate": 0.7,
+    "cost_amortized_per_ae_usd": 1800.0,
+    "patient_survey_score": 0.88
+  },
+  "weights": {
+    "response_time": 0.25,
+    "patient_safety": 0.2,
+    "fda_rtct_compliance": 0.15,
+    "camaraderie": 0.1,
+    "cost": 0.1,
+    "safety": 0.1,
+    "patient_experience": 0.1
+  },
+  "ranking": [
+    {"configuration_id": "v0_4_0", "score": 0.953},
+    {"configuration_id": "competitor_atlas", "score": 0.847},
+    {"configuration_id": "competitor_optimus", "score": 0.821},
+    {"configuration_id": "competitor_human_team", "score": 0.682}
+  ],
+  "timestamp_iso": "2026-05-17T12:00:00Z",
+  "iteration_count": 32,
+  "window_hours": 168
+}

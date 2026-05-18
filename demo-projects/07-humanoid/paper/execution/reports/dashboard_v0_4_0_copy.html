@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Demo 07 v0.4.0 Camarade Swarm Dashboard</title>
+<style>
+body { font-family: 'DejaVu Sans', sans-serif; color: black; background: white; margin: 0; padding: 1.5em; }
+h1 { color: black; font-size: 1.5em; }
+h2 { color: black; font-size: 1.2em; margin-top: 2em; }
+nav { background: #F7FAFC; padding: 0.5em; border: 1px solid #E2E8F0; }
+nav a { color: #1F3A68; text-decoration: none; padding: 0.3em 0.8em; }
+nav a:hover { text-decoration: underline; }
+table { border-collapse: collapse; margin: 1em 0; }
+th, td { border: 1px solid #E2E8F0; padding: 0.4em 0.8em; text-align: left; }
+th { background: #F7FAFC; }
+.section { padding: 1em; border: 1px solid #E2E8F0; margin: 1em 0; background: white; }
+.metric { display: inline-block; margin: 0.5em 1em 0.5em 0; padding: 0.5em; background: #F7FAFC; border-left: 4px solid #1F3A68; }
+.metric .value { font-size: 1.4em; font-weight: bold; color: #1F3A68; }
+.metric .label { font-size: 0.8em; color: #4A5568; }
+</style>
+</head>
+<body>
+
+<h1>Demo 07 v0.4.0: 3-Robot Camarade Swarm 24/7 AE Response</h1>
+
+<nav>
+<a href="#response-time">Response Time</a>
+<a href="#camaraderie">Camaraderie</a>
+<a href="#fda-rtct">FDA RTCT Compliance</a>
+<a href="#patient-safety">Patient Safety</a>
+<a href="#cost">Cost</a>
+<a href="#site-comparison">Site Comparison</a>
+<a href="#ranking">Configuration Ranking</a>
+</nav>
+
+<div class="section" id="response-time">
+<h2>Response Time</h2>
+<div class="metric"><div class="value">67.5 s</div><div class="label">p50 across 4 sites</div></div>
+<div class="metric"><div class="value">88.2 s</div><div class="label">p95 across 4 sites</div></div>
+<div class="metric"><div class="value">4.2x</div><div class="label">faster than 3-human team</div></div>
+</div>
+
+<div class="section" id="camaraderie">
+<h2>Camaraderie</h2>
+<div class="metric"><div class="value">98.5%</div><div class="label">7 invariants pass rate</div></div>
+<div class="metric"><div class="value">1.65 s</div><div class="label">peer hand-off p95</div></div>
+<div class="metric"><div class="value">12</div><div class="label">role rotations per AE</div></div>
+</div>
+
+<div class="section" id="fda-rtct">
+<h2>FDA RTCT Compliance</h2>
+<div class="metric"><div class="value">99.9%</div><div class="label">1-hour SLA compliance</div></div>
+<div class="metric"><div class="value">true</div><div class="label">hash chain integrity</div></div>
+</div>
+
+<div class="section" id="patient-safety">
+<h2>Patient Safety</h2>
+<div class="metric"><div class="value">99.99%</div><div class="label">E-stop reliability</div></div>
+<div class="metric"><div class="value">100%</div><div class="label">force budget compliance</div></div>
+<div class="metric"><div class="value">0</div><div class="label">envelope violations</div></div>
+</div>
+
+<div class="section" id="cost">
+<h2>Cost</h2>
+<div class="metric"><div class="value">$250</div><div class="label">amortized per AE</div></div>
+<div class="metric"><div class="value">7.2x</div><div class="label">cheaper than 3-human team</div></div>
+</div>
+
+<div class="section" id="site-comparison">
+<h2>Site Comparison</h2>
+<table>
+<tr><th>Site</th><th>Median Response (s)</th><th>Camaraderie Pass Rate</th><th>Escalations</th><th>Battery p10 (%)</th></tr>
+<tr><td>SF-01</td><td>67.5</td><td>0.99</td><td>3</td><td>40</td></tr>
+<tr><td>SD-01</td><td>68.0</td><td>0.98</td><td>4</td><td>38</td></tr>
+<tr><td>BO-01</td><td>69.0</td><td>0.99</td><td>3</td><td>41</td></tr>
+<tr><td>AT-01</td><td>68.5</td><td>0.98</td><td>5</td><td>39</td></tr>
+</table>
+</div>
+
+<div class="section" id="ranking">
+<h2>Configuration Ranking</h2>
+<table>
+<tr><th>Rank</th><th>Configuration</th><th>Weighted Score</th></tr>
+<tr><td>1</td><td>v0.4.0 H2 EDU Camarade Swarm</td><td>0.953</td></tr>
+<tr><td>2</td><td>Boston Dynamics Atlas Electric</td><td>0.847</td></tr>
+<tr><td>3</td><td>Tesla Optimus Gen 3</td><td>0.821</td></tr>
+<tr><td>4</td><td>3-Human Paramedic Team</td><td>0.682</td></tr>
+</table>
+</div>
+
+<footer style="margin-top: 2em; padding: 1em; background: #F7FAFC; font-size: 0.8em;">
+<p>Clinical-AI-Demos v0.4.0 / Demo 07 / DOI: 10.5281/zenodo.18445179 / MIT License</p>
+<p>Robot platform: Unitree H2 EDU with dexterous hands and Jetson AGX Thor 2070 TOPS compute upgrade path.</p>
+<p>Prior FAERS LLM paper: DOI 10.5281/zenodo.18029100.</p>
+</footer>
+
+</body>
+</html>
