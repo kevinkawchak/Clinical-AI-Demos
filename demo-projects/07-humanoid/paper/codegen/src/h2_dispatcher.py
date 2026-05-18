@@ -46,9 +46,7 @@ class H2Dispatcher:
             cmd_id = f"cmd-{uuid.uuid4().hex[:16]}"
             peers = [r for r in roster if r != sub["robot_id"]]
             if len(peers) != 2:
-                raise ValueError(
-                    f"expected exactly 2 peers for {sub['robot_id']}, got {len(peers)}"
-                )
+                raise ValueError(f"expected exactly 2 peers for {sub['robot_id']}, got {len(peers)}")
             command = {
                 "command_id": cmd_id,
                 "tick": broadcast["tick"],
@@ -67,9 +65,7 @@ class H2Dispatcher:
         with self._lock:
             self._published[broadcast["tick"]] = [c["command_id"] for c in outgoing]
             self._acks.setdefault(broadcast["tick"], set())
-        digest = hashlib.sha256(
-            json.dumps(broadcast, sort_keys=True).encode()
-        ).hexdigest()
+        digest = hashlib.sha256(json.dumps(broadcast, sort_keys=True).encode()).hexdigest()
         self.audit_prev_hash = digest
         return outgoing
 
@@ -83,9 +79,7 @@ class H2Dispatcher:
         with self._lock:
             self._acks.setdefault(tick, set()).add(robot_id)
 
-    def collect_acks(
-        self, tick: int, timeout_ms: int = 500
-    ) -> dict:
+    def collect_acks(self, tick: int, timeout_ms: int = 500) -> dict:
         deadline = time.time() + timeout_ms / 1000.0
         while time.time() < deadline:
             with self._lock:
