@@ -1,0 +1,86 @@
+                  PAT-NET-001 Continental Adverse Event Response Network
+                  =======================================================
+
+                                Cross Site Coordination Bus
+                                  (de-identified summaries)
+            +------------------------------+------------------------------+
+            |                              |                              |
+            v                              v                              v
+   +-----------------+         +-----------------+              +-----------------+
+   | SF-01           |         | SD-01           |              | BO-01 + AT-01   |
+   | San Francisco   |         | San Diego       |              | Boston + Atlanta|
+   +-----------------+         +-----------------+              +-----------------+
+
+  +---------------------------+
+  | Site SF-01 (San Francisco)|
+  | Claude Opus 4.7 1M on-prem|
+  | Broadcast bus at 1 Hz     |
+  |                           |
+  |   +------+  +------+      |
+  |   | H2-A |  | H2-B |      |
+  |   | Lead |  |Assist|      |
+  |   +------+  +------+      |
+  |        \    /             |
+  |         \  /              |
+  |       +------+            |
+  |       | H2-C |            |
+  |       |Reserve|           |
+  |       +------+            |
+  +---------------------------+
+
+  +---------------------------+
+  | Site SD-01 (San Diego)    |
+  | Claude Opus 4.7 1M on-prem|
+  | Broadcast bus at 1 Hz     |
+  |                           |
+  |   +------+  +------+      |
+  |   | H2-D |  | H2-E |      |
+  |   | Lead |  |Assist|      |
+  |   +------+  +------+      |
+  |        \    /             |
+  |         \  /              |
+  |       +------+            |
+  |       | H2-F |            |
+  |       |Reserve|           |
+  |       +------+            |
+  +---------------------------+
+
+  +---------------------------+
+  | Site BO-01 (Boston)       |
+  | Claude Opus 4.7 1M on-prem|
+  | Broadcast bus at 1 Hz     |
+  |                           |
+  |   +------+  +------+      |
+  |   | H2-G |  | H2-H |      |
+  |   | Lead |  |Assist|      |
+  |   +------+  +------+      |
+  |        \    /             |
+  |         \  /              |
+  |       +------+            |
+  |       | H2-I |            |
+  |       |Reserve|           |
+  |       +------+            |
+  +---------------------------+
+
+  +---------------------------+
+  | Site AT-01 (Atlanta)      |
+  | Claude Opus 4.7 1M on-prem|
+  | Broadcast bus at 1 Hz     |
+  |                           |
+  |   +------+  +------+      |
+  |   | H2-J |  | H2-K |      |
+  |   | Lead |  |Assist|      |
+  |   +------+  +------+      |
+  |        \    /             |
+  |         \  /              |
+  |       +------+            |
+  |       | H2-L |            |
+  |       |Reserve|           |
+  |       +------+            |
+  +---------------------------+
+
+  Legend: roles shown are typical at AE start. Roles rotate at every 1 Hz tick.
+  Inter robot: 60 GHz UWB peer mesh plus IR beacon line of sight.
+  LLM to robot: 1 Hz broadcast publish subscribe.
+  Cross site: de-identified hourly summaries only. No PHI. No robot transit.
+  Platform: Unitree H2 EDU. Compute slot upgradeable to Jetson AGX Thor 2070 TOPS.
