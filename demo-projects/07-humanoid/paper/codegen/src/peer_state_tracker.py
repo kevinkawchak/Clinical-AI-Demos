@@ -56,9 +56,7 @@ class PeerStateTracker:
                 "state_id": f"st-{uuid.uuid4().hex[:16]}",
                 "robot_id": self.robot_id,
                 "site": self_state.get("site", "SF-01"),
-                "timestamp_iso": time.strftime(
-                    "%Y-%m-%dT%H:%M:%SZ", time.gmtime(now)
-                ),
+                "timestamp_iso": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(now)),
                 "self_state": self_state,
                 "peer_state_a": peer_a,
                 "peer_state_b": peer_b,
