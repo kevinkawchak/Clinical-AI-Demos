@@ -1,0 +1,50 @@
+compute.py metric vector demonstration
+=======================================
+
+Per iteration metric vectors loaded from index.jsonl (original hand-curated):
+  iterations loaded: 32
+  fields per iter  : 16
+
+Summary across the 32 iteration sweep (original hand-curated):
+  median(p50)             : 72.15 s
+  median(p95)             : 94.40 s
+  median camaraderie pass : 0.9695
+  median fda 1h compliance: 0.9974
+  median swarm uptime pct : 99.55
+  min p50, max p50         : 67.50, 76.80
+  min cam, max cam         : 0.9540, 0.9850
+
+compute_configuration_metrics result:
+  ae_arrival_jitter_seconds                  = 45.0000
+  ae_count_total                             = 84.0000
+  camarade_aggressiveness                    = 0.8750
+  camaraderie_invariants_pass_rate           = 0.9695
+  configuration_id                           = v0_4_0
+  fda_rtct_1hr_compliance_rate               = 0.9974
+  iteration_id                               = 15.5000
+  llm_temperature                            = 0.1500
+  median_response_time_seconds               = 72.1500
+  p95_response_time_seconds                  = 94.4000
+  response_time_variance                     = 0.0750
+  seed                                       = 4.5000
+  swarm_uptime_percent                       = 99.5450
+  ticks_per_site                             = 604800.0000
+
+Weighted score vs 3 baselines (compare via comparison.json):
+  v0_4_0                   score=13.5385
+  competitor_optimus       score=1.0201
+  competitor_atlas         score=0.9977
+  competitor_human_team    score=0.6644
+
+Baseline AE-type-keyed medians from human_team_baseline.csv:
+  anaphylaxis              median 430.0 s
+  cardiac_arrest           median 190.0 s
+  cytokine_release_syndrome median 520.0 s
+  hypotension              median 375.0 s
+  syncope                  median 315.0 s
+
+Original comparison.json ranking (precomputed in v0.4.0 reports):
+  v0_4_0                   score=0.9530
+  competitor_atlas         score=0.8470
+  competitor_optimus       score=0.8210
+  competitor_human_team    score=0.6820

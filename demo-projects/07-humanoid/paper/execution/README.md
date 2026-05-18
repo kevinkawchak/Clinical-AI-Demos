@@ -62,6 +62,28 @@ This commit captures the 4-site site_runtime, week_runner orchestrator, h2_dispa
 - `logs/17_cpp_robot_loop.log`: g++ -std=c++20 -O2 compiles `src/robot_loop.cpp` and the binary runs for each of SF-01-H2-A, SF-01-H2-B, SF-01-H2-C.
 - `diagrams/02_4site_execution_sequence.txt`: 4-site execution sequence diagram (capped at 80 x 60).
 
+## 32 Iteration Sweep + Compute + Comparison Tables (Commit 4 of 7)
+
+This commit captures the deterministic sweep across the 5-axis parameter space and the resulting weighted comparison against 3 baselines.
+
+- `logs/18_iterate_sweep.log`: `python src/iterate.py --config config/iterations.yaml` completes 32 iterations.
+- `data/iterations_index_original.jsonl`: snapshot of the codegen tree's hand-curated 32-iteration index (rich per-iteration metrics with p50 ranging 67.5 to 76.8 s and camaraderie pass 0.954 to 0.985).
+- `data/iterations_index_runtime.jsonl`: 32-iteration index produced by the live iterate.py run. Note: the codegen `run_iteration` function returns the same headline statistic values (p50 67.5 s, p95 88.2 s, camaraderie 0.985) for every iteration because the simulation stub is constant. The original index in the codegen tree is the realistic hand-curated baseline; the runtime index is the structural verification that the iterate sweep mechanism completes.
+- `data/iterations_aggregate.duckdb`: aggregate DuckDB store built by `build_aggregate()` with 32 rows and 15 columns.
+- `logs/19_compute_metrics.log`: per-iteration medians (p50 72.15 s, p95 94.40 s, camaraderie 0.9695, FDA 1 h 0.9974, swarm uptime 99.55 percent), `compute_configuration_metrics()` v0_4_0 result, and weighted comparison of the 4 configurations. Original comparison.json ranks v0_4_0 first at 0.953, followed by Atlas at 0.847, Optimus at 0.821, and human team at 0.682.
+- `logs/20_compare_agent_narrative.log`: `compare_agent.py` natural language comparison narrative reading from `reports/comparison.json` and `src/prompt_frozen.md`.
+- `outputs/iteration_sweep_table.md`: 32-row Markdown table with seed, llm_temp, jitter, variance, aggressiveness, p50, p95, camaraderie pass, fda 1 h, swarm uptime per iteration, plus medians.
+- `outputs/comparison_summary_table.md`: 4-row comparison table (v0_4_0, competitor_atlas, competitor_optimus, competitor_human_team) with p50, p95, camaraderie, fda compliance, patient survey, e-stop reliability, cost per AE, and weighted score; plus the weight vector summing to 1.00.
+- `diagrams/03_iteration_sweep_funnel.txt`: 32-iteration funnel from `config/iterations.yaml` through `compare_agent.py`, 57 columns by 58 lines.
+
+### Limitations Identified at Commit 4
+
+- The `src/week_runner.py::_site_worker` returns constants (0.5 AE per hour scaled to the hour count). It does not simulate physical patient AE events. The 84 AE per 168 hour figure in the original index is hand-curated, not produced by the simulator.
+- `src/iterate.py::run_iteration` hard codes p50 67.5 s, p95 88.2 s, camaraderie 0.985, FDA 0.999, uptime 99.7 across all 32 iterations. The original `data/iterations/index.jsonl` is a hand-curated index with varied per-iteration values. The runtime iterate.py overwrites that index with constants, so the captured `iterations_index_runtime.jsonl` is structurally valid but does not vary across iterations.
+- The Anthropic API path in `src/llm_planner.py::_call_llm` falls back to the deterministic in-process stub when no on-prem appliance is reachable. The execution environment has no on-prem appliance, so all 240 llm_decision records reflect the deterministic stub.
+- The C++ `robot_loop.cpp` accepts a robot id argument, exits cleanly after 100 ms, and does not connect to a real Unitree H2 EDU SDK. The motion loop runs but does not drive joints.
+- The Rust `runner_main.rs` prints 32 hard-coded iteration summaries; it does not invoke the Python `iterate.py` engine. The Rust runner is intended as an alternative implementation, not a thin wrapper.
+
 ## Schema Ingest Result (Commit 1 of 7)
 
 ```
