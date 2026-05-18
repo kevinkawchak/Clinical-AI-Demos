@@ -1,0 +1,38 @@
+broadcast:
+  cadence_hz: 1
+  payload_format: jsonl
+  publish_topic: site/{site_id}/broadcast
+  qos: at_least_once
+  redundant_failover_within_site: true
+  fan_out_targets: 3
+  ack_timeout_ms: 500
+  ack_required_count: 3
+
+degraded_modes:
+  no_llm_for_seconds: 3
+  no_llm_action: hold_last_broadcast_and_elevate_reserve_to_lead
+  no_peer_uwb_for_seconds: 1
+  no_peer_uwb_action: fall_back_to_ir_beacon_handoff_at_100ms
+  no_ir_beacon_for_seconds: 0.5
+  no_ir_beacon_action: fall_back_to_uwb_e_stop_with_10ms_ceiling
+
+cross_site_summary:
+  cadence_seconds: 3600
+  fields:
+    - ae_count_by_grade
+    - response_time_p50_seconds
+    - response_time_p95_seconds
+    - escalation_count
+    - fda_rtct_1hr_compliance_rate
+    - swarm_uptime_percent
+    - peer_handoff_p95_seconds
+    - camaraderie_invariants_pass_rate
+    - fleet_battery_p10_percent
+  egress_policy: phi_forbidden
+  signing: ed25519_per_site
+
+llm_resource_share:
+  central_compute_bus_uri: tcp://central-compute:5050
+  shared_workspace_quota_mb: 5000
+  central_role: passive_observer_only
+  central_writes_to_robots: forbidden
