@@ -1,0 +1,61 @@
+platform: Unitree H2 EDU
+dof: 39
+base_frame: site_world
+height_m: 1.8
+mass_kg: 70
+
+chains:
+  spine:
+    - {name: pelvis,        parent: base,          axis: [0, 0, 1], offset_m: [0.0, 0.0, 0.0],  range_rad: [-0.5, 0.5]}
+    - {name: lower_torso,   parent: pelvis,        axis: [0, 0, 1], offset_m: [0.0, 0.0, 0.15], range_rad: [-0.3, 0.3]}
+    - {name: upper_torso,   parent: lower_torso,   axis: [0, 0, 1], offset_m: [0.0, 0.0, 0.20], range_rad: [-0.3, 0.3]}
+    - {name: neck_yaw,      parent: upper_torso,   axis: [0, 0, 1], offset_m: [0.0, 0.0, 0.20], range_rad: [-1.5, 1.5]}
+    - {name: head,          parent: neck_yaw,      axis: [0, 1, 0], offset_m: [0.0, 0.0, 0.08], range_rad: [-1.0, 1.0]}
+  left_arm:
+    - {name: l_shoulder_y,  parent: upper_torso,   axis: [0, 1, 0], offset_m: [0.0, 0.18, 0.40], range_rad: [-3.14, 3.14]}
+    - {name: l_shoulder_p,  parent: l_shoulder_y,  axis: [1, 0, 0], offset_m: [0.0, 0.0, 0.0],   range_rad: [-2.0, 2.0]}
+    - {name: l_shoulder_r,  parent: l_shoulder_p,  axis: [0, 0, 1], offset_m: [0.0, 0.0, 0.0],   range_rad: [-2.0, 2.0]}
+    - {name: l_elbow,       parent: l_shoulder_r,  axis: [0, 1, 0], offset_m: [0.0, 0.0, -0.25], range_rad: [-2.5, 0.0]}
+    - {name: l_wrist_r,     parent: l_elbow,       axis: [0, 0, 1], offset_m: [0.0, 0.0, -0.20], range_rad: [-3.14, 3.14]}
+    - {name: l_wrist_p,     parent: l_wrist_r,     axis: [1, 0, 0], offset_m: [0.0, 0.0, 0.0],   range_rad: [-1.5, 1.5]}
+    - {name: l_wrist_y,     parent: l_wrist_p,     axis: [0, 1, 0], offset_m: [0.0, 0.0, 0.0],   range_rad: [-1.5, 1.5]}
+    - {name: l_hand_grip,   parent: l_wrist_y,     axis: [0, 0, 1], offset_m: [0.0, 0.0, -0.10], range_rad: [-1.0, 1.0]}
+  right_arm:
+    - {name: r_shoulder_y,  parent: upper_torso,   axis: [0, 1, 0], offset_m: [0.0, -0.18, 0.40], range_rad: [-3.14, 3.14]}
+    - {name: r_shoulder_p,  parent: r_shoulder_y,  axis: [1, 0, 0], offset_m: [0.0, 0.0, 0.0],    range_rad: [-2.0, 2.0]}
+    - {name: r_shoulder_r,  parent: r_shoulder_p,  axis: [0, 0, 1], offset_m: [0.0, 0.0, 0.0],    range_rad: [-2.0, 2.0]}
+    - {name: r_elbow,       parent: r_shoulder_r,  axis: [0, 1, 0], offset_m: [0.0, 0.0, -0.25],  range_rad: [-2.5, 0.0]}
+    - {name: r_wrist_r,     parent: r_elbow,       axis: [0, 0, 1], offset_m: [0.0, 0.0, -0.20],  range_rad: [-3.14, 3.14]}
+    - {name: r_wrist_p,     parent: r_wrist_r,     axis: [1, 0, 0], offset_m: [0.0, 0.0, 0.0],    range_rad: [-1.5, 1.5]}
+    - {name: r_wrist_y,     parent: r_wrist_p,     axis: [0, 1, 0], offset_m: [0.0, 0.0, 0.0],    range_rad: [-1.5, 1.5]}
+    - {name: r_hand_grip,   parent: r_wrist_y,     axis: [0, 0, 1], offset_m: [0.0, 0.0, -0.10],  range_rad: [-1.0, 1.0]}
+  left_leg:
+    - {name: l_hip_y,       parent: pelvis,        axis: [0, 1, 0], offset_m: [0.0, 0.10, -0.10], range_rad: [-1.5, 1.5]}
+    - {name: l_hip_p,       parent: l_hip_y,       axis: [1, 0, 0], offset_m: [0.0, 0.0, 0.0],    range_rad: [-1.0, 1.5]}
+    - {name: l_hip_r,       parent: l_hip_p,       axis: [0, 0, 1], offset_m: [0.0, 0.0, 0.0],    range_rad: [-0.5, 0.5]}
+    - {name: l_knee,        parent: l_hip_r,       axis: [0, 1, 0], offset_m: [0.0, 0.0, -0.40],  range_rad: [0.0, 2.5]}
+    - {name: l_ankle_p,     parent: l_knee,        axis: [1, 0, 0], offset_m: [0.0, 0.0, -0.40],  range_rad: [-0.8, 0.5]}
+    - {name: l_ankle_y,     parent: l_ankle_p,     axis: [0, 1, 0], offset_m: [0.0, 0.0, 0.0],    range_rad: [-0.5, 0.5]}
+  right_leg:
+    - {name: r_hip_y,       parent: pelvis,        axis: [0, 1, 0], offset_m: [0.0, -0.10, -0.10], range_rad: [-1.5, 1.5]}
+    - {name: r_hip_p,       parent: r_hip_y,       axis: [1, 0, 0], offset_m: [0.0, 0.0, 0.0],     range_rad: [-1.0, 1.5]}
+    - {name: r_hip_r,       parent: r_hip_p,       axis: [0, 0, 1], offset_m: [0.0, 0.0, 0.0],     range_rad: [-0.5, 0.5]}
+    - {name: r_knee,        parent: r_hip_r,       axis: [0, 1, 0], offset_m: [0.0, 0.0, -0.40],   range_rad: [0.0, 2.5]}
+    - {name: r_ankle_p,     parent: r_knee,        axis: [1, 0, 0], offset_m: [0.0, 0.0, -0.40],   range_rad: [-0.8, 0.5]}
+    - {name: r_ankle_y,     parent: r_ankle_p,     axis: [0, 1, 0], offset_m: [0.0, 0.0, 0.0],     range_rad: [-0.5, 0.5]}
+  left_hand:
+    - {name: l_thumb,       parent: l_hand_grip,   axis: [0, 0, 1], offset_m: [0.0, 0.02, -0.04],  range_rad: [-1.5, 1.5]}
+    - {name: l_index,       parent: l_hand_grip,   axis: [0, 0, 1], offset_m: [0.0, -0.01, -0.05], range_rad: [-1.5, 1.5]}
+    - {name: l_pinky,       parent: l_hand_grip,   axis: [0, 0, 1], offset_m: [0.0, -0.03, -0.05], range_rad: [-1.5, 1.5]}
+  right_hand:
+    - {name: r_thumb,       parent: r_hand_grip,   axis: [0, 0, 1], offset_m: [0.0, -0.02, -0.04], range_rad: [-1.5, 1.5]}
+    - {name: r_index,       parent: r_hand_grip,   axis: [0, 0, 1], offset_m: [0.0, 0.01, -0.05],  range_rad: [-1.5, 1.5]}
+    - {name: r_pinky,       parent: r_hand_grip,   axis: [0, 0, 1], offset_m: [0.0, 0.03, -0.05],  range_rad: [-1.5, 1.5]}
+
+ik_solver:
+  algorithm: damped_least_squares
+  damping: 0.01
+  max_iterations: 100
+  position_tolerance_m: 0.005
+  orientation_tolerance_rad: 0.01
+  joint_step_max_rad: 0.05

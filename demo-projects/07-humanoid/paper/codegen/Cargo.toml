@@ -1,0 +1,27 @@
+[package]
+name = "pat-net-001-runner"
+version = "0.4.0"
+edition = "2021"
+license = "MIT"
+authors = ["Kevin Kawchak <kevin@chemicalqdevice.com>"]
+description = "Rust runner for PAT-NET-001 32-iteration sweep (Unitree H2 EDU camarade swarm)"
+
+[dependencies]
+crossbeam = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rayon = "1.10"
+
+[lib]
+name = "pat_net_001_runner"
+path = "src/runner.rs"
+crate-type = ["rlib"]
+
+[[bin]]
+name = "runner"
+path = "src/runner_main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

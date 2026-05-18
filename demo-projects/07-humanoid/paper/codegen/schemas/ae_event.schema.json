@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ae_event",
+  "title": "Adverse Event",
+  "type": "object",
+  "required": [
+    "ae_id",
+    "patient_id",
+    "site",
+    "detected_at_iso",
+    "detection_source",
+    "ae_type",
+    "initial_ctcae_grade",
+    "responding_swarm",
+    "first_robot_arrival_iso",
+    "resolution_iso_or_null"
+  ],
+  "properties": {
+    "ae_id": { "type": "string", "pattern": "^ae-[0-9a-f]{16}$" },
+    "patient_id": { "type": "string", "pattern": "^PAT-NET-001-P[0-9]{3}$" },
+    "site": { "type": "string", "enum": ["SF-01", "SD-01", "BO-01", "AT-01"] },
+    "detected_at_iso": { "type": "string", "format": "date-time" },
+    "detection_source": {
+      "type": "string",
+      "enum": [
+        "wearable_device",
+        "patient_self_report",
+        "ehr_signal",
+        "sponsor_rtct_mandate",
+        "doctor_observation"
+      ]
+    },
+    "ae_type": {
+      "type": "string",
+      "enum": [
+        "cytokine_release_syndrome",
+        "anaphylaxis",
+        "syncope",
+        "hypotension",
+        "hypertension_crisis",
+        "hypoxia",
+        "bleeding",
+        "thrombosis",
+        "infection_sepsis",
+        "seizure",
+        "cardiac_arrest",
+        "pulmonary_embolism",
+        "other"
+      ]
+    },
+    "initial_ctcae_grade": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "responding_swarm": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "string" }
+    },
+    "first_robot_arrival_iso": { "type": "string", "format": "date-time" },
+    "resolution_iso_or_null": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "physician_escalation_triggered": { "type": "boolean" },
+    "fda_rtct_submission_id": { "type": "string" },
+    "sponsor_acknowledgment_id": { "type": "string" },
+    "notes": { "type": "string", "maxLength": 1024 }
+  },
+  "additionalProperties": false
+}

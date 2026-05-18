@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "swarm_message",
+  "title": "Swarm Camarade Message",
+  "type": "object",
+  "required": [
+    "message_id",
+    "sender_robot_id",
+    "receiver_robot_ids",
+    "channel",
+    "payload_kind",
+    "timestamp_ms",
+    "payload"
+  ],
+  "properties": {
+    "message_id": { "type": "string", "pattern": "^msg-[0-9a-f]{16}$" },
+    "sender_robot_id": { "type": "string" },
+    "receiver_robot_ids": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
+      "items": { "type": "string" }
+    },
+    "channel": { "type": "string", "enum": ["uwb_60ghz", "ir_beacon", "intellectual_pubsub"] },
+    "payload_kind": {
+      "type": "string",
+      "enum": [
+        "handoff_request",
+        "handoff_ack",
+        "sensor_share",
+        "proximity_alert",
+        "e_stop_propagation",
+        "cartesian_frame_align",
+        "task_progress_token",
+        "self_confidence",
+        "role_request_change",
+        "peer_fault_alert"
+      ]
+    },
+    "timestamp_ms": { "type": "integer", "minimum": 0 },
+    "payload": {
+      "oneOf": [
+        { "type": "object" },
+        { "type": "array" },
+        { "type": "string" },
+        { "type": "number" }
+      ]
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "normal", "high", "critical"],
+      "default": "normal"
+    }
+  },
+  "additionalProperties": false
+}

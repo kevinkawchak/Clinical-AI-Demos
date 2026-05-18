@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: If you use this repository, please cite it as below.
 title: "Clinical-AI-Demos: Humanoid and LLM Demos for Physical AI Oncology Clinical Trials"
-version: 0.3.0
+version: 0.4.0
 date-released: 2026-05-17
 license: MIT
 authors:
@@ -24,6 +24,9 @@ keywords:
   - adverse-event-response
   - multi-robot-swarm
   - camarade-swarm
+  - unitree-h2-edu
+  - jetson-agx-thor
+  - claude-opus-4-7
 references:
   - type: misc
     authors:

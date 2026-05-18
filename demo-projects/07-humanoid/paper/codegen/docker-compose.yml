@@ -1,0 +1,85 @@
+version: "3.9"
+
+services:
+  llm-sf01:
+    build: ./docker/llm
+    environment:
+      - SITE_ID=SF-01
+      - ANTHROPIC_BASE_URL=http://anthropic-onprem:8080
+    volumes:
+      - ./config:/config:ro
+      - ./data:/data
+    networks:
+      - pat-net-001
+
+  llm-sd01:
+    build: ./docker/llm
+    environment:
+      - SITE_ID=SD-01
+      - ANTHROPIC_BASE_URL=http://anthropic-onprem:8080
+    volumes:
+      - ./config:/config:ro
+      - ./data:/data
+    networks:
+      - pat-net-001
+
+  llm-bo01:
+    build: ./docker/llm
+    environment:
+      - SITE_ID=BO-01
+      - ANTHROPIC_BASE_URL=http://anthropic-onprem:8080
+    volumes:
+      - ./config:/config:ro
+      - ./data:/data
+    networks:
+      - pat-net-001
+
+  llm-at01:
+    build: ./docker/llm
+    environment:
+      - SITE_ID=AT-01
+      - ANTHROPIC_BASE_URL=http://anthropic-onprem:8080
+    volumes:
+      - ./config:/config:ro
+      - ./data:/data
+    networks:
+      - pat-net-001
+
+  ingest:
+    build: ./docker/ingest
+    volumes:
+      - ./data:/data
+      - ./schemas:/schemas:ro
+    networks:
+      - pat-net-001
+
+  simulator:
+    build: ./docker/simulator
+    environment:
+      - ITERATION_COUNT=32
+    volumes:
+      - ./config:/config:ro
+      - ./data:/data
+    networks:
+      - pat-net-001
+
+  db:
+    image: python:3.12-slim
+    command: ["python", "-c", "import duckdb; duckdb.connect('/data/aggregate.duckdb')"]
+    volumes:
+      - ./data:/data
+    networks:
+      - pat-net-001
+
+  cross-site-bus:
+    build: ./docker/cross-site-bus
+    environment:
+      - PHI_EGRESS=forbidden
+    volumes:
+      - ./data:/data
+    networks:
+      - pat-net-001
+
+networks:
+  pat-net-001:
+    driver: bridge

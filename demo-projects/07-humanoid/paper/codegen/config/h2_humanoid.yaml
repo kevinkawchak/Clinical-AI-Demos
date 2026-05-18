@@ -1,0 +1,103 @@
+platform: Unitree H2 EDU
+specs:
+  dof: 39
+  height_m: 1.8
+  mass_kg: 70
+  payload_per_arm_kg: 10
+  battery_hours: 5
+  battery_hotswap: true
+  ingress_protection: IP65
+  outdoor_rated: true
+  e_stop_latency_ms: 5
+  per_arm_force_compression_N: 15
+  per_arm_force_default_N: 5
+  inter_robot_min_distance_rest_m: 1.2
+  inter_robot_min_distance_handoff_m: 0.4
+  cumulative_cross_robot_force_N: 22
+
+dexterous_hands:
+  fingers_per_hand: 6
+  grasp_pose_count: 12
+  tactile_resolution_N: 0.05
+  pose_repeatability_mm: 0.5
+  tactile_sample_hz: 500
+
+compute_module:
+  default: Jetson Orin AGX 64GB
+  upgradeable_to: Jetson AGX Thor
+  upgrade_tops: 2070
+  upgrade_power_envelope_W: 130
+  haiku_sidecar_supported: true
+
+response_kit:
+  - epinephrine_auto_injector
+  - iv_access_tray
+  - vagus_nerve_stimulator_probe
+  - portable_pulse_oximeter
+  - portable_ecg
+  - emergency_airway_kit
+
+robots:
+  - robot_id: SF-01-H2-A
+    site: SF-01
+    camarade_group: SF-01-swarm
+    starting_role: Lead
+    serial_synthetic: H2-EDU-2026-001
+  - robot_id: SF-01-H2-B
+    site: SF-01
+    camarade_group: SF-01-swarm
+    starting_role: Assist
+    serial_synthetic: H2-EDU-2026-002
+  - robot_id: SF-01-H2-C
+    site: SF-01
+    camarade_group: SF-01-swarm
+    starting_role: Reserve
+    serial_synthetic: H2-EDU-2026-003
+
+  - robot_id: SD-01-H2-D
+    site: SD-01
+    camarade_group: SD-01-swarm
+    starting_role: Lead
+    serial_synthetic: H2-EDU-2026-004
+  - robot_id: SD-01-H2-E
+    site: SD-01
+    camarade_group: SD-01-swarm
+    starting_role: Assist
+    serial_synthetic: H2-EDU-2026-005
+  - robot_id: SD-01-H2-F
+    site: SD-01
+    camarade_group: SD-01-swarm
+    starting_role: Reserve
+    serial_synthetic: H2-EDU-2026-006
+
+  - robot_id: BO-01-H2-G
+    site: BO-01
+    camarade_group: BO-01-swarm
+    starting_role: Lead
+    serial_synthetic: H2-EDU-2026-007
+  - robot_id: BO-01-H2-H
+    site: BO-01
+    camarade_group: BO-01-swarm
+    starting_role: Assist
+    serial_synthetic: H2-EDU-2026-008
+  - robot_id: BO-01-H2-I
+    site: BO-01
+    camarade_group: BO-01-swarm
+    starting_role: Reserve
+    serial_synthetic: H2-EDU-2026-009
+
+  - robot_id: AT-01-H2-J
+    site: AT-01
+    camarade_group: AT-01-swarm
+    starting_role: Lead
+    serial_synthetic: H2-EDU-2026-010
+  - robot_id: AT-01-H2-K
+    site: AT-01
+    camarade_group: AT-01-swarm
+    starting_role: Assist
+    serial_synthetic: H2-EDU-2026-011
+  - robot_id: AT-01-H2-L
+    site: AT-01
+    camarade_group: AT-01-swarm
+    starting_role: Reserve
+    serial_synthetic: H2-EDU-2026-012
