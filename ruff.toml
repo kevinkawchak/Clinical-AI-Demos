@@ -13,6 +13,16 @@ ignore = ["F841", "E741", "E501"]
 
 [lint.per-file-ignores]
 # Demo project scripts use conditional imports and reference patterns
-"demo-projects/**/*.py" = ["F401", "F402", "F821"]
+# E401: multi-import on one line (allowed in notebook cells)
+# E402: module-level import after sys.path mutation (conftest.py pattern)
+"demo-projects/**/*.py" = ["F401", "F402", "F821", "E401", "E402"]
+"demo-projects/**/*.ipynb" = ["F401", "F402", "F821", "E401", "E402"]
 # National repository scripts use conditional imports
 "national-repositories/**/*.py" = ["F401", "F402"]
+
+[format]
+# The v0.4.0 codegen tree at demo-projects/07-humanoid/paper/codegen/ was
+# authored across multiple commits; some files were pushed before final
+# format pass. The codegen pyproject.toml re-enables format for codegen
+# internal development.
+exclude = ["demo-projects/07-humanoid/paper/codegen/**"]
