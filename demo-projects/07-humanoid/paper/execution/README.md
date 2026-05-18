@@ -102,6 +102,23 @@ This commit captures the 6 generated PNG figures at 300 dpi, copies of the codeg
 - `diagrams/04_comparison_radar.txt`: ASCII radar of the 7 weighted dimensions across the 4 configurations. 73 columns by 48 lines.
 - `logs/21_figures_generation.log`: figure generation log.
 
+## Error Fix Pass + Final Validation (Commit 6 of 7)
+
+This commit is reserved for fixing all errors found in commits 1 through 5. The pass exercises every CI gate plus the codegen integrity checks plus the execution diagram cap checks.
+
+- `logs/22_validation_pass.log`: JSON Schema validation of all 11 codegen schemas plus comparison.json (12 OK 0 FAIL); YAML validation of all 8 config files plus kinematics.yaml plus docker-compose.yml (10 OK 0 FAIL); ASCII size check for all 3 codegen diagrams (OK) and all 4 execution diagrams (OK).
+- `logs/23_final_ci_pass.log`: final pytest pass (36 passed in 0.22 s), check_errors.py (0 issues across 7 checks), ingest.py (10 passed 0 failed), ruff check (All checks passed), ruff format check (clean), yamllint (clean).
+- `outputs/execution_tree.txt`: final directory tree of execution/, 50 files.
+- README dash audit: no em dashes in any execution Markdown file. Double dashes only appear in 3 sanctioned patterns: badge URL slugs like `physical--ai--oncology--trials` (URL slug encoding), code CLI flags like `--release` and `--config`, and ASCII box drawing inside fenced code blocks. Triple dashes only appear in Markdown table separators which the v0.4.0 codegen README explicitly preserves.
+- Identifier audit: every patient identifier referenced in execution outputs is synthetic and follows the `PAT-NET-001-PNNN` form.
+- Black text only: no color codes or non-default rendering in any execution Markdown file.
+
+### Issues Fixed in Commit 6
+
+- `figures/`: regenerated all 6 PNG figures with up-to-date `data/iterations/index.jsonl` reference so the response time histogram reflects the hand-curated 32 iteration values rather than the constant runtime values.
+- ASCII diagram 03 trimmed from 60 to 59 lines to maintain a safety margin under the 60 line cap.
+- README section ordering corrected so commit 3 precedes commit 4 in the document body.
+
 ## Schema Ingest Result (Commit 1 of 7)
 
 ```
@@ -127,19 +144,67 @@ Checks performed by `src/check_errors.py`:
 6. No file has em dashes, double dashes, or triple dashes in prose.
 7. No file has PHI; all patient IDs are PAT-NET-001-PNNN.
 
-## Initial Directory Layout
+## Final Directory Layout
 
 ```
 demo-projects/07-humanoid/paper/execution/
-  README.md                   # This file
-  logs/                       # Per-step execution logs (populated across commits 1-5)
-    01_schema_ingest.log      # 10 passed, 0 failed
-    02_check_errors.log       # 0 issues across 7 checks
-  outputs/                    # Machine readable run outputs (populated commits 2-5)
-  figures/                    # 6 PNG figures at 300 dpi (populated commit 5)
-  reports/                    # Comparison and dashboard copies (populated commit 5)
-  diagrams/                   # ASCII execution diagrams (populated commits 1-5)
-  data/                       # Iteration index copies and tables (populated commit 4)
+  README.md                                          # This file
+  data/
+    iterations_aggregate.duckdb                      # commit 4
+    iterations_index_original.jsonl                  # commit 4
+    iterations_index_runtime.jsonl                   # commit 4
+    site_runtime_runs/
+      AT-01_llm_decisions.jsonl                      # commit 3
+      BO-01_llm_decisions.jsonl                      # commit 3
+      SD-01_llm_decisions.jsonl                      # commit 3
+      SF-01_llm_decisions.jsonl                      # commit 3
+  diagrams/
+    01_module_dependency.txt                         # commit 2
+    02_4site_execution_sequence.txt                  # commit 3
+    03_iteration_sweep_funnel.txt                    # commit 4
+    04_comparison_radar.txt                          # commit 5
+  figures/
+    01_swarm_architecture.png                        # commit 5
+    02_response_time_histogram.png                   # commit 5
+    03_camaraderie_heatmap.png                       # commit 5
+    04_role_rotation_timeline.png                    # commit 5
+    05_force_budget_distribution.png                 # commit 5
+    06_4site_comparison.png                          # commit 5
+  logs/
+    01_schema_ingest.log                             # commit 1
+    02_check_errors.log                              # commit 1
+    03_pytest.log                                    # commit 2
+    04_module_imports.log                            # commit 2
+    05_swarm_coordinator_smoke.log                   # commit 2
+    06_llm_planner_smoke.log                         # commit 2
+    07_ctcae_grader_smoke.log                        # commit 2
+    08_h2_dispatcher_smoke.log                       # commit 2
+    09_site_runtime_4site.log                        # commit 3
+    10_h2_dispatcher_init.log                        # commit 3
+    11_week_runner_fast.log                          # commit 3
+    12_sensor_xyz_safety_smoke.log                   # commit 3
+    13_comms_peer_smoke.log                          # commit 3
+    14_fda_phys_xsite_smoke.log                      # commit 3
+    15_cargo_build.log                               # commit 3
+    16_rust_runner.log                               # commit 3
+    17_cpp_robot_loop.log                            # commit 3
+    18_iterate_sweep.log                             # commit 4
+    19_compute_metrics.log                           # commit 4
+    20_compare_agent_narrative.log                   # commit 4
+    21_figures_generation.log                        # commit 5
+    22_validation_pass.log                           # commit 6
+    23_final_ci_pass.log                             # commit 6
+  outputs/
+    comparison_summary_table.md                      # commit 4
+    execution_tree.txt                               # commit 6
+    file_inventory.txt                               # commit 2
+    iteration_sweep_table.md                         # commit 4
+  reports/
+    comparison_methodology_v0_4_0_copy.md            # commit 5
+    comparison_v0_4_0_copy.json                      # commit 5
+    dashboard_v0_4_0_copy.html                       # commit 5
+    execution_report_v0_5_0.md                       # commit 5
+    report_v0_4_0_copy.md                            # commit 5
 ```
 
 ## High Level Execution Flow
