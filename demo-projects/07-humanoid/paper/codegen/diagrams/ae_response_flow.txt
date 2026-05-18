@@ -1,18 +1,18 @@
                        AE Response Swimlane (Single AE, 90 seconds)
                        ===============================================
 
-  Time  Lead (H2-A)                Assist (H2-B)             Reserve (H2-C)
-  ---   -------------------        ----------------          -----------------
-  t+0    AE detected, role assign  AE detected, prep tools  AE detected, scan perimeter
-  t+5    move to bedside           move to bedside backup   stand 1.5 m off side
-  t+15   epinephrine ready         hand-off epinephrine     page on-call physician
-  t+18   epinephrine injected      pulse oximeter prepared  log to audit chain
-  t+22   verify spo2 reading       hand-off pulse oximeter  monitor doctor proximity
-  t+30   secondary intervention    ecg leads attached       fda rtct submission
-  t+45   continuous monitoring     vital sign relay         physician on site check
-  t+60   transfer to physician     tool inventory restock   sponsor acknowledgment log
-  t+75   step back, observe        step back, observe       step back, observe
-  t+90   ready for next AE         ready for next AE        ready for next AE
+  Time  Lead (H2-A)            Assist (H2-B)            Reserve (H2-C)
+  ---   --------------------   ----------------------   ----------------------
+  t+0   AE detected, assign    AE detected, prep tools  AE detected, scan area
+  t+5   move to bedside        move backup position     stand 1.5 m off side
+  t+15  epinephrine ready      hand-off epinephrine     page on-call physician
+  t+18  epinephrine injected   pulse oximeter ready     log to audit chain
+  t+22  verify spo2 reading    hand-off pulse oximeter  monitor doctor proxi
+  t+30  secondary intervention ecg leads attached       fda rtct submission
+  t+45  continuous monitoring  vital sign relay         physician arrival
+  t+60  transfer to physician  tool inventory restock   sponsor ack log
+  t+75  step back, observe     step back, observe       step back, observe
+  t+90  ready for next AE      ready for next AE        ready for next AE
 
   Notes:
     - All 3 robots arrive within 90 seconds.

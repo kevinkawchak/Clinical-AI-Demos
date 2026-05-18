@@ -1,0 +1,45 @@
+sites:
+  SF-01:
+    x_min_m: -50.0
+    x_max_m: 50.0
+    y_min_m: -50.0
+    y_max_m: 50.0
+    z_min_m: 0.0
+    z_max_m: 3.0
+    no_fly_zones:
+      - name: oxygen_tank_rack
+        center_xyz: {x: -5.0, y: 0.0, z: 0.5}
+        radius_m: 1.5
+      - name: imaging_equipment
+        center_xyz: {x: 10.0, y: 5.0, z: 1.0}
+        radius_m: 2.0
+  SD-01:
+    x_min_m: -50.0
+    x_max_m: 50.0
+    y_min_m: -50.0
+    y_max_m: 50.0
+    z_min_m: 0.0
+    z_max_m: 3.0
+    no_fly_zones:
+      - name: oxygen_tank_rack
+        center_xyz: {x: -3.0, y: 0.0, z: 0.5}
+        radius_m: 1.5
+  BO-01:
+    x_min_m: -50.0
+    x_max_m: 50.0
+    y_min_m: -50.0
+    y_max_m: 50.0
+    z_min_m: 0.0
+    z_max_m: 3.0
+    no_fly_zones:
+      - name: pharmacy_clean_room_partition
+        center_xyz: {x: 0.0, y: 10.0, z: 1.5}
+        radius_m: 0.5
+  AT-01:
+    x_min_m: -50.0
+    x_max_m: 50.0
+    y_min_m: -50.0
+    y_max_m: 50.0
+    z_min_m: 0.0
+    z_max_m: 3.0
+    no_fly_zones: []
