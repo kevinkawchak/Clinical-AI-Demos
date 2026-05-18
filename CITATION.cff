@@ -1,19 +1,15 @@
 cff-version: 1.2.0
+message: If you use this repository, please cite it as below.
 title: "Clinical-AI-Demos: Humanoid and LLM Demos for Physical AI Oncology Clinical Trials"
-message: "If you use this repository in your research, please cite it using this metadata."
-type: software
+version: 0.3.0
+date-released: 2026-05-17
+license: MIT
 authors:
   - family-names: Kawchak
     given-names: Kevin
     affiliation: ChemicalQDevice
-version: "0.1.0"
-date-released: "2026-05-16"
-url: "https://github.com/kevinkawchak/Clinical-AI-Demos"
-repository-code: "https://github.com/kevinkawchak/Clinical-AI-Demos"
-license: MIT
-identifiers:
-  - type: doi
-    value: "10.5281/zenodo.18445179"
+repository-code: https://github.com/kevinkawchak/Clinical-AI-Demos
+doi: 10.5281/zenodo.18445179
 keywords:
   - humanoid-robotics
   - large-language-models
@@ -25,10 +21,18 @@ keywords:
   - decentralized-trials
   - patient-care
   - prompt-engineering
-abstract: >-
-  Ten standalone prompt briefs for downstream Claude Code Opus 4.7 sessions to
-  author Physical AI oncology clinical trial demonstrations. Each demo focuses
-  on humanoid robotic agents (Atlas, Optimus, Figure, Digit, Apollo, Phoenix,
-  Neo, H2) coordinated by on-premise large language models performing surgical
-  and patient care tasks inside clinical trial sites and for pharmaceutical
-  company sponsors. Companion repository to physical-ai-oncology-trials.
+  - adverse-event-response
+  - multi-robot-swarm
+  - camarade-swarm
+references:
+  - type: misc
+    authors:
+      - family-names: Kawchak
+        given-names: Kevin
+    title: "Code Generation Competition: 16 Proprietary vs. Open-Source LLMs and Iterative Learning Based on FDA Adverse Event Reporting System"
+    year: 2025
+    month: 12
+    publisher:
+      name: Zenodo
+    doi: 10.5281/zenodo.18029100
+    url: https://doi.org/10.5281/zenodo.18029100
