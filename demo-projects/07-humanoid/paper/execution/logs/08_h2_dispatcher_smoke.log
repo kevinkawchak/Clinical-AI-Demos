@@ -1,0 +1,14 @@
+H2 dispatcher smoke test
+==========================
+Site         : SF-01
+Roster size  : 3 robots
+Roster       : ['SF-01-H2-A', 'SF-01-H2-B', 'SF-01-H2-C']
+
+Per-robot atomic broadcast:
+  SF-01-H2-A     role=Lead    xyz=(1.0, 2.0, 1.5) gripper=holding_epipen peers=['SF-01-H2-B', 'SF-01-H2-C']
+  SF-01-H2-B     role=Assist  xyz=(1.0, 2.8, 1.5) gripper=holding_oximeter peers=['SF-01-H2-A', 'SF-01-H2-C']
+  SF-01-H2-C     role=Reserve xyz=(2.5, 2.0, 1.5) gripper=open peers=['SF-01-H2-A', 'SF-01-H2-B']
+
+Audit chain head: 5e9ea3bdaa7d9d31cbe9f3fbd2c06493...
+
+Tick 100 published=3 acks=['SF-01-H2-A', 'SF-01-H2-B', 'SF-01-H2-C']

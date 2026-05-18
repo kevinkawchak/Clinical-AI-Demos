@@ -33,6 +33,19 @@ This first commit establishes the execution scaffolding:
 
 Subsequent commits populate this tree with full per-module execution logs, the iteration sweep outputs, the 6 generated figures, the comparison report copies, and the final cross-referenced documentation. The 2nd to last commit is reserved for error fixes; the last commit is reserved for repository-level updates.
 
+## Module Imports + Pytest + Source Smoke Tests (Commit 2 of 7)
+
+This commit captures the per source file unit level execution evidence:
+
+- `logs/03_pytest.log`: 36 pytest tests pass in 0.22 s across `test_ctcae_grader`, `test_kinematics`, `test_schemas`, `test_swarm_invariants`, `test_xyz_safety`.
+- `logs/04_module_imports.log`: 22 of 22 Python source modules import clean. Symbol sample logged per module.
+- `logs/05_swarm_coordinator_smoke.log`: SwarmCoordinator Hungarian bipartite role assignment for SF-01 yields Lead, Assist, Reserve; synergy score 1.000; 7 of 7 camaraderie invariants pass.
+- `logs/06_llm_planner_smoke.log`: LLMPlanner fallback stub for SF-01 tick 42 emits a schema valid llm_decision with 3 sub commands and SHA-256 audit chain prev hash.
+- `logs/07_ctcae_grader_smoke.log`: CTCAEGrader v5.0 grades anaphylaxis grade 3, hypotension grade 2, cardiac arrest grade 5; swarm consensus across 3 robots agrees on grade 3 anaphylaxis.
+- `logs/08_h2_dispatcher_smoke.log`: H2Dispatcher fan-out for SF-01 produces 3 humanoid_command records (Lead, Assist, Reserve) with peer_robot_ids and audit chain extended; 3 acks collected within 50 ms.
+- `outputs/file_inventory.txt`: 76 source files at 217 KiB, bucketed by directory (config, data, diagrams, docker, notebooks, reports, schemas, src, tests, root).
+- `diagrams/01_module_dependency.txt`: per site module dependency at one tick (1 Hz) ASCII diagram, 57 lines x 63 columns.
+
 ## Schema Ingest Result (Commit 1 of 7)
 
 ```

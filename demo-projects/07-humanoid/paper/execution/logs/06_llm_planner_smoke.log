@@ -1,0 +1,62 @@
+LLM decision (fallback stub) for SF-01 tick 42:
+{
+  "decision_id": "dec-1247b299696745cc",
+  "tick": 42,
+  "site": "SF-01",
+  "decided_at_iso": "2026-05-18T18:20:25Z",
+  "synergy_score": 1.0,
+  "sub_commands": [
+    {
+      "robot_id": "SF-01-H2-A",
+      "role": "Lead",
+      "target_pose_xyz": {
+        "x": 1.0,
+        "y": 2.0,
+        "z": 1.5
+      },
+      "target_orientation_rpy": {
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0
+      },
+      "gripper_state": "holding_epipen"
+    },
+    {
+      "robot_id": "SF-01-H2-B",
+      "role": "Assist",
+      "target_pose_xyz": {
+        "x": 1.0,
+        "y": 2.8,
+        "z": 1.5
+      },
+      "target_orientation_rpy": {
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0
+      },
+      "gripper_state": "holding_oximeter"
+    },
+    {
+      "robot_id": "SF-01-H2-C",
+      "role": "Reserve",
+      "target_pose_xyz": {
+        "x": 2.5,
+        "y": 2.0,
+        "z": 1.5
+      },
+      "target_orientation_rpy": {
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0
+      },
+      "gripper_state": "open"
+    }
+  ],
+  "peer_observability": {
+    "all_3_robots_reporting_state": true,
+    "all_3_robots_within_uwb_range": true,
+    "all_3_robots_wit
+...
+sub_commands count = 3
+audit chain prev hash = 00000000000000000000000000000000...
+synergy_score = 1.0

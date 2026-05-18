@@ -1,0 +1,57 @@
+                Per Site Module Dependency at One Tick (1 Hz)
+                ===============================================
+
+                    +------------------+
+                    | sensor_to_xyz.py |
+                    | (10 Hz aggregate)|
+                    +--------+---------+
+                             |
+                             v
+              +--------------+---------------+
+              | comms_intellectual.py        |
+              | (pub-sub on Claude Code bus) |
+              +--------------+---------------+
+                             |
+                             v
+        +--------------------+--------------------+
+        | llm_planner.py 1 Hz, Claude Opus 4.7 1M |
+        | reads prompt_frozen.md system prompt    |
+        | validates llm_decision.schema.json      |
+        +--------------------+--------------------+
+                             |
+                             v (1 broadcast, 3 sub commands)
+        +--------------------+--------------------+
+        | broadcaster.py + h2_dispatcher.py       |
+        | atomic publish, 3 acks/500 ms,          |
+        | extends SHA-256 audit chain             |
+        +--------+--------------+-----------------+
+                 |              |              |
+                 v              v              v
+        +--------+--+   +-------+--+   +-------+--+
+        | H2-A Lead |   | H2-B Asst|   | H2-C Rsv |
+        +--------+--+   +-------+--+   +-------+--+
+                 |              |              |
+                 +---+----------+-----+--------+
+                     v                v
+              +------+------+   +-----+--------+
+              | comms_      |   | swarm_       |
+              | physical    |   | coordinator  |
+              | (UWB + IR)  |   | (roles+inv)  |
+              +------+------+   +-----+--------+
+                     |                |
+                     +--------+-------+
+                              v
+                  +-----------+-----------+
+                  | xyz_safety.py guards  |
+                  +-----------+-----------+
+                              v
+                  +-----------+-----------+
+                  | robot_loop.cpp 10 Hz  |
+                  +-----------+-----------+
+                              v
+                  +-----------+-----------+
+                  | ctcae_grader.py +     |
+                  | physician_escalation  |
+                  +-----------+-----------+
+                              v
+                       fda_rtct_submitter

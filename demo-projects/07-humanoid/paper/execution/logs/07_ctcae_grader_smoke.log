@@ -1,0 +1,21 @@
+CTCAE v5.0 grader smoke test
+=================================
+  anaphylaxis        {'sbp': 78, 'spo2': 88, 'airway': 'compromised'}             -> CTCAE grade 3 (Anaphylaxis Grade 3 severe)
+  hypotension        {'sbp': 82, 'hr': 110}                                       -> CTCAE grade 2 (Hypotension Grade 2 moderate)
+  cardiac_arrest     {'sbp': 0, 'hr': 0}                                          -> CTCAE grade 5 (Cardiac Arrest Grade 5 death)
+  neutropenic_fever  {'temp_c': 38.7, 'anc': 0.3}                                 -> CTCAE grade 1 (neutropenic_fever Grade 1 mild)
+  nausea             {'vomiting_count_24h': 1}                                    -> CTCAE grade 1 (nausea Grade 1 mild)
+
+Swarm consensus across 3 robots (anaphylaxis):
+{
+  "grading_id": "grd-1cad845e1a8647ba",
+  "ae_id": "ae-test",
+  "graded_at_iso": "2026-05-17T12:01:35Z",
+  "grader": "swarm_consensus",
+  "ctcae_version": "5.0",
+  "ctcae_grade": 3,
+  "ctcae_term": "Anaphylaxis Grade 3 severe",
+  "confidence": 0.85,
+  "rationale": "swarm consensus: [3, 3, 3]",
+  "superseded_by": null
+}
