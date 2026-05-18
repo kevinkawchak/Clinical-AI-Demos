@@ -1,0 +1,12 @@
+=== SF-01 ===
+{'site_id': 'SF-01', 'ticks': 60, 'audit_chain_head': '6274ffb4369bdf7d2654ab3cab982cbda97dd01552bde5adb8c47a3c7824b137'}
+
+=== SD-01 ===
+{'site_id': 'SD-01', 'ticks': 60, 'audit_chain_head': '93e5b2a36511c3042b33ac0cf0f818f3096b288caba5a56f8ad2268b069e6fb2'}
+
+=== BO-01 ===
+{'site_id': 'BO-01', 'ticks': 60, 'audit_chain_head': 'f262594549de903cec074f53479e92158bad3192b6d26fcf9295fa1fc4f85054'}
+
+=== AT-01 ===
+{'site_id': 'AT-01', 'ticks': 60, 'audit_chain_head': '9ce5745715beb9bd698a01e015582e7935699e9d739f5f9d1f805b651e0bb5fc'}
+

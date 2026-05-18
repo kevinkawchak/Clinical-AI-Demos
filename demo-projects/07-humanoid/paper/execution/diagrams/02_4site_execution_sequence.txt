@@ -1,0 +1,52 @@
+         PAT-NET-001 4 Site Execution Sequence (Commit 3 of 7)
+         =====================================================
+
+   wall clock    | SF-01          | SD-01          | BO-01          | AT-01
+   --------------+----------------+----------------+----------------+--------
+   T+0    site   | dispatch init  | dispatch init  | dispatch init  | dispat
+                 | 3 robots: ABC  | 3 robots: DEF  | 3 robots: GHI  | 3: JKL
+                 |                |                |                |
+   T+0.0  tick 0 | LLMPlanner 1Hz | LLMPlanner 1Hz | LLMPlanner 1Hz | LLMPlnr
+                 | -> Broadcaster | -> Broadcaster | -> Broadcaster | -> Bcst
+                 | -> Dispatcher  | -> Dispatcher  | -> Dispatcher  | -> Disp
+                 | 3 acks 50 ms   | 3 acks 50 ms   | 3 acks 50 ms   | 3 acks
+                 |                |                |                |
+   T+1.0  tick 1 | ...            | ...            | ...            | ...
+   ...
+   T+59   tick59 | audit head=    | audit head=    | audit head=    | head=
+                 | 6274ffb43...   | 93e5b2a36...   | f26259454...   | 9ce574
+                 |                |                |                |
+   T+60   summ   | 60 decisions   | 60 decisions   | 60 decisions   | 60 dec
+                 | persisted      | persisted      | persisted      | persis
+
+                            v
+                            +-----------------------------------+
+                            | Aggregate (commit 4)              |
+                            | week_runner: 3600 ticks per site  |
+                            | iterate.py: 32 iterations         |
+                            | runner (Rust release): 32 sweeps  |
+                            | average p50 response time 67.5 s  |
+                            | camaraderie pass rate 0.985       |
+                            +-----------------------------------+
+
+                            v
+                            +-----------------------------------+
+                            | Compute + Compare (commit 4)      |
+                            | compute.py 26 key metric vectors  |
+                            | compare_agent.py vs Atlas Elect.  |
+                            |   vs Tesla Optimus Gen 3          |
+                            |   vs 3 human paramedic team       |
+                            +-----------------------------------+
+
+                            v
+                            +-----------------------------------+
+                            | Figures + Reports (commit 5)      |
+                            | 6 PNG at 300 dpi                  |
+                            | report.md, dashboard.html copies  |
+                            +-----------------------------------+
+
+                            v
+                            +-----------------------------------+
+                            | Repository updates (commit 7)     |
+                            | CHANGELOG.md, releases.md v0.5.0  |
+                            +-----------------------------------+

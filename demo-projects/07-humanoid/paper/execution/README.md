@@ -46,6 +46,22 @@ This commit captures the per source file unit level execution evidence:
 - `outputs/file_inventory.txt`: 76 source files at 217 KiB, bucketed by directory (config, data, diagrams, docker, notebooks, reports, schemas, src, tests, root).
 - `diagrams/01_module_dependency.txt`: per site module dependency at one tick (1 Hz) ASCII diagram, 57 lines x 63 columns.
 
+## Site Runtime + Week Runner + Cross Toolchain Runs (Commit 3 of 7)
+
+This commit captures the 4-site site_runtime, week_runner orchestrator, h2_dispatcher init for the 12-robot roster, cargo Rust build with the 32-iteration runner, and the g++ compiled C++ robot_loop for 3 robots.
+
+- `logs/09_site_runtime_4site.log`: 1 hour fast mode for each of SF-01, SD-01, BO-01, AT-01 (240 LLM decisions total, 60 per site). Audit chain head per site is a unique SHA-256 hash, demonstrating that the per site chain is independent.
+- `data/site_runtime_runs/SF-01_llm_decisions.jsonl` through `AT-01_llm_decisions.jsonl`: the 4 per-site llm_decision streams (60 records per site, schema valid). Each record contains exactly 3 sub_commands (Lead, Assist, Reserve).
+- `logs/10_h2_dispatcher_init.log`: dispatcher init for all 4 sites. Rosters: SF-01 [H2-A, H2-B, H2-C], SD-01 [H2-D, H2-E, H2-F], BO-01 [H2-G, H2-H, H2-I], AT-01 [H2-J, H2-K, H2-L]. 12 robots total across 4 sites.
+- `logs/11_week_runner_fast.log`: week_runner fast mode result. 3,600 ticks per site (1 hour), 4 sites in parallel via concurrent.futures.ProcessPoolExecutor.
+- `logs/12_sensor_xyz_safety_smoke.log`: sensor_to_xyz depth projection, IR plus UWB peer triangulation, cartesian_planner quintic blend with 21 trajectory steps; xyz_safety frame bounds, no fly zone, peer 2 second envelope checks.
+- `logs/13_comms_peer_smoke.log`: comms_physical 60 GHz UWB and IR beacon channel sends; comms_intellectual pub-sub on Claude Code fabric; peer_state_tracker 3-entry snapshot (self plus 2 peers).
+- `logs/14_fda_phys_xsite_smoke.log`: FDA RTCT submission with ed25519 signed payload and 1 hour SLA met; physician escalation triggered for CTCAE grade 3 anaphylaxis with IV access block; cross_site_bus accepts a clean hourly summary and rejects a PHI smuggle attempt with the `patient_id` field set.
+- `logs/15_cargo_build.log`: `cargo build --release` completes in 16 s, generating the optimized Rust binary.
+- `logs/16_rust_runner.log`: Rust runner sweeps 32 iterations across 4 sites. Each iteration reports ticks 604,800 (168 hours), ae_count 21, p50 response 67.50 s, camaraderie pass 0.985.
+- `logs/17_cpp_robot_loop.log`: g++ -std=c++20 -O2 compiles `src/robot_loop.cpp` and the binary runs for each of SF-01-H2-A, SF-01-H2-B, SF-01-H2-C.
+- `diagrams/02_4site_execution_sequence.txt`: 4-site execution sequence diagram (capped at 80 x 60).
+
 ## Schema Ingest Result (Commit 1 of 7)
 
 ```

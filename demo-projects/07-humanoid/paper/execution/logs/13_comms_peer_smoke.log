@@ -1,0 +1,42 @@
+Physical comms (60 GHz UWB + IR beacon):
+  uwb send 1: msg_id=msg-9291a556b83b4b8b...
+  uwb send 2: msg_id=msg-ecd2bcb046d74275...
+  ir  send 3: msg_id=msg-117c35660bff47d3...
+
+Intellectual comms (Claude Code compute fabric pub-sub):
+  self state published. peer states known: 2 (live empty at start)
+
+PeerStateTracker (self + 2 peers, 3-entry model):
+{
+  "state_id": "st-5d876b834fb9457a",
+  "robot_id": "SF-01-H2-A",
+  "site": "SF-01",
+  "timestamp_iso": "2026-05-18T18:28:00Z",
+  "self_state": {
+    "position_xyz": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 1.0
+    },
+    "battery_soc": 0.9,
+    "current_role": "Lead"
+  },
+  "peer_state_a": {
+    "position_xyz": {
+      "x": 1.5,
+      "y": 0.5,
+      "z": 1.0
+    },
+    "battery_soc": 0.85,
+    "current_role": "Assist"
+  },
+  "peer_state_b": {
+    "position_xyz": {
+      "x": 2.0,
+      "y": 1.5,
+      "z": 1.0
+    },
+    "battery_soc": 0.92,
+    "current_role": "Reserve"
+  }
+}
