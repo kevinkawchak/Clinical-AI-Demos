@@ -1,0 +1,80 @@
+% ======================================================================
+% main.tex
+% Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+% 4-Site Rotation (Full Paper, v0.7.0)
+%
+% Author: Kevin Kawchak, CEO ChemicalQDevice
+% Orcid: 0009-0007-5457-8667
+% DOI placeholder: 10.5281/zenodo.xxxxxxxx
+% Date: May 20, 2026
+%
+% This file is the top-level manuscript for the full paper. It expands
+% the bracketed draft scaffold at paper/draft-paper/ into the finished
+% manuscript that compiles under Overleaf with pdfLaTeX plus BibTeX.
+% The file orders the section inputs, prints the table of contents,
+% and binds the bibliography to references.bib via the ieeetr style.
+% ======================================================================
+\documentclass[11pt]{article}
+\usepackage{humanoid_paper_template}
+
+\title{Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation}
+\author{%
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667}\\
+  CEO ChemicalQDevice\\
+  \doiLink{10.5281/zenodo.xxxxxxxx}
+}
+\date{May 20, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\small\itshape
+Disclaimer: This work is independent and not endorsed or sponsored by trial sponsors, FDA, CRO, site, IRB, regulator, or medical society; and was generated using Artificial Intelligence.
+\end{center}
+
+\vspace{0.4em}
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\noindent\textbf{\keywordsname:}\ physical AI; humanoid robotics; Unitree H2 EDU; on-premises large language model; Cartesian control; clinical trial adverse events; CTCAE v5; FDA RTCT pilot; oncology; swarm camaraderie; 4-site rotation; PAT-NET-001.
+
+\section{Introduction}
+\label{sec:introduction}
+\input{sections/introduction}
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Table of Contents}
+\tableofcontents
+\newpage
+
+\section{Methods}
+\label{sec:methods}
+\input{sections/methods}
+
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion}
+
+\section{Limitations and Future Work}
+\label{sec:limitations}
+\input{sections/limitations_future}
+
+\section{Conclusions}
+\label{sec:conclusions}
+\input{sections/conclusions}
+
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\input{sections/back_matter}
+\end{document}
