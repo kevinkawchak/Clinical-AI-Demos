@@ -98,9 +98,7 @@ def main(out_path: pathlib.Path) -> None:
             ax.text(val + 120, y, f"${val:,}k", ha="left", va="center", fontsize=8.0, fontweight="bold")
         elif kind == "positive":
             ax.barh(y, val, height=bar_h, color=color, ec="black", lw=0.6, left=running)
-            ax.text(
-                running + val + 120, y, f"+${val:,}k", ha="left", va="center", fontsize=7.6, color=PALETTE["slate"]
-            )
+            ax.text(running + val + 120, y, f"+${val:,}k", ha="left", va="center", fontsize=7.6, color=PALETTE["slate"])
             running += val
         elif kind == "negative":
             ax.barh(y, val, height=bar_h, color=color, ec="black", lw=0.6, left=running)
