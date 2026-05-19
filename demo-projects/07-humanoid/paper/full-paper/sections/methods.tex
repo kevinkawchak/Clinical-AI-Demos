@@ -1,0 +1,567 @@
+% ======================================================================
+% sections/methods.tex
+%
+% Methods for the full paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation (v0.7.0)
+%
+% Nine subsections inside the single \section{Methods} block:
+%   1) Code Instruction Layer
+%   2) Code Generation Layer (27 src files)
+%   3) Schemas and Configs
+%   4) Cartesian Coordinate Surface
+%   5) Camaraderie Behavior
+%   6) Iteration Sweep
+%   7) Tests and Error Checks
+%   8) Runtime Targets
+%   9) Execution
+% ======================================================================
+
+\begin{sectionaccent}
+
+\subsection{Code Instruction Layer}
+\label{sec:methods-instructions}
+
+The instruction tree at \fp{paper/instructions/} carries the project
+overview, the commit roadmap, and 10 numbered subdirectories that
+describe how the future automated session should author every config,
+schema, source file, iteration sweep, language model planner, and
+runtime target \cite{kawchak_2026_humanoid_instructions}. Table
+\ref{tbl:instruction-tree} maps each subdirectory to its purpose so
+the reader can audit the upstream design.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Instruction tree subdirectories and their purpose. The 10
+numbered directories drive each phase of the code generation. The
+\fp{10-repository-update-instructions/} directory is named in the
+instructions README repository structure block but is not yet present
+on disk; this is documented as a future commit.}
+\label{tbl:instruction-tree}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm}
+                >{\raggedright\arraybackslash}p{10cm}}
+\toprule
+\textbf{Subdirectory} & \textbf{Purpose} \\
+\midrule
+\fp{00-project-overview/} & Architecture, swarm, thesis, memory, and camaraderie overview. \\
+\fp{01-commit-roadmap/} & Seven commit roadmap with file lists and size budgets. \\
+\fp{02-config-instructions/} & Instructions to author the YAML configs in \fp{config/}. \\
+\fp{03-schemas-instructions/} & Instructions to author the JSON Schemas in \fp{schemas/}. \\
+\fp{04-robotic-instructions/} & Instructions for the dispatcher, the robot loop, and the swarm coordinator. \\
+\fp{05-cartesian-instructions/} & Instructions for the kinematics, the sensor to xyz path, and the Cartesian planner. \\
+\fp{06-iteration-instructions/} & Instructions for the week runner, the iterate driver, and the Rust runner. \\
+\fp{07-llm-planner-instructions/} & Instructions for the language model planner, the broadcaster, the CTCAE grader, and physician escalation. \\
+\fp{08-comparison-instructions/} & Instructions for the comparison framework, the report, and the dashboard. \\
+\fp{09-runtime-instructions/} & Instructions for the MacOS, Windows, and Linux runtime targets. \\
+\fp{10-repository-update-instructions/} & Reserved for the parent README, the releases note, and CHANGELOG updates. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Code Generation Layer}
+\label{sec:methods-codegen}
+
+The generated code tree at \fp{paper/codegen/src/} carries 27 source
+files: 24 Python modules, 1 C++ module, and 2 Rust modules. The files
+are organized by function rather than by language. Table
+\ref{tbl:src-by-function} groups the 27 files into 9 functional
+clusters so the reader can navigate by purpose.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{27 source files in \fp{paper/codegen/src/} grouped by
+function. The list is exhaustive; every file in the tree is named.
+This grouping highlights that the entire sensor to robot pipeline
+fits inside a single 27 file tree.}
+\label{tbl:src-by-function}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.6cm}
+                >{\raggedright\arraybackslash}p{10.4cm}}
+\toprule
+\textbf{Function} & \textbf{Files} \\
+\midrule
+Sensor to Cartesian & sensor to xyz, kinematics, cartesian planner, xyz safety. \\
+Per site dispatch & h2 dispatcher (3 robot atomic broadcast). \\
+Swarm camaraderie & swarm coordinator (191 lines) and peer state tracker. \\
+LLM planner and broadcast & llm planner, broadcaster, prompt frozen, comms intellectual, comms physical, cross site bus. \\
+CTCAE grading and FDA & ctcae grader, fda rtct submitter (67 lines, ed25519 signed). \\
+Physician and audit & physician escalation, check errors. \\
+Site runtime and iteration & site runtime, iterate, week runner, ingest, compute. \\
+Comparison and figures & compare agent, figures gen. \\
+Native code paths & robot loop (C++, 10 Hz), runner and runner main (Rust). \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The Cartesian pipeline takes raw sensor frames from the H2 EDU
+cameras, the infrared beacon, and the ultra wide band peer mesh, and
+projects them into a site local x, y, z goal that the Cartesian
+planner blends with a quintic profile. The safety guard at
+\fp{xyz\_safety.py} enforces a per arm cumulative force budget of 15
+N during chest compressions, 5 N otherwise, a 1.2 m inter robot
+minimum distance at rest, 0.4 m during shared task handoff, and a
+22 N cumulative cross robot force during 3 robot patient transfer.
+These constants are conservative against the H2 EDU spec sheet, which
+is the design intent: a regulator can audit the safety envelope from
+the constants alone without rerunning the simulation
+\cite{unitree_h2_2026, iec_80601_2_77}.
+
+The per site dispatcher \fp{h2\_dispatcher.py} is the single point at
+which a language model decision becomes a robot command. The
+broadcaster publishes a single atomic message with exactly 3 sub
+commands, one for each robot at the site. The dispatcher waits for 3
+acknowledgments within 50 milliseconds and extends the SHA-256 audit
+chain by one hash. This atomicity is a regulatory feature, not a
+performance feature: if any one robot fails to acknowledge, the
+entire tick is recorded as failed and the next tick reassigns roles.
+
+The swarm coordinator at 191 lines holds the camaraderie logic. The
+compact length is itself evidence that 3 way coordination logic does
+not need a peer to peer consensus protocol when a per site
+broadcaster pattern is paired with a shared state tracker
+\cite{kawchak_2026_humanoid_instructions}. The peer state tracker
+maintains a live view of where the other two robots are standing,
+what they are doing, and what they will do next, treating peer
+reported sensor readings as first class evidence equal to a robot's
+own sensors.
+
+The language model planner reads the frozen system prompt at
+\fp{prompt\_frozen.md} and validates each decision against the
+\fp{llm\_decision.schema.json} schema before broadcast
+\cite{anthropic_claude_opus_47_2026}. The broadcaster fans the
+validated decision out to all 3 robots at the same 1 Hz tick. The
+intellectual communications module carries the language model
+exchange over the shared compute fabric. The physical communications
+module carries the 60 GHz ultra wide band peer mesh at 200 Hz plus
+the infrared beacon listener at 1000 Hz on each robot.
+
+The CTCAE grader applies the version 5 grading scale across the 13
+adverse event types covered by the decision table
+\cite{ctcae_v5_2017}. The FDA RTCT submitter at 67 lines submits
+grade 2 or higher records to the RTCT pilot intake API within the 1
+hour SLA from HR 9505 \cite{fda_rtct_2026, fda2026realtime}. The 67
+line scale is intentional: a small signed JSON submitter has a small
+audit surface and the small surface area is a regulatory feature.
+Production uses ed25519 signing; simulation uses a placeholder
+signature \cite{iec_62304}.
+
+The physician escalation module pages the on call physician on any
+grade 3 or higher adverse event and blocks any intravenous
+intervention while waiting for a physician acknowledgment. The error
+checker traps schema and physics rule violations before broadcast and
+provides the audit credibility that the FDA and the IRB require.
+
+The site runtime drives the per site ingestion, schema validation,
+broadcast, dispatch, and audit cycle. The week runner orchestrates
+the 168 hour 4 site simulation. The iterate driver runs the 32
+deterministic iteration sweep across the language model temperature,
+the adverse event arrival jitter, the response time variance, and
+the camarade aggressiveness axes. The compute module aggregates the
+26 key metric vectors. The compare agent generates the natural
+language comparison report.
+
+The Rust runner at \fp{runner.rs} and \fp{runner\_main.rs} mirrors
+the Python iteration driver and runs the 32 sweep against the
+deterministic seed contract. The C++ robot loop at
+\fp{robot\_loop.cpp} drives the 10 Hz in robot motion loop with a 5
+millisecond emergency stop reaction. Cross OS compilation is
+supported with clang++, g++, and MSVC under their respective C++20
+modes.
+
+\subsection{Schemas and Configs}
+\label{sec:methods-schemas-configs}
+
+The schemas at \fp{paper/codegen/schemas/} provide 11 JSON Schema
+documents at Draft 2020-12 conformance level. Table
+\ref{tbl:schemas-configs} lists each schema and config file with its
+purpose so the reader can navigate the data layer.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Schemas and configs in the codegen tree. Each row points to
+a single JSON Schema or YAML config file and names the function it
+serves. All 11 schemas validate clean on the sample records held in
+\fp{paper/codegen/data/samples.jsonl}.}
+\label{tbl:schemas-configs}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm}
+                >{\raggedright\arraybackslash}p{10cm}}
+\toprule
+\textbf{File} & \textbf{Purpose} \\
+\midrule
+humanoid command schema & Per robot Cartesian command envelope. \\
+swarm message schema & 3 robot atomic broadcast envelope. \\
+ae event schema & Sensor sourced adverse event record. \\
+ctcae grading schema & CTCAE v5 grading payload. \\
+sponsor acknowledgment schema & Sponsor side acknowledgment. \\
+fda rtct submission schema & Signed FDA RTCT intake payload. \\
+physician escalation schema & On call pager payload. \\
+llm decision schema & 3 sub command output schema. \\
+robot camarade state schema & Per robot camaraderie state. \\
+peer handoff schema & 2 second hand off envelope. \\
+metrics schema & 26 key metric vector. \\
+network yaml & PAT-NET-001 4 site network with H2 EDU and Jetson AGX Thor fields. \\
+h2 humanoid yaml & 12 H2 EDU robots with dexterous hands and compute module. \\
+site coordination yaml & 1 Hz broadcast plus degraded modes. \\
+swarm coordination yaml & 4 camarade groups, role priority weights, Hungarian match, 7 invariants. \\
+llm loop yaml & Claude Opus 4.7 1M loop at 200 ms tick. \\
+escalation rules yaml & CTCAE 3 plus FDA RTCT plus sponsor SLA. \\
+iterations yaml & 32 iteration sweep across 5 axes. \\
+site frame bounds yaml & Per site Cartesian frame bounds for xyz safety. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cartesian Coordinate Surface}
+\label{sec:methods-cartesian}
+
+The Cartesian surface is the contract between the language model and
+the robot. The language model does not author joint angles. It
+authors x, y, z goals expressed in the site local frame. The
+kinematics yaml at \fp{paper/codegen/src/kinematics.yaml} encodes the
+39 degree of freedom chain for the H2 EDU body, with separate
+sections for the dexterous hand (6 fingers, 12 grasp poses, 0.05 N
+tactile resolution) and the compute module
+\cite{unitree_h2_2026, nvidia_jetson_thor_2026}. The Cartesian
+planner at \fp{cartesian\_planner.py} blends successive x, y, z goals
+with a quintic profile so the robot does not jerk. The xyz safety
+guard at \fp{xyz\_safety.py} rejects any goal that would violate the
+force budget caps, the inter robot minimum distance, or the no fly
+zones at the head of the patient bed. Test coverage at
+\fp{paper/codegen/tests/test\_xyz\_safety.py} confirms the bounds
+plus the peer envelope plus the no fly zone hold across 6 parametric
+test cases (see Section \ref{sec:methods-tests}).
+
+\subsection{Camaraderie Behavior}
+\label{sec:methods-camaraderie}
+
+Figure \ref{fig:swarm-dance} carries the verbatim camarade swarm
+dance diagram from the codegen tree. The diagram is a top down view
+of 3 H2 EDU robots over 10 seconds at 1 Hz frames. Lead stays close
+to the patient bed at a 0.4 m offset on the south side. Assist orbits
+0.8 m to the west, ready to hand off. Reserve circles a 1.5 m
+perimeter, watching the room. At second 6, Lead asks Assist for the
+secondary epinephrine; Assist arrives within 2 seconds through the
+60 GHz peer mesh. The dexterous H2 EDU hand enables a smooth 0.4 m
+hand off without drops.
+
+\begin{figure}[H]
+\centering
+\begin{Verbatim}[fontsize=\footnotesize]
+                       Camarade Swarm Dance (10 second window)
+                       =========================================
+
+  Top down view of the patient bed and 3 Unitree H2 EDU robots over 10
+  seconds at 1 Hz frames. P is patient bed. L is Lead H2-A. A is Assist
+  H2-B. R is Reserve H2-C. Subscripts 0 through 9 are seconds since AE
+  peak. Each robot draws its trail.
+
+           (north wall)
+      .......................................
+      .                                     .
+      .                R0                   .
+      .                                     .
+      .          R3 R6 R9                   .
+      .                                     .
+      .             A0                      .
+      .         A2  A4  A6   A8             .
+      .                                     .
+      .              L0                     .
+      .              ||                     .
+      .              PP    (patient bed)    .
+      .              ||                     .
+      .              L2                     .
+      .              L4                     .
+      .              L6                     .
+      .              L8                     .
+      .                                     .
+      .......................................
+           (south wall)
+
+  Observations:
+    Lead stays close to patient bed, 0.4 m offset on the south side.
+    Assist orbits 0.8 m to the west, ready to hand off.
+    Reserve circles a 1.5 m perimeter, watching the room.
+    No robot enters another robot 2 second motion envelope.
+    At t+6, Lead asks Assist for secondary epinephrine; Assist
+      arrives within 2 seconds via 60 GHz UWB hand-off.
+    Dexterous H2 EDU hands enable smooth 0.4 m hand-off without drops.
+\end{Verbatim}
+\caption{Camarade swarm dance at one site over a 10 second adverse event peak window. Lead, Assist, and Reserve trails track the role rotation that the 1 Hz language model broadcast drives.}
+\label{fig:swarm-dance}
+\end{figure}
+
+\subsection{Iteration Sweep}
+\label{sec:methods-iterations}
+
+The iteration sweep at \fp{paper/codegen/src/iterate.py} drives 32
+deterministic samples across 5 axes. Figure
+\ref{fig:iteration-funnel} carries the verbatim iteration sweep
+funnel diagram from the execution tree. Each iteration takes the
+iterations yaml config as the source of truth, generates a Latin
+Hypercube sample of 32 combinations across the seed, language model
+temperature, adverse event arrival jitter, response time variance,
+and camarade aggressiveness axes, runs the week runner in fast mode,
+and writes one row to \fp{paper/codegen/data/iterations/index.jsonl}.
+The DuckDB aggregate at
+\fp{paper/execution/data/iterations\_aggregate.duckdb} rolls the 32
+rows into a 15 column store ready for analytical queries
+\cite{duckdb_2026, apache_arrow_2026}.
+
+\begin{figure}[H]
+\centering
+\begin{Verbatim}[fontsize=\footnotesize]
+    32 Iteration Sweep + Compare Funnel
+    ===================================
+    config/iterations.yaml
+    +---------------------------+
+    | axes:                     |
+    |   seed: [1..8]            |
+    |   llm_temperature:        |
+    |     [0.0, 0.1, 0.2, 0.3]  |
+    |   ae_arrival_jitter_s:    |
+    |     [0, 30, 60, 120]      |
+    |   response_time_variance: |
+    |     [0.0, 0.05, 0.1, 0.2] |
+    |   camarade_aggressiveness:|
+    |     [0.5, 0.75, 1.0, 1.25]|
+    | iteration_count: 32       |
+    +---------------------------+
+                |
+                v
+    +---------------------------+
+    | generate_lhs(n=32)        |
+    | -> 32 Latin Hypercube     |
+    |    sample combinations    |
+    +---------------------------+
+                |
+                v
+    +---------------------------+
+    | for each iter in 32:      |
+    |   run_iteration()         |
+    |   -> WeekRunner fast      |
+    |   -> 4 site ProcessPool   |
+    |   -> 3600 ticks per site  |
+    +---------------------------+
+                |
+                v
+    +---------------------------+
+    | build_index() ->          |
+    | data/iterations/          |
+    | index.jsonl (32 lines)    |
+    +---------------------------+
+                |
+                v
+    +---------------------------+
+    | build_aggregate() ->      |
+    | data/iterations/          |
+    | aggregate.duckdb          |
+    +---------------------------+
+                |
+                v
+    +---------------------------+
+    | compute.py 26 key vector  |
+    | vs human_team_baseline    |
+    | weighted score 0.953      |
+    +---------------------------+
+                |
+                v
+    +---------------------------+
+    | compare_agent.py          |
+    | natural language report   |
+    +---------------------------+
+\end{Verbatim}
+\caption{Iteration sweep funnel showing the source of the 32 deterministic samples through the Latin Hypercube generator, the per iteration week runner, the index assembly, the DuckDB aggregate, the 26 key metric vector, and the natural language compare agent.}
+\label{fig:iteration-funnel}
+\end{figure}
+
+\subsection{Tests and Error Checks}
+\label{sec:methods-tests}
+
+Test coverage at \fp{paper/codegen/tests/} carries 6 pytest modules
+that execute 36 tests in 0.22 seconds. The test of xyz safety at
+\fp{test\_xyz\_safety.py} confirms the force budget caps, the inter
+robot distance, the cross robot force, and the no fly zone bounds.
+The 7 check error scan at \fp{check\_errors.py} returns zero issues
+across the project. These artifacts provide the audit credibility
+that the FDA and other regulators expect for any human factors
+review of medical device software life cycle conformance
+\cite{iec_62304}.
+
+\subsection{Runtime Targets}
+\label{sec:methods-runtime}
+
+The codegen tree runs on MacOS, Windows, and Linux. Table
+\ref{tbl:runtime-targets} lists the target platforms and the typical
+full iteration wall time. The Dockerfiles at
+\fp{paper/codegen/docker/} provide a 4 service per site bundle (the
+language model service, the ingest service, the simulator, and the
+cross site bus) wired by \fp{docker-compose.yml} at the codegen tree
+root.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Runtime targets and typical wall time for a full 168 hour
+iteration. Reference hardware lines are drawn from
+\fp{paper/codegen/README.md} runtime sections.}
+\label{tbl:runtime-targets}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.5cm}
+                >{\raggedright\arraybackslash}p{6cm}
+                >{\raggedright\arraybackslash}p{5.5cm}}
+\toprule
+\textbf{Operating System} & \textbf{Reference Hardware} & \textbf{Typical Wall Time per Iteration} \\
+\midrule
+MacOS & Mac Studio M2 Ultra & 12 minutes \\
+Windows & Lenovo ThinkStation P8 (96 cores) & 10 minutes \\
+Linux & Supermicro AS-2025HS-TNR (192 cores) & 8 minutes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Execution}
+\label{sec:methods-execution}
+
+The execution tree at \fp{paper/execution/} carries the 23 per step
+logs that capture the runtime outcomes of every executable element
+in the codegen tree. The 23 logs walk schema ingest, the 7 check
+error scan, the 36 pytest run, the 22 module import set, the per
+source file smoke tests for the swarm coordinator, the language
+model planner, the CTCAE grader, and the H2 dispatcher, the 4 site
+site runtime, the 12 robot dispatcher initialization, the week
+runner fast mode, the sensor xyz safety smoke, the comms peer smoke,
+the FDA physician cross site smoke, the cargo Rust build, the C++
+robot loop build under g++ at C++20, the 32 iteration sweep, the 26
+metric compute pass, the comparison narrative, the 6 figure
+generation pass, the JSON YAML ASCII validation pass, and the final
+ruff plus format plus yamllint pass. Figure
+\ref{fig:module-dependency} carries the verbatim per site module
+dependency diagram at one tick. This diagram is the reader's quickest
+path from a single sensor frame to the FDA RTCT submission for that
+tick.
+
+\begin{figure}[H]
+\centering
+\begin{Verbatim}[fontsize=\footnotesize]
+                Per Site Module Dependency at One Tick (1 Hz)
+                ===============================================
+
+                    +------------------+
+                    | sensor_to_xyz.py |
+                    | (10 Hz aggregate)|
+                    +--------+---------+
+                             |
+                             v
+              +--------------+---------------+
+              | comms_intellectual.py        |
+              | (pub-sub on Claude Code bus) |
+              +--------------+---------------+
+                             |
+                             v
+        +--------------------+--------------------+
+        | llm_planner.py 1 Hz, Claude Opus 4.7 1M |
+        | reads prompt_frozen.md system prompt    |
+        | validates llm_decision.schema.json      |
+        +--------------------+--------------------+
+                             |
+                             v (1 broadcast, 3 sub commands)
+        +--------------------+--------------------+
+        | broadcaster.py + h2_dispatcher.py       |
+        | atomic publish, 3 acks/500 ms,          |
+        | extends SHA-256 audit chain             |
+        +--------+--------------+-----------------+
+                 |              |              |
+                 v              v              v
+        +--------+--+   +-------+--+   +-------+--+
+        | H2-A Lead |   | H2-B Asst|   | H2-C Rsv |
+        +--------+--+   +-------+--+   +-------+--+
+                 |              |              |
+                 +---+----------+-----+--------+
+                     v                v
+              +------+------+   +-----+--------+
+              | comms_      |   | swarm_       |
+              | physical    |   | coordinator  |
+              | (UWB + IR)  |   | (roles+inv)  |
+              +------+------+   +-----+--------+
+                     |                |
+                     +--------+-------+
+                              v
+                  +-----------+-----------+
+                  | xyz_safety.py guards  |
+                  +-----------+-----------+
+                              v
+                  +-----------+-----------+
+                  | robot_loop.cpp 10 Hz  |
+                  +-----------+-----------+
+                              v
+                  +-----------+-----------+
+                  | ctcae_grader.py +     |
+                  | physician_escalation  |
+                  +-----------+-----------+
+                              v
+                       fda_rtct_submitter
+\end{Verbatim}
+\caption{Per site module dependency at one 1 Hz tick from sensor frame ingest to FDA RTCT submission. Every module names a single file in \fp{paper/codegen/src/}.}
+\label{fig:module-dependency}
+\end{figure}
+
+Figure \ref{fig:ae-response-flow} carries the verbatim adverse event
+swimlane diagram showing how Lead, Assist, and Reserve coordinate
+over a 90 second window from adverse event detection to ready state.
+
+\begin{figure}[H]
+\centering
+\begin{Verbatim}[fontsize=\footnotesize]
+                       AE Response Swimlane (Single AE, 90 seconds)
+                       ===============================================
+
+  Time  Lead (H2-A)            Assist (H2-B)            Reserve (H2-C)
+  ---   --------------------   ----------------------   ----------------------
+  t+0   AE detected, assign    AE detected, prep tools  AE detected, scan area
+  t+5   move to bedside        move backup position     stand 1.5 m off side
+  t+15  epinephrine ready      hand-off epinephrine     page on-call physician
+  t+18  epinephrine injected   pulse oximeter ready     log to audit chain
+  t+22  verify spo2 reading    hand-off pulse oximeter  monitor doctor proxi
+  t+30  secondary intervention ecg leads attached       fda rtct submission
+  t+45  continuous monitoring  vital sign relay         physician arrival
+  t+60  transfer to physician  tool inventory restock   sponsor ack log
+  t+75  step back, observe     step back, observe       step back, observe
+  t+90  ready for next AE      ready for next AE        ready for next AE
+
+  Notes:
+    All 3 robots arrive within 90 seconds.
+    Hand-offs complete within 2 seconds via 60 GHz UWB.
+    Reserve does FDA RTCT submission in parallel with Lead intervention.
+    Platform: Unitree H2 EDU. Hands: 6 dexterous fingers, 0.05 N tactile.
+    Compute: Jetson AGX Thor 2070 TOPS upgrade path on every robot.
+\end{Verbatim}
+\caption{Adverse event swimlane over a 90 second window. Lead, Assist, and Reserve trail through detection, tool handoff, intervention, FDA RTCT submission, physician arrival, sponsor acknowledgment log, and ready state in parallel.}
+\label{fig:ae-response-flow}
+\end{figure}
+
+\subsubsection*{Real life feasibility insight.} Every Cartesian goal
+the language model emits is bounded by the force budget caps and the
+inter robot minimum distance constants named in the project
+instructions \cite{kawchak_2026_humanoid_instructions}. These bounds
+are conservative against what the H2 EDU spec sheet permits
+\cite{unitree_h2_2026}. The implication is that a future regulator
+review can audit the safety envelope from the constants alone,
+without rerunning the simulation. The 67 line FDA RTCT submitter and
+the 191 line swarm coordinator are intentionally compact for the
+same reason: a small audit surface is a regulatory feature
+\cite{iec_62304}.
+
+\sectiontable{Methods planning matrix}{%
+Instr & M1 & 1 & instructions tree & 10 subdir walk & 1 to 2 pages & Names every subdir & Done \\
+Source & M2 & 2 & codegen/src & Per file function & 4 to 5 pages & 191 lines swarm & Done \\
+Schemas & M3 & 3 & schemas, config & Schema by schema & 2 pages & Every JSON named & Done \\
+Cartes. & M4 & 4 & kinem. plus planner & x, y, z contract & 2 pages & Force caps named & Done \\
+Camara. & M5 & 5 & swarm coord. & 191 line walk & 2 pages & Figure 3 ASCII & Done \\
+Iter. & M6 & 6 & iterations idx & 32 sweep summary & 1 to 2 pages & 32 across 4 sites & Done \\
+Tests & M7 & 7 & check, tests & FDA credibility & 1 to 2 pages & Both named & Done \\
+Run. & M8 & 8 & docker plus compose & 3 OS targets & 1 to 2 pages & MacOS Win Linux & Done \\
+Exec. & M9 & 9 & exec logs 01 to 23 & Run progression & 2 to 3 pages & Audit trail & Done \\
+}
+
+\end{sectionaccent}
