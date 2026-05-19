@@ -1,0 +1,119 @@
+% ======================================================================
+% sections/limitations_future.tex
+%
+% Limitations and Future Work for the full paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation (v0.7.0)
+%
+% Five subsections inside the single \section{Limitations and Future
+% Work} block.
+% ======================================================================
+
+\begin{sectionaccent}
+
+\subsection{Simulation Versus Real Robot Limitations}
+\label{sec:limits-sim}
+
+The paper is transparent about the boundary between the simulator
+harness and a live Unitree H2 EDU body. The FDA RTCT submitter at
+\fp{paper/codegen/src/fda\_rtct\_submitter.py} uses ed25519 signing
+in production and a placeholder signature in simulation
+\cite{fda_rtct_2026}. The 10 Hz in robot motion loop at
+\fp{paper/codegen/src/robot\_loop.cpp} runs in a simulator harness;
+it does not drive a live H2 EDU body \cite{unitree_h2_2026}. Sensor
+frames produced by \fp{paper/codegen/src/sensor\_to\_xyz.py} are
+synthetic in the current run. No real Unitree H2 EDU body executed
+any of the broadcast commands documented in this paper. The FDA RTCT
+pilot intake API is called only in simulation. Patient identifiers
+are synthetic and have the form \fp{PAT-NET-001-PNNN}. These bounds
+are inherent to a codegen tree designed to run on a high end
+conventional server without specialized humanoid hardware.
+
+\subsection{Per Site Data Identity Limitation}
+\label{sec:limits-parity}
+
+The 4 site decision streams at
+\fp{paper/execution/data/site\_runtime\_runs/} share an identical
+byte length of 62{,}330 bytes each. The parity is acceptable as a
+schema and timing check: the 1 Hz cadence stamps every site at the
+same rate on the same record schema. It is not yet a production
+behavior. The next iteration must feed each site a site specific
+adverse event arrival stream so the record content diverges by
+site. A live run will produce per site record counts that differ
+naturally as the arrival distribution diverges.
+
+\subsection{Excluded Inputs}
+\label{sec:limits-excluded}
+
+The Notes section of the instructions tree explicitly excludes hours
+56 through 83 of the national 24/7 trial dataset under
+\fp{physical-ai-oncology-trials/new-trial/national-24-7-trial/extra-hours/}
+\cite{kawchak_2026_humanoid_instructions,
+kawchak_2026_physical_ai_oncology_trials_repo}. Only hours 00
+through 55 are read into the current paper scope. The excluded
+hours are a future inclusion roadmap item: once the supporting
+analysis is ready, the hours 56 through 83 dataset can extend the
+monitoring window beyond the current 168 hour scope.
+
+\subsection{Missing Repository Update Instruction Directory}
+\label{sec:limits-missing}
+
+The Repository Structure block of the instructions tree names a
+\fp{10-repository-update-instructions/} subdirectory that is not yet
+present on disk \cite{kawchak_2026_humanoid_instructions}. This gap
+is acknowledged. The next commit on the instructions tree should
+create the directory and populate it with the top README,
+releases.md, and CHANGELOG update instructions, mirroring the
+pattern used by the 9 numbered subdirectories already present.
+
+\subsection{Future Work Roadmap}
+\label{sec:limits-roadmap}
+
+Table \ref{tbl:future-roadmap} consolidates the future work roadmap
+into a 7 row checklist. Each row pairs a roadmap item with the
+anchor file that defines the current bound. The roadmap is the
+hand off list from the technology layer to the governance layer.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Future work roadmap. Each item pairs with a project source
+file that defines the current bound. Order is approximate: items
+toward the top are blocked on technology readiness; items toward
+the bottom are blocked on governance readiness.}
+\label{tbl:future-roadmap}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{6cm}
+                >{\raggedright\arraybackslash}p{9cm}}
+\toprule
+\textbf{Roadmap Item} & \textbf{Anchor File} \\
+\midrule
+Move from simulator harness to a live Unitree H2 EDU body with the kinematics chain as the live target & \fp{paper/codegen/src/kinematics.yaml} \\
+Replace the placeholder signature with the live ed25519 signing chain & \fp{paper/codegen/src/fda\_rtct\_submitter.py} \\
+Extend the adverse event arrival stream so the 4 site decision logs diverge in content & \fp{paper/execution/data/site\_runtime\_runs/} \\
+Upgrade per site compute to NVIDIA Jetson AGX Thor 2070 TOPS where the workload demands it & \fp{paper/codegen/README.md} runtime section \\
+Add the missing \fp{instructions/10-repository-update-instructions/} subdirectory & \fp{paper/instructions/README.md} \\
+Include hour 56 through hour 83 extra hours dataset once supporting analysis is ready & \fp{physical-ai-oncology-trials/new-trial/national-24-7-trial/extra-hours/} \\
+Enroll a real PAT-NET-001 cohort under an IRB protocol and a signed sponsor agreement & \fp{paper/codegen/src/fda\_rtct\_submitter.py} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Real life feasibility insight.} The largest gap
+between this paper and a real Phase 2 trial response team is not
+the technology layer. It is the IRB, the sponsor, and the FDA RTCT
+pilot governance. The technology layer is feasible today on the
+hardware named in the codegen tree
+\cite{unitree_h2_2026, nvidia_jetson_thor_2026,
+anthropic_claude_opus_47_2026}. The governance layer is the work
+that the paper invites the agencies, the sponsors, and the sites to
+take on next.
+
+\sectiontable{Limitations and Future Work planning matrix}{%
+SimGap & L1 & 1 & robot loop, sub. & Sim vs real & 1 page & No live H2 run & Done \\
+Parity & L2 & 2 & runtime runs & Identity check & 1 page & 62,330 bytes & Done \\
+Excl. & L3 & 3 & instr Notes & Hours 56 to 83 & 0.5 page & By README & Done \\
+Miss & L4 & 4 & instr struct. & 10-repo gap & 0.5 page & Not present & Done \\
+Future & L5 & 5 & inputs, DR & 7 item table & 1 page & 7 items & Done \\
+}
+
+\end{sectionaccent}
