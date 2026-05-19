@@ -1,0 +1,196 @@
+% ======================================================================
+% sections/methods.tex
+%
+% Methods scaffold for the paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation
+%
+% This file is a draft scaffold. A future Claude Code Opus 4.7 1M Max
+% session reads the bracketed instruction blocks below, then reads the
+% files those instructions name, then expands the scaffold into the
+% finished methods section. Target length is roughly 18 to 22 pages of
+% the 70 plus page final paper.
+% ======================================================================
+
+\begin{sectionaccent}
+
+[METHODS INSTRUCTIONS FOR FUTURE CLAUDE CODE OPUS 4.7 1M MAX SESSION.
+Write the methods section as 9 subsections inside this single
+\texttt{\textbackslash section\{Methods\}} block. Read every file named
+below before writing the subsection that uses it. Do not invent
+implementation details. Use the file names verbatim in the prose so a
+reader can navigate to the source code.
+
+Subsection 1, Code Instruction Layer. Read:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/instructions/README.md}
+        (whole file).
+  \item Every \texttt{README.md} in the 10 numbered subdirectories of
+        \texttt{demo-projects/07-humanoid/paper/instructions/}:
+        \texttt{00-project-overview/}, \texttt{01-commit-roadmap/},
+        \texttt{02-config-instructions/},
+        \texttt{03-schemas-instructions/},
+        \texttt{04-robotic-instructions/},
+        \texttt{05-cartesian-instructions/},
+        \texttt{06-iteration-instructions/},
+        \texttt{07-llm-planner-instructions/},
+        \texttt{08-comparison-instructions/}, and
+        \texttt{09-runtime-instructions/}. The
+        \texttt{10-repository-update-instructions/} directory is
+        named in the instructions README repository structure block
+        but is not yet present on disk; mention this gap explicitly
+        as a documented future commit.
+\end{itemize}
+
+Subsection 2, Code Generation Layer And The 27 \texttt{src/} Files.
+Read every file in
+\texttt{demo-projects/07-humanoid/paper/codegen/src/} and discuss the
+function of each. Group the discussion by function rather than by
+filename:
+\begin{itemize}
+  \item Sensor to Cartesian pipeline: \texttt{sensor\_to\_xyz.py},
+        \texttt{kinematics.yaml}, \texttt{cartesian\_planner.py},
+        \texttt{xyz\_safety.py}. Discuss how raw sensor frames become
+        x, y, z coordinate goals subject to per arm cumulative force
+        budget caps of 15 N during chest compressions and 5 N
+        otherwise, and to an inter robot minimum distance of 1.2 m at
+        rest and 0.4 m during shared task handoff, and a cumulative
+        cross robot force cap of 22 N during 3 robot patient
+        transfer.
+  \item Per site dispatch: \texttt{h2\_dispatcher.py}. This file
+        exhibits per site H2 robot dispatch proficiency and is the
+        single point where role assignment becomes a robot command.
+        Call out the file by name in the prose.
+  \item Swarm camaraderie: \texttt{swarm\_coordinator.py} at 191 lines.
+        This file implements the camaraderie logic that animates the
+        3 robot Unitree H2 EDU camarade swarm at one site. It is used
+        by the LLM planner to author broadcasts and by the in-robot
+        loop to update local behavior. Discuss that 191 lines is a
+        compact length for non trivial 3 way coordination logic; the
+        compactness is a direct consequence of using the per-site
+        broadcaster pattern and the shared state tracker rather than
+        a peer to peer consensus protocol.
+  \item LLM planner and broadcast: \texttt{llm\_planner.py},
+        \texttt{broadcaster.py}, \texttt{prompt\_frozen.md},
+        \texttt{comms\_intellectual.py}, \texttt{comms\_physical.py},
+        \texttt{cross\_site\_bus.py}, \texttt{peer\_state\_tracker.py}.
+        Note the 1 Hz broadcast cadence and the redundant failover
+        within the site.
+  \item CTCAE grading and FDA submission:
+        \texttt{ctcae\_grader.py},
+        \texttt{fda\_rtct\_submitter.py} at 67 lines. The submitter
+        submits CTCAE grade 2 or higher AE records to the FDA RTCT
+        pilot intake API within 1 hour per the HR 9505 SLA, emits
+        records matching the \texttt{fda\_rtct\_submission} schema,
+        and uses ed25519 signing in production with a placeholder in
+        simulation. Discuss that 67 lines is the right scale for a
+        signed JSON submitter and that the small surface area is a
+        regulatory feature, not a limitation.
+  \item Physician escalation and error checking:
+        \texttt{physician\_escalation.py},
+        \texttt{check\_errors.py}. The error checker provides LLM
+        credibility to FDA and other regulators by trapping schema
+        and physics rule violations before broadcast.
+  \item Site runtime and iteration sweep:
+        \texttt{site\_runtime.py}, \texttt{iterate.py},
+        \texttt{week\_runner.py}, \texttt{ingest.py},
+        \texttt{compute.py}.
+  \item Comparison and figures: \texttt{compare\_agent.py},
+        \texttt{figures\_gen.py}.
+  \item Native code paths: \texttt{robot\_loop.cpp} for the in-robot
+        10 Hz loop, \texttt{runner.rs} and \texttt{runner\_main.rs}
+        for the Rust runner.
+\end{itemize}
+List the function of every file. The 27 files in
+\texttt{codegen/src/} taken together represent a processing feat
+because they cover dispatch, planning, kinematics, comms, grading,
+submission, error checking, iteration, runtime, comparison, figure
+generation, native robot loop, and Rust runner inside one tree.
+
+Subsection 3, Schemas And Configs. Read every file in
+\texttt{demo-projects/07-humanoid/paper/codegen/schemas/} and
+\texttt{demo-projects/07-humanoid/paper/codegen/config/}.
+
+Subsection 4, Cartesian Coordinate Surface. Read
+\texttt{demo-projects/07-humanoid/paper/codegen/src/kinematics.yaml},
+\texttt{cartesian\_planner.py}, \texttt{sensor\_to\_xyz.py}, and
+\texttt{xyz\_safety.py} again with a focus on the x, y, z command
+representation. Discuss that the Cartesian surface is the contract
+between the LLM and the robot; the LLM does not author joint angles.
+
+Subsection 5, Camaraderie Behavior. Read the 191 line
+\texttt{swarm\_coordinator.py} and the ASCII diagram
+\texttt{demo-projects/07-humanoid/paper/codegen/diagrams/swarm\_dance.txt}.
+Include the diagram verbatim inside an \texttt{asciibox} environment
+as Figure 3.
+
+Subsection 6, Iteration Sweep. Read
+\texttt{demo-projects/07-humanoid/paper/codegen/data/iterations/index.jsonl}.
+Quote the 32 iteration count across 4 trial sites and many columns as
+direct evidence that Claude Code can create project code effectively.
+Also read \texttt{demo-projects/07-humanoid/paper/execution/diagrams/03\_iteration\_sweep\_funnel.txt}
+and include it verbatim inside an \texttt{asciibox} environment as
+Figure 4.
+
+Subsection 7, Tests And Error Checks. Read
+\texttt{demo-projects/07-humanoid/paper/codegen/src/check\_errors.py}
+and \texttt{demo-projects/07-humanoid/paper/codegen/tests/test\_xyz\_safety.py}.
+Both files provide LLM credibility in generating tests and error
+checks that the FDA and other regulators would expect in any human
+factors review.
+
+Subsection 8, Runtime Targets. Read every file in
+\texttt{demo-projects/07-humanoid/paper/codegen/docker/} and the
+\texttt{docker-compose.yml} at the codegen tree root. Cover MacOS,
+Windows, and Linux runtime targets per the
+\texttt{09-runtime-instructions/} directory.
+
+Subsection 9, Execution. Read
+\texttt{demo-projects/07-humanoid/paper/execution/README.md} and the
+log files in
+\texttt{demo-projects/07-humanoid/paper/execution/logs/}
+(numbered 01 through 23). Walk through the schema ingest, smoke test,
+cargo build, Rust runner, validation pass log progression so a
+regulator can audit the run.
+
+Required ASCII diagrams to include verbatim in this section:
+\begin{itemize}
+  \item \texttt{paper/codegen/diagrams/swarm\_dance.txt} as Figure 3.
+  \item \texttt{paper/codegen/diagrams/ae\_response\_flow.txt} as
+        Figure 5, placed at the end of subsection 9.
+  \item \texttt{paper/execution/diagrams/01\_module\_dependency.txt}
+        as Figure 6.
+  \item \texttt{paper/execution/diagrams/03\_iteration\_sweep\_funnel.txt}
+        as Figure 4 (subsection 6).
+\end{itemize}
+
+Required real-life feasibility insight to include in this section:
+``Every Cartesian goal in \texttt{cartesian\_planner.py} is bounded by
+the force budget caps and the inter robot minimum distance constants
+named in the instructions README. These bounds are conservative
+relative to what the H2 EDU spec sheet allows. The implication is
+that a future regulator review can audit the safety envelope from
+the constants alone, without re-running the simulation.''
+
+Do not exceed 22 pages. Use single dashes only. Use \S\ for the
+section sign. Avoid stranding 1 or 2 word lines on their own.]
+
+The methods section will walk through the instruction layer, the 27
+source files in \texttt{codegen/src/}, the schemas and configs, the
+Cartesian coordinate command surface, the camaraderie behavior, the
+32 iteration sweep, the test and error check files, the runtime
+targets, and the execution log progression.
+
+\sectiontable{Methods planning matrix}{%
+Instructions & M1 & 1 & instructions tree & 10 subdir walkthrough & 1 to 2 pages & Names every subdir & Ready \\
+Source files & M2 & 2 & codegen/src 27 files & Per file function & 4 to 5 pages & swarm\_coordinator at 191 & Ready \\
+Schemas & M3 & 3 & schemas plus config & Schema by schema & 2 pages & Every JSON named & Ready \\
+Cartesian & M4 & 4 & kinematics plus planner & x, y, z contract & 2 pages & Force caps named & Ready \\
+Camaraderie & M5 & 5 & swarm\_coordinator.py & 191 line walkthrough & 2 pages & Figure 3 ASCII & Ready \\
+Iteration & M6 & 6 & iterations/index.jsonl & 32 sweep summary & 1 to 2 pages & 32 across 4 sites & Ready \\
+Tests & M7 & 7 & check\_errors plus tests & FDA credibility & 1 to 2 pages & Both files named & Ready \\
+Runtime & M8 & 8 & docker plus compose & 3 OS targets & 1 to 2 pages & MacOS Win Linux & Ready \\
+Execution & M9 & 9 & execution logs 01 to 23 & Run progression & 2 to 3 pages & Audit trail & Ready \\
+}
+
+\end{sectionaccent}
