@@ -1,7 +1,7 @@
 # Clinical-AI-Demos
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v0.6.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
+[![Release](https://img.shields.io/badge/Release-v0.7.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Companion](https://img.shields.io/badge/Companion-physical--ai--oncology--trials-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
@@ -15,6 +15,8 @@
 
 This repository delivers self-contained task brief prompts that downstream Claude Code Opus 4.7 1M Max sessions execute to author Physical AI oncology clinical trial demonstrations. Every demo centers on humanoid agents performing surgical and patient care tasks inside clinical trial sites.
 
+**5/20: v0.7.0 (Full Paper LaTeX Expansion for the Triple Humanoid 4 Site Paper)** *Full paper expansion at `demo-projects/07-humanoid/paper/full-paper/` for the paper "Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation" by Kevin Kawchak (ORCID 0009-0007-5457-8667). 12 source files (main.tex, humanoid_paper_template.sty, references.bib with 28 entries, README.md, and 8 section files with finished prose) plus a LaTeX-Source.zip Overleaf bundle. The 8 section files (abstract, introduction, methods, results, discussion, limitations_future, conclusions, back_matter) expand the v0.6.0 bracketed scaffold into reader friendly prose with reader friendly tables replacing the prior planning matrix bracketed notes. The references.bib carries clickable DOI plus URL for every entry plus GitHub and Zenodo links in the note field for repository entries. The full paper does not modify any file under `paper/codegen/`, `paper/execution/`, `paper/instructions/`, `paper/inputs/`, or `paper/draft-paper/`. CI passes ruff, ruff format, and yamllint on Python 3.10/3.11/3.12.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/full-paper)
+
 **5/20: v0.6.0 (Draft Paper LaTeX Scaffold with Bracketed Instructions for the 70 Plus Page Triple Humanoid 4 Site Paper)** *Draft paper scaffold at `demo-projects/07-humanoid/paper/draft-paper/` for the upcoming paper "Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation" by Kevin Kawchak (ORCID 0009-0007-5457-8667). 12 source files (main.tex, humanoid_paper_template.sty, references.bib, README.md, and 8 section files) plus a LaTeX-Source.zip Overleaf bundle. Every section file carries bracketed instructions naming the exact RESEARCH files a future Claude Code Opus 4.7 1M Max session must read before authoring that section. The future session expands the 20 page scaffold to a 70 plus page final paper. References include the December 2025 FDA AERS paper at 10.5281/zenodo.18029100 and the May 2026 instructions at 10.5281/zenodo.18445179, each with clickable DOI plus full https://doi.org/ URL. CI passes ruff, ruff format, and yamllint on Python 3.10/3.11/3.12.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/draft-paper)
 
 **5/18: v0.5.0 (3-Robot Camarade Swarm Codegen Execution Outcomes for Demo Prompt 07)** *Runtime counterpart to the v0.4.0 codegen tree. The execution tree at `demo-projects/07-humanoid/paper/execution/` captures the runtime outcomes of every executable element in the codegen tree (Python, C++, Rust, YAML, JSON, Markdown) on a Linux server with Python 3.10 to 3.12, Rust 1.94, g++ -std=c++20, cmake, and DuckDB. 50 file execution tree with 23 per-step logs, 4 ASCII diagrams capped at 80 by 60, 6 PNG figures at 300 dpi, 4 machine readable output tables, 5 report copies, and 8 data artifacts. Five limitations recorded transparently. Thesis: on-premises repository based LLMs provide commands to humanoid robots based on real-time sensor data and controlled via x, y, z coordinates to administer synergistic treatment to patient adverse events.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/execution)
@@ -27,6 +29,8 @@ This repository delivers self-contained task brief prompts that downstream Claud
 
 **5/16: v0.1.0 (Humanoid + LLM Oncology Trial Demo Prompts)** *Ten standalone prompts spanning trial site operations, sponsor center, pharmacy compounding, recovery nursing, pathology lab, tele-surgery, AE response, research coordinator, radiation oncology, decentralized home care.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects)
 
+> **v0.7.0** - Seventh release. The full paper LaTeX expansion for Demo 07 lives at `demo-projects/07-humanoid/paper/full-paper/`. 12 source files plus a `LaTeX-Source.zip` Overleaf bundle. The 8 section files (abstract, introduction, methods, results, discussion, limitations_future, conclusions, back_matter) expand the v0.6.0 bracketed scaffold into finished reader friendly prose with reader friendly tables in place of the prior planning matrix notes. The `references.bib` carries 28 entries with clickable DOI plus URL for every entry; repository entries also carry GitHub and Zenodo URLs in the note field so the rendered bibliography prints both links. The 14 commit roadmap reserves commit 13 for error fixes plus the LaTeX-Source.zip Overleaf bundle and commit 14 for repository updates. The v0.7.0 release does not modify any file under `paper/codegen/`, `paper/execution/`, `paper/instructions/`, `paper/inputs/`, or `paper/draft-paper/`. CI passes ruff, ruff format, and yamllint on Python 3.10/3.11/3.12.
+>
 > **v0.6.0** - Sixth release. The draft paper LaTeX scaffold for Demo 07 lives at `demo-projects/07-humanoid/paper/draft-paper/`. 12 source files plus a `LaTeX-Source.zip` Overleaf bundle. Each section file (abstract, introduction, methods, results, discussion, limitations_future, conclusions, back_matter) carries bracketed instructions that name the exact RESEARCH files (across `paper/instructions/`, `paper/codegen/`, `paper/execution/`, `paper/inputs/`) a future Claude Code Opus 4.7 1M Max session must read to expand the scaffold into a 70 plus page final paper. The scaffold compiles to a 20 page PDF with zero overfull hbox warnings and a clickable bibliography. The 14 commit roadmap reserves commit 13 for error fixes plus the Overleaf zip and commit 14 for repository updates. CI passes ruff, ruff format, and yamllint on Python 3.10/3.11/3.12.
 >
 > **v0.5.0** - Fifth release. The runtime execution outcomes for the v0.4.0 codegen tree live at `demo-projects/07-humanoid/paper/execution/`. 50 file execution tree with 23 per-step logs (schema ingest, pytest 36 passed, module imports 22 of 22, per source file smoke tests, 4-site site_runtime, week_runner fast mode, h2_dispatcher 12-robot roster, cargo Rust build, g++ -std=c++20 -O2 C++ robot_loop, 32-iteration sweep, compute.py 26 key metrics, compare_agent.py narrative, 6 PNG figures at 300 dpi, JSON/YAML/ASCII validation, final ruff/format/yamllint pass), 4 ASCII diagrams (module dependency, 4-site execution sequence, iteration sweep funnel, comparison radar), 6 PNG figures regenerated from src/figures_gen.py against the hand-curated iteration index, 4 machine readable output tables, 5 report copies plus the consolidated `execution_report_v0_5_0.md`, 8 data artifacts including the 32-row DuckDB aggregate. 7-commit roadmap inspired by the v0.4.0 commit roadmap, with commit 6 reserved for error fixes and commit 7 for repository updates. Five limitations recorded transparently. CI is green on Python 3.10/3.11/3.12.
@@ -68,6 +72,9 @@ ls demo-projects/07-humanoid/paper/execution/
 # Inspect the v0.6.0 draft paper scaffold for prompt 07
 ls demo-projects/07-humanoid/paper/draft-paper/
 
+# Inspect the v0.7.0 full paper expansion for prompt 07
+ls demo-projects/07-humanoid/paper/full-paper/
+
 # Install lint tools to verify CI cleanliness
 pip install ruff yamllint
 ruff check .
@@ -81,7 +88,7 @@ less national-repositories/build-national.md
 git clone https://github.com/kevinkawchak/physical-ai-oncology-trials.git ../physical-ai-oncology-trials
 ```
 
-## Humanoid Coverage (v0.1.0 + v0.2.0 + v0.3.0 + v0.4.0 + v0.5.0 + v0.6.0)
+## Humanoid Coverage (v0.1.0 through v0.7.0)
 
 ```
   Humanoid Platform               Per-Demo Mapping               LLM Backend
@@ -140,7 +147,7 @@ Clinical-AI-Demos/
       feature_request.md
     PULL_REQUEST_TEMPLATE.md                   # Safety plus CI checklist
 
-  demo-projects/                               # v0.1.0 Prompts + v0.2.0 Images + v0.3.0/v0.4.0/v0.5.0/v0.6.0 Swarm
+  demo-projects/                               # v0.1.0 Prompts + v0.2.0 Images + v0.3.0/v0.4.0/v0.5.0/v0.6.0/v0.7.0 Swarm
     README.md                                  # Directory README with coverage matrix
     01-humanoid-site-operations-director.md    # Atlas Electric plus Claude Opus 4.7
     02-sponsor-humanoid-operations-center.md
@@ -149,7 +156,7 @@ Clinical-AI-Demos/
     05-humanoid-biospecimen-pathology-lab.md
     06-humanoid-tele-surgical-assistant.md
     07-humanoid-24-7-adverse-event-response.md
-    07-humanoid/                               # v0.3.0 + v0.4.0 + v0.5.0 + v0.6.0 paper
+    07-humanoid/                               # v0.3.0 + v0.4.0 + v0.5.0 + v0.6.0 + v0.7.0 paper
       paper/
         instructions/                          # v0.3.0 code generation instructions
           README.md
@@ -203,6 +210,21 @@ Clinical-AI-Demos/
             limitations_future.tex             # 5 subsection limits and future scaffold
             conclusions.tex                    # 4 subsection conclusions scaffold
             back_matter.tex                    # Acks, Ethics, Rights, Cite, Data
+        full-paper/                            # v0.7.0 full paper LaTeX expansion
+          main.tex                             # Top level manuscript file (nocite for 3 anchors)
+          humanoid_paper_template.sty          # Style with 8 col, narrative, metrics macros
+          references.bib                       # 28 entries with clickable DOI plus URL
+          README.md                            # 11 badges, headline metrics, ASCII diagrams
+          LaTeX-Source.zip                     # Overleaf bundle of all source files
+          sections/                            # 8 section files with finished prose
+            abstract.tex                       # ~300 word abstract, no citations
+            introduction.tex                   # 5 subsection introduction
+            methods.tex                        # 9 subsection methods plus 4 tables, 4 figures
+            results.tex                        # 7 subsection results plus 7 tables, 1 figure
+            discussion.tex                     # 6 subsection discussion plus thesis anchor table
+            limitations_future.tex             # 5 subsection limits plus 7 row roadmap table
+            conclusions.tex                    # 4 subsection conclusions plus evidence table
+            back_matter.tex                    # Acks, Ethics, Rights, Cite, Data table
         templates/                             # Reserved for future template files
     08-humanoid-clinical-research-coordinator.md
     09-humanoid-radiation-oncology-technologist.md
@@ -224,6 +246,7 @@ flowchart LR
     CG[demo-projects/07-humanoid/paper/codegen/ v0.4.0]
     EX[demo-projects/07-humanoid/paper/execution/ v0.5.0]
     DRP[demo-projects/07-humanoid/paper/draft-paper/ v0.6.0]
+    FP[demo-projects/07-humanoid/paper/full-paper/ v0.7.0]
     NR[national-repositories/]
     GH[.github/]
     CHG[CHANGELOG.md]
@@ -266,6 +289,10 @@ flowchart LR
   DRP -->|reads SW, CG, EX| SW
   DRP -->|reads SW, CG, EX| CG
   DRP -->|reads SW, CG, EX| EX
+  FP -->|expands scaffold| DRP
+  FP -->|reads SW, CG, EX| SW
+  FP -->|reads SW, CG, EX| CG
+  FP -->|reads SW, CG, EX| EX
 ```
 
 ## Mermaid: Demo Prompt + Image + Swarm Instruction Execution Loop
@@ -278,6 +305,7 @@ flowchart TB
   CG[v0.4.0 Codegen in demo-projects/07-humanoid/paper/codegen/] --> CC
   EX[v0.5.0 Execution in demo-projects/07-humanoid/paper/execution/] --> CC
   DRP[v0.6.0 Draft Paper in demo-projects/07-humanoid/paper/draft-paper/] --> CC
+  FP[v0.7.0 Full Paper in demo-projects/07-humanoid/paper/full-paper/] --> CC
   CC --> R1[Commit 1: Project Overview, configs]
   R1 --> R2[Commit 2: Schemas plus Samples]
   R2 --> R3[Commit 3: Robotic, Cartesian, Iteration source]
@@ -340,6 +368,7 @@ flowchart TB
 | [demo-projects/07-humanoid/paper/codegen/README.md](demo-projects/07-humanoid/paper/codegen/README.md) | Demo 07 v0.4.0 executable codegen README (Unitree H2 EDU plus Jetson AGX Thor 2070 TOPS) |
 | [demo-projects/07-humanoid/paper/execution/README.md](demo-projects/07-humanoid/paper/execution/README.md) | Demo 07 v0.5.0 codegen execution outcomes README (50 file execution tree with 23 logs, 4 ASCII diagrams, 6 figures, 4 outputs, 5 reports, 8 data artifacts) |
 | [demo-projects/07-humanoid/paper/draft-paper/README.md](demo-projects/07-humanoid/paper/draft-paper/README.md) | Demo 07 v0.6.0 draft paper LaTeX scaffold README (8 badges, 12 source files, LaTeX-Source.zip, 70 plus page final paper target) |
+| [demo-projects/07-humanoid/paper/full-paper/README.md](demo-projects/07-humanoid/paper/full-paper/README.md) | Demo 07 v0.7.0 full paper LaTeX expansion README (11 badges, 12 source files with finished prose, 28 reference entries, LaTeX-Source.zip) |
 | [national-repositories/build-national.md](national-repositories/build-national.md) | Meta-prompting guide for building national repositories |
 
 ## Citation
@@ -350,7 +379,7 @@ If you use this repository in your research, please cite:
 @software{kawchak2026clinicalaidemos,
   author = {Kawchak, Kevin},
   title = {Clinical-AI-Demos: Humanoid and LLM Demos for Physical AI Oncology Clinical Trials},
-  version = {0.6.0},
+  version = {0.7.0},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/kevinkawchak/Clinical-AI-Demos}

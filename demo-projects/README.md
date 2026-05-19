@@ -1,6 +1,6 @@
 # Demo Projects: Humanoid + LLM Oncology Clinical Trial Prompts
 
-[![Release](https://img.shields.io/badge/Release-v0.6.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
+[![Release](https://img.shields.io/badge/Release-v0.7.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Companion](https://img.shields.io/badge/Companion-physical--ai--oncology--trials-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Prior DOI](https://img.shields.io/badge/Prior%20DOI-10.5281%2Fzenodo.18029100-blue)](https://doi.org/10.5281/zenodo.18029100)
@@ -10,6 +10,7 @@
 [![Codegen](https://img.shields.io/badge/Codegen-Demo%2007%20v0.4.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/codegen)
 [![Execution](https://img.shields.io/badge/Execution-Demo%2007%20v0.5.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/execution)
 [![Draft Paper](https://img.shields.io/badge/Draft%20Paper-Demo%2007%20v0.6.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/draft-paper)
+[![Full Paper](https://img.shields.io/badge/Full%20Paper-Demo%2007%20v0.7.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/full-paper)
 [![Humanoid](https://img.shields.io/badge/Humanoid-Unitree%20H2%20EDU-orange.svg)](https://www.unitree.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
@@ -17,7 +18,7 @@
 Released on 20 May 2026
 CEO Kevin Kawchak, ChemicalQDevice
 
-This directory contains 10 standalone Claude Code task brief prompts for downstream Claude Code Opus 4.7 1M Max sessions to author Physical AI oncology clinical trial demonstrations. Every demo features a distinct humanoid platform, an explicit large language model control loop, and a unique perspective spanning surgical, patient care, sponsor operations, pharmacy, pathology, telesurgery, adverse event, research coordination, radiation oncology, and decentralized home care scenarios. As of v0.2.0 the directory also contains 100 image instructions at `image-instruct/` (10 per prompt). As of v0.3.0 the directory also contains the multi-robot synergy code generation instructions for demo prompt 07 at `07-humanoid/paper/instructions/`. As of v0.4.0 the directory also contains the executable codegen for demo prompt 07 at `07-humanoid/paper/codegen/`. As of v0.5.0 the directory also contains the codegen execution outcomes at `07-humanoid/paper/execution/`. As of v0.6.0 the directory also contains the draft paper LaTeX scaffold at `07-humanoid/paper/draft-paper/` for the upcoming 70 plus page paper "Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation."
+This directory contains 10 standalone Claude Code task brief prompts for downstream Claude Code Opus 4.7 1M Max sessions to author Physical AI oncology clinical trial demonstrations. Every demo features a distinct humanoid platform, an explicit large language model control loop, and a unique perspective spanning surgical, patient care, sponsor operations, pharmacy, pathology, telesurgery, adverse event, research coordination, radiation oncology, and decentralized home care scenarios. As of v0.2.0 the directory also contains 100 image instructions at `image-instruct/` (10 per prompt). As of v0.3.0 the directory also contains the multi-robot synergy code generation instructions for demo prompt 07 at `07-humanoid/paper/instructions/`. As of v0.4.0 the directory also contains the executable codegen for demo prompt 07 at `07-humanoid/paper/codegen/`. As of v0.5.0 the directory also contains the codegen execution outcomes at `07-humanoid/paper/execution/`. As of v0.6.0 the directory also contains the draft paper LaTeX scaffold at `07-humanoid/paper/draft-paper/` for the upcoming 70 plus page paper "Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation." As of v0.7.0 the directory also contains the finished full paper LaTeX expansion at `07-humanoid/paper/full-paper/` which expands the v0.6.0 bracketed draft scaffold into reader friendly prose with reader friendly tables in place of the prior planning matrix bracketed notes.
 
 ## Why This Directory Exists
 
@@ -43,7 +44,7 @@ The v0.4.0 thesis: on-premises repository based LLMs provide commands to humanoi
 | 04 | [Humanoid Post-Operative Recovery Nurse](04-humanoid-post-op-recovery-nurse.md) | Agility Digit V5 | Claude Haiku/Sonnet + Ollama Llama 4 70B | 24 hours | 1 s |
 | 05 | [Humanoid Biospecimen and Pathology Lab Assistant](05-humanoid-biospecimen-pathology-lab.md) | Sanctuary Phoenix Gen 8 | Gemini 3 Pro + Ollama Qwen3 72B via MCP | 12 hours | 100 ms |
 | 06 | [Humanoid Tele-Surgical Assistant](06-humanoid-tele-surgical-assistant.md) | Apptronik Apollo | Claude Opus 4.7 1M + operator-in-the-loop | 90 minutes | 1 ms |
-| 07 | [Humanoid 24/7 Adverse Event Response Team (v0.3.0 instructions, v0.4.0 codegen, v0.5.0 execution, v0.6.0 draft paper at 07-humanoid/paper/)](07-humanoid-24-7-adverse-event-response.md) | 3x Unitree H2 EDU per site (12 total) | Per-site Claude Opus 4.7 1M broadcast to 3 robots | 168 hours (1 week) | 1 s |
+| 07 | [Humanoid 24/7 Adverse Event Response Team (v0.3.0 instructions, v0.4.0 codegen, v0.5.0 execution, v0.6.0 draft paper, v0.7.0 full paper at 07-humanoid/paper/)](07-humanoid-24-7-adverse-event-response.md) | 3x Unitree H2 EDU per site (12 total) | Per-site Claude Opus 4.7 1M broadcast to 3 robots | 168 hours (1 week) | 1 s |
 | 08 | [Humanoid Clinical Research Coordinator](08-humanoid-clinical-research-coordinator.md) | 1X Neo Beta | Claude + Gemini + GPT ensemble routing | 8 hours | 1 s |
 | 09 | [Humanoid Radiation Oncology Technologist](09-humanoid-radiation-oncology-technologist.md) | Atlas + Optimus pair | NVIDIA GR00T N1.6 + Cosmos Reason 2 + Claude arbiter | 8 hours | 100 ms |
 | 10 | [Humanoid Decentralized Home Care for DCT](10-humanoid-decentralized-home-care.md) | Figure 03 Field Edition | Claude Haiku 4.5 edge on NVIDIA Orin | 24 hours | 1 s active + 10 s ambient |
@@ -162,6 +163,30 @@ demo-projects/07-humanoid/paper/draft-paper/
     limitations_future.tex          # 5 subsection limits scaffold
     conclusions.tex                 # 4 subsection conclusions scaffold
     back_matter.tex                 # Acks, Ethics, Rights, Cite, Data
+```
+
+## Full Paper for Prompt 07 (v0.7.0)
+
+The full paper LaTeX expansion for demo prompt 07 is at `07-humanoid/paper/full-paper/`. It expands the v0.6.0 bracketed draft scaffold into finished prose with reader friendly tables in place of the prior planning matrix bracketed notes. The 12 source files (main.tex, humanoid_paper_template.sty, references.bib, README.md, and 8 section files) plus the `LaTeX-Source.zip` Overleaf bundle compile under Overleaf's pdfLaTeX plus BibTeX pipeline. The bibliography carries 28 entries, each with the bare DOI in the doi field, the full https://doi.org/ resolver URL in the url field, and a howpublished \url for clickability under ieeetr. Repository entries also carry GitHub plus Zenodo URLs in the note field. CI passes ruff, ruff format, and yamllint on Python 3.10/3.11/3.12.
+
+Directory tree:
+
+```
+demo-projects/07-humanoid/paper/full-paper/
+  main.tex                          # Top level manuscript file
+  humanoid_paper_template.sty       # Style file, 8 col + 2 col + 3 col macros
+  references.bib                    # 28 entries with clickable DOI + URL
+  README.md                         # 11 badges, headline metrics, ASCII pipeline
+  LaTeX-Source.zip                  # Overleaf bundle of all source files
+  sections/
+    abstract.tex                    # ~300 word abstract, no citations
+    introduction.tex                # 5 subsection introduction
+    methods.tex                     # 9 subsection methods + 4 tables + 4 figs
+    results.tex                     # 7 subsection results + 7 tables + 1 fig
+    discussion.tex                  # 6 subsection discussion + thesis anchors
+    limitations_future.tex          # 5 subsection limits + roadmap table
+    conclusions.tex                 # 4 subsection conclusions + evidence table
+    back_matter.tex                 # Acks, Ethics, Rights, Cite, Data table
 ```
 
 ## Safety Constraints Across the 10 Demos
