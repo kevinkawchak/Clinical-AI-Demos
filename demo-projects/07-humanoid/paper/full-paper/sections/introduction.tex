@@ -1,0 +1,243 @@
+% ======================================================================
+% sections/introduction.tex
+%
+% Introduction for the full paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation (v0.7.0)
+%
+% Five subsections inside the single \section{Introduction} block:
+%   1) Background and Setting
+%   2) Thesis Statement and Scope
+%   3) The On-Premises Repository LLM Pattern
+%   4) The 4-Site Continental Rotation
+%   5) Roadmap of the Paper
+% ======================================================================
+
+\begin{sectionaccent}
+
+\subsection{Background and Setting}
+\label{sec:intro-background}
+
+Oncology clinical trials operate around adverse events. Severity
+matters, time to response matters, and the audit trail matters. The
+\textsc{ctcae} version 5 grading scale gives a common vocabulary across
+sponsors, sites, and regulators \cite{ctcae_v5_2017}. The 2025 update
+to the International Council for Harmonisation good clinical practice
+guideline \textsc{ich e6(r3)} sets the modern compliance baseline
+\cite{ich_e6r3_2025}. The April 2026 announcement from the U.S. Food
+and Drug Administration of the Real Time Clinical Trial pilot (RTCT)
+introduced a fresh 1 hour service level agreement for the intake of
+grade 2 or higher adverse event records \cite{fda_rtct_2026,
+fda2026realtime}. The United States has an obligation to lead on
+patient safety, efficacy, and speed across the new field of
+physical artificial intelligence (Physical AI) for oncology trial
+surgical procedures and supportive care. This obligation is taken
+respectfully throughout the paper, but it is also taken as a real
+timer to honor.
+
+A prior 2025 author paper demonstrated that large language models are
+effective at iterative learning against the FDA Adverse Event
+Reporting System (FAERS) when 16 proprietary and open source models
+are placed in head to head competition over the same code generation
+task \cite{kawchak_2025_18029100}. That paper established the
+plausibility of an autonomous LLM pipeline against FDA adverse event
+data. The current paper does not redo that demonstration. The current
+paper extends it from a single agent FAERS task to a coordinated
+3 robot camarade swarm 24/7 adverse event response team running at
+4 trial sites at once.
+
+\subsection{Thesis Statement and Scope}
+\label{sec:intro-thesis}
+
+The thesis sentence is preserved verbatim from the project
+instructions tree \cite{kawchak_2026_humanoid_instructions}:
+on-premises repository based LLMs provide commands to humanoid robots
+based on real-time sensor data and controlled via x, y, z coordinates
+to administer synergistic treatment regarding patient adverse events;
+this workflow minimizes single robot error potential. The thesis
+applies to a defined scope: 4 trial sites under the network
+identifier PAT-NET-001, 3 Unitree H2 EDU humanoid robots per site, 1
+on-premises Claude Opus 4.7 1M language model per site, a 168 hour
+monitoring window, and a deterministic 32 iteration sweep across the
+language model temperature, the adverse event arrival jitter, the
+response time variance, and the camarade aggressiveness axes
+\cite{unitree_h2_2026, nvidia_jetson_thor_2026,
+anthropic_claude_opus_47_2026}.
+
+The scope statement matters. The paper does not claim that a live
+Unitree H2 EDU body executed any broadcast command. It does not claim
+that real adverse event records were submitted to the FDA RTCT pilot
+intake API. It does claim that the full software pipeline, the
+schemas, the kinematics constraints, the audit chain, and the safety
+envelope are present, tested, and ready for the governance step that
+the technology layer cannot perform on its own.
+
+\subsection{The On-Premises Repository LLM Pattern}
+\label{sec:intro-onprem}
+
+The pattern centers on one Claude Opus 4.7 1M Max instance hosted on
+a site local server. The site model reads a frozen system prompt, a
+defined input schema for sensor frames, and a defined output schema
+for a structured language model decision payload. At every 1 Hz tick
+the model emits exactly 3 sub commands, one for each robot at the
+site. The broadcaster then publishes those 3 sub commands as a single
+atomic message that all 3 robots subscribe to in parallel through a
+publish subscribe channel. The on-premises placement keeps inference
+latency near a 200 ms median over a local network and keeps every
+inference traceable to a known repository version
+\cite{anthropic_claude_code_2026, anthropic_claude_opus_47_2026}.
+Robots talk to each other through two channels at once: a 60 GHz
+ultra wide band peer mesh for short range physical handoff
+coordination, paired with an infrared beacon line of sight channel
+for visual cross check, and a shared on-prem compute fabric for
+intellectual exchange of sensor evidence and role decisions
+\cite{kawchak_2026_humanoid_instructions}. The cross site bus carries
+only de identified hourly summaries across the 4 sites; no robot
+transits, and no protected health information leaves a site.
+
+\subsection{The 4-Site Continental Rotation}
+\label{sec:intro-rotation}
+
+The 4 site continental network spans San Francisco (site SF-01), San
+Diego (site SD-01), Boston (site BO-01), and Atlanta (site AT-01).
+Each site holds a 3 robot Unitree H2 EDU swarm with the lead, assist,
+and reserve roles, with roles rotated every 1 Hz tick. Figure
+\ref{fig:network-layout} carries the verbatim layout diagram from
+the codegen tree. Figure \ref{fig:execution-sequence} carries the
+verbatim 4 site execution sequence diagram from the execution tree
+and shows the per site dispatch, the 1 Hz language model decisions,
+and the audit chain extension at every tick.
+
+\begin{figure}[H]
+\centering
+\begin{Verbatim}[fontsize=\footnotesize]
+           PAT-NET-001 Continental Adverse Event Response Network
+           =======================================================
+
+                       Cross Site Coordination Bus
+                         (de-identified summaries)
+       +-------------+-------------+-------------+-------------+
+       |             |             |             |             |
+       v             v             v             v             v
+  +-------+      +-------+      +-------+      +-------+
+  | SF-01 |      | SD-01 |      | BO-01 |      | AT-01 |
+  +-------+      +-------+      +-------+      +-------+
+
+  Per-Site Layout (same pattern at all 4 sites):
+
+  +--------------------------------------+
+  | Site <ID>                            |
+  | Claude Opus 4.7 1M on-prem           |
+  | Broadcast bus at 1 Hz                |
+  |                                      |
+  |   +------+  +------+   +------+      |
+  |   | H2-1 |  | H2-2 |   | H2-3 |      |
+  |   | Lead |  |Assist|   |Reserve      |
+  |   +------+  +------+   +------+      |
+  +--------------------------------------+
+
+  Robot ID assignments by site:
+    SF-01: H2-A (Lead), H2-B (Assist), H2-C (Reserve)
+    SD-01: H2-D (Lead), H2-E (Assist), H2-F (Reserve)
+    BO-01: H2-G (Lead), H2-H (Assist), H2-I (Reserve)
+    AT-01: H2-J (Lead), H2-K (Assist), H2-L (Reserve)
+
+  Legend:
+    Roles shown are typical at AE start.
+    Roles rotate at every 1 Hz tick.
+    Inter robot: 60 GHz UWB peer mesh plus IR beacon line of sight.
+    LLM to robot: 1 Hz broadcast publish subscribe.
+    Cross site: de-identified hourly summaries only.
+    No PHI. No robot transit between sites.
+    Platform: Unitree H2 EDU.
+    Compute upgradeable to Jetson AGX Thor 2070 TOPS.
+\end{Verbatim}
+\caption{PAT-NET-001 continental layout with one Claude Opus 4.7 1M on-premises broadcaster per site and 3 Unitree H2 EDU robots per site.}
+\label{fig:network-layout}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{Verbatim}[fontsize=\footnotesize]
+         PAT-NET-001 4 Site Execution Sequence (Per Tick)
+         ================================================
+
+   wall clock    | SF-01          | SD-01          | BO-01          | AT-01
+   --------------+----------------+----------------+----------------+--------
+   T+0    site   | dispatch init  | dispatch init  | dispatch init  | dispat
+                 | 3 robots: ABC  | 3 robots: DEF  | 3 robots: GHI  | 3: JKL
+                 |                |                |                |
+   T+0.0  tick 0 | LLMPlanner 1Hz | LLMPlanner 1Hz | LLMPlanner 1Hz | LLMPlnr
+                 | -> Broadcaster | -> Broadcaster | -> Broadcaster | -> Bcst
+                 | -> Dispatcher  | -> Dispatcher  | -> Dispatcher  | -> Disp
+                 | 3 acks 50 ms   | 3 acks 50 ms   | 3 acks 50 ms   | 3 acks
+                 |                |                |                |
+   T+1.0  tick 1 | sensor refresh | sensor refresh | sensor refresh | sensor
+                 | role rebalance | role rebalance | role rebalance | rebal.
+                 |                |                |                |
+   T+59   tick59 | audit head=    | audit head=    | audit head=    | head=
+                 | 6274ffb43...   | 93e5b2a36...   | f26259454...   | 9ce574
+                 |                |                |                |
+   T+60   summ   | 60 decisions   | 60 decisions   | 60 decisions   | 60 dec
+                 | persisted      | persisted      | persisted      | persis
+
+                            v
+                  +------------------------------------+
+                  | Aggregate                          |
+                  | week_runner: 3600 ticks per site   |
+                  | iterate.py: 32 iterations          |
+                  | runner (Rust release): 32 sweeps   |
+                  | average p50 response time 67.5 s   |
+                  | camaraderie pass rate 0.985        |
+                  +------------------------------------+
+\end{Verbatim}
+\caption{4 site execution sequence at the 1 Hz language model tick boundary with audit chain extension and the 60 second per site summary.}
+\label{fig:execution-sequence}
+\end{figure}
+
+The continental rotation is not a geographic load balance. Each site
+holds local sensor frames, local patient state, and local physician
+state. The cross site bus only carries de identified hourly
+summaries. This separation honors patient privacy while still allowing
+the 4 sites to share lessons learned across the network through the
+shared on prem compute fabric.
+
+\subsection{Roadmap of the Paper}
+\label{sec:intro-roadmap}
+
+The methods section walks 9 subsections that anchor every claim to a
+specific source file in the read only RESEARCH trees. The results
+section walks 7 subsections that present the per site decision
+streams, the 32 iteration sweep aggregate, the comparison reports,
+the ASCII visuals, the converted output tables, the figures, and the
+headline metrics. The discussion section walks 6 subsections that
+reconcile each clause of the thesis with the work and pose the
+practical insight on real life feasibility. The limitations and future
+work section names the simulator versus real robot gap, the per site
+data identity bound, the excluded extra hours dataset, the missing
+repository update instruction directory, and the roadmap items that
+the project hands off to the agencies, sponsors, and sites. The
+conclusions section restates the thesis verbatim and presents the
+work as an industry checklist already executed.
+
+\subsubsection*{Real life feasibility insight.} As of May 2026 the
+Unitree H2 EDU is shipping at the spec sheet level named in the
+instructions tree (39 DOF, 1.8 m, 70 kg, 10 kg payload per arm, IP65
+outdoor rated) \cite{unitree_h2_2026}. Pairing it with one on
+premises Claude Opus 4.7 1M Max instance per site is feasible on
+conventional high end x86 or Apple Silicon servers
+\cite{anthropic_claude_opus_47_2026}. The 1 Hz broadcast cadence is
+well within current network and inference latency budgets. What
+remains is the IRB approval, the sponsor agreement, and FDA RTCT
+pilot enrollment. The paper treats those as part of the forward
+roadmap rather than as solved.
+
+\sectiontable{Introduction planning matrix}{%
+Context & I1 & 1 & FDA RTCT, CTCAE & State setting & 1 to 2 paragraphs & FAERS cite & Done \\
+Thesis & I2 & 2 & instructions & Verbatim quote & 1 paragraph & Same as README & Done \\
+Pattern & I3 & 3 & llm planner & On-prem LLM & 2 paragraphs & 1 Hz cadence & Done \\
+Network & I4 & 4 & net layout & ASCII Figure 1, 2 & 2 figures & 4 sites visible & Done \\
+Roadmap & I5 & 5 & main.tex & Section walk & 1 paragraph & Reader path & Done \\
+}
+
+\end{sectionaccent}
