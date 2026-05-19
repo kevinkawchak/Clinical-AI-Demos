@@ -1,0 +1,158 @@
+% ======================================================================
+% sections/discussion.tex
+%
+% Discussion scaffold for the paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation
+%
+% This file is a draft scaffold. A future Claude Code Opus 4.7 1M Max
+% session reads the bracketed instruction blocks below, then reads the
+% files those instructions name, then expands the scaffold into the
+% finished discussion. Target length is roughly 10 to 14 pages of the
+% 70 plus page final paper.
+% ======================================================================
+
+\begin{sectionaccent}
+
+[DISCUSSION INSTRUCTIONS FOR FUTURE CLAUDE CODE OPUS 4.7 1M MAX SESSION.
+Write the discussion as 6 subsections inside this single
+\texttt{\textbackslash section\{Discussion\}} block. Tie every claim back to a
+results subsection.
+
+Subsection 1, Thesis Reconciliation. Restate the thesis verbatim from
+\texttt{demo-projects/07-humanoid/paper/instructions/README.md} and
+walk through how each clause of the thesis is supported by:
+\begin{itemize}
+  \item ``On-premises repository based LLMs provide commands to
+        humanoid robots'' is supported by
+        \texttt{codegen/src/llm\_planner.py},
+        \texttt{codegen/src/broadcaster.py}, and
+        \texttt{codegen/src/comms\_intellectual.py}.
+  \item ``based on real-time sensor data'' is supported by
+        \texttt{codegen/src/sensor\_to\_xyz.py} and
+        \texttt{codegen/src/peer\_state\_tracker.py}.
+  \item ``controlled via x, y, z coordinates'' is supported by
+        \texttt{codegen/src/cartesian\_planner.py},
+        \texttt{codegen/src/kinematics.yaml}, and
+        \texttt{codegen/src/xyz\_safety.py}.
+  \item ``to administer synergistic treatment to patient adverse
+        events'' is supported by
+        \texttt{codegen/src/ctcae\_grader.py} and
+        \texttt{codegen/src/physician\_escalation.py}.
+  \item ``This workflow minimizes single robot error potential'' is
+        supported by the 191 line
+        \texttt{codegen/src/swarm\_coordinator.py} (the camaraderie
+        factor of 3).
+\end{itemize}
+
+Subsection 2, Significance Of The On-Premises Repository LLM Pattern.
+Discuss the quality and safety benefits of having one Claude Opus 4.7
+1M instance per site rather than a remote cloud. Quality: every
+inference traces to a known on-prem repository, which simplifies the
+audit trail for the FDA RTCT pilot. Safety: a network partition
+between the site and the public internet does not stop the 1 Hz
+broadcast cadence. Speed: the 200 ms median latency named in the
+instructions README is achievable on a local LAN. Read:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/instructions/README.md}
+        Inventory at a Glance table.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/llm\_planner.py}.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/prompt\_frozen.md}.
+\end{itemize}
+
+Subsection 3, Significance Of The Cartesian Coordinate Surface. The
+LLM does not author joint angles; it authors x, y, z goals and lets
+the kinematics layer convert. This is the contract that lets a
+regulator review the safety envelope from the constants alone. Read:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/kinematics.yaml}.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/cartesian\_planner.py}.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/xyz\_safety.py}.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/tests/test\_xyz\_safety.py}.
+\end{itemize}
+
+Subsection 4, Significance Of The 32 Iteration Sweep And The
+Competition Framing. Read:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/data/iterations/index.jsonl}
+        (32 iterations across 4 sites and many columns).
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/iterate.py}
+        and \texttt{demo-projects/07-humanoid/paper/codegen/src/compare\_agent.py}.
+  \item Author's December 2025 paper
+        \texttt{kawchak\_2025\_18029100}: ``Code Generation
+        Competition: 16 Proprietary vs. Open-Source LLMs and Iterative
+        Learning Based on FDA Adverse Event Reporting System.''
+\end{itemize}
+Tie the 32 iteration sweep back to the prior 16 LLM code generation
+competition. The earlier competition established LLM effectiveness
+against FDA adverse event data. The current 32 iteration sweep
+extends that evidence to robot dispatch and Cartesian command code.
+
+Subsection 5, FDA, CTCAE, And Other Regulators. Read:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/fda\_rtct\_submitter.py}
+        (67 lines, HR 9505 SLA, ed25519 signing in production,
+        placeholder in simulation).
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/ctcae\_grader.py}.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/check\_errors.py}
+        (LLM credibility in error checking code).
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/tests/test\_xyz\_safety.py}
+        (LLM credibility in test code).
+\end{itemize}
+Write this subsection respectfully but advocate for accelerating
+review timelines. The United States needs to remain Number 1 in the
+world regarding patient safety, efficacy, and speed benefits in
+oncological adverse event robot swarms for clinical trials. Frame the
+review work as something the project has already checked off so the
+agencies can focus on policy and not on rebuilding the audit trail.
+
+Subsection 6, Prior Paper Context Integration. Read both Deep-Research
+trees in
+\texttt{demo-projects/07-humanoid/paper/inputs/Deep-Research-A/} and
+\texttt{demo-projects/07-humanoid/paper/inputs/Deep-Research-B/}:
+\begin{itemize}
+  \item Deep-Research-A is the Medical Full Automation A source
+        bundle: \texttt{README.md},
+        \texttt{chunk1\_paper\_text.md},
+        \texttt{chunk2\_tables\_references.md},
+        \texttt{chunk3\_bibtex.md}.
+  \item Deep-Research-B is the Medical Rapid Prototyping B source
+        bundle: \texttt{chunk\_01\_executive\_summary\_and\_fully\_automated\_sponsor.md},
+        \texttt{chunk\_02\_federated\_learning\_and\_patient\_prediction.md},
+        \texttt{chunk\_03\_clinagent.md},
+        \texttt{chunk\_04\_comparative\_overview\_and\_implications.md},
+        \texttt{chunk\_05\_bibtex\_references.md}.
+\end{itemize}
+Compare and contrast the prior paper's Medical Full Automation A and
+Medical Rapid Prototyping B framings with the current paper's 4 site
+rotation framing. Position the current paper as the natural successor.
+
+Required real-life feasibility insight to include in this section:
+``The on-premises repository LLM pattern is feasible today on a single
+high end server per site. The harder gap to close is not compute; it
+is the IRB, sponsor, and site coordination required to enroll the
+first real PAT-NET-001 cohort. The paper is a checklist of the
+technical work that has been completed so that the human work of
+governance can move forward without waiting on the technology.''
+
+Do not exceed 14 pages. Use single dashes only. Use \S\ for the
+section sign. Avoid stranding 1 or 2 word lines on their own.]
+
+The discussion section will reconcile each clause of the thesis with
+specific files, walk through the quality and safety significance of
+the on-premises repository LLM pattern and the Cartesian coordinate
+surface, position the 32 iteration sweep against the prior 16 LLM
+competition, address FDA CTCAE and other regulators respectfully, and
+integrate the prior paper context from Deep-Research-A and
+Deep-Research-B.
+
+\sectiontable{Discussion planning matrix}{%
+Thesis & D1 & 1 & instructions README & Per clause source list & 2 pages & Every clause sourced & Ready \\
+OnPrem & D2 & 2 & llm\_planner plus prompt & Quality, safety, speed & 2 pages & Audit trail framed & Ready \\
+Cartesian & D3 & 3 & kinematics plus planner & Coordinate contract & 2 pages & Constants only review & Ready \\
+Iteration & D4 & 4 & iterations index & 32 sweep significance & 2 pages & Cites kawchak\_2025 & Ready \\
+Regulator & D5 & 5 & fda\_rtct plus ctcae & Respectful advocacy & 2 pages & HR 9505 named & Ready \\
+PriorPaper & D6 & 6 & Deep-Research A and B & Successor framing & 2 to 3 pages & Both bundles named & Ready \\
+}
+
+\end{sectionaccent}
