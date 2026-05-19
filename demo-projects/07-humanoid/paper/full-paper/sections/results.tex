@@ -14,7 +14,7 @@
 \label{sec:results-decisions}
 
 The 4 site per site decision streams live at
-\fp{paper/execution/data/site\_runtime\_runs/}. Each site file
+\fp{paper/execution/data/site_runtime_runs/}. Each site file
 contains 60 language model decisions captured at the 1 Hz broadcast
 boundary over a 60 second runtime sample. All 4 files share the same
 byte length of 62{,}330 bytes. The parity is the design intent of a
@@ -31,7 +31,7 @@ files.
 \begin{table}[H]
 \captionsetup{type=table}
 \caption{Per site language model decision streams under
-\fp{paper/execution/data/site\_runtime\_runs/}. Byte counts are
+\fp{paper/execution/data/site_runtime_runs/}. Byte counts are
 identical across the 4 sites: this parity reflects the 1 Hz broadcast
 cadence and the shared decision schema, not duplicated content.}
 \label{tbl:site-streams}
@@ -57,9 +57,9 @@ AT-01 (Atlanta) & AT-01 llm decisions jsonl & 62{,}330 & 60 decisions captured. 
 The 32 deterministic iteration sweep is held in 3 files: the codegen
 tree index at \fp{paper/codegen/data/iterations/index.jsonl}, the
 runtime index at
-\fp{paper/execution/data/iterations\_index\_runtime.jsonl}, and the
+\fp{paper/execution/data/iterations_index_runtime.jsonl}, and the
 DuckDB aggregate at
-\fp{paper/execution/data/iterations\_aggregate.duckdb}. The DuckDB
+\fp{paper/execution/data/iterations_aggregate.duckdb}. The DuckDB
 aggregate carries 32 rows by 15 columns and supports the analytical
 queries used by the compute module \cite{duckdb_2026}. The JSONL
 files support append only logging by tick \cite{apache_arrow_2026}.
@@ -101,11 +101,11 @@ The comparison framework spans the codegen tree reports and the
 execution tree report copies. The codegen reports live at
 \fp{paper/codegen/reports/}: the JSON ranked file
 \fp{comparison.json}, the methodology Markdown
-\fp{comparison\_methodology.md}, the natural language summary
+\fp{comparison_methodology.md}, the natural language summary
 \fp{report.md}, and the single page HTML dashboard
 \fp{dashboard.html} with 7 tabs. The execution tree at
 \fp{paper/execution/reports/} carries the 4 versioned copies of those
-reports plus the consolidated \fp{execution\_report\_v0\_5\_0.md}.
+reports plus the consolidated \fp{execution_report_v0_5_0.md}.
 The dashboard is the primary interpretability artifact for a paper
 reader who wants to inspect the comparison without opening the raw
 JSON. Table \ref{tbl:comparison-headline} carries the headline
@@ -194,7 +194,7 @@ dimensions.
      Tesla Optimus Gen 3    o   0.821
      3 human paramedic team h   0.682
 \end{Verbatim}
-\caption{Weighted comparison radar across 7 dimensions for the 4 reference configurations. The radar source is \fp{paper/execution/diagrams/04\_comparison\_radar.txt}.}
+\caption{Weighted comparison radar across 7 dimensions for the 4 reference configurations. The radar source is \fp{paper/execution/diagrams/04_comparison_radar.txt}.}
 \label{fig:comparison-radar}
 \end{figure}
 
@@ -211,7 +211,7 @@ reader can read the sweep without flipping pages.
 \begin{table}[H]
 \captionsetup{type=table}
 \caption{Sample slice from the 32 row iteration sweep table at
-\fp{paper/execution/outputs/iteration\_sweep\_table.md}. The full
+\fp{paper/execution/outputs/iteration_sweep_table.md}. The full
 table is available in the execution tree.}
 \label{tbl:iteration-sample}
 \small
@@ -288,21 +288,21 @@ can audit each claim.}
 \textbf{Metric} & \textbf{Value} & \textbf{Source} \\
 \midrule
 Sites & 4 (SF-01, SD-01, BO-01, AT-01) & \fp{instructions/README.md} \\
-Robots per site & 3 Unitree H2 EDU & \fp{codegen/config/h2\_humanoid.yaml} \\
-Robots total & 12 & \fp{codegen/src/h2\_dispatcher.py} \\
-Language model cadence & 1 Hz broadcast & \fp{codegen/src/llm\_planner.py} \\
-Motion cadence & 10 Hz per robot & \fp{codegen/src/robot\_loop.cpp} \\
-Monitoring window & 168 hours & \fp{codegen/src/week\_runner.py} \\
+Robots per site & 3 Unitree H2 EDU & \fp{codegen/config/h2_humanoid.yaml} \\
+Robots total & 12 & \fp{codegen/src/h2_dispatcher.py} \\
+Language model cadence & 1 Hz broadcast & \fp{codegen/src/llm_planner.py} \\
+Motion cadence & 10 Hz per robot & \fp{codegen/src/robot_loop.cpp} \\
+Monitoring window & 168 hours & \fp{codegen/src/week_runner.py} \\
 Adverse event volume & 84 per iteration & \fp{codegen/data/iterations/index.jsonl} \\
 Serious adverse event volume & 24 per iteration & \fp{codegen/data/iterations/index.jsonl} \\
 Iterations & 32 sweeps & \fp{codegen/data/iterations/index.jsonl} \\
-E-stop latency & 5 ms swarm wide & \fp{codegen/src/robot\_loop.cpp} \\
-Per arm force during compressions & 15 N & \fp{codegen/src/xyz\_safety.py} \\
-Per arm force otherwise & 5 N & \fp{codegen/src/xyz\_safety.py} \\
-Inter robot distance at rest & 1.2 m & \fp{codegen/src/xyz\_safety.py} \\
-Inter robot distance during handoff & 0.4 m & \fp{codegen/src/xyz\_safety.py} \\
-Cross robot force during transfer & 22 N & \fp{codegen/src/xyz\_safety.py} \\
-Camaraderie reduction factor & 3 & \fp{codegen/src/swarm\_coordinator.py} \\
+E-stop latency & 5 ms swarm wide & \fp{codegen/src/robot_loop.cpp} \\
+Per arm force during compressions & 15 N & \fp{codegen/src/xyz_safety.py} \\
+Per arm force otherwise & 5 N & \fp{codegen/src/xyz_safety.py} \\
+Inter robot distance at rest & 1.2 m & \fp{codegen/src/xyz_safety.py} \\
+Inter robot distance during handoff & 0.4 m & \fp{codegen/src/xyz_safety.py} \\
+Cross robot force during transfer & 22 N & \fp{codegen/src/xyz_safety.py} \\
+Camaraderie reduction factor & 3 & \fp{codegen/src/swarm_coordinator.py} \\
 \bottomrule
 \end{tabular}
 \end{table}

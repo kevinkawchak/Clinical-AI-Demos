@@ -98,7 +98,7 @@ The Cartesian pipeline takes raw sensor frames from the H2 EDU
 cameras, the infrared beacon, and the ultra wide band peer mesh, and
 projects them into a site local x, y, z goal that the Cartesian
 planner blends with a quintic profile. The safety guard at
-\fp{xyz\_safety.py} enforces a per arm cumulative force budget of 15
+\fp{xyz_safety.py} enforces a per arm cumulative force budget of 15
 N during chest compressions, 5 N otherwise, a 1.2 m inter robot
 minimum distance at rest, 0.4 m during shared task handoff, and a
 22 N cumulative cross robot force during 3 robot patient transfer.
@@ -107,7 +107,7 @@ is the design intent: a regulator can audit the safety envelope from
 the constants alone without rerunning the simulation
 \cite{unitree_h2_2026, iec_80601_2_77}.
 
-The per site dispatcher \fp{h2\_dispatcher.py} is the single point at
+The per site dispatcher \fp{h2_dispatcher.py} is the single point at
 which a language model decision becomes a robot command. The
 broadcaster publishes a single atomic message with exactly 3 sub
 commands, one for each robot at the site. The dispatcher waits for 3
@@ -127,8 +127,8 @@ reported sensor readings as first class evidence equal to a robot's
 own sensors.
 
 The language model planner reads the frozen system prompt at
-\fp{prompt\_frozen.md} and validates each decision against the
-\fp{llm\_decision.schema.json} schema before broadcast
+\fp{prompt_frozen.md} and validates each decision against the
+\fp{llm_decision.schema.json} schema before broadcast
 \cite{anthropic_claude_opus_47_2026}. The broadcaster fans the
 validated decision out to all 3 robots at the same 1 Hz tick. The
 intellectual communications module carries the language model
@@ -161,10 +161,10 @@ the camarade aggressiveness axes. The compute module aggregates the
 26 key metric vectors. The compare agent generates the natural
 language comparison report.
 
-The Rust runner at \fp{runner.rs} and \fp{runner\_main.rs} mirrors
+The Rust runner at \fp{runner.rs} and \fp{runner_main.rs} mirrors
 the Python iteration driver and runs the 32 sweep against the
 deterministic seed contract. The C++ robot loop at
-\fp{robot\_loop.cpp} drives the 10 Hz in robot motion loop with a 5
+\fp{robot_loop.cpp} drives the 10 Hz in robot motion loop with a 5
 millisecond emergency stop reaction. Cross OS compilation is
 supported with clang++, g++, and MSVC under their respective C++20
 modes.
@@ -224,12 +224,12 @@ kinematics yaml at \fp{paper/codegen/src/kinematics.yaml} encodes the
 sections for the dexterous hand (6 fingers, 12 grasp poses, 0.05 N
 tactile resolution) and the compute module
 \cite{unitree_h2_2026, nvidia_jetson_thor_2026}. The Cartesian
-planner at \fp{cartesian\_planner.py} blends successive x, y, z goals
+planner at \fp{cartesian_planner.py} blends successive x, y, z goals
 with a quintic profile so the robot does not jerk. The xyz safety
-guard at \fp{xyz\_safety.py} rejects any goal that would violate the
+guard at \fp{xyz_safety.py} rejects any goal that would violate the
 force budget caps, the inter robot minimum distance, or the no fly
 zones at the head of the patient bed. Test coverage at
-\fp{paper/codegen/tests/test\_xyz\_safety.py} confirms the bounds
+\fp{paper/codegen/tests/test_xyz_safety.py} confirms the bounds
 plus the peer envelope plus the no fly zone hold across 6 parametric
 test cases (see Section \ref{sec:methods-tests}).
 
@@ -305,7 +305,7 @@ temperature, adverse event arrival jitter, response time variance,
 and camarade aggressiveness axes, runs the week runner in fast mode,
 and writes one row to \fp{paper/codegen/data/iterations/index.jsonl}.
 The DuckDB aggregate at
-\fp{paper/execution/data/iterations\_aggregate.duckdb} rolls the 32
+\fp{paper/execution/data/iterations_aggregate.duckdb} rolls the 32
 rows into a 15 column store ready for analytical queries
 \cite{duckdb_2026, apache_arrow_2026}.
 
@@ -381,9 +381,9 @@ rows into a 15 column store ready for analytical queries
 
 Test coverage at \fp{paper/codegen/tests/} carries 6 pytest modules
 that execute 36 tests in 0.22 seconds. The test of xyz safety at
-\fp{test\_xyz\_safety.py} confirms the force budget caps, the inter
+\fp{test_xyz_safety.py} confirms the force budget caps, the inter
 robot distance, the cross robot force, and the no fly zone bounds.
-The 7 check error scan at \fp{check\_errors.py} returns zero issues
+The 7 check error scan at \fp{check_errors.py} returns zero issues
 across the project. These artifacts provide the audit credibility
 that the FDA and other regulators expect for any human factors
 review of medical device software life cycle conformance

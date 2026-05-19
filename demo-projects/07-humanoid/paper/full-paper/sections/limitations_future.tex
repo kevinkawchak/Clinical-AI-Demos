@@ -16,12 +16,12 @@
 
 The paper is transparent about the boundary between the simulator
 harness and a live Unitree H2 EDU body. The FDA RTCT submitter at
-\fp{paper/codegen/src/fda\_rtct\_submitter.py} uses ed25519 signing
+\fp{paper/codegen/src/fda_rtct_submitter.py} uses ed25519 signing
 in production and a placeholder signature in simulation
 \cite{fda_rtct_2026}. The 10 Hz in robot motion loop at
-\fp{paper/codegen/src/robot\_loop.cpp} runs in a simulator harness;
+\fp{paper/codegen/src/robot_loop.cpp} runs in a simulator harness;
 it does not drive a live H2 EDU body \cite{unitree_h2_2026}. Sensor
-frames produced by \fp{paper/codegen/src/sensor\_to\_xyz.py} are
+frames produced by \fp{paper/codegen/src/sensor_to_xyz.py} are
 synthetic in the current run. No real Unitree H2 EDU body executed
 any of the broadcast commands documented in this paper. The FDA RTCT
 pilot intake API is called only in simulation. Patient identifiers
@@ -33,7 +33,7 @@ conventional server without specialized humanoid hardware.
 \label{sec:limits-parity}
 
 The 4 site decision streams at
-\fp{paper/execution/data/site\_runtime\_runs/} share an identical
+\fp{paper/execution/data/site_runtime_runs/} share an identical
 byte length of 62{,}330 bytes each. The parity is acceptable as a
 schema and timing check: the 1 Hz cadence stamps every site at the
 same rate on the same record schema. It is not yet a production
@@ -88,12 +88,12 @@ the bottom are blocked on governance readiness.}
 \textbf{Roadmap Item} & \textbf{Anchor File} \\
 \midrule
 Move from simulator harness to a live Unitree H2 EDU body with the kinematics chain as the live target & \fp{paper/codegen/src/kinematics.yaml} \\
-Replace the placeholder signature with the live ed25519 signing chain & \fp{paper/codegen/src/fda\_rtct\_submitter.py} \\
-Extend the adverse event arrival stream so the 4 site decision logs diverge in content & \fp{paper/execution/data/site\_runtime\_runs/} \\
+Replace the placeholder signature with the live ed25519 signing chain & \fp{paper/codegen/src/fda_rtct_submitter.py} \\
+Extend the adverse event arrival stream so the 4 site decision logs diverge in content & \fp{paper/execution/data/site_runtime_runs/} \\
 Upgrade per site compute to NVIDIA Jetson AGX Thor 2070 TOPS where the workload demands it & \fp{paper/codegen/README.md} runtime section \\
 Add the missing \fp{instructions/10-repository-update-instructions/} subdirectory & \fp{paper/instructions/README.md} \\
 Include hour 56 through hour 83 extra hours dataset once supporting analysis is ready & \fp{physical-ai-oncology-trials/new-trial/national-24-7-trial/extra-hours/} \\
-Enroll a real PAT-NET-001 cohort under an IRB protocol and a signed sponsor agreement & \fp{paper/codegen/src/fda\_rtct\_submitter.py} \\
+Enroll a real PAT-NET-001 cohort under an IRB protocol and a signed sponsor agreement & \fp{paper/codegen/src/fda_rtct_submitter.py} \\
 \bottomrule
 \end{tabular}
 \end{table}

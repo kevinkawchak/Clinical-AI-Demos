@@ -73,6 +73,11 @@ Disclaimer: This work is independent and not endorsed or sponsored by trial spon
 
 \phantomsection
 \addcontentsline{toc}{section}{References}
+% Force the 3 anchor entries (Lamport LaTeX, Zenodo platform, self
+% cite placeholder) to appear in the bibliography even though the
+% prose does not \cite them inline. These entries support the data
+% availability and citation blocks and the typesetting pipeline note.
+\nocite{lamport1994latex,zenodo_2026,this_paper_placeholder}
 \bibliographystyle{ieeetr}
 \bibliography{references}
 
