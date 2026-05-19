@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: If you use this repository, please cite it as below.
 title: "Clinical-AI-Demos: Humanoid and LLM Demos for Physical AI Oncology Clinical Trials"
-version: 0.6.0
+version: 0.7.0
 date-released: 2026-05-20
 license: MIT
 authors:
@@ -29,6 +29,7 @@ keywords:
   - claude-opus-4-7
   - codegen-execution
   - draft-paper-scaffold
+  - full-paper-expansion
 references:
   - type: misc
     authors:

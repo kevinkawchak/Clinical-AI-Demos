@@ -1,0 +1,48 @@
+% ======================================================================
+% sections/abstract.tex
+%
+% Abstract for the full paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation (v0.7.0)
+%
+% The abstract holds no citations and runs about 300 words. The first
+% half walks the production chain from instructions to codegen to
+% execution to draft scaffold to full paper. The second half surfaces
+% the numeric headline results.
+% ======================================================================
+
+\begin{sectionaccent}
+
+On-premises repository based large language models provide commands
+to humanoid robots based on real-time sensor data and controlled via
+x, y, z coordinates to administer synergistic treatment regarding
+patient adverse events. This workflow minimizes single robot error
+potential. The paper describes the PAT-NET-001 continental network of
+4 trial sites (San Francisco SF-01, San Diego SD-01, Boston BO-01,
+Atlanta AT-01), each running 1 Claude Opus 4.7 1M on-premises instance
+and 3 Unitree H2 EDU humanoid robots for a total of 12 robots
+operating in coordinated camarade swarms. The production chain
+proceeds through 5 phases: instructions in 11 numbered subdirectories,
+generated code as a 27 source file tree spanning Python, C++, Rust,
+YAML, and Markdown, runtime execution captured in 23 sequenced logs
+along with per-site decision streams and a DuckDB aggregate, a draft
+LaTeX scaffold of 8 bracketed section files, and this full paper as
+the senior author polished v0.7.0 output. Per site the on-premises
+language model broadcasts a single command set at 1 Hz to all 3 robots
+simultaneously while each robot runs its motion loop at 10 Hz with a
+5 ms swarm wide emergency stop. Cartesian goals are bounded by a 15 N
+per arm cumulative force during chest compressions, 5 N otherwise, a
+1.2 m inter robot minimum distance at rest, 0.4 m during shared task
+handoff, and a 22 N cumulative cross robot force during 3 robot
+patient transfer. Across 32 deterministic iteration sweeps covering a
+168 hour monitoring window with about 84 adverse events of which
+about 24 reach CTCAE grade 3 or higher, the swarm achieves a 67.5 to
+76.8 second median response time, a camaraderie invariant pass rate
+of 0.954 to 0.985, and a FDA RTCT 1 hour SLA compliance rate near
+0.999. The camaraderie pattern reduces single robot error potential
+by a factor of 3 through peer cross checking, role rotation, hand off
+within 2 seconds, and shared sensor evidence. The paper presents the
+work as a checklist already completed so the pharmaceutical and
+clinical trial industry can advance to governance and live enrollment.
+
+\end{sectionaccent}
