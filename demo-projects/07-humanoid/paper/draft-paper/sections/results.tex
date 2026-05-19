@@ -1,0 +1,160 @@
+% ======================================================================
+% sections/results.tex
+%
+% Results scaffold for the paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation
+%
+% This file is a draft scaffold. A future Claude Code Opus 4.7 1M Max
+% session reads the bracketed instruction blocks below, then reads the
+% files those instructions name, then expands the scaffold into the
+% finished results section. Target length is roughly 14 to 18 pages of
+% the 70 plus page final paper.
+% ======================================================================
+
+\begin{sectionaccent}
+
+[RESULTS INSTRUCTIONS FOR FUTURE CLAUDE CODE OPUS 4.7 1M MAX SESSION.
+Write the results section as 7 subsections inside this single
+\texttt{\textbackslash section\{Results\}} block. Every numeric claim must
+come from a file named below. Do not introduce numbers that do not
+appear in those files. Quote file paths in the prose so a reader can
+verify each number.
+
+Subsection 1, Per-Site LLM Decision Streams. Read the 4 site files in
+\texttt{demo-projects/07-humanoid/paper/execution/data/site\_runtime\_runs/}:
+\begin{itemize}
+  \item \texttt{AT-01\_llm\_decisions.jsonl} (Atlanta, 62,330 bytes).
+  \item \texttt{BO-01\_llm\_decisions.jsonl} (Boston, 62,330 bytes).
+  \item \texttt{SD-01\_llm\_decisions.jsonl} (San Diego, 62,330 bytes).
+  \item \texttt{SF-01\_llm\_decisions.jsonl} (San Francisco,
+        62,330 bytes).
+\end{itemize}
+All 4 site files have the same byte length. Treat the byte length
+match as a parallel-scope check: the 1 Hz broadcast cadence and the
+shared schema produce decision logs of the same record count per
+site. Read every line of \texttt{AT-01\_llm\_decisions.jsonl} (it is
+the lead Atlanta file flagged as Hz data at scale for the project).
+Then spot-check the other 3 site files for record count parity and
+schema parity. If the records repeat across sites, call that out as a
+duplication artifact in the runtime that production should fix
+without retracting the parallel-scope claim. If the records differ
+across sites despite identical byte length, call that out as
+acceptable schema parity. Do this check explicitly and report the
+finding in the prose.
+
+Subsection 2, Iteration Sweep Aggregate. Read:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/data/iterations/index.jsonl}
+        for the 32 iteration codegen index. State the 32 iteration
+        count and the 4 site coverage.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/data/iterations\_index\_original.jsonl}
+        and
+        \texttt{demo-projects/07-humanoid/paper/execution/data/iterations\_index\_runtime.jsonl}
+        for the original and runtime iteration indexes.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/data/iterations\_aggregate.duckdb}
+        as the DuckDB roll up. Discuss that DuckDB and JSONL coexist
+        cleanly in the execution data layer. The DuckDB plus JSONL
+        pairing demonstrates DuckDB proficiency for analytical queries
+        and JSONL proficiency for append-only logs.
+\end{itemize}
+
+Subsection 3, Comparison Reports. Read:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/reports/comparison.json}.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/reports/comparison\_methodology.md}.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/reports/report.md}.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/reports/dashboard.html}.
+        Treat the dashboard as the primary interpretability artifact
+        for future paper viewers; the rendered HTML adds project
+        interpretability without requiring the reader to inspect raw
+        JSON. Embed a screenshot reference in the prose and link to
+        the file path.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/reports/comparison\_v0\_4\_0\_copy.json}.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/reports/comparison\_methodology\_v0\_4\_0\_copy.md}.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/reports/dashboard\_v0\_4\_0\_copy.html}.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/reports/execution\_report\_v0\_5\_0.md}.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/reports/report\_v0\_4\_0\_copy.md}.
+\end{itemize}
+
+Subsection 4, Comparison ASCII Visuals. Include verbatim inside
+\texttt{asciibox} environments:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/execution/diagrams/04\_comparison\_radar.txt}
+        as Figure 7.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/diagrams/01\_module\_dependency.txt}
+        as Figure 8 if it was not already placed in the Methods
+        section. If it was already placed there, only cross reference.
+\end{itemize}
+
+Subsection 5, Output Markdown Tables. Read:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/execution/outputs/comparison\_summary\_table.md}.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/outputs/iteration\_sweep\_table.md}.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/outputs/execution\_tree.txt}.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/outputs/file\_inventory.txt}.
+\end{itemize}
+Translate each markdown table into a \texttt{\textbackslash sectiontable}
+LaTeX table using the 8 column shared macro. Do not change the data;
+only re-render the format.
+
+Subsection 6, Figures. Reference every figure in
+\texttt{demo-projects/07-humanoid/paper/execution/figures/} (6 PNGs at
+300 dpi: swarm architecture, response time histogram, camaraderie
+heatmap, role rotation timeline, force budget, 4 site comparison).
+Use \texttt{\textbackslash includegraphics} only if the figure file is
+copied into the draft-paper folder as part of the future expansion.
+Otherwise reference the file path in a caption note.
+
+Subsection 7, Headline Metrics. Pull the headline numbers into one
+final \texttt{\textbackslash sectiontable}:
+\begin{itemize}
+  \item Sites: 4 (SF-01, SD-01, BO-01, AT-01).
+  \item Robots per site: 3 Unitree H2 EDU.
+  \item Robots total: 12.
+  \item LLM cadence: 1 Hz broadcast.
+  \item Motion cadence: 10 Hz per robot.
+  \item Monitoring window: 168 hours.
+  \item AE volume: about 84 across the week.
+  \item SAE volume: about 24 (CTCAE grade 3 or higher).
+  \item Iterations: 32 deterministic sweeps.
+  \item E-stop latency: 5 ms swarm wide.
+  \item Per-arm cumulative force: 15 N during chest compressions,
+        5 N otherwise.
+  \item Inter-robot minimum distance: 1.2 m at rest, 0.4 m during
+        shared task handoff.
+  \item Cumulative cross-robot force: 22 N during 3-robot patient
+        transfer.
+  \item Camaraderie reduction factor: 3 in single robot error
+        potential.
+\end{itemize}
+Every number in this final table must trace to a file in
+\texttt{instructions/}, \texttt{codegen/}, or \texttt{execution/}.
+
+Required real-life feasibility insight to include in this section:
+``Identical byte length across the 4 site decision logs is not the
+production end state. In a real 168 hour run the per-site record
+counts will diverge because each site sees a different AE arrival
+distribution. The current parity demonstrates that the runtime
+stamps every site at 1 Hz on a shared schema; the next iteration is
+to feed each site a site-specific arrival stream.''
+
+Do not exceed 18 pages. Use single dashes only. Use \S\ for the
+section sign. Avoid stranding 1 or 2 word lines on their own.]
+
+The results section will present the per-site LLM decision streams,
+the 32 iteration sweep aggregate, the comparison reports and ASCII
+visuals, the markdown output tables converted to LaTeX tables, the
+figures, and the final headline metrics table.
+
+\sectiontable{Results planning matrix}{%
+Decisions & R1 & 1 & site\_runtime\_runs/ & 4 site stream walk & 2 pages & 62,330 byte parity & Ready \\
+Iterations & R2 & 2 & iterations index plus duckdb & 32 sweep summary & 2 pages & DuckDB plus JSONL & Ready \\
+Reports & R3 & 3 & codegen plus execution reports & Comparison narrative & 3 pages & dashboard.html named & Ready \\
+ASCII & R4 & 4 & execution/diagrams & Figures 7 and 8 & 1 to 2 pages & Verbatim text & Ready \\
+Tables & R5 & 5 & execution/outputs & Markdown to LaTeX & 2 to 3 pages & 8 column shared macro & Ready \\
+Figures & R6 & 6 & execution/figures & 6 PNG callouts & 1 to 2 pages & 300 dpi confirmed & Ready \\
+Metrics & R7 & 7 & instructions metrics & Headline table & 1 page & Every number sourced & Ready \\
+}
+
+\end{sectionaccent}
