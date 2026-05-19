@@ -1,0 +1,141 @@
+% ======================================================================
+% sections/introduction.tex
+%
+% Introduction scaffold for the paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation
+%
+% This file is a draft scaffold. A future Claude Code Opus 4.7 1M Max
+% session reads the bracketed instruction blocks below, then reads the
+% files those instructions name, then expands the scaffold into the
+% finished introduction. Target length is roughly 6 to 8 pages of the
+% 70 plus page final paper.
+% ======================================================================
+
+\begin{sectionaccent}
+
+[INTRODUCTION INSTRUCTIONS FOR FUTURE CLAUDE CODE OPUS 4.7 1M MAX SESSION.
+Write the introduction as 5 connected subsections inside this single
+\texttt{\textbackslash section\{Introduction\}} block. The 5 subsections are
+1) Background And Setting, 2) Thesis Statement And Scope, 3) The
+On-Premises Repository LLM Pattern, 4) The 4-Site Continental Rotation,
+and 5) Roadmap Of The Paper. Use the bracketed file lists below to
+draw the content. Add a verbatim ASCII diagram lifted from the file
+named below into the 4-Site Continental Rotation subsection.
+
+Files to read before writing Background And Setting:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/instructions/README.md}
+        (whole file).
+  \item \texttt{demo-projects/07-humanoid/paper/instructions/00-project-overview/}
+        (whole directory, every file).
+  \item \texttt{demo-projects/07-humanoid/paper/inputs/Deep-Research-A/chunk1\_paper\_text.md}
+        and \texttt{chunk2\_tables\_references.md} for the Medical Full
+        Automation A context.
+  \item \texttt{demo-projects/07-humanoid/paper/inputs/Deep-Research-B/chunk\_01\_executive\_summary\_and\_fully\_automated\_sponsor.md},
+        \texttt{chunk\_02\_federated\_learning\_and\_patient\_prediction.md},
+        \texttt{chunk\_03\_clinagent.md}, and
+        \texttt{chunk\_04\_comparative\_overview\_and\_implications.md}
+        for the Medical Rapid Prototyping B context.
+  \item Author's December 2025 paper
+        \texttt{kawchak\_2025\_18029100} for the prior evidence that
+        LLMs handle FDA adverse event data effectively. Cite the bib
+        key \texttt{kawchak\_2025\_18029100} and quote the DOI
+        \texttt{10.5281/zenodo.18029100}.
+\end{itemize}
+
+Files to read before writing Thesis Statement And Scope:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/instructions/README.md}
+        Thesis section (verbatim quote of the thesis sentence is
+        required in this subsection).
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/architecture.md}
+        whole file.
+\end{itemize}
+
+Files to read before writing The On-Premises Repository LLM Pattern:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/llm\_planner.py}
+        for the 1 Hz planner loop.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/broadcaster.py}
+        for the fan out structure that delivers the same command
+        payload to all 3 robots at a site at the same tick.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/prompt\_frozen.md}
+        for the frozen prompt content.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/comms\_intellectual.py}
+        and
+        \texttt{demo-projects/07-humanoid/paper/codegen/src/comms\_physical.py}
+        for the dual channel (60 GHz UWB plus IR beacon plus shared
+        compute fabric) that turns the per-site Claude Opus 4.7 1M
+        instance into the on-premises repository LLM.
+\end{itemize}
+
+Files to read before writing The 4-Site Continental Rotation:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/diagrams/network\_layout.txt}
+        Include this ASCII diagram verbatim inside an \texttt{asciibox}
+        environment as Figure 1. Caption it
+        ``PAT-NET-001 continental layout with one Claude Opus 4.7 1M
+        on-prem broadcaster per site and 3 Unitree H2 EDU robots per
+        site.''
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/diagrams/swarm\_dance.txt}
+        Brief callout reference. Save the full inclusion for the
+        Methods section.
+  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/cross\_site\_bus.py}
+        for the de-identified cross site summary bus.
+  \item \texttt{demo-projects/07-humanoid/paper/execution/diagrams/02\_4site\_execution\_sequence.txt}
+        for the 4 site execution sequence. Include this ASCII diagram
+        verbatim inside an \texttt{asciibox} environment as Figure 2.
+\end{itemize}
+
+Files to read before writing Roadmap Of The Paper:
+\begin{itemize}
+  \item \texttt{demo-projects/07-humanoid/paper/draft-paper/main.tex}
+        for the section ordering (Methods, Results, Discussion,
+        Limitations and Future Work, Conclusions).
+\end{itemize}
+
+Required content cues for the introduction:
+\begin{itemize}
+  \item Open by framing the United States obligation to lead in patient
+        safety, efficacy, and speed for oncology adverse event
+        response. Stay respectful but advocate for accelerating the
+        new field of Physical AI oncology trial surgical procedures.
+  \item Frame the FDA RTCT 1 hour SLA as a real, accountable timer.
+        Pair it with the camaraderie factor of 3 reduction in single
+        robot error.
+  \item Cite \texttt{kawchak\_2025\_18029100} once when introducing the
+        FDA adverse event reporting evidence base.
+  \item Present each milestone in the production chain as already
+        checked off so the industry can build on top of it rather
+        than rebuilding it from scratch.
+  \item Use the ASCII diagrams listed above verbatim. Do not redraw.
+\end{itemize}
+
+Required real-life feasibility insight to include in this section:
+``As of May 2026 the Unitree H2 EDU is shipping at the spec sheet level
+named in the instructions README (39 DOF, 1.8 m, 70 kg, IP65 outdoor
+rated). Pairing it with one on-prem Claude Opus 4.7 1M instance per
+site is feasible on conventional high end x86 or Apple Silicon
+servers. The 1 Hz broadcast cadence is well within current network and
+inference latency budgets. What remains is the IRB, sponsor, and FDA
+RTCT pilot enrollment, all of which the paper treats as part of the
+forward roadmap rather than as solved.''
+
+Do not exceed 8 pages. Use single dashes only. Use \S\ for the section
+sign. Avoid stranding 1 or 2 word lines on their own.]
+
+The introduction will set the FDA RTCT pilot context, name the 4-site
+continental network, restate the thesis, and walk the reader through
+the on-premises repository LLM pattern, the per-site swarm camaraderie,
+and the roadmap that the rest of the paper follows.
+
+\sectiontable{Introduction planning matrix}{%
+Context & I1 & 1 & instructions plus inputs & FDA RTCT framing & 1 to 2 paragraphs & Cites kawchak\_2025\_18029100 & Ready \\
+Thesis & I2 & 2 & instructions/README.md & Quote thesis sentence & 1 paragraph & Verbatim quote & Ready \\
+Pattern & I3 & 3 & codegen/src llm\_planner & On-prem LLM pattern & 2 paragraphs & Names 1 Hz cadence & Ready \\
+Network & I4 & 4 & network\_layout.txt & ASCII Figure 1 & 1 ASCII figure & 4 sites visible & Ready \\
+Roadmap & I5 & 5 & main.tex order & Section walkthrough & 1 paragraph & Reader path & Ready \\
+}
+
+\end{sectionaccent}
