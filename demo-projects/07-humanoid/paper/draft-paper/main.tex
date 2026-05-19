@@ -79,6 +79,13 @@ Disclaimer: This work is independent and not endorsed or sponsored by trial spon
 
 \phantomsection
 \addcontentsline{toc}{section}{References}
+% \nocite{*} forces every entry in references.bib to appear in the
+% printed bibliography even when the scaffold prose does not cite it.
+% The future Claude Code Opus 4.7 1M Max session that expands the
+% scaffold can replace this with explicit \cite commands once the
+% paper body cites each reference at least once. Until then, this
+% line guarantees every doi and url in references.bib shows up.
+\nocite{*}
 \bibliographystyle{ieeetr}
 \bibliography{references}
 

@@ -22,7 +22,7 @@
 \usepackage[letterpaper,margin=1in]{geometry}
 \usepackage{microtype}
 \usepackage{xcolor}
-\usepackage{url}
+\usepackage[hyphens]{url}
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{array}
@@ -34,6 +34,15 @@
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{ragged2e}
+\usepackage{fancyvrb}
+
+% Path macro that prints a file path in a typewriter font and allows
+% line breaks at slashes, dots, and underscores. Use this in body
+% prose for any file or directory path that would otherwise overflow
+% the right margin when wrapped in \texttt. The future Claude Code
+% Opus 4.7 1M Max session must use \fp{...} instead of \texttt{...}
+% for any path longer than about 30 characters.
+\newcommand{\fp}[1]{\path{#1}}
 
 \definecolor{TemplateAccent}{HTML}{365C7D}
 \definecolor{TemplateSecondary}{HTML}{E8EFF5}
@@ -49,8 +58,12 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt}
 \setlength{\headheight}{22pt}
-\setlength{\emergencystretch}{3em}
+\setlength{\emergencystretch}{6em}
+\sloppy
 \RaggedRight
+\tolerance=2000
+\hbadness=2000
+\hfuzz=2pt
 \renewcommand{\arraystretch}{1.16}
 \setlist{nosep,leftmargin=1.4em}
 \captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
@@ -105,12 +118,22 @@
 \end{tabular}}
 \end{center}}
 
-% Convenience environment for ASCII diagrams pulled verbatim from
-% codegen/diagrams and execution/diagrams. Uses a small monospace
-% font and keeps the diagram inside the text block.
-\newenvironment{asciibox}[1]
-  {\begin{figure}[H]\centering\captionsetup{type=figure}\captionof{figure}{#1}\begin{minipage}{0.98\linewidth}\ttfamily\footnotesize\begin{verbatim}}
-  {\end{verbatim}\end{minipage}\end{figure}}
+% ASCII diagrams from codegen/diagrams and execution/diagrams are
+% included via a direct \begin{figure}[H] block that wraps a
+% fancyvrb \begin{Verbatim}...\end{Verbatim} environment. The future
+% Claude Code Opus 4.7 1M Max session writes the figure inline using
+% this exact pattern:
+%
+%   \begin{figure}[H]
+%   \centering
+%   \begin{Verbatim}[fontsize=\footnotesize]
+%   ...ASCII content lifted verbatim from the source diagram file...
+%   \end{Verbatim}
+%   \caption{Figure caption text.}
+%   \end{figure}
+%
+% A \newenvironment wrapping Verbatim is not used because \VerbatimEnvironment
+% from fancyvrb does not nest cleanly inside \newenvironment macros.
 
 \renewenvironment{abstract}{\begin{center}\large\bfseries\color{TemplateAccent} Abstract\end{center}\begin{quote}\color{TemplateBody}}{\end{quote}}
 

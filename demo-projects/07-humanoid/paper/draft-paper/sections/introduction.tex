@@ -25,46 +25,46 @@ named below into the 4-Site Continental Rotation subsection.
 
 Files to read before writing Background And Setting:
 \begin{itemize}
-  \item \texttt{demo-projects/07-humanoid/paper/instructions/README.md}
+  \item \path{demo-projects/07-humanoid/paper/instructions/README.md}
         (whole file).
-  \item \texttt{demo-projects/07-humanoid/paper/instructions/00-project-overview/}
+  \item \path{demo-projects/07-humanoid/paper/instructions/00-project-overview/}
         (whole directory, every file).
-  \item \texttt{demo-projects/07-humanoid/paper/inputs/Deep-Research-A/chunk1\_paper\_text.md}
-        and \texttt{chunk2\_tables\_references.md} for the Medical Full
+  \item \path{demo-projects/07-humanoid/paper/inputs/Deep-Research-A/chunk1_paper_text.md}
+        and \path{chunk2_tables_references.md} for the Medical Full
         Automation A context.
-  \item \texttt{demo-projects/07-humanoid/paper/inputs/Deep-Research-B/chunk\_01\_executive\_summary\_and\_fully\_automated\_sponsor.md},
-        \texttt{chunk\_02\_federated\_learning\_and\_patient\_prediction.md},
-        \texttt{chunk\_03\_clinagent.md}, and
-        \texttt{chunk\_04\_comparative\_overview\_and\_implications.md}
+  \item \path{demo-projects/07-humanoid/paper/inputs/Deep-Research-B/chunk_01_executive_summary_and_fully_automated_sponsor.md},
+        \path{chunk_02_federated_learning_and_patient_prediction.md},
+        \path{chunk_03_clinagent.md}, and
+        \path{chunk_04_comparative_overview_and_implications.md}
         for the Medical Rapid Prototyping B context.
   \item Author's December 2025 paper
-        \texttt{kawchak\_2025\_18029100} for the prior evidence that
+        \path{kawchak_2025_18029100} for the prior evidence that
         LLMs handle FDA adverse event data effectively. Cite the bib
-        key \texttt{kawchak\_2025\_18029100} and quote the DOI
-        \texttt{10.5281/zenodo.18029100}.
+        key \path{kawchak_2025_18029100} and quote the DOI
+        \path{10.5281/zenodo.18029100}.
 \end{itemize}
 
 Files to read before writing Thesis Statement And Scope:
 \begin{itemize}
-  \item \texttt{demo-projects/07-humanoid/paper/instructions/README.md}
+  \item \path{demo-projects/07-humanoid/paper/instructions/README.md}
         Thesis section (verbatim quote of the thesis sentence is
         required in this subsection).
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/architecture.md}
+  \item \path{demo-projects/07-humanoid/paper/codegen/architecture.md}
         whole file.
 \end{itemize}
 
 Files to read before writing The On-Premises Repository LLM Pattern:
 \begin{itemize}
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/llm\_planner.py}
+  \item \path{demo-projects/07-humanoid/paper/codegen/src/llm_planner.py}
         for the 1 Hz planner loop.
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/broadcaster.py}
+  \item \path{demo-projects/07-humanoid/paper/codegen/src/broadcaster.py}
         for the fan out structure that delivers the same command
         payload to all 3 robots at a site at the same tick.
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/prompt\_frozen.md}
+  \item \path{demo-projects/07-humanoid/paper/codegen/src/prompt_frozen.md}
         for the frozen prompt content.
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/comms\_intellectual.py}
+  \item \path{demo-projects/07-humanoid/paper/codegen/src/comms_intellectual.py}
         and
-        \texttt{demo-projects/07-humanoid/paper/codegen/src/comms\_physical.py}
+        \path{demo-projects/07-humanoid/paper/codegen/src/comms_physical.py}
         for the dual channel (60 GHz UWB plus IR beacon plus shared
         compute fabric) that turns the per-site Claude Opus 4.7 1M
         instance into the on-premises repository LLM.
@@ -72,25 +72,25 @@ Files to read before writing The On-Premises Repository LLM Pattern:
 
 Files to read before writing The 4-Site Continental Rotation:
 \begin{itemize}
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/diagrams/network\_layout.txt}
+  \item \path{demo-projects/07-humanoid/paper/codegen/diagrams/network_layout.txt}
         Include this ASCII diagram verbatim inside an \texttt{asciibox}
         environment as Figure 1. Caption it
         ``PAT-NET-001 continental layout with one Claude Opus 4.7 1M
         on-prem broadcaster per site and 3 Unitree H2 EDU robots per
         site.''
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/diagrams/swarm\_dance.txt}
+  \item \path{demo-projects/07-humanoid/paper/codegen/diagrams/swarm_dance.txt}
         Brief callout reference. Save the full inclusion for the
         Methods section.
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/cross\_site\_bus.py}
+  \item \path{demo-projects/07-humanoid/paper/codegen/src/cross_site_bus.py}
         for the de-identified cross site summary bus.
-  \item \texttt{demo-projects/07-humanoid/paper/execution/diagrams/02\_4site\_execution\_sequence.txt}
+  \item \path{demo-projects/07-humanoid/paper/execution/diagrams/02_4site_execution_sequence.txt}
         for the 4 site execution sequence. Include this ASCII diagram
         verbatim inside an \texttt{asciibox} environment as Figure 2.
 \end{itemize}
 
 Files to read before writing Roadmap Of The Paper:
 \begin{itemize}
-  \item \texttt{demo-projects/07-humanoid/paper/draft-paper/main.tex}
+  \item \path{demo-projects/07-humanoid/paper/draft-paper/main.tex}
         for the section ordering (Methods, Results, Discussion,
         Limitations and Future Work, Conclusions).
 \end{itemize}
@@ -104,7 +104,7 @@ Required content cues for the introduction:
   \item Frame the FDA RTCT 1 hour SLA as a real, accountable timer.
         Pair it with the camaraderie factor of 3 reduction in single
         robot error.
-  \item Cite \texttt{kawchak\_2025\_18029100} once when introducing the
+  \item Cite \path{kawchak_2025_18029100} once when introducing the
         FDA adverse event reporting evidence base.
   \item Present each milestone in the production chain as already
         checked off so the industry can build on top of it rather
@@ -131,11 +131,11 @@ the on-premises repository LLM pattern, the per-site swarm camaraderie,
 and the roadmap that the rest of the paper follows.
 
 \sectiontable{Introduction planning matrix}{%
-Context & I1 & 1 & instructions plus inputs & FDA RTCT framing & 1 to 2 paragraphs & Cites kawchak\_2025\_18029100 & Ready \\
-Thesis & I2 & 2 & instructions/README.md & Quote thesis sentence & 1 paragraph & Verbatim quote & Ready \\
-Pattern & I3 & 3 & codegen/src llm\_planner & On-prem LLM pattern & 2 paragraphs & Names 1 Hz cadence & Ready \\
-Network & I4 & 4 & network\_layout.txt & ASCII Figure 1 & 1 ASCII figure & 4 sites visible & Ready \\
-Roadmap & I5 & 5 & main.tex order & Section walkthrough & 1 paragraph & Reader path & Ready \\
+Context & I1 & 1 & instr, inputs & FDA RTCT & 1 to 2 paragraphs & Cites kawchak & Ready \\
+Thesis & I2 & 2 & instructions README & Quote thesis sentence & 1 paragraph & Verbatim quote & Ready \\
+Pattern & I3 & 3 & llm planner & On-prem LLM & 2 paragraphs & 1 Hz cadence & Ready \\
+Network & I4 & 4 & net layout & ASCII Figure 1 & 1 figure & 4 sites visible & Ready \\
+Roadmap & I5 & 5 & main.tex & Section walk & 1 paragraph & Reader path & Ready \\
 }
 
 \end{sectionaccent}

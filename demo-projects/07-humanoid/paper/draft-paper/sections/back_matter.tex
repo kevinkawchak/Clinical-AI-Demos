@@ -57,52 +57,52 @@ repository directories where the data, code, schemas, configs, and
 reports live. Use the file paths below. Do not omit any of them.
 
 \begin{itemize}
-  \item Source code: \texttt{demo-projects/07-humanoid/paper/codegen/src/}
+  \item Source code: \path{demo-projects/07-humanoid/paper/codegen/src/}
         (27 files spanning Python, C++, Rust, YAML, and Markdown).
-  \item Tests: \texttt{demo-projects/07-humanoid/paper/codegen/tests/}
-        (notably \texttt{test\_xyz\_safety.py}).
-  \item Schemas: \texttt{demo-projects/07-humanoid/paper/codegen/schemas/}.
-  \item Configs: \texttt{demo-projects/07-humanoid/paper/codegen/config/}.
-  \item Data: \texttt{demo-projects/07-humanoid/paper/codegen/data/}
-        and \texttt{demo-projects/07-humanoid/paper/execution/data/}.
+  \item Tests: \path{demo-projects/07-humanoid/paper/codegen/tests/}
+        (notably \path{test_xyz_safety.py}).
+  \item Schemas: \path{demo-projects/07-humanoid/paper/codegen/schemas/}.
+  \item Configs: \path{demo-projects/07-humanoid/paper/codegen/config/}.
+  \item Data: \path{demo-projects/07-humanoid/paper/codegen/data/}
+        and \path{demo-projects/07-humanoid/paper/execution/data/}.
         The iteration index lives at
-        \texttt{codegen/data/iterations/index.jsonl}. The DuckDB
+        \path{codegen/data/iterations/index.jsonl}. The DuckDB
         aggregate lives at
-        \texttt{execution/data/iterations\_aggregate.duckdb}. The
+        \path{execution/data/iterations_aggregate.duckdb}. The
         per-site decision streams live in
-        \texttt{execution/data/site\_runtime\_runs/} as
-        \texttt{AT-01\_llm\_decisions.jsonl},
-        \texttt{BO-01\_llm\_decisions.jsonl},
-        \texttt{SD-01\_llm\_decisions.jsonl}, and
-        \texttt{SF-01\_llm\_decisions.jsonl}.
-  \item Reports: \texttt{demo-projects/07-humanoid/paper/codegen/reports/}
-        and \texttt{demo-projects/07-humanoid/paper/execution/reports/}.
+        \path{execution/data/site_runtime_runs/} as
+        \path{AT-01_llm_decisions.jsonl},
+        \path{BO-01_llm_decisions.jsonl},
+        \path{SD-01_llm_decisions.jsonl}, and
+        \path{SF-01_llm_decisions.jsonl}.
+  \item Reports: \path{demo-projects/07-humanoid/paper/codegen/reports/}
+        and \path{demo-projects/07-humanoid/paper/execution/reports/}.
         The interpretability dashboard lives at
-        \texttt{codegen/reports/dashboard.html}.
+        \path{codegen/reports/dashboard.html}.
   \item ASCII diagrams:
-        \texttt{demo-projects/07-humanoid/paper/codegen/diagrams/}
+        \path{demo-projects/07-humanoid/paper/codegen/diagrams/}
         and
-        \texttt{demo-projects/07-humanoid/paper/execution/diagrams/}.
-  \item Figures: \texttt{demo-projects/07-humanoid/paper/execution/figures/}
+        \path{demo-projects/07-humanoid/paper/execution/diagrams/}.
+  \item Figures: \path{demo-projects/07-humanoid/paper/execution/figures/}
         (6 PNGs at 300 dpi).
   \item Instructions tree:
-        \texttt{demo-projects/07-humanoid/paper/instructions/}
-        with subdirectories \texttt{00-project-overview/} through
-        \texttt{09-runtime-instructions/}.
+        \path{demo-projects/07-humanoid/paper/instructions/}
+        with subdirectories \path{00-project-overview/} through
+        \path{09-runtime-instructions/}.
   \item Prior paper inputs:
-        \texttt{demo-projects/07-humanoid/paper/inputs/} including
-        \texttt{Deep-Research-A/} and \texttt{Deep-Research-B/}.
+        \path{demo-projects/07-humanoid/paper/inputs/} including
+        \path{Deep-Research-A/} and \path{Deep-Research-B/}.
   \item Companion repository:
-        \texttt{https://github.com/kevinkawchak/physical-ai-oncology-trials},
+        \path{https://github.com/kevinkawchak/physical-ai-oncology-trials},
         with hours 00 through 55 of
-        \texttt{new-trial/national-24-7-trial/} included as input
+        \path{new-trial/national-24-7-trial/} included as input
         and hours 56 through 83 excluded per the instructions
         README.
 \end{itemize}
 
 Close the paragraph by linking to the project DOI placeholder
-\texttt{https://doi.org/10.5281/zenodo.xxxxxxxx} and to the
-instructions DOI \texttt{https://doi.org/10.5281/zenodo.18445179}.]
+\path{https://doi.org/10.5281/zenodo.xxxxxxxx} and to the
+instructions DOI \path{https://doi.org/10.5281/zenodo.18445179}.]
 
 The data availability statement will name every codegen, execution,
 instruction, and input directory so the reader can navigate to the
@@ -111,7 +111,7 @@ DOI placeholder and the instructions DOI in a single closing
 sentence.
 
 \sectiontable{Back matter disclosure matrix}{%
-Acks & B1 & 1 & Anthropic, OpenAI, Google & Transparent record & Acknowledgments & AI disclosure & Ready \\
+Acks & B1 & 1 & Anthr, OAI, Goog & Record & Ack block & AI disclosure & Ready \\
 Ethics & B2 & 2 & Author & No competing interest & Ethical block & Single sentence & Ready \\
 Rights & B3 & 3 & CC BY 4.0 & License terms & Permissions block & License link & Ready \\
 Cite & B4 & 4 & DOI placeholder & Suggested citation & Cite block & DOI link & Ready \\

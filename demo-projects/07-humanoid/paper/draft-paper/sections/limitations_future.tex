@@ -22,13 +22,13 @@ roadmap stays anchored to the real artifact.
 
 Subsection 1, Simulation Versus Real Robot Limitations. Read:
 \begin{itemize}
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/fda\_rtct\_submitter.py}
+  \item \path{demo-projects/07-humanoid/paper/codegen/src/fda_rtct_submitter.py}
         (production uses ed25519 signing, simulation uses a placeholder
         signature).
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/robot\_loop.cpp}
+  \item \path{demo-projects/07-humanoid/paper/codegen/src/robot_loop.cpp}
         (the in-robot 10 Hz loop runs in a simulator harness, not on
         the H2 EDU body).
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/src/sensor\_to\_xyz.py}
+  \item \path{demo-projects/07-humanoid/paper/codegen/src/sensor_to_xyz.py}
         (sensor frames are synthetic in the current run).
 \end{itemize}
 State that no real Unitree H2 EDU body executed any of the broadcast
@@ -38,7 +38,7 @@ synthetic and have the form \texttt{PAT-NET-001-PNNN}.
 
 Subsection 2, Per-Site Data Identity Limitation. Read the 4 site
 files in
-\texttt{demo-projects/07-humanoid/paper/execution/data/site\_runtime\_runs/}.
+\path{demo-projects/07-humanoid/paper/execution/data/site_runtime_runs/}.
 All 4 files share the same byte length (62,330 bytes each). State
 that this parity is acceptable as a schema check and is not yet a
 production behavior. State that the next iteration should feed each
@@ -46,45 +46,45 @@ site a site-specific AE arrival stream so the record content
 diverges by site.
 
 Subsection 3, Excluded Inputs. Read the Notes section of
-\texttt{demo-projects/07-humanoid/paper/instructions/README.md}. The
+\path{demo-projects/07-humanoid/paper/instructions/README.md}. The
 original Prompt 07 extra hours dataset (hour 56 through hour 83 under
-\texttt{physical-ai-oncology-trials/new-trial/national-24-7-trial/extra-hours/})
+\path{physical-ai-oncology-trials/new-trial/national-24-7-trial/extra-hours/})
 is excluded from the current input scope. Only hour 00 through hour
 55 are read. State this explicitly and identify the missing hours as
 a future inclusion roadmap item.
 
 Subsection 4, Missing Repository Update Instruction Directory. Read
 the Repository Structure block of
-\texttt{demo-projects/07-humanoid/paper/instructions/README.md}. The
-\texttt{10-repository-update-instructions/} subdirectory is named in
+\path{demo-projects/07-humanoid/paper/instructions/README.md}. The
+\path{10-repository-update-instructions/} subdirectory is named in
 the README but is not yet present on disk. State this explicitly as a
 documented limitation and as the next commit for the instruction
 tree.
 
 Subsection 5, Future Work Roadmap. Read:
 \begin{itemize}
-  \item \texttt{demo-projects/07-humanoid/paper/inputs/README.md}
+  \item \path{demo-projects/07-humanoid/paper/inputs/README.md}
         for the prior paper's future work framing.
-  \item \texttt{demo-projects/07-humanoid/paper/inputs/Deep-Research-A/chunk2\_tables\_references.md}
+  \item \path{demo-projects/07-humanoid/paper/inputs/Deep-Research-A/chunk2_tables_references.md}
         for the Medical Full Automation A roadmap items.
-  \item \texttt{demo-projects/07-humanoid/paper/inputs/Deep-Research-B/chunk\_04\_comparative\_overview\_and\_implications.md}
+  \item \path{demo-projects/07-humanoid/paper/inputs/Deep-Research-B/chunk_04_comparative_overview_and_implications.md}
         for the Medical Rapid Prototyping B roadmap items.
   \item Author's December 2025 paper
-        \texttt{kawchak\_2025\_18029100} for the prior limitations
+        \path{kawchak_2025_18029100} for the prior limitations
         that this paper carries forward.
 \end{itemize}
 Roadmap items to enumerate explicitly:
 \begin{itemize}
   \item Move from simulator harness to a real Unitree H2 EDU body
         with the kinematics in
-        \texttt{codegen/src/kinematics.yaml} as the live target.
+        \path{codegen/src/kinematics.yaml} as the live target.
   \item Replace the placeholder signature in
-        \texttt{codegen/src/fda\_rtct\_submitter.py} with the real
+        \path{codegen/src/fda_rtct_submitter.py} with the real
         ed25519 signing chain.
   \item Enroll a real PAT-NET-001 cohort under an IRB protocol and a
         signed sponsor agreement.
   \item Add the
-        \texttt{instructions/10-repository-update-instructions/}
+        \path{instructions/10-repository-update-instructions/}
         directory.
   \item Extend the AE arrival stream so the 4 site decision logs
         diverge in content, not only in byte length.
@@ -112,11 +112,11 @@ instruction directory, and the future work roadmap including the IRB
 and FDA RTCT pilot enrollment path.
 
 \sectiontable{Limitations and Future Work planning matrix}{%
-SimGap & L1 & 1 & robot\_loop plus submitter & Sim versus real bound & 1 to 2 pages & No real H2 body run & Ready \\
-ByteParity & L2 & 2 & site\_runtime\_runs/ & Identity check noted & 1 page & 62,330 bytes each & Ready \\
-Excluded & L3 & 3 & instructions README Notes & Hour 56 to 83 gap & 1 page & Excluded by README & Ready \\
-Missing & L4 & 4 & instructions README structure & 10-repo-update dir gap & 1 page & Named not present & Ready \\
-Future & L5 & 5 & inputs README plus DR-A and DR-B & Roadmap enumeration & 2 to 3 pages & 7 explicit items & Ready \\
+SimGap & L1 & 1 & robot, submit. & Sim vs real & 1 to 2 pages & No real H2 run & Ready \\
+Parity & L2 & 2 & runtime runs & Identity check & 1 page & 62,330 bytes & Ready \\
+Excluded & L3 & 3 & instr Notes & Hour 56 to 83 & 1 page & By README & Ready \\
+Missing & L4 & 4 & instr structure & 10-repo gap & 1 page & Not present & Ready \\
+Future & L5 & 5 & inputs, DR-A, DR-B & Roadmap list & 2 to 3 pages & 7 items & Ready \\
 }
 
 \end{sectionaccent}

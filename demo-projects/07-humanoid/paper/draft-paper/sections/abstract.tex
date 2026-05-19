@@ -28,48 +28,48 @@ the file list below.
 
 Files to read before writing the production overview half:
 \begin{itemize}
-  \item \texttt{demo-projects/07-humanoid/paper/instructions/README.md}
+  \item \path{demo-projects/07-humanoid/paper/instructions/README.md}
         for the project thesis, the four site identifiers (SF-01, SD-01,
         BO-01, AT-01), the 12 H2 robot total count, the 1 Hz LLM
         broadcast cadence, the 10 Hz humanoid motion cadence, the 168
         hour monitoring window, and the camaraderie reduction factor of
         3 in single robot error potential.
-  \item \texttt{demo-projects/07-humanoid/paper/instructions/00-project-overview/}
-        through \texttt{09-runtime-instructions/} for the 10 instruction
+  \item \path{demo-projects/07-humanoid/paper/instructions/00-project-overview/}
+        through \path{09-runtime-instructions/} for the 10 instruction
         directories that drive code generation.
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/README.md} and
-        \texttt{demo-projects/07-humanoid/paper/codegen/architecture.md}
+  \item \path{demo-projects/07-humanoid/paper/codegen/README.md} and
+        \path{demo-projects/07-humanoid/paper/codegen/architecture.md}
         for the code generation phase output.
-  \item \texttt{demo-projects/07-humanoid/paper/execution/README.md}
-        and \texttt{demo-projects/07-humanoid/paper/execution/reports/execution\_report\_v0\_5\_0.md}
+  \item \path{demo-projects/07-humanoid/paper/execution/README.md}
+        and \path{demo-projects/07-humanoid/paper/execution/reports/execution_report_v0_5_0.md}
         for the execution phase output.
-  \item \texttt{demo-projects/07-humanoid/paper/inputs/README.md},
-        \texttt{demo-projects/07-humanoid/paper/inputs/Deep-Research-A/README.md},
+  \item \path{demo-projects/07-humanoid/paper/inputs/README.md},
+        \path{demo-projects/07-humanoid/paper/inputs/Deep-Research-A/README.md},
         and the equivalent README in
-        \texttt{demo-projects/07-humanoid/paper/inputs/Deep-Research-B/}
+        \path{demo-projects/07-humanoid/paper/inputs/Deep-Research-B/}
         for the prior paper context (the prior paper covered Medical
         Full Automation A and Medical Rapid Prototyping B).
 \end{itemize}
 
 Files to read before writing the results catch half:
 \begin{itemize}
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/data/iterations/index.jsonl}
+  \item \path{demo-projects/07-humanoid/paper/codegen/data/iterations/index.jsonl}
         for the 32 deterministic iteration sweep results across the 4
         sites and many columns. Quote the iteration count and the
         per-site count in the abstract.
-  \item \texttt{demo-projects/07-humanoid/paper/codegen/reports/dashboard.html}
-        and \texttt{demo-projects/07-humanoid/paper/codegen/reports/report.md}
+  \item \path{demo-projects/07-humanoid/paper/codegen/reports/dashboard.html}
+        and \path{demo-projects/07-humanoid/paper/codegen/reports/report.md}
         for the comparison summary headline numbers. Surface the lead
         metric (the camaraderie factor of 3, plus the e-stop latency of
         5 ms swarm wide).
-  \item \texttt{demo-projects/07-humanoid/paper/execution/data/site\_runtime\_runs/AT-01\_llm\_decisions.jsonl}
+  \item \path{demo-projects/07-humanoid/paper/execution/data/site_runtime_runs/AT-01_llm_decisions.jsonl}
         plus \texttt{BO-01}, \texttt{SD-01}, and \texttt{SF-01} variants
         in the same directory for the per-site LLM decision streams at
         1 Hz. Note that the 4 site files are identical in byte length
         (62,330 bytes each); call this out as a check that the runtime
         produced parallel-scope decision logs across sites and not as a
         data duplication artifact in production.
-  \item \texttt{demo-projects/07-humanoid/paper/execution/data/iterations\_aggregate.duckdb}
+  \item \path{demo-projects/07-humanoid/paper/execution/data/iterations_aggregate.duckdb}
         for the DuckDB roll up of all 32 iteration sweeps.
 \end{itemize}
 
@@ -88,7 +88,7 @@ Required content cues for the abstract paragraph:
   \item Name the 32 iteration sweeps and the camaraderie reduction
         factor of 3 in single robot error potential.
   \item Cite the author's December 2025 paper
-        (\texttt{kawchak\_2025\_18029100}) as the prior evidence that
+        (\path{kawchak_2025_18029100}) as the prior evidence that
         LLMs are effective on FDA adverse events data.
   \item Close on the future industry value: the on-prem repository LLM
         plus sensor pipeline plus Cartesian x, y, z command structure
@@ -110,9 +110,9 @@ sentences will surface specific results from the 32 iteration sweeps
 and the per-site LLM decision streams.
 
 \sectiontable{Abstract planning matrix}{%
-Thesis & A1 & 1 & instructions/README.md & State thesis verbatim & 1 sentence & Reads like the README & Ready \\
-Overview & A2 & 2 & codegen plus execution README & Production chain prose & 4 to 5 sentences & Names every phase & Ready \\
-Numbers & A3 & 3 & iterations index plus dashboard & Quote headline metrics & 3 to 4 sentences & Every number is in a named file & Ready \\
+Thesis & A1 & 1 & instructions README & State thesis verbatim & 1 sentence & Reads like the README & Ready \\
+Overview & A2 & 2 & code, exec README & Production chain & 4 to 5 sent. & Names phases & Ready \\
+Numbers & A3 & 3 & index, dashboard & Headline metrics & 3 to 4 sent. & Sourced numbers & Ready \\
 }
 
 \end{sectionaccent}
