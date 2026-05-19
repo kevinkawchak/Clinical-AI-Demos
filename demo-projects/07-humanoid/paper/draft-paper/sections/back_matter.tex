@@ -1,0 +1,119 @@
+% ======================================================================
+% sections/back_matter.tex
+%
+% Back matter for the paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation
+%
+% This file holds the Acknowledgments, Ethical Disclosures, Rights and
+% Permissions, Cite This Article, and Data Availability sections, in
+% that order. The text below is final-form text. A future Claude Code
+% Opus 4.7 1M Max session should keep this content and only update the
+% DOI placeholder when the Zenodo record is minted.
+% ======================================================================
+
+\phantomsection
+\addcontentsline{toc}{section}{Acknowledgments}
+\section*{Acknowledgments}
+
+The author would like to acknowledge Anthropic for providing access to
+Claude Code for instruction, code, execution, along with the paper
+generation process; OpenAI for providing access to ChatGPT for deep
+research summaries, and Google Gemini AI Overview for additional
+search assistance.
+
+\phantomsection
+\addcontentsline{toc}{section}{Ethical Disclosures}
+\section*{Ethical Disclosures}
+
+The author of the article declares no competing interests.
+
+\phantomsection
+\addcontentsline{toc}{section}{Rights and Permissions}
+\section*{Rights and Permissions}
+
+This article is distributed under the terms of the Creative Commons
+Attribution 4.0 International License (CC BY 4.0), which permits
+unrestricted use, distribution, and reproduction in any medium,
+provided the original author(s) and source are properly credited, a
+link to the Creative Commons license is provided, and any
+modifications made are indicated. To view a copy of this license,
+visit \href{https://creativecommons.org/licenses/by/4.0/}{https://creativecommons.org/licenses/by/4.0/}.
+
+\phantomsection
+\addcontentsline{toc}{section}{Cite This Article}
+\section*{Cite This Article}
+
+Kawchak K. Triple Humanoid 24/7 Adverse Event Oncology Trial Response
+Team: 4-Site Rotation. Zenodo. 2026; \href{https://doi.org/10.5281/zenodo.xxxxxxxx}{10.5281/zenodo.xxxxxxxx}.
+
+\phantomsection
+\addcontentsline{toc}{section}{Data Availability}
+\section*{Data Availability}
+
+[DATA AVAILABILITY INSTRUCTIONS FOR FUTURE CLAUDE CODE OPUS 4.7 1M
+MAX SESSION. Write 1 paragraph that points the reader at the exact
+repository directories where the data, code, schemas, configs, and
+reports live. Use the file paths below. Do not omit any of them.
+
+\begin{itemize}
+  \item Source code: \path{demo-projects/07-humanoid/paper/codegen/src/}
+        (27 files spanning Python, C++, Rust, YAML, and Markdown).
+  \item Tests: \path{demo-projects/07-humanoid/paper/codegen/tests/}
+        (notably \path{test_xyz_safety.py}).
+  \item Schemas: \path{demo-projects/07-humanoid/paper/codegen/schemas/}.
+  \item Configs: \path{demo-projects/07-humanoid/paper/codegen/config/}.
+  \item Data: \path{demo-projects/07-humanoid/paper/codegen/data/}
+        and \path{demo-projects/07-humanoid/paper/execution/data/}.
+        The iteration index lives at
+        \path{codegen/data/iterations/index.jsonl}. The DuckDB
+        aggregate lives at
+        \path{execution/data/iterations_aggregate.duckdb}. The
+        per-site decision streams live in
+        \path{execution/data/site_runtime_runs/} as
+        \path{AT-01_llm_decisions.jsonl},
+        \path{BO-01_llm_decisions.jsonl},
+        \path{SD-01_llm_decisions.jsonl}, and
+        \path{SF-01_llm_decisions.jsonl}.
+  \item Reports: \path{demo-projects/07-humanoid/paper/codegen/reports/}
+        and \path{demo-projects/07-humanoid/paper/execution/reports/}.
+        The interpretability dashboard lives at
+        \path{codegen/reports/dashboard.html}.
+  \item ASCII diagrams:
+        \path{demo-projects/07-humanoid/paper/codegen/diagrams/}
+        and
+        \path{demo-projects/07-humanoid/paper/execution/diagrams/}.
+  \item Figures: \path{demo-projects/07-humanoid/paper/execution/figures/}
+        (6 PNGs at 300 dpi).
+  \item Instructions tree:
+        \path{demo-projects/07-humanoid/paper/instructions/}
+        with subdirectories \path{00-project-overview/} through
+        \path{09-runtime-instructions/}.
+  \item Prior paper inputs:
+        \path{demo-projects/07-humanoid/paper/inputs/} including
+        \path{Deep-Research-A/} and \path{Deep-Research-B/}.
+  \item Companion repository:
+        \path{https://github.com/kevinkawchak/physical-ai-oncology-trials},
+        with hours 00 through 55 of
+        \path{new-trial/national-24-7-trial/} included as input
+        and hours 56 through 83 excluded per the instructions
+        README.
+\end{itemize}
+
+Close the paragraph by linking to the project DOI placeholder
+\path{https://doi.org/10.5281/zenodo.xxxxxxxx} and to the
+instructions DOI \path{https://doi.org/10.5281/zenodo.18445179}.]
+
+The data availability statement will name every codegen, execution,
+instruction, and input directory so the reader can navigate to the
+exact source of every claim in the paper, and will link the project
+DOI placeholder and the instructions DOI in a single closing
+sentence.
+
+\sectiontable{Back matter disclosure matrix}{%
+Acks & B1 & 1 & Anthr, OAI, Goog & Record & Ack block & AI disclosure & Ready \\
+Ethics & B2 & 2 & Author & No competing interest & Ethical block & Single sentence & Ready \\
+Rights & B3 & 3 & CC BY 4.0 & License terms & Permissions block & License link & Ready \\
+Cite & B4 & 4 & DOI placeholder & Suggested citation & Cite block & DOI link & Ready \\
+Data & B5 & 5 & Whole paper tree & Per directory pointer & Data block & 9 dirs named & Ready \\
+}

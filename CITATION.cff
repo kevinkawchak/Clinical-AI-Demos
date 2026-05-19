@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: If you use this repository, please cite it as below.
 title: "Clinical-AI-Demos: Humanoid and LLM Demos for Physical AI Oncology Clinical Trials"
-version: 0.5.0
-date-released: 2026-05-18
+version: 0.6.0
+date-released: 2026-05-20
 license: MIT
 authors:
   - family-names: Kawchak
@@ -28,6 +28,7 @@ keywords:
   - jetson-agx-thor
   - claude-opus-4-7
   - codegen-execution
+  - draft-paper-scaffold
 references:
   - type: misc
     authors:

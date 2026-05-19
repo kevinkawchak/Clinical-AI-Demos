@@ -1,0 +1,102 @@
+% ======================================================================
+% sections/conclusions.tex
+%
+% Conclusions scaffold for the paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation
+%
+% This file is a draft scaffold. A future Claude Code Opus 4.7 1M Max
+% session reads the bracketed instruction blocks below, then reads the
+% files those instructions name, then expands the scaffold into the
+% finished conclusions section. Target length is roughly 3 to 5 pages
+% of the 70 plus page final paper.
+% ======================================================================
+
+\begin{sectionaccent}
+
+[CONCLUSIONS INSTRUCTIONS FOR FUTURE CLAUDE CODE OPUS 4.7 1M MAX
+SESSION. Write 4 short subsections inside this single
+\texttt{\textbackslash section} block. Conclusions does not introduce new
+files. Every file named here must also be cited earlier in the paper.
+
+Subsection 1, Thesis Restatement. Restate the thesis verbatim. Do not
+paraphrase. The thesis appears in
+\path{demo-projects/07-humanoid/paper/instructions/README.md} under
+the heading ``Thesis''.
+
+Subsection 2, Evidence Roll Up. List the 10 evidence anchors that
+support the thesis. Each anchor is one bullet, one sentence:
+\begin{itemize}
+  \item \path{codegen/src/swarm_coordinator.py} (191 lines)
+        implements the camaraderie logic that animates the 3 robot
+        Unitree H2 EDU camarade swarm at one site. The compact
+        line count is itself evidence of clean coordination logic.
+  \item \path{codegen/src/fda_rtct_submitter.py} (67 lines)
+        submits CTCAE grade 2 or higher records to the FDA RTCT
+        pilot intake API within 1 hour per the HR 9505 SLA, using
+        ed25519 signing in production.
+  \item The 27 files in \texttt{codegen/src/} span Python, C++,
+        Rust, YAML, and Markdown and together implement the full
+        sensor to LLM to robot pipeline.
+  \item \path{codegen/data/iterations/index.jsonl} carries 32
+        deterministic iteration sweeps across the 4 trial sites and
+        many columns.
+  \item \path{codegen/reports/dashboard.html} adds project
+        interpretability for future paper readers.
+  \item \path{codegen/src/check_errors.py} provides LLM
+        credibility in generating error checking code.
+  \item \path{codegen/tests/test_xyz_safety.py} provides LLM
+        credibility in generating test code.
+  \item \path{codegen/src/h2_dispatcher.py} provides per-site H2
+        dispatch proficiency.
+  \item \path{execution/data/site_runtime_runs/AT-01_llm_decisions.jsonl}
+        plus the matching SF-01, SD-01, and BO-01 files show 1 Hz
+        decision logs at scale for all 4 sites.
+  \item \path{execution/data/iterations_aggregate.duckdb} and the
+        JSONL files in \path{execution/data/} together
+        demonstrate DuckDB and JSONL proficiency in the same data
+        layer.
+\end{itemize}
+
+Subsection 3, Industry Checklist Framing. Present the entire body of
+work as a sequence of checklist items that the industry no longer
+has to redo. Pull the checklist from the Inventory at a Glance table
+in
+\path{demo-projects/07-humanoid/paper/instructions/README.md}. Mark
+each item as done so the next team can build on top of it. The point
+of the framing is to save the industry the cost of repeating the
+groundwork.
+
+Subsection 4, Forward Statement. Close with the United States
+patient safety, efficacy, and speed framing. The United States needs
+to remain Number 1 in the world regarding patient safety, efficacy,
+and speed benefits in oncological adverse event robot swarms for
+clinical trials. Frame the closing sentence as an invitation to the
+FDA, sponsors, sites, and IRBs to advance the new field of Physical
+AI oncology trial surgical procedures together. Cite the author's
+December 2025 paper
+\path{kawchak_2025_18029100} one final time as the prior
+evidence that LLMs are effective on FDA adverse event data.
+
+Required real-life feasibility insight to include in this section:
+``The pipeline in this paper is small enough to audit, large enough
+to deploy at 4 sites, and tight enough to honor the FDA RTCT 1 hour
+SLA. The work is ready for the human governance step.''
+
+Do not exceed 5 pages. Use single dashes only. Use \S\ for the
+section sign. Avoid stranding 1 or 2 word lines on their own.]
+
+The conclusions section will restate the thesis verbatim, roll up the
+10 evidence anchors, frame the body of work as an industry checklist
+of completed steps, and close with the United States patient safety,
+efficacy, and speed forward statement plus the final citation to
+\path{kawchak_2025_18029100}.
+
+\sectiontable{Conclusions planning matrix}{%
+Thesis & C1 & 1 & instructions README & Verbatim restatement & 1 paragraph & No paraphrase & Ready \\
+Evidence & C2 & 2 & 10 anchors & Bullet roll up & 1 page & 10 bullets & Ready \\
+Checklist & C3 & 3 & Inventory at a Glance & Done checklist framing & 1 to 2 pages & Industry handoff & Ready \\
+Forward & C4 & 4 & 2025 FDA paper cite & US leadership close & 1 paragraph & Final citation & Ready \\
+}
+
+\end{sectionaccent}
