@@ -1,0 +1,132 @@
+% ======================================================================
+% humanoid_paper_template.sty
+% Style file for the paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation
+%
+% Single column academic article style. No line numbers, no draft
+% watermark, no editorial annotation marks. Designed to compile in
+% Overleaf with the standard pdfLaTeX engine.
+%
+% Color palette is shared with the project's prior Education and
+% Learning Sciences template so the visual identity stays consistent:
+% TemplateAccent (deep slate blue), TemplateSecondary (light slate
+% wash), TemplateBody (black), OrcidGreen (Orcid mark green).
+% ======================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{humanoid_paper_template}[2026/05/20 Humanoid 4-Site Paper Template]
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}\usepackage[scaled=.94]{helvet}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+
+\definecolor{TemplateAccent}{HTML}{365C7D}
+\definecolor{TemplateSecondary}{HTML}{E8EFF5}
+\definecolor{TemplateBody}{HTML}{000000}
+\definecolor{OrcidGreen}{HTML}{A6CE39}
+
+\hypersetup{colorlinks=true,linkcolor=TemplateAccent,citecolor=TemplateAccent,urlcolor=TemplateAccent,pdfborder={0 0 0}}
+
+% Body paragraph behavior. Indent zero, vertical air between paragraphs,
+% and use \RaggedRight so word spacing inside a line stays tight and
+% even rather than stretching to justify. This prevents the rivers of
+% white space that pure \raggedright or full justify can leave behind.
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\headheight}{22pt}
+\setlength{\emergencystretch}{3em}
+\RaggedRight
+\renewcommand{\arraystretch}{1.16}
+\setlist{nosep,leftmargin=1.4em}
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+
+% Discourage a final lone line on its own page and a single line at the
+% top of a page. These knobs reduce orphan and widow lines.
+\widowpenalty=10000
+\clubpenalty=10000
+\brokenpenalty=10000
+\raggedbottom
+
+\newcommand{\keywordsname}{Keywords}
+\newcommand{\orcidicon}[1]{\href{https://orcid.org/#1}{\textcolor{OrcidGreen}{\scriptsize\sffamily\bfseries iD}}}
+\newcommand{\doiLink}[1]{\href{https://doi.org/#1}{#1}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\footnotesize\textsc{Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team}}
+\rhead{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{TemplateAccent}\leaders\hrule height \headrulewidth\hfill}}
+
+\titleformat{\section}{\Large\bfseries\color{TemplateAccent}}{\thesection}{0.75em}{}[\vspace{-0.2em}{\color{TemplateSecondary}\titlerule[2pt]}]
+\titleformat{\subsection}{\large\bfseries\color{TemplateAccent}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{TemplateAccent}}{\thesubsubsection}{0.5em}{}
+\newenvironment{sectionaccent}{\begingroup\color{TemplateBody}}{\endgroup}
+
+% Eight column section planning table. Every column is a fixed width
+% paragraph column with \raggedright\arraybackslash so cells stay
+% left aligned and the rows do not stretch words apart on short
+% content. This is the table shape used everywhere in the paper for
+% planning and traceability matrices.
+\newcommand{\sectiontable}[2]{%
+\begin{center}
+\captionsetup{type=table}
+\captionof{table}{#1}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{>{\raggedright\arraybackslash}p{2cm}
+                >{\raggedright\arraybackslash}p{0.9cm}
+                >{\raggedright\arraybackslash}p{0.9cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{2cm}
+                >{\raggedright\arraybackslash}p{1.6cm}}
+\toprule
+\textbf{Item} & \textbf{Ref} & \textbf{Step} & \textbf{Input} & \textbf{Action} & \textbf{Output} & \textbf{Check} & \textbf{Status} \\
+\midrule
+#2
+\bottomrule
+\end{tabular}}
+\end{center}}
+
+% Convenience environment for ASCII diagrams pulled verbatim from
+% codegen/diagrams and execution/diagrams. Uses a small monospace
+% font and keeps the diagram inside the text block.
+\newenvironment{asciibox}[1]
+  {\begin{figure}[H]\centering\captionsetup{type=figure}\captionof{figure}{#1}\begin{minipage}{0.98\linewidth}\ttfamily\footnotesize\begin{verbatim}}
+  {\end{verbatim}\end{minipage}\end{figure}}
+
+\renewenvironment{abstract}{\begin{center}\large\bfseries\color{TemplateAccent} Abstract\end{center}\begin{quote}\color{TemplateBody}}{\end{quote}}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \thispagestyle{empty}
+  \begin{center}\colorbox{TemplateSecondary}{\begin{minipage}{0.96\textwidth}\centering\vspace{0.65em}
+  {\LARGE\bfseries\color{TemplateAccent}\@title\par}
+  \vspace{0.45em}
+  {\large\@author\par}
+  \vspace{0.15em}
+  {\normalsize\@date\par}
+  \vspace{0.65em}\end{minipage}}\end{center}
+  \vspace{0.8em}
+}
+\makeatother
+
+\AtBeginDocument{\color{TemplateBody}}
+\endinput
