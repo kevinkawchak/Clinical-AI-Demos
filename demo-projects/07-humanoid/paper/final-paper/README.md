@@ -3,7 +3,7 @@
 [![Repo](https://img.shields.io/badge/Repo-Clinical--AI--Demos-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Companion](https://img.shields.io/badge/Companion-physical--ai--oncology--trials-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![Release](https://img.shields.io/badge/Release-v0.7.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
-[![DOI Placeholder](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![DOI Placeholder](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20303281-blue)](https://doi.org/10.5281/zenodo.20303281)
 [![Prior DOI](https://img.shields.io/badge/Prior%20DOI-10.5281%2Fzenodo.18029100-blue)](https://doi.org/10.5281/zenodo.18029100)
 [![Instructions DOI](https://img.shields.io/badge/Instructions%20DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Draft DOI](https://img.shields.io/badge/Draft%20DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/draft-paper)
