@@ -1,0 +1,193 @@
+% ======================================================================
+% humanoid_paper_template.sty
+% Style file for the full paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation (v0.7.0)
+%
+% Single column academic article style. No line numbers, no draft
+% watermark, no editorial annotation marks. Designed to compile in
+% Overleaf with the standard pdfLaTeX engine.
+%
+% Color palette: TemplateAccent (deep slate blue), TemplateSecondary
+% (light slate wash), TemplateBody (black), OrcidGreen (Orcid mark
+% green). All body text renders in black.
+%
+% Single dashes only throughout the paper. No em dashes, no double
+% dashes, no triple dashes. Stray SS artifacts are replaced with the
+% section sign \S during the cleanup pass.
+% ======================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{humanoid_paper_template}[2026/05/20 Humanoid 4-Site Full Paper Template v0.7.0]
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage[scaled=.94]{helvet}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{fancyvrb}
+
+% Path macro that prints a file path in a typewriter font and allows
+% line breaks at slashes, dots, and underscores. Use \fp{...} in body
+% prose for any file or directory path that would otherwise overflow
+% the right margin when wrapped in \texttt.
+\newcommand{\fp}[1]{\path{#1}}
+
+\definecolor{TemplateAccent}{HTML}{365C7D}
+\definecolor{TemplateSecondary}{HTML}{E8EFF5}
+\definecolor{TemplateBody}{HTML}{000000}
+\definecolor{OrcidGreen}{HTML}{A6CE39}
+
+\hypersetup{colorlinks=true,linkcolor=TemplateAccent,citecolor=TemplateAccent,urlcolor=TemplateAccent,pdfborder={0 0 0}}
+
+% Body paragraph behavior. Indent zero, vertical air between paragraphs,
+% and use \RaggedRight so word spacing inside a line stays tight and
+% even rather than stretching to justify. The \emergencystretch=3em
+% value plus \tolerance=2500 keep word spacing even and prevent rivers
+% of white space inside the body text. The \sloppy directive lets the
+% engine break tricky paragraphs cleanly. Hyphenation penalty stays low
+% so URLs and file paths can break across lines when needed.
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\headheight}{22pt}
+\setlength{\emergencystretch}{3em}
+\sloppy
+\RaggedRight
+\tolerance=2500
+\hbadness=2500
+\hfuzz=2pt
+\renewcommand{\arraystretch}{1.18}
+\setlist{nosep,leftmargin=1.4em}
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+
+% Discourage a final lone line on its own page and a single line at
+% the top of a page. These knobs reduce orphan and widow lines so the
+% paper avoids stranding 1 or 2 word lines on their own. The
+% \raggedbottom directive lets the engine leave a little white space at
+% the bottom of a page rather than stretching paragraphs.
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\raggedbottom
+
+\newcommand{\keywordsname}{Keywords}
+\newcommand{\orcidicon}[1]{\href{https://orcid.org/#1}{\textcolor{OrcidGreen}{\scriptsize\sffamily\bfseries iD}}}
+\newcommand{\doiLink}[1]{\href{https://doi.org/#1}{#1}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\footnotesize\textsc{Threefold Humanoid 24/7 Adverse Event Oncology Trial Response}}
+\rhead{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{TemplateAccent}\leaders\hrule height \headrulewidth\hfill}}
+
+\titleformat{\section}{\Large\bfseries\color{TemplateAccent}}{\thesection}{0.75em}{}[\vspace{-0.2em}{\color{TemplateSecondary}\titlerule[2pt]}]
+\titleformat{\subsection}{\large\bfseries\color{TemplateAccent}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{TemplateAccent}}{\thesubsubsection}{0.5em}{}
+\newenvironment{sectionaccent}{\begingroup\color{TemplateBody}}{\endgroup}
+
+% Eight column section planning table. Every column is a fixed width
+% paragraph column with \raggedright\arraybackslash so cells stay
+% left aligned and the rows do not stretch words apart on short
+% content. Used for matrices that map Item, Ref, Step, Input, Action,
+% Output, Check, and Status.
+\newcommand{\sectiontable}[2]{%
+\begin{center}
+\captionsetup{type=table}
+\captionof{table}{#1}
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{>{\raggedright\arraybackslash}p{2cm}
+                >{\raggedright\arraybackslash}p{0.9cm}
+                >{\raggedright\arraybackslash}p{0.9cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{2cm}
+                >{\raggedright\arraybackslash}p{1.6cm}}
+\toprule
+\textbf{Item} & \textbf{Ref} & \textbf{Step} & \textbf{Input} & \textbf{Action} & \textbf{Output} & \textbf{Check} & \textbf{Status} \\
+\midrule
+#2
+\bottomrule
+\end{tabular}}
+\end{center}}
+
+% Two-column narrative table for reader-friendly content. Each column
+% uses \raggedright\arraybackslash so word spacing stays tight in cells
+% and reads naturally to a human audience.
+\newcommand{\narrativetable}[3]{%
+\begin{center}
+\captionsetup{type=table}
+\captionof{table}{#1}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.5cm}
+                >{\raggedright\arraybackslash}p{10.5cm}}
+\toprule
+\textbf{#2} & \textbf{#3} \\
+\midrule
+}
+\newcommand{\endnarrativetable}{%
+\bottomrule
+\end{tabular}
+\end{center}}
+
+% Three-column metrics table for short rows of numbers paired with a
+% description and a source file. Each column uses
+% \raggedright\arraybackslash to keep word spacing tight.
+\newcommand{\metricstable}[1]{%
+\begin{center}
+\captionsetup{type=table}
+\captionof{table}{#1}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.8cm}
+                >{\raggedright\arraybackslash}p{3.2cm}
+                >{\raggedright\arraybackslash}p{6.8cm}}
+\toprule
+\textbf{Metric} & \textbf{Value} & \textbf{Source} \\
+\midrule
+}
+\newcommand{\endmetricstable}{%
+\bottomrule
+\end{tabular}
+\end{center}}
+
+% ASCII diagrams from codegen/diagrams and execution/diagrams are
+% included via a direct \begin{figure}[H] block that wraps a
+% fancyvrb \begin{Verbatim}...\end{Verbatim} environment. A nested
+% \newenvironment wrapping Verbatim is not used because
+% \VerbatimEnvironment from fancyvrb does not nest cleanly inside
+% \newenvironment macros.
+
+\renewenvironment{abstract}{\begin{center}\large\bfseries\color{TemplateAccent} Abstract\end{center}\begin{quote}\color{TemplateBody}}{\end{quote}}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \thispagestyle{empty}
+  \begin{center}\colorbox{TemplateSecondary}{\begin{minipage}{0.96\textwidth}\centering\vspace{0.65em}
+  {\LARGE\bfseries\color{TemplateAccent}\@title\par}
+  \vspace{0.45em}
+  {\large\@author\par}
+  \vspace{0.15em}
+  {\normalsize\@date\par}
+  \vspace{0.65em}\end{minipage}}\end{center}
+  \vspace{0.8em}
+}
+\makeatother
+
+\AtBeginDocument{\color{TemplateBody}}
+\endinput

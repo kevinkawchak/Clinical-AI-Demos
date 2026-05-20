@@ -1,0 +1,111 @@
+% ======================================================================
+% main.tex
+% Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+% 4-Site Rotation (Full Paper, v0.7.0)
+%
+% Author: Kevin Kawchak, CEO ChemicalQDevice
+% Orcid: 0009-0007-5457-8667
+% DOI placeholder: 10.5281/zenodo.xxxxxxxx
+% Date: May 20, 2026
+%
+% This file is the top-level manuscript for the full paper. It expands
+% the bracketed draft scaffold at paper/draft-paper/ into the finished
+% manuscript that compiles under Overleaf with pdfLaTeX plus BibTeX.
+% The file orders the section inputs, prints the table of contents,
+% and binds the bibliography to references.bib via the ieeetr style.
+% ======================================================================
+\documentclass[11pt]{article}
+\usepackage{humanoid_paper_template}
+
+\title{Threefold Humanoid 24/7 Adverse Event\\Oncology Trial Response Team: 4-Site Rotation}
+\author{%
+  Kevin Kawchak\hspace{2pt}\orcidicon{0009-0007-5457-8667}\\
+  CEO ChemicalQDevice\\
+  \doiLink{10.5281/zenodo.20303281}
+}
+\date{May 20, 2026}
+
+\begin{document}
+\maketitle
+
+\vspace{-0.3cm}
+
+% \vspace{0.4em}
+
+\begin{abstract}
+\vspace{-0.5cm}
+\input{sections/abstract}
+\end{abstract}
+
+\vspace{-0.2cm}
+
+\begin{center}
+\normalsize\itshape
+Disclaimer: This work is independent and not endorsed or sponsored by trial sponsors, FDA,\\CRO, site, IRB, regulator, or medical society; and was generated using Artificial Intelligence.
+\end{center}
+
+\vspace{0.1cm}
+
+\noindent\textbf{\keywordsname:}\ Oncology clinical trial adverse events; CTCAE; Unitree H2 EDU; On-premises LLM; Swarm camaraderie.
+
+\vspace{-0.1cm}
+
+\section{Preliminary}
+\label{sec:introduction}
+Oncology clinical trials operate around adverse events. Severity
+matters, time to response matters, and the audit trail matters. The Common Terminology Criteria for Adverse Events
+(\textsc{ctcae}) grading scale gives a common vocabulary across
+sponsors, sites, and regulators \cite{ctcae_v5_2017}. The 2025 update
+to the International Council for Harmonisation good clinical practice
+guideline \textsc{ich e6(r3)} sets the modern compliance baseline
+\cite{ich_e6r3_2025}. The April 2026 announcement from the U.S. Food
+and Drug Administration of the Real Time Clinical Trial pilot (RTCT)
+introduced a fresh 1 hour service level agreement for the intake of
+grade 2 or higher adverse event records \cite{fda_rtct_2026,
+fda2026realtime}. The United States has an obligation to lead on
+patient safety, efficacy, and speed across the new field of
+physical artificial intelligence for oncology trial
+surgical procedures and supportive care.
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Introduction}
+\tableofcontents
+\newpage
+
+\input{sections/introduction}
+
+
+
+\section{Methods}
+\label{sec:methods}
+\input{sections/methods}
+
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+
+\section{Discussion}
+\label{sec:discussion}
+\input{sections/discussion}
+
+\section{Limitations and Future Work}
+\label{sec:limitations}
+\input{sections/limitations_future}
+
+\section{Conclusions}
+\label{sec:conclusions}
+\input{sections/conclusions}
+
+\phantomsection
+\addcontentsline{toc}{section}{References}
+% Force the 3 anchor entries (Lamport LaTeX, Zenodo platform, self
+% cite placeholder) to appear in the bibliography even though the
+% prose does not \cite them inline. These entries support the data
+% availability and citation blocks and the typesetting pipeline note.
+\nocite{lamport1994latex,zenodo_2026,this_paper_placeholder}
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\input{sections/back_matter}
+\end{document}
