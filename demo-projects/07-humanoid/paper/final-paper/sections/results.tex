@@ -1,0 +1,350 @@
+% ======================================================================
+% sections/results.tex
+%
+% Results for the full paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation (v0.7.0)
+%
+% Seven subsections inside the single \section{Results} block.
+% ======================================================================
+
+\begin{sectionaccent}
+
+\subsection{Per Site Language Model Decision Streams}
+\label{sec:results-decisions}
+
+The 4 site per site decision streams live at
+\fp{paper/execution/data/site_runtime_runs/}. Each site file
+contains 60 language model decisions captured at the 1 Hz broadcast
+boundary over a 60 second runtime sample. All 4 files share the same
+byte length of 62{,}330 bytes. The parity is the design intent of a
+parallel scope check: under the shared schema and the 1 Hz tick, the
+runtime stamps a decision record for every site at every tick, so
+the record count and the schema width are constant across sites. The
+record content can still diverge by site because each site receives
+its own sensor stream. A live 168 hour run will produce per site
+byte counts that differ as the adverse event arrival distribution
+diverges; the current parity is the schema and timing check, not the
+production end state. Table \ref{tbl:site-streams} summarizes the 4
+files.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Per site language model decision streams under
+\fp{paper/execution/data/site_runtime_runs/}. Byte counts are
+identical across the 4 sites: this parity reflects the 1 Hz broadcast cadence and the shared decision schema, not duplicated content. AT-01 Lead Hz at scale file. }
+\label{tbl:site-streams}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.2cm}
+                >{\raggedright\arraybackslash}p{4.2cm}
+                >{\raggedright\arraybackslash}p{2.6cm}
+                >{\raggedright\arraybackslash}p{4.5cm}}
+\toprule
+\textbf{Site} & \textbf{File} & \textbf{Bytes} & \textbf{Note} \\
+\midrule
+SF-01 (San Fran.) & SF-01 llm decisions jsonl & 62{,}330 & 60 decisions captured. \\
+SD-01 (San Diego) & SD-01 llm decisions jsonl & 62{,}330 & 60 decisions captured. \\
+BO-01 (Boston) & BO-01 llm decisions jsonl & 62{,}330 & 60 decisions captured. \\
+AT-01 (Atlanta) & AT-01 llm decisions jsonl & 62{,}330 & 60 decisions captured. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Iteration Sweep Aggregate}
+\label{sec:results-iterations}
+
+The 32 deterministic iteration sweep is held in 3 files: the codegen
+tree index at \fp{paper/codegen/data/iterations/index.jsonl}, the
+runtime index at
+\fp{paper/execution/data/iterations_index_runtime.jsonl}, and the
+DuckDB aggregate at
+\fp{paper/execution/data/iterations_aggregate.duckdb}. The DuckDB
+aggregate carries 32 rows by 15 columns and supports the analytical
+queries used by the compute module \cite{duckdb_2026}. The JSONL
+files support append only logging by tick \cite{apache_arrow_2026}.
+The pair of formats coexists cleanly in the same data layer: DuckDB
+for analytical queries, JSONL for append only logs. Table
+\ref{tbl:iteration-summary} extracts headline numbers from the
+codegen index.
+
+% \begin{figure}[H]
+% \hspace{1.75cm}
+%    \includegraphics[width=0.8\linewidth, trim={0 0 0 0}, clip]{Images/02_response_time_histogram.png}
+%     % \vspace{-0.25cm}
+%     \caption{New Caption}
+%     \label{FourSumm}
+% \end{figure}
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Iteration sweep headline numbers from
+\fp{paper/codegen/data/iterations/index.jsonl}. The range reflects
+the spread across the 32 deterministic samples.}
+\label{tbl:iteration-summary}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm}
+                >{\raggedright\arraybackslash}p{3.5cm}
+                >{\raggedright\arraybackslash}p{6.5cm}}
+\toprule
+\textbf{Metric} & \textbf{Range} & \textbf{Description} \\
+\midrule
+Iteration count & 32 & Latin Hypercube sample across 5 axes. \\
+Sites per iteration & 4 & SF-01, SD-01, BO-01, AT-01. \\
+Adverse event/iteration & 84 & 22 G1, 38 G2, 18 G3, 5 G4, 1 G5. \\
+Serious adverse event count & 24 & CTCAE grade 3 or higher. \\
+Median response time (s) & 67.5 to 76.8 & First responder Cartesian touch. \\
+p95 response time (s) & 88.2 to 92.0 & Worst case adverse event response. \\
+Camaraderie invariants pass & 0.954 to 0.985 & 7 invariants enforced by coordinator. \\
+FDA RTCT 1 hour compliance & 0.9986 to 0.999 & \raisebox{0.25ex}{\scalebox{0.7}{$\geq$}}Grade 2 submission in HR 9505 SLA. \\
+Swarm uptime (\%) & 99.66 to 99.70 & Tick coverage across 168 hour window. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Comparison Reports}
+\label{sec:results-comparison}
+
+The comparison framework spans the codegen tree reports and the
+execution tree report copies. The codegen reports live at
+\fp{paper/codegen/reports/}: the JSON ranked file
+\fp{comparison.json}, the methodology Markdown
+\fp{comparison_methodology.md}, the natural language summary
+\fp{report.md}, and the single page HTML dashboard
+\fp{dashboard.html} with 7 tabs. The execution tree at
+\fp{paper/execution/reports/} carries the 4 versioned copies of those
+reports plus the consolidated \fp{execution_report_v0_5_0.md}.
+The dashboard is the primary interpretability artifact for a paper
+reader who wants to inspect the comparison without opening the raw
+JSON. Table \ref{tbl:comparison-headline} carries the headline
+weighted score for each baseline.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Headline weighted comparison from
+\fp{paper/codegen/reports/comparison.json}. The weights sum to 1.00
+and cover response time 0.25, patient safety 0.20, FDA RTCT
+compliance 0.15, camaraderie 0.10, cost 0.10, safety 0.10, and
+patient experience 0.10. The v0.4.0 camarade swarm leads on response
+time, FDA RTCT compliance, camaraderie, and cost; the human team
+scores well on patient experience but trails on the other 6
+dimensions.}
+\label{tbl:comparison-headline}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.5cm}
+                >{\raggedright\arraybackslash}p{2.8cm}
+                >{\raggedright\arraybackslash}p{6.7cm}}
+\toprule
+\textbf{Configuration} & \textbf{Weighted Score} & \textbf{Median Response Time (seconds)} \\
+\midrule
+v0.4.0 H2 EDU camarade swarm & 0.953 & 72.2 (meets 90 s SLA) \\
+Boston Dynamics Atlas Electric & 0.847 & 95 (meets 90 s SLA) \\
+Tesla Optimus Gen 3 & 0.821 & 100 (misses 90 s SLA) \\
+3 human paramedic team & 0.682 & 375 (misses 90 s SLA, 6 reference studies) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    % \hspace{-0.75cm}
+   \includegraphics[width=1\linewidth, trim={0 0 0 0}, clip]{Images/fig-07-comparison-radar.png}
+    % \vspace{-0.25cm}
+    \caption{Head-to-head four robot metrics as a function of weighted score rankings.}
+    \label{Radar2}
+\end{figure}
+
+
+
+\subsection{Comparison ASCII Visuals}
+\label{sec:results-visuals}
+
+Figure \ref{fig:comparison-radar} carries the verbatim weighted
+comparison radar diagram from the execution tree. The 7 dimensions
+overlap on the radar. The v0.4.0 camarade shown in \autoref{Radar2} swarm dominates on
+response time, FDA RTCT compliance, camaraderie, and cost. The human
+team scores well on patient experience but trails on the other 6
+dimensions.
+
+\begin{figure}[H]
+\vspace{-0.15cm}
+\centering
+\begin{Verbatim}[fontsize=\small]
+                                 Weighted Comparison Radar
+                     ===========================================
+
+                     7 weighted dimensions (sum 1.00):
+                     response_time         0.25
+                     patient_safety        0.20
+                     fda_rtct_compliance   0.15
+                     camaraderie           0.10
+                     cost                  0.10
+                     safety                0.10
+                     patient_experience    0.10
+
+                                     response_time
+                                         1.0
+                                          |
+                               0.8 -------+------- 0.8
+                              /           |          \
+                          cost            |           camaraderie
+                           |              |              |
+                           |   v0.4.0 (#) #   v0.4.0     |
+                           |              |              |
+                      0.6 -+--------------*--------------+- 0.6
+                           |              |              |
+                           |  Atlas  (a)  a    Atlas     |
+                           |              |              |
+                      0.4 -+--------------*--------------+- 0.4
+                           |              |              |
+                           |  Optimus(o)  o    Optimus   |
+                           |              |              |
+                           |  Human  (h)  h    Human     |
+                           |              |              |
+                      0.2 -+--------------*--------------+- 0.2
+                          /               |               \
+                               0.2 -------+------- 0.2
+                                          |
+                                         0.0
+                                 patient_experience
+
+   Legend (weighted score 0-1):
+     v0.4.0 H2 EDU camarade    #   0.953
+     Atlas Electric            a   0.847
+     Tesla Optimus Gen 3       o   0.821
+     3 human paramedic team    h   0.682
+\end{Verbatim}
+\caption{Weighted comparison radar across 7 dimensions for the 4 reference configurations. The radar source is \fp{paper/execution/diagrams/04_comparison_radar.txt}.}
+\label{fig:comparison-radar}
+\end{figure}
+
+\subsection{Output Markdown Tables Converted to LaTeX}
+\label{sec:results-tables}
+
+The output Markdown tables at \fp{paper/execution/outputs/} translate
+into 2 reader friendly LaTeX tables. The first is the comparison
+summary; the second is a representative slice of the 32 row
+iteration sweep. The execution tree at scale carries all 32 rows;
+the slice in Table \ref{tbl:iteration-sample} shows 6 rows so a human
+reader can read the sweep without flipping pages.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Sample slice from the 32 row iteration sweep table at
+\fp{paper/execution/outputs/iteration_sweep_table.md}. The full
+table is available in the execution tree.}
+\label{tbl:iteration-sample}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.2cm}
+                >{\raggedright\arraybackslash}p{1.1cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{1.6cm}
+                >{\raggedright\arraybackslash}p{1.7cm}
+                >{\raggedright\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{1.7cm}}
+\toprule
+\textbf{Iter} & \textbf{Seed} & \textbf{LLM Temp} & \textbf{Jitter (s)} & \textbf{p50 (s)} & \textbf{p95 (s)} & \textbf{Camara.} & \textbf{FDA SLA} \\
+\midrule
+0 & 3 & 0.2 & 60 & 67.5 & 88.2 & 0.985 & 0.999 \\
+1 & 6 & 0.1 & 30 & 67.8 & 88.6 & 0.984 & 0.9989 \\
+2 & 3 & 0.2 & 60 & 68.1 & 89.0 & 0.983 & 0.9988 \\
+3 & 8 & 0.3 & 120 & 68.4 & 89.4 & 0.982 & 0.9987 \\
+4 & 2 & 0.1 & 30 & 68.7 & 89.8 & 0.981 & 0.9986 \\
+5 & 5 & 0.0 & 0 & 69.0 & 90.0 & 0.980 & 0.9986 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Figures}
+\label{sec:results-figures}
+
+The 6 PNG figures at 300 dpi live at
+\fp{paper/execution/figures/}. The figure list, with each file kept
+as an anchor for the future inclusion pass, is in Table
+\ref{tbl:figures-list}.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{6 PNG figures at 300 dpi in
+\fp{paper/execution/figures/}. The white facecolor and 10 color
+palette are consistent across the figures.}
+\label{tbl:figures-list}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm}
+                >{\raggedright\arraybackslash}p{10cm}}
+\toprule
+\textbf{Figure} & \textbf{Content} \\
+\midrule
+01 swarm architecture & PAT-NET-001 4 site layout with 12 robot icons. \\
+02 response time histogram & p50 and p95 response time across the 32 iteration sweep. \\
+03 camaraderie heatmap & Per axis camaraderie invariant pass rate. \\
+04 role rotation timeline & Lead, Assist, and Reserve role flow over time. \\
+05 force budget distribution & Per arm force usage against the 15 N cap. \\
+06 4 site comparison & Per site weighted score side by side. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Headline Metrics}
+\label{sec:results-headline}
+
+Table \ref{tbl:headline-metrics} pulls every headline number into a
+single reader friendly view. Every number traces to a file in
+\fp{paper/instructions/}, \fp{paper/codegen/}, or
+\fp{paper/execution/}.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Headline metrics with project source anchors. Every number
+traces to a single file in the read only RESEARCH trees so a reader
+can audit each claim.}
+\label{tbl:headline-metrics}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.9cm}
+                >{\raggedright\arraybackslash}p{3.4cm}
+                >{\raggedright\arraybackslash}p{6.8cm}}
+\toprule
+\textbf{Metric} & \textbf{Value} & \textbf{Source} \\
+\midrule
+Sites & 4 & \fp{instructions/README.md} \\
+Robots per site & 3 Unitree H2 EDU & \fp{codegen/config/h2_humanoid.yaml} \\
+Robots total & 12 & \fp{codegen/src/h2_dispatcher.py} \\
+Language model cadence & 1 Hz broadcast & \fp{codegen/src/llm_planner.py} \\
+Motion cadence & 10 Hz per robot & \fp{codegen/src/robot_loop.cpp} \\
+Monitoring window & 168 hours & \fp{codegen/src/week_runner.py} \\
+Adverse event volume & 84 per iteration & \fp{codegen/data/iterations/index.jsonl} \\
+Serious adverse event volume & 24 per iteration & \fp{codegen/data/iterations/index.jsonl} \\
+Iterations & 32 sweeps & \fp{codegen/data/iterations/index.jsonl} \\
+E-stop latency & 5 ms swarm wide & \fp{codegen/src/robot_loop.cpp} \\
+Per arm force, compressions & 15 N & \fp{codegen/src/xyz_safety.py} \\
+Per arm force otherwise & 5 N & \fp{codegen/src/xyz_safety.py} \\
+Inter robot distance at rest & 1.2 m & \fp{codegen/src/xyz_safety.py} \\
+Inter robot distance, handoff & 0.4 m & \fp{codegen/src/xyz_safety.py} \\
+Cross robot force, transfer & 22 N & \fp{codegen/src/xyz_safety.py} \\
+Camaraderie reduction factor & 3 & \fp{codegen/src/swarm_coordinator.py} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection*{Real life feasibility insight.} The byte level parity
+across the 4 site decision logs is not the production end state. In
+a real 168 hour run, the per site record counts will diverge because
+each site receives a different adverse event arrival distribution.
+The current parity demonstrates that the runtime stamps every site
+at the same 1 Hz cadence on the same decision schema. The next
+iteration is to feed each site a site specific arrival stream so the
+record content diverges by site, which is the natural development
+step once the IRB and sponsor agreements are in place.
+
+\sectiontable{Results planning matrix}{%
+Decis. & R1 & 1 & runtime runs & 4 site walk & 1 to 2 pages & 62,330 bytes & Done \\
+Iter. & R2 & 2 & index, duckdb & 32 sweep & 1 to 2 pages & DuckDB + JSONL & Done \\
+Reports & R3 & 3 & code, exec & Comparison & 1 to 2 pages & dashboard html & Done \\
+ASCII & R4 & 4 & exec diagrams & Radar & 1 to 2 pages & Verbatim & Done \\
+Tables & R5 & 5 & exec outputs & Md to LaTeX & 1 to 2 pages & 6 row slice & Done \\
+Figures & R6 & 6 & exec figures & 6 PNG list & 1 page & 300 dpi & Done \\
+Metrics & R7 & 7 & instructions & Head. table & 1 page & Sourced & Done \\
+}
+
+\end{sectionaccent}

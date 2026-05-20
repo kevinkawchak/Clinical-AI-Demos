@@ -1,0 +1,155 @@
+% ======================================================================
+% sections/conclusions.tex
+%
+% Conclusions for the full paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation (v0.7.0)
+%
+% Four subsections inside the single \section{Conclusions} block.
+% ======================================================================
+
+\begin{sectionaccent}
+
+\subsection{Thesis Restatement}
+\label{sec:conclusions-thesis}
+
+The thesis is preserved verbatim
+\cite{kawchak_2026_humanoid_instructions}. On-premises repository
+based LLMs provide commands to humanoid robots based on real-time
+sensor data and controlled via x, y, z coordinates to administer
+synergistic treatment regarding patient adverse events. This
+workflow minimizes single robot error potential.
+
+\subsection{Evidence Roll Up}
+\label{sec:conclusions-evidence}
+
+Table \ref{tbl:evidence-anchors} consolidates the 10 evidence anchors
+that support the thesis. Each anchor is one row and
+names a specific file in the read only RESEARCH trees so a reader
+can audit the claim.
+
+% \begin{figure}[H]
+%     \hspace{1.75cm}
+%    \includegraphics[width=0.8\linewidth, trim={0 0 0 0}, clip]{Images/07-08-process-funnel-chart.png}
+%     % \vspace{-0.25cm}
+%     \caption{New Caption}
+%     \label{NewLabel}
+% \end{figure}
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Ten evidence anchors supporting the thesis. Each anchor
+names a single project file. The list spans the swarm coordinator,
+the FDA RTCT submitter, the 27 source file tree, the iteration
+sweep index, the dashboard, the error checker and tests, the H2
+dispatcher, the per site decision streams, and the DuckDB plus JSONL
+data layer.}
+\label{tbl:evidence-anchors}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{5cm}
+                >{\raggedright\arraybackslash}p{10cm}}
+\toprule
+\textbf{Evidence Anchor} & \textbf{Function} \\
+\midrule
+swarm coordinator (191 lines) & Camaraderie logic that animates the 3 robot Unitree H2 EDU swarm at one site. The compact line count is itself evidence of clean coordination logic. \\
+fda rtct submitter (67 lines) & Submits CTCAE grade 2 or higher records to the FDA RTCT pilot intake API within 1 hour per the HR 9505 SLA with ed25519 signing in production. \\
+27 source files in codegen/src/ & Span Python, C++, Rust, YAML, and Markdown and together implement the full sensor to LLM to robot pipeline. \\
+iterations index jsonl & 32 deterministic iteration sweeps across 4 trial sites, 5 axes. \\
+dashboard html & Adds project interpretability for future paper readers without requiring raw JSON inspection. \\
+check errors py & Provides LLM credibility in generating error checking code. \\
+test xyz safety py & Provides LLM credibility in generating test code. \\
+h2 dispatcher py & Per site H2 dispatch proficiency. \\
+4 site llm decisions jsonl files & 1 Hz logs at scale for 4 sites (SF-01, SD-01, BO-01, AT-01). \\
+aggregates duckdb + jsonl & DuckDB and JSONL proficiency in the same execution layer. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Industry Checklist Framing}
+\label{sec:conclusions-checklist}
+
+The paper presents the body of work as a checklist of items already
+completed so that the next sponsor, the next site, the next IRB,
+and the next regulator do not have to redo the groundwork. Table
+\ref{tbl:industry-checklist} pulls the Inventory at a Glance table
+from the instructions tree into a paper ready format. Each row is
+marked Done so the next team has a clean hand off
+\cite{kawchak_2026_humanoid_instructions}.
+
+\begin{figure}[H]
+    % \hspace{-0.75cm}
+   \includegraphics[width=1\linewidth, trim={0 135 0 0}, clip]{Images/07-04-value-proposition-canvas.png}
+    % \vspace{-0.25cm}
+    \caption{Blue = Products/Customer Jobs, Red = Pain Relievers/Pains, Green = Gain Creators/Gains, Orange = Fit/Transit Reserve}
+    \label{NewLabel}
+\end{figure}
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Industry checklist. The contents are drawn from the
+Inventory at a Glance table in
+\fp{paper/instructions/README.md}. Every item is marked Done so the
+next team can build on top of it rather than rebuild it.}
+\label{tbl:industry-checklist}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.2cm}
+                >{\raggedright\arraybackslash}p{8cm}
+                >{\raggedright\arraybackslash}p{2cm}}
+\toprule
+\textbf{Property} & \textbf{Value} & \textbf{Status} \\
+\midrule
+Network & PAT-NET-001 with 4 sites & Done \\
+Robots per site & 3 Unitree H2 EDU at 39 DOF & Done \\
+Robots total & 12 H2 across 4 sites & Done \\
+LLM per site & 1 on-premises Claude Opus 4.7 1M & Done \\
+LLM cadence & 1 Hz broadcast to all 3 robots & Done \\
+Motion cadence & 10 Hz per active H2 & Done \\
+Monitoring window & 168 hours (1 week) & Done \\
+AE volume & 84 with 24 SAE per iteration & Done \\
+Iterations & 32 deterministic sweeps & Done \\
+E-stop latency & 5 ms swarm wide & Done \\
+Per arm cumulative force & 15 N compressions, 5 N otherwise & Done \\
+Inter robot minimum distance & 1.2 m at rest, 0.4 m at handoff & Done \\
+Cumulative cross robot force & 22 N during 3 robot transfer & Done \\
+Audit chain extension & SHA-256 per tick & Done \\
+Camaraderie reduction & factor of 3 & Done \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Forward Statement}
+\label{sec:conclusions-forward}
+
+The United States needs to remain Number 1 in the world regarding
+patient safety, efficacy, and speed benefits in oncological adverse
+event robot swarms for clinical trials. The paper closes with an
+invitation to the FDA, the sponsors, the sites, and the IRBs to
+advance the new field of Physical AI oncology trial surgical
+procedures together. The prior December 2025 author paper on the
+FDA Adverse Event Reporting System established the foundation for
+LLM driven adverse event work \cite{kawchak_2025_18029100}. The
+current paper extends that foundation into the coordinated 3 robot
+24/7 adverse event response team described above. The next step
+belongs to the agencies, the sponsors, the sites, and the IRBs, as depicted in \autoref{waterfall}.
+
+\begin{figure}[H]
+    % \hspace{-0.75cm}
+   \includegraphics[width=1\linewidth, trim={0 0 0 0}, clip]{Images/07-05-financial-assessment-waterfall.png}
+    % \vspace{-0.25cm}
+    \caption{5-Year TCO waterfall regarding robot acquisition, service contracts, and per-site clusters.}
+    \label{waterfall}
+\end{figure}
+
+\subsubsection*{Real life feasibility insight.} The pipeline in this
+paper is small enough to audit, large enough to deploy at 4 sites,
+and tight enough to honor the FDA RTCT 1 hour service level
+agreement. The work is ready for the human governance step.
+
+\sectiontable{Conclusions planning matrix}{%
+Thesis & C1 & 1 & instructions & Verbatim restatement & 1 paragraph & No paraphrase & Done \\
+Evidence & C2 & 2 & 10 anchors & Table roll up & 1 page & 10 rows & Done \\
+Check. & C3 & 3 & Inventory & Done checklist & 1 page & Industry handoff & Done \\
+Forward & C4 & 4 & 2025 FDA cite & US leadership & 1 paragraph & Final citation & Done \\
+}
+
+\end{sectionaccent}

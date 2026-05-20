@@ -1,0 +1,195 @@
+% ======================================================================
+% sections/back_matter.tex
+%
+% Back matter for the full paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation (v0.7.0)
+%
+% Acknowledgments, Ethical Disclosures, Rights and Permissions, Cite
+% This Article, and Data Availability blocks, in that order.
+% ======================================================================
+
+\phantomsection
+\addcontentsline{toc}{section}{Acknowledgments}
+\section*{Acknowledgments}
+
+The author would like to acknowledge Anthropic for providing access
+to Claude Code for instruction, code generation, execution, and the
+paper draft and full paper passes; OpenAI for providing access to
+ChatGPT for deep research summaries; and Google for Google Gemini AI
+Overview for additional search assistance.
+
+\phantomsection
+\addcontentsline{toc}{section}{Ethical Disclosures}
+\section*{Ethical Disclosures}
+
+The author of the article declares no competing interests. The work
+is independent and is not endorsed or sponsored by trial sponsors,
+the FDA, a contract research organization, a site, an IRB, a
+regulator, or a medical society. No real patient data is included.
+Patient identifiers throughout the codegen and execution trees are
+synthetic and have the form \fp{PAT-NET-001-PNNN}.
+
+\phantomsection
+\addcontentsline{toc}{section}{Rights and Permissions}
+\section*{Rights and Permissions}
+
+This article is distributed under the terms of the Creative Commons
+Attribution 4.0 International License (CC BY 4.0)
+\cite{ccby40}, which permits unrestricted use, distribution, and
+reproduction in any medium, provided the original author and source
+are properly credited, a link to the Creative Commons license is
+provided, and any modifications made are indicated. To view a copy
+of this license, visit
+\href{https://creativecommons.org/licenses/by/4.0/}{https://creativecommons.org/licenses/by/4.0/}.
+
+\phantomsection
+\addcontentsline{toc}{section}{Cite This Article}
+\section*{Cite This Article}
+
+Kawchak K. Threefold Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation. Zenodo. 2026;
+\href{https://doi.org/10.5281/zenodo.20303281}{10.5281/zenodo.20303281}.
+
+\phantomsection
+\addcontentsline{toc}{section}{Data Availability}
+\section*{Data Availability}
+
+All source code, schemas, configs, data artifacts, ASCII diagrams,
+figures, reports, output tables, and per-step execution logs that
+underpin this paper are available in the project repository
+\cite{kawchak_2026_clinical_ai_demos_repo}. Table
+\ref{tbl:data-availability} pulls the per directory pointers into a
+single reader friendly view so a reader can navigate from any claim
+in the paper to the exact source of the claim.
+
+\clearpage
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Data availability pointers. Every directory in the codegen,
+execution, instructions, and inputs trees is named so a reader can
+navigate from any claim in this paper to the exact source.}
+\label{tbl:data-availability}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.5cm}
+                >{\raggedright\arraybackslash}p{10.6cm}}
+\toprule
+\textbf{Asset} & \textbf{Location} \\
+\midrule
+Source code & \fp{paper/codegen/src/} with 27 files spanning Python, C++, Rust, YAML, and Markdown. \\
+Tests & \fp{paper/codegen/tests/} with the test of xyz safety, 5 modules. \\
+Schemas & \fp{paper/codegen/schemas/} with 11 JSON Schema files. \\
+Configs & \fp{paper/codegen/config/} with 7 YAML config files. \\
+Iteration index & \fp{paper/codegen/data/iterations/index.jsonl} with 32 rows. \\
+DuckDB aggregate & \fp{paper/execution/data/iterations_aggregate.duckdb}. \\
+Per site decision streams & \fp{paper/execution/data/site_runtime_runs/} with 4 jsonl files. \\
+Reports & \fp{paper/codegen/reports/} and \fp{paper/execution/reports/}. \\
+Dashboard & \fp{paper/codegen/reports/dashboard.html}. \\
+ASCII diagrams & \fp{paper/codegen/diagrams/} (3 files) and \fp{paper/execution/diagrams/} (4 files). \\
+Figures & \fp{paper/execution/figures/} with 6 PNGs at 300 dpi. \\
+Instructions tree & \fp{paper/instructions/} with 10 numbered subdirectories. \\
+Prior paper inputs & \fp{paper/inputs/} including Deep-Research-A and Deep-Research-B. \\
+Companion repo & \url{https://github.com/kevinkawchak/physical-ai-oncology-trials} with hours 00 through 55 of the 24/7 trial. \\
+DOI placeholder & \url{https://doi.org/10.5281/zenodo.20303281}. \\
+Instructions DOI & \url{https://doi.org/10.5281/zenodo.18445179}. \\
+Prior FDA AERS DOI & \url{https://doi.org/10.5281/zenodo.18029100}. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+\phantomsection
+\addcontentsline{toc}{section}{Appendix}
+\section*{Appendix}
+
+The following figure represents a user prompt that converted the v0.6.0 draft paper into the first full generated AI paper. The prompt included instructions to use specific directories, files, and instructions to populate the draft template with the majority of the text represented in this final paper. The files were uploaded directly from Claude Code to GitHub based on efficient 12 commit instructions to reduce LLM working memory issues. A 13th repository commit was also specified in the instructions to fix any AI errors. Lastly, a 14th commit was submitted that updated relevant documentation throughout Clinical-AI-Demos.
+
+
+
+
+
+\begin{figure}[H]
+\vspace{-0.25cm}
+\centering
+\begin{Verbatim}[fontsize=\scriptsize]
+                       Claude Code v0.7.0 Full Paper ASCII: Session Pipeline
+                                    =====================================
+
+                         USER PROMPT (single autonomous run, 14 commits, single PR)
+                         |
+                         v
+                         +---------------------------------------------------+
+                         |  Discovery Phase                                  |
+                         |  - 12 mcp__github__get_file_contents reads        |
+                         |  - draft-paper/{main.tex,.sty,.bib,README,8 .tex} |
+                         |  - codegen and execution ASCII diagrams           |
+                         |  - instructions/README plus  Deep-Research bibs   |
+                         +-----------------------+---------------------------+
+                         |
+                         v
+                         +---------------------------------------------------+
+                         |  Authoring Phase                                  |
+                         |  Commit 1  Write main.tex            (85 lines)   |
+                         |  Commit 2  Write .sty                (193 lines)  |
+                         |  Commit 3  Write references.bib      (344 lines)  |
+                         |  Commit 4  Write README.md           (204 lines)  |
+                         |  Commit 5  Write abstract.tex        (48 lines)   |
+                         |  Commit 6  Write introduction.tex    (243 lines)  |
+                         |  Commit 7  Write methods.tex         (567 lines)  |
+                         |  Commit 8  Write results.tex         (330 lines)  |
+                         |  Commit 9  Write discussion.tex      (176 lines)  |
+                         |  Commit 10 Write limitations.tex     (119 lines)  |
+                         |  Commit 11 Write conclusions.tex     (131 lines)  |
+                         |  Commit 12 Write back_matter.tex     (97 lines)   |
+                         +-----------------------+---------------------------+
+                         |
+                         v
+                         +---------------------------------------------------+
+                         |  Validation Phase                                 |
+                         |  - Brace count balance per file (diff == 0)       |
+                         |  - begin/end environment balance per file         |
+                         |  - bib key vs cite key set intersection           |
+                         |  - Local ruff check / format / yamllint pass      |
+                         |  - Python regex fix of \_ inside \fp{...}         |
+                         +-----------------------+---------------------------+
+                         |
+                         v
+                         +---------------------------------------------------+
+                         |  Error Fix Phase                                  |
+                         |  Commit 13 - Strip \\_ to _ inside \fp{}          |
+                         |            - Add \nocite for 3 anchor entries     |
+                         |            - Remove a.md placeholder              |
+                         |            - zip 12 source files to LaTeX-Source  |
+                         +-----------------------+---------------------------+
+                         |
+                         v
+                         +---------------------------------------------------+
+                         |  Repository Update Phase                          |
+                         |  Commit 14 - top README (v0.7.0 summary block,    |
+                         |              Release badge, Mermaid FP node,      |
+                         |              Repository Structure, docs table)    |
+                         |            - CHANGELOG (v0.7.0 block)             |
+                         |            - releases.md (v0.7.0 entry)           |
+                         |            - CITATION.cff (0.7.0, keyword)        |
+                         |            - demo-projects/README (badge, prose)  |
+                         +-----------------------+---------------------------+
+                         |
+                         v
+                         +---------------------------------------------------+
+                         |  Submit Phase                                     |
+                         |  - git push origin (one push per commit, 14x)     |
+                         |  - mcp__github__create_pull_request -> PR #7      |
+                         |  - mcp__github__pull_request_read get_check_runs  |
+                         |  - mcp__github__pull_request_read get_files       |
+                         +-----------------------+---------------------------+
+                         |
+                         v
+                     CI green:
+ lint-and-format 3.10 / 3.11 / 3.12 success
+\end{Verbatim}
+\caption{Claude Code 18May26 v0.7.0 Full Paper ASCII: Session Pipeline}
+\label{fig:network-layout}
+\end{figure}
+ 

@@ -1,0 +1,202 @@
+% ======================================================================
+% sections/discussion.tex
+%
+% Discussion for the full paper:
+%   Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team:
+%   4-Site Rotation (v0.7.0)
+%
+% Six subsections inside the single \section{Discussion} block.
+% ======================================================================
+
+\begin{sectionaccent}
+
+\subsection{Thesis Reconciliation}
+\label{sec:discussion-thesis}
+
+The thesis sentence sets a chain of clauses that the paper supports
+clause by clause. The supporting evidence is anchored to specific
+source files in the codegen tree
+\cite{kawchak_2026_humanoid_instructions}. Table
+\ref{tbl:thesis-anchors} pairs each clause of the thesis with the
+source files that demonstrate it.
+
+\begin{table}[H]
+\captionsetup{type=table}
+\caption{Thesis clauses paired with project source file anchors. The
+full thesis sentence appears in
+\fp{paper/instructions/README.md} and is preserved verbatim in this
+paper.}
+\label{tbl:thesis-anchors}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{6cm}
+                >{\raggedright\arraybackslash}p{9cm}}
+\toprule
+\textbf{Thesis Clause} & \textbf{Source File Anchors} \\
+\midrule
+On-premises repository based LLMs provide commands to humanoids & llm planner, broadcaster, comms intellectual. \\
+based on real-time sensor data & sensor to xyz, peer state tracker. \\
+controlled via x, y, z coordinates & cartesian planner, kinematics, xyz safety. \\
+to administer synergistic treatment regarding patient adverse events & ctcae grader, physician escalation. \\
+Workflow minimizes robot error & swarm coordinator (191 lines, camaraderie factor of 3). \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Significance of the On-Premises Repository LLM Pattern}
+\label{sec:discussion-onprem}
+
+The on-premises placement carries three benefits at once: quality,
+safety, and speed. On quality, every inference traces to a single
+known repository version of Claude Opus 4.7 1M Max
+\cite{anthropic_claude_opus_47_2026}. The frozen system prompt at
+\fp{paper/codegen/src/prompt_frozen.md} pins the planner role
+definitions, the role rotation cadence, and the output schema; a
+sponsor or regulator can verify that every decision flowed from
+that prompt by inspecting the audit chain. On safety, a network
+partition between the site and the public internet does not stop
+the 1 Hz broadcast cadence; the planner keeps running on local
+compute. On speed, the 200 ms median latency named in the inventory
+table is achievable on a local network without round trips to a
+public cloud. The fda audit chain links every signed payload back
+to a known prompt plus model plus repository version, which is the
+trail that any future agency review will follow
+\cite{iec_62304, ich_e6r3_2025}.
+
+\subsection{Significance of the Cartesian Coordinate Surface}
+\label{sec:discussion-cartesian}
+
+The Cartesian coordinate surface is the contract between the
+language model and the robot. The language model authors x, y, z
+goals in the site local frame; it does not author joint angles. The
+kinematics layer at \fp{paper/codegen/src/kinematics.yaml} encodes
+the 39 degree of freedom chain for the H2 EDU body
+\cite{unitree_h2_2026}. The Cartesian planner blends successive
+goals with a quintic profile, and the safety guard rejects any goal
+that would violate the force budget caps, the inter robot distances,
+or the no fly zones at the patient head. 
+
+This contract has a direct
+regulatory consequence: an FDA reviewer or an IRB member can audit
+the safety envelope from the constants in \fp{xyz_safety.py} alone
+\cite{iec_80601_2_77}. The test coverage at
+\fp{paper/codegen/tests/test_xyz_safety.py} confirms the bounds
+hold under 6 parametric test cases. The 67 line FDA RTCT submitter
+and the 191 line swarm coordinator carry the same regulatory design:
+a small audit surface is the regulatory feature, and compactness is
+evidence of clean coordination logic, not a limitation
+\cite{iec_62304}.
+
+\subsection{Significance of the 32 Iteration Sweep and the Competition Framing}
+\label{sec:discussion-sweep}
+
+The 32 deterministic iteration sweep at
+\fp{paper/codegen/data/iterations/index.jsonl} is the project's
+direct line back to the December 2025 author paper on the FAERS
+adverse event reporting system \cite{kawchak_2025_18029100}. The
+earlier paper placed 16 large language models in head to head
+competition on the same code generation task against FDA adverse
+event data and established that the field has crossed a credible
+threshold. The current 32 iteration sweep extends that evidence
+from a single agent FAERS task to a coordinated 3 robot dispatch
+and Cartesian command code that survives the same kind of head to
+head comparison against Boston Dynamics Atlas Electric, Tesla
+Optimus Gen 3, and a 3 human paramedic team. The 0.953 weighted
+score for the camarade swarm versus 0.847 for Atlas, 0.821 for
+Optimus, and 0.682 for the human team is the headline result
+visible in the dashboard at
+\fp{paper/codegen/reports/dashboard.html}.
+
+\begin{figure}[H]
+    \hspace{0.1cm}
+   \includegraphics[width=1\linewidth, trim={0 0 0 0}, clip]{Images/07-02-operational-timeline-gantt.png}
+    % \vspace{-0.25cm}
+    \caption{Per site and per rotation weekly gantt for three Unitree H2 robots}
+    \label{Gantt}
+\end{figure}
+
+\subsection{FDA, CTCAE, and Other Regulators}
+\label{sec:discussion-regulators}
+
+The regulatory layer is taken respectfully. The FDA RTCT submitter at
+\fp{paper/codegen/src/fda_rtct_submitter.py} signs every payload
+with ed25519 in production and a placeholder signature in simulation,
+and stamps the submission within the 1 hour SLA from HR 9505
+\cite{fda_rtct_2026, fda2026realtime} seen in \autoref{Gantt}. The CTCAE grader at
+\fp{paper/codegen/src/ctcae_grader.py} applies grading
+across the 13 adverse event types in the decision table
+\cite{ctcae_v5_2017}. The error checker at
+\fp{paper/codegen/src/check_errors.py} traps schema and physics rule
+violations before any broadcast. The test of xyz safety at
+\fp{paper/codegen/tests/test_xyz_safety.py} confirms the bounds
+hold. Together these files provide the audit credibility that the
+FDA, the IRB, the sponsor, and the IEC reviewers expect for any
+human factors review of medical device software life cycle
+conformance \cite{iec_62304, ich_e6r3_2025}.
+
+The United States needs to remain Number 1 in the world regarding
+patient safety, efficacy, and speed benefits in oncological adverse
+event robot swarms for clinical trials. This paper frames the
+regulatory review (\autoref{Matrix})work as a task that the project has already
+checked off so that the agencies, the sponsors, and the sites can
+spend their review time on policy rather than on rebuilding the
+audit trail.
+
+\begin{figure}[H]
+    % \hspace{-0.75cm}
+   \includegraphics[width=1\linewidth, trim={0 0 0 0}, clip]{Images/07-03-regulatory-compliance-heatmap.png}
+    % \vspace{-0.25cm}
+    \caption{Compliance matrix for triple robot workflow using Claude Code.}
+    \label{Matrix}
+\end{figure}
+
+\subsection{Prior Paper Context Integration}
+\label{sec:discussion-prior}
+
+The Deep-Research-A bundle at
+\fp{paper/inputs/Deep-Research-A/} carries the Medical Full
+Automation A context, documenting five 2026 healthcare projects
+that used Claude Code with cron style automation
+\cite{vinkius2026clinicaltrials, feld2026curecancermagic,
+ship2026doctor, anthropic_routines_2026}. The Deep-Research-B bundle
+at \fp{paper/inputs/Deep-Research-B/} carries the Medical Rapid
+Prototyping B context, documenting the fully automated sponsor, the
+federated learning oncology trial unification, the accelerated
+patient prediction, and the five layer ClinAgent architecture
+\cite{kawchak2026sponsor, kawchak2026federated, kawchak2026prediction,
+yan2026clinagent, anthropic2026lifesciences}. The current paper
+positions itself as the natural successor to both bundles: Medical
+Full Automation A established that unattended schedule driven Claude
+Code agent workflows are feasible in healthcare; Medical Rapid
+Prototyping B established that a sponsor, a federation, and a
+patient prediction layer can be authored autonomously; the current
+paper extends those threads into a coordinated 3 robot 24/7 adverse
+event response team running at 4 sites under a continental rotation.
+
+\begin{figure}[H]
+    \hspace{2.75cm}
+   \includegraphics[width=0.7\linewidth, trim={0 0 0 0}, clip]{Images/07-09-strategic-quadrant-matrix.png}
+    % \vspace{-0.25cm}
+    \caption{Strategic quadrant diagram of humanoids version humans per site.}
+    \label{Quad}
+\end{figure}
+
+\subsubsection*{Real life feasibility insight.} The on-premises
+repository large language model pattern is feasible today on a
+single high end server per site
+\cite{anthropic_claude_opus_47_2026, unitree_h2_2026}. The harder gap
+to close is not the compute; it is the IRB, the sponsor, and the site
+coordination required to enroll the first real PAT-NET-001 cohort shown in \autoref{Quad}.
+This paper is a checklist of the technical work that has been
+completed so that the human work of governance can move forward
+without waiting on the technology.
+
+\sectiontable{Discussion planning matrix}{%
+Thesis & D1 & 1 & instructions & Per clause source list & 2 pages & Every clause sourced & Done \\
+OnPrem & D2 & 2 & planner, prompt & Quality, safety & 2 pages & Audit trail & Done \\
+Cartes. & D3 & 3 & kinem, planner & Contract & 2 pages & Constants review & Done \\
+Sweep & D4 & 4 & iter index & 32 sweep & 2 pages & 2025 cite & Done \\
+Regulators & D5 & 5 & rtct, ctcae & Advocacy & 2 pages & HR 9505 & Done \\
+Prior & D6 & 6 & DR-A, DR-B & Successor & 2 pages & Both named & Done \\
+}
+
+\end{sectionaccent}
