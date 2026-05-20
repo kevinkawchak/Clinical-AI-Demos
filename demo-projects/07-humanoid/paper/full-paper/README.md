@@ -25,7 +25,7 @@ On-premises repository based LLMs provide commands to humanoid robots based on r
 | Title | Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation |
 | Author | Kevin Kawchak, CEO ChemicalQDevice |
 | ORCID | 0009-0007-5457-8667 |
-| DOI placeholder | 10.5281/zenodo.xxxxxxxx |
+| DOI placeholder | 10.5281/zenodo.20303281 |
 | Date | May 20, 2026 |
 | License | CC BY 4.0 |
 | Version | v0.7.0 |
@@ -173,7 +173,7 @@ The compile yields a finished PDF with the title block, the disclaimer, the abst
 - Body text uses `\RaggedRight` from ragged2e plus `\emergencystretch=3em` plus `\tolerance=2500`. This combination keeps word spacing inside a line tight and even so the text does not stretch into rivers of white space, and at the same time prevents text from running off the right margin.
 - Widow and orphan penalties are at 10000. The `\raggedbottom` directive lets pages end short rather than stretch. The combination prevents single 1 or 2 word lines from being stranded on their own page.
 - Replace any stray `SS` artifact with the section sign `\S`.
-- Replace `10.5281/zenodo.xxxxxxxx` everywhere with the real Zenodo DOI once the paper is deposited.
+- Replace `10.5281/zenodo.20303281` everywhere with the real Zenodo DOI once the paper is deposited.
 
 ## Reference Format Notes
 
@@ -198,7 +198,7 @@ CC BY 4.0. See `LICENSE` at the repository root and the Rights and Permissions b
   month        = may,
   year         = {2026},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.xxxxxxxx},
-  url          = {https://doi.org/10.5281/zenodo.xxxxxxxx}
+  doi          = {10.5281/zenodo.20303281},
+  url          = {https://doi.org/10.5281/zenodo.20303281}
 }
 ```
