@@ -36,31 +36,31 @@ On-premises repository based LLMs provide commands to humanoid robots based on r
 full-paper/
   main.tex                                  Top level manuscript file.
   humanoid_paper_template.sty               Style file with palette,
-                                            section heading rules, the
-                                            8 column section table macro,
-                                            a 2 column narrative table
-                                            macro, and a 3 column metrics
-                                            table macro.
+  section heading rules, the
+  8 column section table macro,
+  a 2 column narrative table
+  macro, and a 3 column metrics
+  table macro.
   references.bib                            28 references with clickable
-                                            DOIs plus URLs.
+  DOIs plus URLs.
   README.md                                 This file.
   sections/
     abstract.tex                            ~300 word abstract with no
-                                            citations.
+  citations.
     introduction.tex                        5 subsection introduction.
     methods.tex                             9 subsection methods.
     results.tex                             7 subsection results.
     discussion.tex                          6 subsection discussion.
     limitations_future.tex                  5 subsection limitations
-                                            and future work.
+  and future work.
     conclusions.tex                         4 subsection conclusions.
     back_matter.tex                         Acknowledgments, Ethical
-                                            Disclosures, Rights and
-                                            Permissions, Cite This
-                                            Article, Data Availability.
+  Disclosures, Rights and
+  Permissions, Cite This
+  Article, Data Availability.
   LaTeX-Source.zip                          Convenience bundle for
-                                            Overleaf upload. Same files
-                                            as above.
+  Overleaf upload. Same files
+  as above.
 ```
 
 ## Headline Metrics Table
