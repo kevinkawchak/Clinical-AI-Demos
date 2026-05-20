@@ -1,4 +1,4 @@
-# Full Paper: Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team
+# Full Paper: Threefold Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation
 
 [![Repo](https://img.shields.io/badge/Repo-Clinical--AI--Demos-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Companion](https://img.shields.io/badge/Companion-physical--ai--oncology--trials-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
@@ -194,7 +194,7 @@ CC BY 4.0. See `LICENSE` at the repository root and the Rights and Permissions b
 ```bibtex
 @misc{kawchak_2026_humanoid_4site_full_paper,
   author       = {Kawchak, Kevin},
-  title        = {Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation},
+  title        = {Threefold Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation},
   month        = may,
   year         = {2026},
   publisher    = {Zenodo},
