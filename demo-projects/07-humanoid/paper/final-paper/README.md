@@ -25,7 +25,7 @@ On-premises repository based LLMs provide commands to humanoid robots based on r
 | Title | Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation |
 | Author | Kevin Kawchak, CEO ChemicalQDevice |
 | ORCID | 0009-0007-5457-8667 |
-| DOI placeholder | 10.5281/zenodo.xxxxxxxx |
+| DOI placeholder | 10.5281/zenodo.20303281 |
 | Date | May 20, 2026 |
 | License | CC BY 4.0 |
 | Version | v0.7.0 |
@@ -198,7 +198,7 @@ CC BY 4.0. See `LICENSE` at the repository root and the Rights and Permissions b
   month        = may,
   year         = {2026},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.xxxxxxxx},
-  url          = {https://doi.org/10.5281/zenodo.xxxxxxxx}
+  doi          = {10.5281/zenodo.20303281},
+  url          = {https://doi.org/10.5281/zenodo.20303281}
 }
 ```
