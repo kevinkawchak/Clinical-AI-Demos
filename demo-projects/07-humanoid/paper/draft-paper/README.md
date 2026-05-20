@@ -41,37 +41,36 @@ workflow minimizes single robot error potential.
 ```
 draft-paper/
   main.tex                                  Top level manuscript file.
-  humanoid_paper_template.sty               Style file, color palette,
-                                            section heading rules, and
-                                            the shared 8 column section
-                                            planning table macro.
+  humanoid_paper_template.sty               Style file, color palette,                section heading rules, and
+  the shared 8 column section
+  planning table macro.
   references.bib                            Bibliography with clickable
-                                            DOIs and URLs.
+  DOIs and URLs.
   README.md                                 This file.
   sections/
     abstract.tex                            Abstract scaffold and
-                                            bracketed instructions.
+  bracketed instructions.
     introduction.tex                        Introduction scaffold and
-                                            bracketed instructions.
+  bracketed instructions.
     methods.tex                             Methods scaffold and
-                                            bracketed instructions.
+  bracketed instructions.
     results.tex                             Results scaffold and
-                                            bracketed instructions.
+  bracketed instructions.
     discussion.tex                          Discussion scaffold and
-                                            bracketed instructions.
+  bracketed instructions.
     limitations_future.tex                  Limitations and Future Work
-                                            scaffold and bracketed
-                                            instructions.
+  scaffold and bracketed
+  instructions.
     conclusions.tex                         Conclusions scaffold and
-                                            bracketed instructions.
+  bracketed instructions.
     back_matter.tex                         Acknowledgments, Ethical
-                                            Disclosures, Rights and
-                                            Permissions, Cite This
-                                            Article, Data Availability.
+  Disclosures, Rights and
+  Permissions, Cite This
+  Article, Data Availability.
   LaTeX-Source.zip                          Convenience bundle for
-                                            uploading to Overleaf. Same
-                                            files as above. Created in
-                                            the last error pass commit.
+  uploading to Overleaf. Same
+  files as above. Created in
+  the last error pass commit.
 ```
 
 ## RESEARCH Inputs Pointed To By The Scaffold
