@@ -131,7 +131,7 @@ must read them in place and must not modify them.
         +-------+-------------+----------+--------+--------+--------+
                 |                        |                 |
                 v                        v                 v
-        +----------------------------------------------------------+
+        +-----------------------------------------------------------+
         | main.tex                                                  |
         |   + humanoid_paper_template.sty                           |
         |   + references.bib                                        |
@@ -141,7 +141,7 @@ must read them in place and must not modify them.
         | each .tex file holds bracketed instructions that name the |
         | exact RESEARCH paths a future Claude Code session reads   |
         | when expanding the scaffold into the 70 plus page paper.  |
-        +----------------------------------------------------------+
+        +-----------------------------------------------------------+
                                   |
                                   v
                   +----------------------------------+
