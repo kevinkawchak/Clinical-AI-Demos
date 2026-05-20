@@ -2,7 +2,7 @@
 
 [![Repo](https://img.shields.io/badge/Repo-Clinical--AI--Demos-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Companion](https://img.shields.io/badge/Companion-physical--ai--oncology--trials-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
-[![DOI Placeholder](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue)](https://doi.org/10.5281/zenodo.xxxxxxxx)
+[![DOI Placeholder](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20303281-blue)](https://doi.org/10.5281/zenodo.20303281)
 [![Prior DOI](https://img.shields.io/badge/Prior%20DOI-10.5281%2Fzenodo.18029100-blue)](https://doi.org/10.5281/zenodo.18029100)
 [![Instructions DOI](https://img.shields.io/badge/Instructions%20DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-green.svg)](https://creativecommons.org/licenses/by/4.0/)
