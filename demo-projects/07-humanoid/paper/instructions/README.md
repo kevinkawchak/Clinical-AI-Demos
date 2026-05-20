@@ -19,7 +19,9 @@ These instructions extend `demo-projects/07-humanoid-24-7-adverse-event-response
 
 On-premises repository based LLMs provide commands to humanoid robots based on real-time sensor data and controlled via x, y, z coordinates to administer synergistic treatment to patients adverse events. This workflow minimizes single robot error potential.
 
-Three Unitree H2 humanoids per site act together as a swarm at all 4 PAT-NET-001 sites (San Francisco, San Diego, Boston, Atlanta). One Claude Opus 4.7 1M on-prem repository at each site broadcasts a single command set to all 3 robots per tick. The robots talk to one another physically (60 GHz ultra-wideband short range plus IR-band line-of-sight beacons) and intellectually (shared on-prem cloud compute fabric on the central Claude Code server). The robots adapt to patient acuity, attending physician presence, and the position and status of the other two robots in the swarm. This camaraderie reduces single robot error potential by a factor of 3.
+Three Unitree H2 humanoids per site act together as a swarm at all 4 PAT-NET-001 sites (San Francisco, San Diego, Boston, Atlanta). One Claude Opus 4.7 1M on-prem repository at each site broadcasts a single command set to all 3 robots per tick. 
+
+The robots talk to one another physically (60 GHz ultra-wideband short range plus IR-band line-of-sight beacons) and intellectually (shared on-prem cloud compute fabric on the central Claude Code server). The robots adapt to patient acuity, attending physician presence, and the position and status of the other two robots in the swarm. This camaraderie reduces single robot error potential by a factor of 3.
 
 ## Synergy Modifications from the Base Prompt
 
