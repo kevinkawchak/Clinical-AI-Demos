@@ -106,7 +106,7 @@ The full paper section files cite specific files in these read-only RESEARCH tre
         +-----+--------------+---------+--------+-------+--------+
               |                        |                |
               v                        v                v
-        +----------------------------------------------------------+
+        +-----------------------------------------------------------+
         | main.tex (full paper)                                     |
         |   + humanoid_paper_template.sty                           |
         |   + references.bib (28 entries)                           |
@@ -116,7 +116,7 @@ The full paper section files cite specific files in these read-only RESEARCH tre
         | Each section now carries finished prose, sectiontable     |
         | matrices, narrativetable rows, ASCII figures, and         |
         | citations resolved against references.bib.                |
-        +----------------------------------------------------------+
+        +-----------------------------------------------------------+
                                   |
                                   v
                   +----------------------------------+
