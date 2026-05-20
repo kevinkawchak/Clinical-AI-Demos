@@ -1,7 +1,9 @@
 # 2030 PDAC 1-Minute Full Paper (v0.9.0, May 15, 2026)
 
 This directory holds the populated full LaTeX paper for the project
-titled **2030: 60 Second Pancreatic Ductal Adenocarcinoma Robotic Whipple Procedure & Daraxonrasib Simulation**. The bracketed processing instructions that
+titled **2030: 60 Second Pancreatic Ductal Adenocarcinoma Robotic Whipple Procedure & Daraxonrasib Simulation**. 
+
+The bracketed processing instructions that
 lived in the upstream draft template at
 `2030-pdac-1min/paper/draft-paper/` have been resolved into running
 prose, anchored tables, and ASCII diagrams in each section file. The
