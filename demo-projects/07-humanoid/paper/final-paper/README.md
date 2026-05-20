@@ -12,7 +12,7 @@
 [![Paper Status](https://img.shields.io/badge/Status-Full%20Paper-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![References](https://img.shields.io/badge/References-28%20entries-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 
-This directory holds the full LaTeX paper **Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation**, expanded from the v0.6.0 bracketed draft scaffold at `paper/draft-paper/` into the finished v0.7.0 manuscript.
+This directory holds the full LaTeX paper **Threefold Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation**, expanded from the v0.6.0 bracketed draft scaffold at `paper/draft-paper/` into the finished v0.7.0 manuscript.
 
 ## Thesis
 
@@ -22,7 +22,7 @@ On-premises repository based LLMs provide commands to humanoid robots based on r
 
 | Field | Value |
 |-------|-------|
-| Title | Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation |
+| Title | Threefold Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation |
 | Author | Kevin Kawchak, CEO ChemicalQDevice |
 | ORCID | 0009-0007-5457-8667 |
 | DOI placeholder | 10.5281/zenodo.20303281 |
