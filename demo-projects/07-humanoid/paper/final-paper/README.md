@@ -12,7 +12,7 @@
 [![Paper Status](https://img.shields.io/badge/Status-Full%20Paper-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![References](https://img.shields.io/badge/References-28%20entries-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 
-This directory holds the final LaTeX paper [**Threefold Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation**](https://doi.org/10.5281/zenodo.20303281), expanded from the v0.6.0 bracketed draft scaffold at `paper/draft-paper/` into the finished v0.7.0 manuscript.
+This directory holds the final LaTeX paper [**Threefold Humanoid 24/7 Adverse Event Oncology Trial Response Team: 4-Site Rotation**](https://doi.org/10.5281/zenodo.20303281), expanded from the v0.6.0 bracketed draft scaffold at `paper/draft-paper/` into the finished v0.7.0 manuscript. See zenodo publication for full [LaTeX Source Files](https://doi.org/10.5281/zenodo.20303281).
 
 ## Thesis
 
