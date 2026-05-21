@@ -19,6 +19,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - demo-projects/README.md - Added the Imagegen badge for Demo 07 v0.8.0 above the Full Paper badge. Added the v0.8.0 paragraph describing the imagegen tree. Added the v0.8.0 row to the demo coverage tables. Added the Imagegen for Prompt 07 (v0.8.0) section with the directory tree above the existing Full Paper section.
 - @kevinkawchak fixed main/README.md versioning summaries; and fixed text diagrams plus reduced paragraph sizes in Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper and subdirectories on 2026-05-20.
 - @kevinkawchak reduced repository size from 11MB to 1.7MB by transferring images from Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/imagegen and linking to Google Drive storage on 2026-05-20.
+- @kevinkawchak reduced repository size from 1.7MB to by 1MB transferring images from Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/execution/figures and linking to Google Drive storage on 2026-05-21.
 
 ### Notes
 - All v0.8.0 additions are at demo-projects/07-humanoid/paper/imagegen/ and supplement the v0.7.0 full paper at demo-projects/07-humanoid/paper/full-paper/ with publication quality images that a future paper edit can drop in by replacing the verbatim ASCII Verbatim blocks with \includegraphics. The v0.8.0 release does not modify any file under paper/codegen/, paper/execution/, paper/instructions/, paper/inputs/, paper/draft-paper/, or paper/full-paper/. Those six trees remain read only.
