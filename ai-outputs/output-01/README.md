@@ -1,13 +1,13 @@
-# Output 01: Thirty Professional Mermaid Perspectives
+# Output 01: Twenty-One Professional Mermaid Perspectives
 
 [![Output](https://img.shields.io/badge/Output-01-1F3A68.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
-[![Diagrams](https://img.shields.io/badge/Mermaid%20Perspectives-30-2E8B8B.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
+[![Diagrams](https://img.shields.io/badge/Mermaid%20Perspectives-21-2E8B8B.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
 [![ASCII Replacements](https://img.shields.io/badge/ASCII%20Replacements-3-8B2E3F.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
-[![Tool Inspirations](https://img.shields.io/badge/Tool%20Inspirations-6%20x%203-C18A2C.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
+[![Tool Inspirations](https://img.shields.io/badge/Tool%20Inspirations-3%20x%203-C18A2C.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
 [![Experimental](https://img.shields.io/badge/Experimental-9-2F6B3E.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This document presents 30 distinct Mermaid renderings of a single collaboration
+This document presents 21 distinct Mermaid renderings of a single collaboration
 workflow: the requirements, implementation, validation, testing, peer review, and
 publication cycle that produces the artifacts in this repository. Every rendering
 keeps the same six actors and seven relationships, yet each one offers its own
@@ -15,7 +15,7 @@ visual perspective so that a reader can pick the framing that best suits a slide
 a report, a board memo, or a legislative briefing.
 
 The original prompt supplied one cartoon styled flowchart with heavily rounded
-cards. The 30 perspectives below answer three goals at once. First, a professional
+cards. The 21 perspectives below answer three goals at once. First, a professional
 appearance through muted, print friendly color schemes drawn from the repository
 palette. Second, crisp rectangular boxes with a small corner radius so the diagrams
 read as formal exhibits rather than playful sketches. Third, fluent curved
@@ -28,15 +28,12 @@ single high curvature corner, achieved with smooth spline routing on every flowc
 Clinical-AI-Demos/
   ai-outputs/
     output-01/
-      README.md            # This file: 30 professional Mermaid perspectives
+      README.md            # This file: 21 professional Mermaid perspectives
                            #   Section A: 3 ASCII diagram replacements
                            #   Section B: 3 PlantUML inspired perspectives
                            #   Section C: 3 D2 inspired perspectives
                            #   Section D: 3 Excalidraw inspired perspectives
-                           #   Section E: 3 Miro inspired perspectives
-                           #   Section F: 3 Draw.io inspired perspectives
-                           #   Section G: 3 Lucidchart inspired perspectives
-                           #   Section H: 9 experimental perspectives
+                           #   Section E: 9 experimental perspectives
 ```
 
 ## Table of Contents
@@ -60,30 +57,18 @@ Clinical-AI-Demos/
    - [10. Excalidraw Whiteboard Flow](#10-excalidraw-whiteboard-flow)
    - [11. Excalidraw Idea Map](#11-excalidraw-idea-map)
    - [12. Excalidraw Annotated Canvas](#12-excalidraw-annotated-canvas)
-8. [Section E: Miro Inspirations](#section-e-miro-inspirations)
-   - [13. Miro Kanban Lanes](#13-miro-kanban-lanes)
-   - [14. Miro Radial Hub](#14-miro-radial-hub)
-   - [15. Miro Framed Clusters](#15-miro-framed-clusters)
-9. [Section F: Draw.io Inspirations](#section-f-drawio-inspirations)
-   - [16. Draw.io Classic Flowchart](#16-drawio-classic-flowchart)
-   - [17. Draw.io Cross Functional Swimlane](#17-drawio-cross-functional-swimlane)
-   - [18. Draw.io Deployment Network](#18-drawio-deployment-network)
-10. [Section G: Lucidchart Inspirations](#section-g-lucidchart-inspirations)
-    - [19. Lucidchart BPMN Pools](#19-lucidchart-bpmn-pools)
-    - [20. Lucidchart Process Ribbon](#20-lucidchart-process-ribbon)
-    - [21. Lucidchart Entity Relationship](#21-lucidchart-entity-relationship)
-11. [Section H: Experimental Perspectives](#section-h-experimental-perspectives)
-    - [22. Experimental Delivery Timeline](#22-experimental-delivery-timeline)
-    - [23. Experimental Contributor Journey](#23-experimental-contributor-journey)
-    - [24. Experimental Git Review Graph](#24-experimental-git-review-graph)
-    - [25. Experimental Effort Impact Quadrant](#25-experimental-effort-impact-quadrant)
-    - [26. Experimental Block Matrix](#26-experimental-block-matrix)
-    - [27. Experimental Sankey Throughput](#27-experimental-sankey-throughput)
-    - [28. Experimental C4 System Context](#28-experimental-c4-system-context)
-    - [29. Experimental Composite State Machine](#29-experimental-composite-state-machine)
-    - [30. Experimental High Complexity Map](#30-experimental-high-complexity-map)
-12. [Professional Color Palette](#professional-color-palette)
-13. [Notes](#notes)
+8. [Section E: Experimental Perspectives](#section-e-experimental-perspectives)
+   - [13. Experimental Delivery Timeline](#13-experimental-delivery-timeline)
+   - [14. Experimental Contributor Journey](#14-experimental-contributor-journey)
+   - [15. Experimental Git Review Graph](#15-experimental-git-review-graph)
+   - [16. Experimental Effort Impact Quadrant](#16-experimental-effort-impact-quadrant)
+   - [17. Experimental Block Matrix](#17-experimental-block-matrix)
+   - [18. Experimental Sankey Throughput](#18-experimental-sankey-throughput)
+   - [19. Experimental C4 System Context](#19-experimental-c4-system-context)
+   - [20. Experimental Composite State Machine](#20-experimental-composite-state-machine)
+   - [21. Experimental High Complexity Map](#21-experimental-high-complexity-map)
+9. [Professional Color Palette](#professional-color-palette)
+10. [Notes](#notes)
 
 ## The Source Example
 
@@ -151,7 +136,7 @@ an older viewer, prefer the flowchart based perspectives, which are universally 
 
 ## The Canonical Workflow
 
-All 30 perspectives preserve the same six actors and seven relationships.
+All 21 perspectives preserve the same six actors and seven relationships.
 
 | Node | Actor | Role |
 |------|-------|------|
@@ -606,350 +591,7 @@ flowchart LR
   classDef xnote fill:#FFF9DB,stroke:#B59A00,stroke-width:1.2px,color:#5A4B00,rx:2,ry:2
 ```
 
-## Section E: Miro Inspirations
-
-Miro is the collaborative infinite canvas: sticky note grids, kanban columns, radial mind
-maps, and labeled frames. These three perspectives borrow those layouts with a muted
-sticky note palette and dark text so the boards remain boardroom appropriate.
-
-### 13. Miro Kanban Lanes
-
-A kanban board with five column frames from Define to Ship. Work cards move left to right,
-and a dashed recommendation card returns from Review to Build. Basis spline, sticky palette.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','lineColor':'#7A6A33','primaryTextColor':'#33312A','clusterBkg':'#FBF7E8','clusterBorder':'#D9C97A'},'flowchart':{'curve':'basis','nodeSpacing':36,'rankSpacing':50,'htmlLabels':true}}}%%
-flowchart LR
-  subgraph C1["Define"]
-    REQ["@kevinkawchak<br/>Requirements"]:::syellow
-  end
-  subgraph C2["Build"]
-    IMPL["@claude<br/>Implementation"]:::sblue
-    VALID["Input Validation<br/>SSRF + UID"]:::spink
-  end
-  subgraph C3["Verify"]
-    TEST["39 Tests<br/>All Passing"]:::sgreen
-  end
-  subgraph C4["Review"]
-    REVIEW["@codex<br/>Peer Review"]:::syellow
-  end
-  subgraph C5["Ship"]
-    PUB["Publication<br/>Readiness"]:::sblue
-  end
-
-  REQ --> IMPL
-  IMPL --> VALID
-  VALID --> TEST
-  IMPL --> TEST
-  TEST --> REVIEW
-  REVIEW -.->|recommendations| IMPL
-  TEST --> PUB
-
-  classDef syellow fill:#FFE8A3,stroke:#C9A227,stroke-width:1.3px,color:#4A3B00,rx:2,ry:2
-  classDef sgreen fill:#D7E8B4,stroke:#7FA046,stroke-width:1.3px,color:#2C3A12,rx:2,ry:2
-  classDef sblue fill:#BFD8EE,stroke:#3E7CB1,stroke-width:1.3px,color:#173049,rx:2,ry:2
-  classDef spink fill:#F3C9D2,stroke:#C25B72,stroke-width:1.3px,color:#5A1F2C,rx:2,ry:2
-```
-
-### 14. Miro Radial Hub
-
-A radial hub map where the central workflow node connects to every stage with light
-spokes, while the directed work edges curve between the stages. Cardinal spline, sticky hub.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','lineColor':'#8A7A45','primaryTextColor':'#33312A'},'flowchart':{'curve':'cardinal','nodeSpacing':40,'rankSpacing':55,'htmlLabels':true}}}%%
-flowchart TB
-  HUB(("Delivery<br/>Workflow")):::hub
-  REQ["@kevinkawchak<br/>Requirements"]:::syellow
-  IMPL["@claude<br/>Implementation"]:::sblue
-  VALID["Input Validation<br/>SSRF + UID"]:::spink
-  TEST["39 Tests<br/>All Passing"]:::sgreen
-  REVIEW["@codex<br/>Peer Review"]:::syellow
-  PUB["Publication<br/>Readiness"]:::sblue
-
-  HUB -.- REQ
-  HUB -.- IMPL
-  HUB -.- VALID
-  HUB -.- TEST
-  HUB -.- REVIEW
-  HUB -.- PUB
-
-  REQ ==> IMPL
-  IMPL ==> VALID
-  VALID ==> TEST
-  IMPL ==> TEST
-  TEST ==> REVIEW
-  REVIEW -.->|recommendations| IMPL
-  TEST ==> PUB
-
-  classDef hub fill:#FFF3C4,stroke:#B8860B,stroke-width:1.6px,color:#4A3B00
-  classDef syellow fill:#FFE8A3,stroke:#C9A227,stroke-width:1.3px,color:#4A3B00,rx:2,ry:2
-  classDef sgreen fill:#D7E8B4,stroke:#7FA046,stroke-width:1.3px,color:#2C3A12,rx:2,ry:2
-  classDef sblue fill:#BFD8EE,stroke:#3E7CB1,stroke-width:1.3px,color:#173049,rx:2,ry:2
-  classDef spink fill:#F3C9D2,stroke:#C25B72,stroke-width:1.3px,color:#5A1F2C,rx:2,ry:2
-```
-
-### 15. Miro Framed Clusters
-
-Two labeled frames, Make and Ship, group the stages the way Miro frames organize a board.
-Sticky cards inside, bumpY spline for soft vertical S curves between the frames.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','lineColor':'#7A6A33','primaryTextColor':'#33312A','clusterBkg':'#FBF7E8','clusterBorder':'#D9C97A'},'flowchart':{'curve':'bumpY','nodeSpacing':38,'rankSpacing':52,'htmlLabels':true}}}%%
-flowchart TB
-  subgraph FRAME1["Frame  Make"]
-    direction LR
-    REQ["@kevinkawchak<br/>Requirements"]:::syellow
-    IMPL["@claude<br/>Implementation"]:::sblue
-    VALID["Input Validation<br/>SSRF + UID"]:::spink
-  end
-  subgraph FRAME2["Frame  Ship"]
-    direction LR
-    TEST["39 Tests<br/>All Passing"]:::sgreen
-    REVIEW["@codex<br/>Peer Review"]:::syellow
-    PUB["Publication<br/>Readiness"]:::sblue
-  end
-
-  REQ --> IMPL
-  IMPL --> VALID
-  VALID --> TEST
-  IMPL --> TEST
-  TEST --> REVIEW
-  REVIEW -.->|recommendations| IMPL
-  TEST --> PUB
-
-  classDef syellow fill:#FFE8A3,stroke:#C9A227,stroke-width:1.3px,color:#4A3B00,rx:2,ry:2
-  classDef sgreen fill:#D7E8B4,stroke:#7FA046,stroke-width:1.3px,color:#2C3A12,rx:2,ry:2
-  classDef sblue fill:#BFD8EE,stroke:#3E7CB1,stroke-width:1.3px,color:#173049,rx:2,ry:2
-  classDef spink fill:#F3C9D2,stroke:#C25B72,stroke-width:1.3px,color:#5A1F2C,rx:2,ry:2
-```
-
-## Section F: Draw.io Inspirations
-
-Draw.io, now diagrams.net, is the standard office flowchart tool. Its signature is the
-pale blue process box with a darker blue stroke, the green terminator, the orange decision
-diamond, and the cross functional swimlane. These three perspectives reproduce that
-familiar corporate look that legislative and operations audiences recognize instantly.
-
-### 16. Draw.io Classic Flowchart
-
-The classic office flowchart with rounded terminators for start and stop, pale blue process
-boxes, and an orange decision diamond for the review verdict. Basis spline, draw.io palette.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Helvetica, Arial, sans-serif','lineColor':'#5E6B7E','primaryTextColor':'#1A1A1A'},'flowchart':{'curve':'basis','nodeSpacing':38,'rankSpacing':48,'htmlLabels':true}}}%%
-flowchart TB
-  START(["Start"]):::term
-  REQ["@kevinkawchak<br/>Requirements"]:::proc
-  IMPL["@claude<br/>Implementation"]:::proc
-  VALID["Input Validation<br/>SSRF + UID"]:::procalt
-  TEST["39 Tests<br/>All Passing"]:::procgreen
-  REVIEW["@codex<br/>Peer Review"]:::proc
-  DEC{"Review clean<br/>and 39 pass?"}:::dec
-  PUB["Publication<br/>Readiness"]:::procgreen
-  STOP(["End"]):::term
-
-  START --> REQ --> IMPL
-  IMPL --> VALID
-  VALID --> TEST
-  IMPL --> TEST
-  TEST --> REVIEW --> DEC
-  DEC -->|no, recommendations| IMPL
-  DEC -->|yes| PUB --> STOP
-
-  classDef term fill:#D5E8D4,stroke:#82B366,stroke-width:1.4px,color:#1A3A12
-  classDef proc fill:#DAE8FC,stroke:#6C8EBF,stroke-width:1.4px,color:#173049,rx:2,ry:2
-  classDef procalt fill:#F8CECC,stroke:#B85450,stroke-width:1.4px,color:#5A1A18,rx:2,ry:2
-  classDef procgreen fill:#D5E8D4,stroke:#82B366,stroke-width:1.4px,color:#1A3A12,rx:2,ry:2
-  classDef dec fill:#FFE6CC,stroke:#D79B00,stroke-width:1.4px,color:#6A4A00
-```
-
-### 17. Draw.io Cross Functional Swimlane
-
-The cross functional swimlane that draw.io uses for process ownership, with each
-contributor as a horizontal pool. Natural spline keeps the cross pool transitions smooth.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Helvetica, Arial, sans-serif','lineColor':'#5E6B7E','primaryTextColor':'#1A1A1A','clusterBkg':'#F2F6FC','clusterBorder':'#9DB4D6'},'flowchart':{'curve':'natural','nodeSpacing':36,'rankSpacing':64,'htmlLabels':true}}}%%
-flowchart LR
-  subgraph P1["@kevinkawchak"]
-    direction LR
-    REQ["Requirements"]:::proc
-  end
-  subgraph P2["@claude"]
-    direction LR
-    IMPL["Implementation"]:::proc
-    VALID["Input Validation<br/>SSRF + UID"]:::procalt
-  end
-  subgraph P3["Quality"]
-    direction LR
-    TEST["39 Tests<br/>All Passing"]:::procgreen
-  end
-  subgraph P4["@codex"]
-    direction LR
-    REVIEW["Peer Review"]:::proc
-  end
-  subgraph P5["Release"]
-    direction LR
-    PUB["Publication<br/>Readiness"]:::procgreen
-  end
-
-  REQ --> IMPL
-  IMPL --> VALID
-  VALID --> TEST
-  IMPL --> TEST
-  TEST --> REVIEW
-  REVIEW -.->|recommendations| IMPL
-  TEST --> PUB
-
-  classDef proc fill:#DAE8FC,stroke:#6C8EBF,stroke-width:1.4px,color:#173049,rx:2,ry:2
-  classDef procalt fill:#F8CECC,stroke:#B85450,stroke-width:1.4px,color:#5A1A18,rx:2,ry:2
-  classDef procgreen fill:#D5E8D4,stroke:#82B366,stroke-width:1.4px,color:#1A3A12,rx:2,ry:2
-```
-
-### 18. Draw.io Deployment Network
-
-The deployment style network that draw.io produces for systems, with rectangular device
-nodes and a labeled tier boundary. BumpX spline for soft horizontal S curves, classic palette.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Helvetica, Arial, sans-serif','lineColor':'#5E6B7E','primaryTextColor':'#1A1A1A','clusterBkg':'#FBF3E8','clusterBorder':'#E0B97A'},'flowchart':{'curve':'bumpX','nodeSpacing':34,'rankSpacing':58,'htmlLabels':true}}}%%
-flowchart LR
-  subgraph TIER1["Authoring tier"]
-    REQ["@kevinkawchak<br/>Requirements"]:::proc
-    IMPL["@claude<br/>Implementation"]:::proc
-  end
-  subgraph TIER2["Quality tier"]
-    VALID["Input Validation<br/>SSRF + UID"]:::procalt
-    TEST["39 Tests<br/>All Passing"]:::procgreen
-  end
-  subgraph TIER3["Release tier"]
-    REVIEW["@codex<br/>Peer Review"]:::procorange
-    PUB["Publication<br/>Readiness"]:::procgreen
-  end
-
-  REQ --> IMPL
-  IMPL --> VALID
-  IMPL --> TEST
-  VALID --> TEST
-  TEST --> REVIEW
-  REVIEW -.->|recommendations| IMPL
-  TEST --> PUB
-
-  classDef proc fill:#DAE8FC,stroke:#6C8EBF,stroke-width:1.4px,color:#173049,rx:2,ry:2
-  classDef procalt fill:#F8CECC,stroke:#B85450,stroke-width:1.4px,color:#5A1A18,rx:2,ry:2
-  classDef procgreen fill:#D5E8D4,stroke:#82B366,stroke-width:1.4px,color:#1A3A12,rx:2,ry:2
-  classDef procorange fill:#FFE6CC,stroke:#D79B00,stroke-width:1.4px,color:#6A4A00,rx:2,ry:2
-```
-
-## Section G: Lucidchart Inspirations
-
-Lucidchart is the polished business diagramming suite. Its signature is the indigo and
-teal brand palette, Business Process Model and Notation pools and gateways, clean process
-ribbons, and entity relationship models. These three perspectives carry that polished,
-executive ready feel.
-
-### 19. Lucidchart BPMN Pools
-
-A Business Process Model and Notation layout with an author pool, a quality pool, and a
-diamond gateway for the review decision. Indigo brand palette, basis spline.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','lineColor':'#5A56B0','primaryTextColor':'#23215C','clusterBkg':'#F1F0FF','clusterBorder':'#B7B4F0'},'flowchart':{'curve':'basis','nodeSpacing':38,'rankSpacing':54,'htmlLabels':true}}}%%
-flowchart LR
-  subgraph POOL1["Pool  Authoring"]
-    direction TB
-    REQ["@kevinkawchak<br/>Requirements"]:::lc
-    IMPL["@claude<br/>Implementation"]:::lc
-    VALID["Input Validation<br/>SSRF + UID"]:::lcteal
-  end
-  subgraph POOL2["Pool  Assurance"]
-    direction TB
-    TEST["39 Tests<br/>All Passing"]:::lcteal
-    REVIEW["@codex<br/>Peer Review"]:::lc
-    GATE{"Gateway<br/>approved?"}:::gate
-    PUB["Publication<br/>Readiness"]:::lc
-  end
-
-  REQ --> IMPL
-  IMPL --> VALID
-  IMPL --> TEST
-  VALID --> TEST
-  TEST --> REVIEW --> GATE
-  GATE -.->|recommendations| IMPL
-  GATE -->|approved| PUB
-
-  classDef lc fill:#ECEBFF,stroke:#4A45C4,stroke-width:1.4px,color:#23215C,rx:3,ry:3
-  classDef lcteal fill:#E4F7F3,stroke:#138E7C,stroke-width:1.4px,color:#0C4A40,rx:3,ry:3
-  classDef gate fill:#FFF1D6,stroke:#C79A2B,stroke-width:1.4px,color:#5C4212
-```
-
-### 20. Lucidchart Process Ribbon
-
-The clean left to right process ribbon Lucidchart produces for an executive summary, with
-indigo stages, a teal quality midsection, and a monotone horizontal spline.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','lineColor':'#5A56B0','primaryTextColor':'#23215C'},'flowchart':{'curve':'monotoneX','nodeSpacing':30,'rankSpacing':56,'htmlLabels':true}}}%%
-flowchart LR
-  REQ["@kevinkawchak<br/>Requirements"]:::lc
-  IMPL["@claude<br/>Implementation"]:::lc
-  VALID["Input Validation<br/>SSRF + UID"]:::lcteal
-  TEST["39 Tests<br/>All Passing"]:::lcteal
-  REVIEW["@codex<br/>Peer Review"]:::lc
-  PUB["Publication<br/>Readiness"]:::lcgold
-
-  REQ --> IMPL --> VALID --> TEST --> REVIEW
-  IMPL --> TEST
-  TEST --> PUB
-  REVIEW -.->|recommendations| IMPL
-
-  classDef lc fill:#ECEBFF,stroke:#4A45C4,stroke-width:1.4px,color:#23215C,rx:3,ry:3
-  classDef lcteal fill:#E4F7F3,stroke:#138E7C,stroke-width:1.4px,color:#0C4A40,rx:3,ry:3
-  classDef lcgold fill:#FBF1D8,stroke:#B07D1F,stroke-width:1.4px,color:#5C4212,rx:3,ry:3
-```
-
-### 21. Lucidchart Entity Relationship
-
-The entity relationship model Lucidchart uses for data and process traceability. Each stage
-is an entity with typed attributes, and crow foot relationships capture cardinality, including
-the optional recommendation loop back to Implementation.
-
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'fontFamily':'Segoe UI, Helvetica, Arial, sans-serif','primaryColor':'#ECEBFF','primaryBorderColor':'#4A45C4','primaryTextColor':'#23215C','lineColor':'#5A56B0'}}}%%
-erDiagram
-  REQUIREMENT ||--|{ IMPLEMENTATION : "scopes"
-  IMPLEMENTATION ||--|| VALIDATION : "guards"
-  IMPLEMENTATION ||--|{ TEST : "exercised by"
-  TEST ||--|| REVIEW : "summarized to"
-  REVIEW ||--o{ IMPLEMENTATION : "recommends"
-  TEST ||--|| PUBLICATION : "gates"
-  REQUIREMENT {
-    string owner "kevinkawchak"
-    string scope "acceptance criteria"
-  }
-  IMPLEMENTATION {
-    string author "claude"
-    string module "source"
-  }
-  VALIDATION {
-    string ssrf "blocked"
-    string uid "checked"
-  }
-  TEST {
-    int count "39"
-    string status "all passing"
-  }
-  REVIEW {
-    string reviewer "codex"
-    string findings "recommendations"
-  }
-  PUBLICATION {
-    string state "ready"
-  }
-```
-
-## Section H: Experimental Perspectives
+## Section E: Experimental Perspectives
 
 These nine perspectives are deliberately exploratory. They reach for Mermaid diagram types
 that reframe the same workflow as a timeline, a satisfaction journey, a version control
@@ -958,7 +600,7 @@ context, a composite state machine, and a high complexity map. Each one stays wi
 professional palette and crisp box discipline, while showing how far a single workflow can
 be reinterpreted for different audiences.
 
-### 22. Experimental Delivery Timeline
+### 13. Experimental Delivery Timeline
 
 A chronological timeline grouped by phase, useful for a milestone slide where the order of
 events matters more than the branching.
@@ -979,7 +621,7 @@ timeline
     Publication : readiness confirmed
 ```
 
-### 23. Experimental Contributor Journey
+### 14. Experimental Contributor Journey
 
 A user journey that scores each step and names the contributor responsible, useful for
 showing where effort and friction concentrate across the cycle.
@@ -1001,7 +643,7 @@ journey
     Publication readiness: 5: kevinkawchak, claude
 ```
 
-### 24. Experimental Git Review Graph
+### 15. Experimental Git Review Graph
 
 A version control graph that models the review feedback loop as a branch and merge, the
 most literal rendering of how recommendations fold back into the main line of work.
@@ -1023,7 +665,7 @@ gitGraph
   commit id: "publication-ready" tag: "release"
 ```
 
-### 25. Experimental Effort Impact Quadrant
+### 16. Experimental Effort Impact Quadrant
 
 A prioritization quadrant that plots each stage by effort and release impact, useful for a
 planning conversation about where to invest.
@@ -1046,7 +688,7 @@ quadrantChart
   Publication: [0.30, 0.95]
 ```
 
-### 26. Experimental Block Matrix
+### 17. Experimental Block Matrix
 
 A dense block layout that packs the workflow into a compact grid, suited to an at a glance
 status tile on a dashboard. Block diagrams scale well as a workflow grows wide.
@@ -1073,7 +715,7 @@ block-beta
   class VALID,REVIEW c
 ```
 
-### 27. Experimental Sankey Throughput
+### 18. Experimental Sankey Throughput
 
 A Sankey flow that shows how work volume splits across the validation and test paths and
 converges on publication, with the recommendation loop drawn as a return flow.
@@ -1090,7 +732,7 @@ Peer Review,Implementation,3
 Tests,Publication,7
 ```
 
-### 28. Experimental C4 System Context
+### 19. Experimental C4 System Context
 
 A C4 system context that frames the workflow as people and systems, the standard software
 architecture lens for an executive or governance audience.
@@ -1110,7 +752,7 @@ C4Context
   Rel(qa, pub, "Gates release")
 ```
 
-### 29. Experimental Composite State Machine
+### 20. Experimental Composite State Machine
 
 A composite state machine that nests the workflow into Authoring, Quality Gate, and Review
 Loop super states, demonstrating how the model scales to nested complexity without clutter.
@@ -1147,7 +789,7 @@ stateDiagram-v2
   class Authoring,QualityGate,ReviewLoop superstate
 ```
 
-### 30. Experimental High Complexity Map
+### 21. Experimental High Complexity Map
 
 The capstone perspective shows how the six node baseline extends to a richer pipeline with
 continuous integration, a security scan, a merge gate, documentation, and a release tag,
@@ -1213,44 +855,34 @@ print friendly and legible against a white page.
 
 | Role | Fill | Stroke | Text | Used in |
 |------|------|--------|------|---------|
-| Requirements, Navy | #EAF0F8 | #1F3A68 | #15263F | Sections A, H |
-| Implementation, Mauve | #F0EAF6 | #6B4A8B | #2E1A40 | Sections A, H |
-| Validation, Burgundy | #F6E7EA | #8B2E3F | #4A1A22 | Sections A, H |
-| Tests, Forest Green | #E5F0E8 | #2F6B3E | #1A3A22 | Sections A, H |
-| Review, Gold | #F8F0DD | #B07D1F | #5C4212 | Sections A, H |
-| Publication, Teal | #E3F0F0 | #2E8B8B | #1C4A4A | Sections A, H |
-| Bus and Gate, Slate | #EAECF0 | #4A5568 | #2A303C | Sections A, H |
+| Requirements, Navy | #EAF0F8 | #1F3A68 | #15263F | Sections A, E |
+| Implementation, Mauve | #F0EAF6 | #6B4A8B | #2E1A40 | Sections A, E |
+| Validation, Burgundy | #F6E7EA | #8B2E3F | #4A1A22 | Sections A, E |
+| Tests, Forest Green | #E5F0E8 | #2F6B3E | #1A3A22 | Sections A, E |
+| Review, Gold | #F8F0DD | #B07D1F | #5C4212 | Sections A, E |
+| Publication, Teal | #E3F0F0 | #2E8B8B | #1C4A4A | Sections A, E |
+| Bus and Gate, Slate | #EAECF0 | #4A5568 | #2A303C | Sections A, E |
 | PlantUML slate blue | #ECEFF6 | #3B4A6B | #20283D | Section B |
 | D2 cobalt | #EAF0FC | #2B4ACB | #16235E | Section C |
-| D2 teal accent | #E4F7F3 | #138E7C | #0C4A40 | Sections C, G |
+| D2 teal accent | #E4F7F3 | #138E7C | #0C4A40 | Section C |
 | Excalidraw blue | #E7F0FA | #1971C2 | #0B3D66 | Section D |
 | Excalidraw green | #E8F6EC | #2F9E44 | #14532B | Section D |
 | Excalidraw orange | #FDEEE0 | #E8590C | #7A2E06 | Section D |
 | Excalidraw grape | #F3E9F7 | #9C36B5 | #4A1259 | Section D |
-| Miro sticky yellow | #FFE8A3 | #C9A227 | #4A3B00 | Section E |
-| Miro sticky green | #D7E8B4 | #7FA046 | #2C3A12 | Section E |
-| Miro sticky blue | #BFD8EE | #3E7CB1 | #173049 | Section E |
-| Miro sticky pink | #F3C9D2 | #C25B72 | #5A1F2C | Section E |
-| Draw.io process blue | #DAE8FC | #6C8EBF | #173049 | Section F |
-| Draw.io terminator green | #D5E8D4 | #82B366 | #1A3A12 | Section F |
-| Draw.io decision orange | #FFE6CC | #D79B00 | #6A4A00 | Section F |
-| Draw.io alert red | #F8CECC | #B85450 | #5A1A18 | Section F |
-| Lucidchart indigo | #ECEBFF | #4A45C4 | #23215C | Section G |
-| Lucidchart gold | #FBF1D8 | #B07D1F | #5C4212 | Section G |
 
 ## Notes
 
-- All 30 perspectives render the same six actors and seven relationships defined in the
+- All 21 perspectives render the same six actors and seven relationships defined in the
   canonical workflow table, so a reader can compare framings without losing the meaning.
 
 - The three Section A perspectives replace three distinct ASCII idioms used elsewhere in the
   repository: the coordination bus fan-out, the time by actor swimlane, and the vertical
   stage funnel.
 
-- Sections B through G each contribute three perspectives inspired by a named tool, for 18
-  tool inspired perspectives across PlantUML, D2, Excalidraw, Miro, Draw.io, and Lucidchart.
+- Sections B through D each contribute three perspectives inspired by a named tool, for 9
+  tool inspired perspectives across PlantUML, D2, and Excalidraw.
 
-- Section H contributes nine experimental perspectives across timeline, journey, gitGraph,
+- Section E contributes nine experimental perspectives across timeline, journey, gitGraph,
   quadrantChart, block, sankey, C4, composite state machine, and a high complexity map.
 
 - Curve policy. Every flowchart sets the edge curve to a smooth spline (basis, natural,
@@ -1264,7 +896,7 @@ print friendly and legible against a white page.
 
 - Extensibility. Each perspective uses named node classes and container subgraphs so a
   future author can add stages, parallel branches, or contributors without restyling. The
-  high complexity map in perspective 30 demonstrates the baseline extended with continuous
+  high complexity map in perspective 21 demonstrates the baseline extended with continuous
   integration, a security scan, a merge gate, documentation, and a release tag.
 
 - Formatting. Single dashes only, black text on white backgrounds, no dark mode. The
