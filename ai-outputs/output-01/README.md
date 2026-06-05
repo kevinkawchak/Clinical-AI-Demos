@@ -43,6 +43,9 @@ flowchart TB
     classDef pubcard fill:#e8f4f8,stroke:#409eff,stroke-width:2px,rx:12,ry:12,color:#2c3e50
 ```
 
+## Prompt 2
+Remove the README diagrams whose platforms are not open source: Miro, Draw.io, and Lucidchart.
+
 ## Document
 
 This document presents 21 distinct Mermaid renderings of a single collaboration
