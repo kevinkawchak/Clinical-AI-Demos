@@ -1,4 +1,5 @@
 ## Prompt
+#### Claude Code Opus 4.8 (1M Context) Max
 
 Your goal is to provide 30 different LaTeX zip templates to be used for future legislative publications building off of the INSPIRATIONS open source works. You don’t need to know all context from each open source work: simply label titles and headings based on the new template theme, and provide minimal text for each section. All new templates must be based on open source developments. 
 
