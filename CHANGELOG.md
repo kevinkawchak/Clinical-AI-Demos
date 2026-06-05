@@ -23,7 +23,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/).
 - @claude added 21 professional Mermaid perspectives (3 ASCII plus PlantUML, D2, Excalidraw and 9 experiments) at Clinical-AI-Demos/tree/main/ai-outputs/output-01/README.md on 2026-06-04.
 - @claude added 30 single-column LaTeX zip templates (LaTeX-Source-Files-01-30), a 30-page cover-page preview PDF, and a README at Clinical-AI-Demos/tree/main/ai-outputs/output-02 on 2026-06-05.
 - @claude added a second set of 30 single-column LaTeX template zips, each a distinct document genre, plus a README (no cover PDF) at Clinical-AI-Demos/tree/main/ai-outputs/output-03 on 2026-06-05.
-
+- @kevinkawchak added prompt.md files for both Clinical-AI-Demos/tree/main/ai-outputs/output-02 and Clinical-AI-Demos/tree/main/ai-outputs/output-03 on 2026-06-05.
 ### Notes
 - All v0.8.0 additions are at demo-projects/07-humanoid/paper/imagegen/ and supplement the v0.7.0 full paper at demo-projects/07-humanoid/paper/full-paper/ with publication quality images that a future paper edit can drop in by replacing the verbatim ASCII Verbatim blocks with \includegraphics. The v0.8.0 release does not modify any file under paper/codegen/, paper/execution/, paper/instructions/, paper/inputs/, paper/draft-paper/, or paper/full-paper/. Those six trees remain read only.
 - Every imagegen script is single-file standalone: the palette dict is duplicated at the top of every script and matplotlib backend is forced to Agg so each script runs headless on Linux, MacOS, and Windows. Each PNG output renders byte-deterministically given the same matplotlib version, so a downstream session can regenerate the figures locally without drift.
