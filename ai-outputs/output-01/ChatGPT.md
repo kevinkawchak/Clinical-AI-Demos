@@ -6,6 +6,39 @@ All diagrams are written as plain Mermaid blocks intended to render directly in 
 
 ---
 
+## Prompt
+
+#### ChatGPT 5.5 Thinking Extended
+
+Provide new mermaid diagram scripts for the attached script that is inspired by all other open source diagram software, such as 1) PlantUML, 2) D2, 3) Excalidraw. Produce additional scripts if they are based on open source software.
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#e8f4f8', 'primaryBorderColor': '#5b9bd5', 'primaryTextColor': '#2c3e50', 'lineColor': '#5b9bd5', 'fontSize': '14px'}}}%%
+flowchart TB
+    U["@kevinkawchak\nRequirements"]:::usercard
+    CL["@claude\nImplementation"]:::claudecard
+    CX["@codex\nPeer Review"]:::codexcard
+    T["39 Tests\nAll Passing"]:::testcard
+    V["Input Validation\nSSRF + UID"]:::valcard
+    R["Publication\nReadiness"]:::pubcard
+
+    U --> CL
+    CL --> T
+    T --> CX
+    CX -->|recommendations| CL
+    CL --> V
+    V --> T
+    T --> R
+
+    classDef usercard fill:#e8f4f8,stroke:#5b9bd5,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+    classDef claudecard fill:#f3e8ff,stroke:#9b59b6,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+    classDef codexcard fill:#fff3e0,stroke:#e6a23c,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+    classDef testcard fill:#e8f5e9,stroke:#67c23a,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+    classDef valcard fill:#fde8e8,stroke:#f56c6c,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+    classDef pubcard fill:#e8f4f8,stroke:#409eff,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+```
+
+
 ## 1. Original Workflow
 
 ```mermaid
