@@ -7,6 +7,44 @@
 [![Experimental](https://img.shields.io/badge/Experimental-9-2F6B3E.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
+## Prompt
+
+#### Claude Code Opus 4.8 (1M Context) Max
+
+Provide 30 different mermaid code perspectives for the included example that each provides a more professional appearance with professional color schemes. It is important that the diagrams all be included separately in the same README, and are able to support high complexity workflows (for future adaptions), but without the cartoon-like look. Make sure each diagram seeks to make curved arrows more fluent (without a single point that has high curvature). It is important that each of the 10 mermaid diagrams has its own perspective - don’t be afraid to experiment with some of the diagrams, as long as the professional appearance is maintained. 3 diagrams should replace difference ASCII diagram perspectives. 3 diagrams for each of the following should serve as inspirations to the mermaid diagrams: 1) PlantUML, 2) D2, 3) Excalidraw, 4) Miro, 5) Draw.io, 6) Lucidchart.
+
+Make sure boxes look less rounded, and are more presentable to legislative colleagues. Output all files under kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01. The descriptive README needs to include the directory structure, toc, the mermaid diagrams, etc. Include a brief note for the Current version as the last entry under “Changed” using your username and today’s date in Clinical-AI-Demos/blob/main/CHANGELOG.md that has under 200 characters without spaces (using the same format as the previous changelog Changed update). You have permission to commit directly to main. 
+
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#e8f4f8', 'primaryBorderColor': '#5b9bd5', 'primaryTextColor': '#2c3e50', 'lineColor': '#5b9bd5', 'fontSize': '14px'}}}%%
+flowchart TB
+    U["@kevinkawchak\nRequirements"]:::usercard
+    CL["@claude\nImplementation"]:::claudecard
+    CX["@codex\nPeer Review"]:::codexcard
+    T["39 Tests\nAll Passing"]:::testcard
+    V["Input Validation\nSSRF + UID"]:::valcard
+    R["Publication\nReadiness"]:::pubcard
+
+    U --> CL
+    CL --> T
+    T --> CX
+    CX -->|recommendations| CL
+    CL --> V
+    V --> T
+    T --> R
+
+    classDef usercard fill:#e8f4f8,stroke:#5b9bd5,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+    classDef claudecard fill:#f3e8ff,stroke:#9b59b6,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+    classDef codexcard fill:#fff3e0,stroke:#e6a23c,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+    classDef testcard fill:#e8f5e9,stroke:#67c23a,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+    classDef valcard fill:#fde8e8,stroke:#f56c6c,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+    classDef pubcard fill:#e8f4f8,stroke:#409eff,stroke-width:2px,rx:12,ry:12,color:#2c3e50
+```
+
+## Document
+
 This document presents 21 distinct Mermaid renderings of a single collaboration
 workflow: the requirements, implementation, validation, testing, peer review, and
 publication cycle that produces the artifacts in this repository. Every rendering
