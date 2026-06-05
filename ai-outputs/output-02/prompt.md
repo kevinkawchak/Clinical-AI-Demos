@@ -40,3 +40,5 @@ Rules:
 Output all files as separate “LaTeX-Source-Files-xx” (xx = 01-30) zip files to kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-02. The descriptive README for this directory needs to include the directory structure, toc, etc. Also include a single pdf that has only the first compiled pages for each of 30 templates (include the “LaTeX-Source-Files-xx” at the bottom of each page, not overlapping any of the cover page contents)
 
 Include a brief note for the Current version as the last entry under “Changed” using your username and today’s date in Clinical-AI-Demos/blob/main/CHANGELOG.md that has under 200 characters without spaces (using the same format as the previous changelog Changed update). Only commit to Clinical-AI-Demos, and no other repository. You have permission to commit directly to main. 
+
+#### [See Follow-Up Prompt in ai-outputs/output-03 for pdf compilation instructions.]
