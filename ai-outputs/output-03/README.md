@@ -3,7 +3,6 @@
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-yellow.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Templates](https://img.shields.io/badge/Templates-30%20zips-blue.svg)](.)
 [![Single column](https://img.shields.io/badge/Layout-Single%20column-green.svg)](.)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.xxxxxxxx-blue.svg)](https://doi.org/10.5281/zenodo.xxxxxxxx)
 
 *Independent research drafts. Not enacted law and not legal advice; not endorsed
 by the FDA, HHS, or any Member of Congress.*
