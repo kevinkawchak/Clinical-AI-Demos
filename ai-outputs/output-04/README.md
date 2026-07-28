@@ -18,7 +18,5 @@
 
 
 
-[![ASCII Replacements](https://img.shields.io/badge/ASCII%20Replacements-3-8B2E3F.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
-[![Tool Inspirations](https://img.shields.io/badge/Tool%20Inspirations-3%20x%203-C18A2C.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
-[![Experimental](https://img.shields.io/badge/Experimental-9-2F6B3E.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-01)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
