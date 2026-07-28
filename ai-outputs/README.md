@@ -8,3 +8,6 @@
 
 #### Output-03: LaTeX Source File Templates 01-30, Genre-Diverse Set
 - [README.md](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-03)
+
+#### Output-04: Phase 1 PDAC + LLM Trial Protocol Six-Platform Diagram Atlas
+- [README.md](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/ai-outputs/output-04)
