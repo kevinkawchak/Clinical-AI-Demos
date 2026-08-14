@@ -66,10 +66,7 @@ def document_image_order(docx_path: Path) -> list[str]:
         document = archive.read("word/document.xml")
         relations = archive.read("word/_rels/document.xml.rels")
 
-    targets = {
-        rel_id.decode("utf-8"): target.decode("utf-8")
-        for rel_id, target in RELATION_PATTERN.findall(relations)
-    }
+    targets = {rel_id.decode("utf-8"): target.decode("utf-8") for rel_id, target in RELATION_PATTERN.findall(relations)}
     ordered = []
     for match in EMBED_PATTERN.findall(document):
         target = targets[match.decode("utf-8")]
@@ -81,9 +78,7 @@ def extract(docx_path: Path, output_dir: Path) -> list[Path]:
     """Write each cover to ``output_dir`` under its chronological slug."""
     members = document_image_order(docx_path)
     if len(members) != len(COVER_SLUGS):
-        raise SystemExit(
-            f"expected {len(COVER_SLUGS)} covers in {docx_path.name}, found {len(members)}"
-        )
+        raise SystemExit(f"expected {len(COVER_SLUGS)} covers in {docx_path.name}, found {len(members)}")
 
     output_dir.mkdir(parents=True, exist_ok=True)
     written = []

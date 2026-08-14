@@ -61,7 +61,7 @@ SERIF_ITALIC = FONT_DIR / "LiberationSerif-Italic.ttf"
 SANS = FONT_DIR / "LiberationSans-Regular.ttf"
 SANS_BOLD = FONT_DIR / "LiberationSans-Bold.ttf"
 
-TITLE_LINES = ("From Independent Scientist to Novel Performer", )
+TITLE_LINES = ("From Independent Scientist to Novel Performer",)
 SUBTITLE_LINES = (
     "A Small-Business Operating, Milestone, and Capitalization Plan",
     "for a Phase 1 LLM-Advised Robotic Whipple",
@@ -152,9 +152,7 @@ def draw_badges(draw: ImageDraw.ImageDraw, y: int, font) -> int:
     x = (PAGE_WIDTH - total) / 2
     height = int(font.size * 1.7)
     for label, width in zip(BADGES, widths):
-        draw.rounded_rectangle(
-            [x, y, x + width, y + height], radius=5, fill=PALE, outline=BLUE, width=1
-        )
+        draw.rounded_rectangle([x, y, x + width, y + height], radius=5, fill=PALE, outline=BLUE, width=1)
         draw.text((x + pad_x, y + pad_y - 1), label, font=font, fill=NAVY)
         x += width + gap
     return y + height + 26
@@ -196,9 +194,7 @@ def draw_package_table(draw: ImageDraw.ImageDraw, y: int, title_font, head_font,
             draw.rectangle([MARGIN, y, PAGE_WIDTH - MARGIN, y + row_height], fill=PALE)
         for x, cell in zip(columns, row):
             draw.text((x + 12, y + 9), cell, font=cell_font, fill=INK)
-        draw.line(
-            [MARGIN, y + row_height, PAGE_WIDTH - MARGIN, y + row_height], fill=RULE, width=1
-        )
+        draw.line([MARGIN, y + row_height, PAGE_WIDTH - MARGIN, y + row_height], fill=RULE, width=1)
         y += row_height
     return y + 30
 
