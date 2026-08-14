@@ -1,19 +1,22 @@
 # Clinical-AI-Demos
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v0.8.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
-[![Last Updated](https://img.shields.io/badge/Updated-May%202026-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
+[![Release](https://img.shields.io/badge/Release-v0.9.0-brightgreen.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
+[![Last Updated](https://img.shields.io/badge/Updated-August%202026-blue.svg)](https://github.com/kevinkawchak/Clinical-AI-Demos)
 [![Companion](https://img.shields.io/badge/Companion-physical--ai--oncology--trials-purple.svg)](https://github.com/kevinkawchak/physical-ai-oncology-trials)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://doi.org/10.5281/zenodo.18445179)
 [![Prior DOI](https://img.shields.io/badge/Prior%20DOI-10.5281%2Fzenodo.18029100-blue)](https://doi.org/10.5281/zenodo.18029100)
 [![Humanoid](https://img.shields.io/badge/Humanoid-Unitree%20H2%20EDU-orange.svg)](https://www.unitree.com)
 [![Compute](https://img.shields.io/badge/Compute-Jetson%20AGX%20Thor%202070%20TOPS-blue.svg)](https://www.nvidia.com)
 [![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-blue.svg)](https://www.python.org/)
-[![Contributors](https://img.shields.io/badge/Contributors-3-blue.svg)](releases.md)
+[![Seminar Deck](https://img.shields.io/badge/Seminar%20Deck-23%20slides-002f5f.svg)](pdac-presentation/slides/)
+[![Contributors](https://img.shields.io/badge/Contributors-4-blue.svg)](releases.md)
 
 **Demonstrations regarding humanoid agents and large language models for Physical AI oncology clinical trials, by Claude Code Opus 4.7; with assistance from kevinkawchak/physical-ai-oncology-trials.**
 
 This repository delivers self-contained task brief prompts that downstream Claude Code Opus 4.7 1M Max sessions execute to author Physical AI oncology clinical trial demonstrations. Every demo centers on humanoid agents performing surgical and patient care tasks inside clinical trial sites.
+
+**8/14: v0.9.0 (LLM Pancreatic Oncology Clinical Trial System Seminar Deck)** *A 23 slide 16:9 landscape presentation at `pdac-presentation/`, shipped as `.pptx` and `.pdf`, for an oncology trials seminar at a university comprehensive cancer center. 20 deposited papers in chronological order, each on its own slide with its cover image and a seven line evaluation, plus 2 reference slides with every DOI hyperlinked.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21887807-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/pdac-presentation)
 
 **5/19: [PDF](https://doi.org/10.5281/zenodo.20303281) v0.8.0 (Adverse Event Imagegen Tree for the Triple Humanoid 4 Site Paper)** *Imagegen tree at `demo-projects/07-humanoid/paper/imagegen/` with 17 matplotlib scripts and 17 publication quality 300 dpi PNGs for the paper "Triple Humanoid 24/7 Adverse Event Oncology Trial Response Team.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects/07-humanoid/paper/imagegen)
 
@@ -31,6 +34,8 @@ This repository delivers self-contained task brief prompts that downstream Claud
 
 **5/16: v0.1.0 (Humanoid + LLM Oncology Trial Demo Prompts)** *Ten standalone prompts spanning trial site operations, sponsor center, pharmacy compounding, recovery nursing, pathology lab, tele-surgery, AE response, research coordinator, radiation oncology, decentralized home care.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18445179-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/demo-projects)
 
+> **v0.9.0** - Ninth release. The seminar deck lives at `pdac-presentation/`. 23 slides in 16:9 landscape: 1 title slide, 20 paper slides in chronological order from June 2025 through August 2026, and 2 reference slides carrying all twenty DOIs as live hyperlinks. Cover images run four slides left then one right, repeating. Built by five Python modules under `pdac-presentation/build/`, with a fit check that fails the build if any bullet would wrap onto a second line.
+>
 > **v0.8.0** - Eighth release. The imagegen tree for Demo 07 lives at `demo-projects/07-humanoid/paper/imagegen/`. 17 matplotlib scripts and 17 publication quality 300 dpi PNGs: 10 image-instruct renders at `imagegen/instructions/` that materialize the 10 image briefs at `demo-projects/image-instruct/07-adverse-event-response/`.
 >
 > **v0.7.0** - Seventh release. The full paper LaTeX expansion for Demo 07 lives at `demo-projects/07-humanoid/paper/full-paper/`. 12 source files plus a `LaTeX-Source.zip` Overleaf bundle. The 8 section files (abstract, introduction, methods, results, discussion, limitations_future, conclusions.
@@ -81,6 +86,16 @@ ls demo-projects/07-humanoid/paper/full-paper/
 
 # Inspect the v0.8.0 imagegen tree (17 matplotlib scripts and 300 dpi PNGs)
 ls demo-projects/07-humanoid/paper/imagegen/
+
+# Inspect the v0.9.0 seminar deck (.pptx and .pdf)
+ls pdac-presentation/slides/
+
+# Rebuild the deck from source (requires python-pptx and pillow)
+pip install python-pptx pillow
+python pdac-presentation/build/extract_covers.py
+python pdac-presentation/build/render_cover_20.py
+python pdac-presentation/build/build_deck.py
+python pdac-presentation/build/export_pdf.py
 
 # Install lint tools to verify CI cleanliness
 pip install ruff yamllint
@@ -242,6 +257,35 @@ Clinical-AI-Demos/
     10-humanoid-decentralized-home-care.md
     image-instruct/                            # v0.2.0 100 image instruction MD files
 
+  pdac-presentation/                           # v0.9.0 LLM PDAC oncology trial seminar deck
+    README.md                                  # 9 badges, slide anatomy, cover cadence, 20 papers
+    abstracts/
+      README.md                                # Documentation header plus the 55 work abstract corpus
+    build/                                     # The 5 module reproducible build
+      README.md                                # 6 badges, build order, fit check, layout constants
+      extract_covers.py                        # 19 covers out of the source .docx, in document order
+      render_cover_20.py                       # The one cover the source document does not carry
+      slide_content.py                         # 20 papers x 7 single line items, all sourced
+      build_deck.py                            # python-pptx renderer plus single line fit check
+      export_pdf.py                            # Headless LibreOffice Impress PDF export
+    cover-images/
+      README.md                                # Why document body order must be parsed
+      ChemicalQDevice-PDAC-Covers-13Aug26.docx # Source document, 19 embedded cover pages
+      extracted/
+        README.md                              # 20 row inventory with pixels and cover side
+        cover-01-...jpg .. cover-20-...jpg     # 20 covers, chronological, 19 extracted 1 rebuilt
+    prompts/
+      README.md                                # Filing convention plus requirement mapping
+      prompt-pdac.md                           # The prompt, word for word
+      output-pdac.md                           # The build output of record
+    slides/
+      README.md                                # 23 slide map, reference format, presenting notes
+      LLM-Pancreatic-Oncology-Clinical-Trial-System.pptx
+      LLM-Pancreatic-Oncology-Clinical-Trial-System.pdf
+    theme/
+      README.md                                # The trial the deck argues for, 11 sections
+      update-final-LaTeX.zip                   # Overleaf bundle, 25 figures, 25 tables, 53 pages
+
   national-repositories/                       # Meta-prompting guidance
     build-national.md                          # Building National Repositories at Scale
 ```
@@ -259,6 +303,7 @@ flowchart LR
     DRP[demo-projects/07-humanoid/paper/draft-paper/ v0.6.0]
     FP[demo-projects/07-humanoid/paper/full-paper/ v0.7.0]
     IM[demo-projects/07-humanoid/paper/imagegen/ v0.8.0]
+    PD[pdac-presentation/ v0.9.0]
     NR[national-repositories/]
     GH[.github/]
     CHG[CHANGELOG.md]
@@ -307,6 +352,9 @@ flowchart LR
   FP -->|reads SW, CG, EX| EX
   IM -->|materializes briefs from| II
   IM -->|replaces ASCII figures in| FP
+  PD -->|reads 20 abstracts from| NTR
+  PD -->|reads the trial system paper from| NTR
+  PD -->|cites 20 deposited DOIs| REG
 ```
 
 ## Mermaid: Demo Prompt + Image + Swarm Instruction Execution Loop
@@ -334,6 +382,30 @@ flowchart TB
   M -->|Yes| MR[Merge to main]
   M -->|No| FX[Commit 6 fixes re-run]
   FX --> R6
+```
+
+## Mermaid: v0.9.0 Seminar Deck Build Pipeline
+
+```mermaid
+flowchart TB
+  DOCX[cover-images/ChemicalQDevice-PDAC-Covers-13Aug26.docx] --> EXC[build/extract_covers.py]
+  EXC --> C19[19 covers, chronological]
+  ABS[abstracts/README.md, 55 deposited abstracts] --> R20[build/render_cover_20.py]
+  THM[theme/update-final-LaTeX.zip, 11 sections] --> R20
+  R20 --> C20[cover 20, reconstructed with notice]
+  ABS -->|Abstract, Strengths, Limitations, Results| SC[build/slide_content.py]
+  THM -->|LLM Trust, LLM Benefit| SC
+  C19 --> BD[build/build_deck.py]
+  C20 --> BD
+  SC --> BD
+  BD --> FIT{single line fit check}
+  FIT -->|any item would wrap| STOP[build fails, nothing written]
+  STOP -->|shorten the copy| SC
+  FIT -->|all 143 items fit| PPTX[slides/....pptx, 23 slides]
+  PPTX --> EPD[build/export_pdf.py]
+  EPD --> PDF[slides/....pdf, 20 live DOI links]
+  PPTX --> CI[CI lint-and-format on 3.10, 3.11, 3.12]
+  PDF --> CI
 ```
 
 ## Core Technologies (May 2026)
@@ -385,6 +457,14 @@ flowchart TB
 | [demo-projects/07-humanoid/paper/draft-paper/README.md](demo-projects/07-humanoid/paper/draft-paper/README.md) | Demo 07 v0.6.0 draft paper LaTeX scaffold README (8 badges, 12 source files, LaTeX-Source.zip, 70 plus page final paper target) |
 | [demo-projects/07-humanoid/paper/full-paper/README.md](demo-projects/07-humanoid/paper/full-paper/README.md) | Demo 07 v0.7.0 full paper LaTeX expansion README (11 badges, 12 source files with finished prose, 28 reference entries, LaTeX-Source.zip) |
 | [demo-projects/07-humanoid/paper/imagegen/README.md](demo-projects/07-humanoid/paper/imagegen/README.md) | Demo 07 v0.8.0 imagegen tree README (10 badges, 17 scripts and 17 PNGs at 300 dpi, palette, pipeline, reproduce-locally steps) |
+| [pdac-presentation/README.md](pdac-presentation/README.md) | v0.9.0 seminar deck README (9 badges, deck specification, slide anatomy, cover cadence, 20 papers with DOIs, palette, Mermaid evidence map) |
+| [pdac-presentation/build/README.md](pdac-presentation/build/README.md) | v0.9.0 build README (5 modules, build order, single-line fit check, layout constants, typography rationale, bullet DrawingML) |
+| [pdac-presentation/abstracts/README.md](pdac-presentation/abstracts/README.md) | v0.9.0 abstract corpus README (55 deposited abstracts, 20-paper deck index, the one documented gap) |
+| [pdac-presentation/cover-images/README.md](pdac-presentation/cover-images/README.md) | v0.9.0 cover source README (document-body ordering, the reconstructed 20th cover, why the deck ground is white) |
+| [pdac-presentation/cover-images/extracted/README.md](pdac-presentation/cover-images/extracted/README.md) | v0.9.0 extracted covers README (20-row inventory with pixels, size and cover side) |
+| [pdac-presentation/slides/README.md](pdac-presentation/slides/README.md) | v0.9.0 deliverables README (23-slide map, reference format, presenting notes, rebuild steps) |
+| [pdac-presentation/theme/README.md](pdac-presentation/theme/README.md) | v0.9.0 theme README (the trial the deck argues for, 11 sections, 25 figures, 25 tables, quoted quantities) |
+| [pdac-presentation/prompts/README.md](pdac-presentation/prompts/README.md) | v0.9.0 prompt record README (filing convention, requirement-to-artifact mapping) |
 | [national-repositories/build-national.md](national-repositories/build-national.md) | Meta-prompting guide for building national repositories |
 
 ## Citation
@@ -395,7 +475,7 @@ If you use this repository in your research, please cite:
 @software{kawchak2026clinicalaidemos,
   author = {Kawchak, Kevin},
   title = {Clinical-AI-Demos: Humanoid and LLM Demos for Physical AI Oncology Clinical Trials},
-  version = {0.8.0},
+  version = {0.9.0},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/kevinkawchak/Clinical-AI-Demos}

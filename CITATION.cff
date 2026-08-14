@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: If you use this repository, please cite it as below.
 title: "Clinical-AI-Demos: Humanoid and LLM Demos for Physical AI Oncology Clinical Trials"
-version: 0.8.0
-date-released: 2026-05-19
+version: 0.9.0
+date-released: 2026-08-14
 license: MIT
 authors:
   - family-names: Kawchak
@@ -32,6 +32,12 @@ keywords:
   - full-paper-expansion
   - imagegen
   - matplotlib-300-dpi
+  - pancreatic-cancer
+  - pancreatic-ductal-adenocarcinoma
+  - clinical-trial-presentation
+  - llm-oncology-trials
+  - daraxonrasib
+  - ai-peer-review
 references:
   - type: misc
     authors:
