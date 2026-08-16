@@ -1,3 +1,118 @@
+# pdac-presentation/abstracts - the abstract of record corpus (v0.9.0)
+
+[![Release](https://img.shields.io/badge/Release-v0.9.0-brightgreen.svg)](../../releases.md)
+[![Abstracts](https://img.shields.io/badge/Abstracts-55%20works-002f5f.svg)](#what-this-file-is)
+[![Deck papers](https://img.shields.io/badge/Deck%20papers-20-407cb9.svg)](#the-twenty-papers-the-deck-uses)
+[![Span](https://img.shields.io/badge/Span-2023%20to%20August%202026-666666.svg)](#what-this-file-is)
+[![Source](https://img.shields.io/badge/Role-single%20source%20of%20truth-e3eaee.svg)](#how-the-deck-uses-it)
+
+**The deposited abstract of every ChemicalQDevice work, newest first. This file
+is the evidence base for the seminar deck: every Abstract, Strengths, Limitations
+and Results line on a slide is written against the abstract recorded below, not
+against a summary of it.**
+
+---
+
+## What this file is
+
+One entry per deposited work, in reverse chronological order. Each entry carries
+the title, the author block, the deposit city and date, the contact address, the
+abstract exactly as deposited, and the full citation with a DOI badge. Entries are
+separated by a horizontal rule.
+
+The corpus spans fifty-five works, from early conversational-AI chemistry papers
+through the pancreatic ductal adenocarcinoma and Physical AI oncology trial series
+that the seminar deck draws on. Twenty of them appear on the deck.
+
+## How the deck uses it
+
+```mermaid
+flowchart LR
+  ABS[abstracts/README.md] -->|Abstract line| SL[slide_content.py]
+  ABS -->|Strengths line| SL
+  ABS -->|Limitations line| SL
+  ABS -->|Results line| SL
+  THEME[theme/update-final-LaTeX.zip] -->|LLM Trust line| SL
+  THEME -->|LLM Benefit line| SL
+  SL --> DECK[23-slide deck]
+```
+
+The rule the build follows is that no quantity reaches a slide unless it can be
+pointed at here or in [`../theme/`](../theme/). Where a paper states its own
+limitation, the slide states that limitation rather than a softer one.
+
+## The twenty papers the deck uses
+
+| # | Title | Deposited | DOI | Abstract here |
+|--:|:--|:--|:--|:--|
+| 1 | End-to-End Pancreatic Ductal Adenocarcinoma Digital Twin Clinical Trial Proposals | Jun 24, 2025 | [10.5281/zenodo.15735068](https://doi.org/10.5281/zenodo.15735068) | yes |
+| 2 | ChatGPT 100,000 Patient 24-Month In Silico Phase III 5-Arm Pancreatic Cancer Clinical Trial Triplicate | Jul 24, 2025 | [10.5281/zenodo.16415815](https://doi.org/10.5281/zenodo.16415815) | yes |
+| 3 | QSP Metastatic Pancreatic Cancer AI Clinical Trial Simulation | Aug 29, 2025 | [10.5281/zenodo.17001137](https://doi.org/10.5281/zenodo.17001137) | yes |
+| 4 | Accelerating FDA Compliance and Cost Efficiency of in silico Clinical Trials | Sep 30, 2025 | [10.5281/zenodo.17239510](https://doi.org/10.5281/zenodo.17239510) | yes |
+| 5 | Adaption: ICH Harmonised Guideline | Mar 12, 2026 | [10.5281/zenodo.18973368](https://doi.org/10.5281/zenodo.18973368) | yes |
+| 6 | Adaption: 21 CFR Part 50 | Mar 16, 2026 | [10.5281/zenodo.19040707](https://doi.org/10.5281/zenodo.19040707) | yes |
+| 7 | Adaption: 21 CFR Part 312 | Mar 17, 2026 | [10.5281/zenodo.19057628](https://doi.org/10.5281/zenodo.19057628) | yes |
+| 8 | National Platform for Physical AI Oncology Trials | Mar 28, 2026 | [10.5281/zenodo.19244918](https://doi.org/10.5281/zenodo.19244918) | yes |
+| 9 | 2030: 60 Second PDAC Robotic Whipple Procedure and Daraxonrasib Simulation | May 15, 2026 | [10.5281/zenodo.20196639](https://doi.org/10.5281/zenodo.20196639) | yes |
+| 10 | Mobile Pancreatic Cancer Unitree H2 Surgical Humanoid with Priority VVUQ | May 28, 2026 | [10.5281/zenodo.20421754](https://doi.org/10.5281/zenodo.20421754) | yes |
+| 11 | VVUQ Physical AI Oncology Trial Bill | May 30, 2026 | [10.5281/zenodo.20454870](https://doi.org/10.5281/zenodo.20454870) | yes |
+| 12 | H. R. 9510 (Bill v5.0) 2026 | Jun 10, 2026 | [10.5281/zenodo.20619762](https://doi.org/10.5281/zenodo.20619762) | yes |
+| 13 | Earning the Clinician's Trust | Jun 16, 2026 | [10.5281/zenodo.20710602](https://doi.org/10.5281/zenodo.20710602) | yes |
+| 14 | On-Premises LLM-Directed Robotic Pancreaticoduodenectomy, Phase 1 IND/IDE | Jun 21, 2026 | [10.5281/zenodo.20780121](https://doi.org/10.5281/zenodo.20780121) | yes |
+| 15 | A Phase 2, Daraxonrasib + LLM Guided Robotic PDAC Whipple Procedure | Jun 23, 2026 | [10.5281/zenodo.20807027](https://doi.org/10.5281/zenodo.20807027) | yes |
+| 16 | Investigational New Drug Application, Daraxonrasib, Phase 1 | Jul 1, 2026 | [10.5281/zenodo.21097442](https://doi.org/10.5281/zenodo.21097442) | yes |
+| 17 | Clinical Trial Funding Application v2.0, RFA-RM-27-001 | Jul 12, 2026 | [10.5281/zenodo.21317266](https://doi.org/10.5281/zenodo.21317266) | yes |
+| 18 | Patient Robot Advocacy | Jul 31, 2026 | [10.5281/zenodo.21720120](https://doi.org/10.5281/zenodo.21720120) | yes |
+| 19 | 10 Funding Applications | Aug 4, 2026 | [10.5281/zenodo.21787424](https://doi.org/10.5281/zenodo.21787424) | **no, see below** |
+| 20 | From Independent Scientist to Novel Performer | Aug 11, 2026 | [10.5281/zenodo.21887807](https://doi.org/10.5281/zenodo.21887807) | yes |
+
+## The one gap, and how the deck handles it
+
+Paper 19, *10 Funding Applications*
+([10.5281/zenodo.21787424](https://doi.org/10.5281/zenodo.21787424), deposited
+August 4, 2026), has no entry in this corpus. Its slide is built from two sources
+that are both on the record:
+
+1. That paper's own cover page, at
+   [`../cover-images/extracted/cover-19-ten-funding-applications.jpg`](../cover-images/extracted/cover-19-ten-funding-applications.jpg),
+   which carries the full table of contents, the twenty-figure count, and the
+   ten-recipient roster.
+2. Section 6 and Table 17 of [`../theme/update-final-LaTeX.zip`](../theme/),
+   which list all ten mechanisms with the mechanism class, the term requested and
+   the ask carried on each.
+
+No quantity on that slide is estimated. Adding the paper's deposited abstract to
+this file, in the same format as every other entry, would let the slide be built
+from a single source and is the right fix if the abstract becomes available.
+
+## Finding an entry
+
+Entries are ordered newest first. To jump to one, search this file for its DOI
+number, for example `21097442`, or for its title. Each entry ends with a citation
+line of the form:
+
+```
+Kawchak, K. (2026). <title>. Zenodo. https://doi.org/10.5281/zenodo.<id>
+```
+
+## Related directories
+
+| Path | Relationship |
+|:--|:--|
+| [`../theme/`](../theme/) | The trial system paper the LLM Trust and LLM Benefit lines argue toward |
+| [`../build/slide_content.py`](../build/slide_content.py) | Where each abstract becomes seven single-line slide items |
+| [`../cover-images/extracted/`](../cover-images/extracted/) | The cover page that accompanies each abstract on its slide |
+| [`../README.md`](../README.md) | The deck overview |
+
+## Disclaimer
+
+Independent research. Not medical or regulatory advice, and not endorsed by the
+FDA, NIH, HHS, an IRB, ICH, or any sponsor.
+
+---
+
+# Abstracts of record
+
 <div align="center">
   <p>From Independent Scientist to Novel Performer: A Small-Business Operating, Milestone, and Capitalization Plan for a Phase 1 LLM-Advised Robotic Whipple</p> 
 <div align="center">
