@@ -13,7 +13,7 @@
 
 **Demonstrations regarding humanoid agents and large language models for Physical AI oncology clinical trials, by Claude Code Opus; with assistance from kevinkawchak/physical-ai-oncology-trials.**
 
-This repository delivers self-contained task brief prompts that downstream Claude Code Opus 4.7 sessions execute to author Physical AI oncology clinical trial demonstrations. Every demo centers on humanoid agents performing surgical and patient care tasks inside clinical trial sites.
+This repository delivers self-contained task brief prompts that downstream Claude Code Opus sessions execute to author Physical AI oncology clinical trial demonstrations. Every demo centers on humanoid agents performing surgical and patient care tasks inside clinical trial sites.
 
 **8/14: v0.9.0 (LLM Pancreatic Oncology Clinical Trial System Seminar Deck)** *A 23 slide 16:9 landscape presentation at `pdac-presentation/`, shipped as `.pptx` and `.pdf`, for an oncology trials seminar at a university comprehensive cancer center. 20 deposited papers in chronological order, each on its own slide with its cover image.* [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21887807-blue)](https://github.com/kevinkawchak/Clinical-AI-Demos/tree/main/pdac-presentation)
 
